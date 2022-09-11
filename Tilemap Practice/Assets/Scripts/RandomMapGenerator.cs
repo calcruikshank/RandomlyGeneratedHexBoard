@@ -200,7 +200,7 @@ public class RandomMapGenerator : MonoBehaviour
         if (mf)
         {
             var savePath = "Assets/" + saveName + ".prefab";
-            if (PrefabUtility.CreatePrefab(savePath, mf))
+            if (PrefabUtility.SaveAsPrefabAsset(mf, savePath, out bool succesful))
             {
                 EditorUtility.DisplayDialog("Tilemap saved", "Your Tilemap was saved under" + savePath, "Continue");
             }

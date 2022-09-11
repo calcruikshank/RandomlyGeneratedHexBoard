@@ -6,6 +6,7 @@ public class MousePositionScript : MonoBehaviour
 {
     Camera mainCamera;
     Vector3 mousePositionWorldPoint;
+    [SerializeField] LayerMask baseTileMap;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class MousePositionScript : MonoBehaviour
     void Update()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, baseTileMap))
         {
             mousePositionWorldPoint = raycastHit.point;
         }

@@ -13,6 +13,9 @@ public class Controller : MonoBehaviour
     public Tilemap baseMap;
     public Grid grid;
     Vector3Int previousCellPosition;
+
+
+    [SerializeField] Transform testPrefabToSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +32,13 @@ public class Controller : MonoBehaviour
         {
             highlightMap.SetTile(previousCellPosition, null);
             highlightMap.SetTile(currentCellPosition, highlightTile);
-            Debug.Log(baseMap.GetInstantiatedObject(currentCellPosition));
             previousCellPosition = currentCellPosition;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(currentCellPosition);
+            Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(currentCellPosition);
+            Instantiate(testPrefabToSpawn, positionToSpawn, Quaternion.identity);
         }
     }
 }
