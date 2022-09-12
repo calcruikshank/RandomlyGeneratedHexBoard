@@ -13,11 +13,12 @@ public class BaseMapTileState : MonoBehaviour
         if (singleton != null) Destroy(this);
         singleton = this;
     }
+    
 
-
-    internal bool GetCreatureAtTile(Vector3Int currentCellPosition)
+    internal Creature GetCreatureAtTile(Vector3Int currentCellPosition)
     {
-        return false;
+        BaseTile baseTile = GetBaseTileAtCellPosition(currentCellPosition);
+        return baseTile.CreatureOnTile();
     }
 
     internal void AddToBaseTiles(Vector3Int currentCellPosition, BaseTile baseTile)
@@ -26,5 +27,11 @@ public class BaseMapTileState : MonoBehaviour
         {
             baseTiles.Add(currentCellPosition, baseTile);
         }
+    }
+
+    internal BaseTile GetBaseTileAtCellPosition(Vector3Int currentCellPosition)
+    {
+        BaseTile baseTile = baseTiles[currentCellPosition];
+        return baseTile;
     }
 }

@@ -15,6 +15,7 @@ public class Controller : MonoBehaviour
     public Grid grid;
     Vector3Int previousCellPosition;
 
+    Creature creatureSelected;
 
     [SerializeField] Transform testPrefabToSpawn;
     // Start is called before the first frame update
@@ -38,9 +39,14 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition)) 
-            { 
+            if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) != null) 
+            {
+                creatureSelected = BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition);
+                Debug.Log(creatureSelected);
+                return;
             }
+            
+
             Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(currentCellPosition);
             if (baseMap.GetInstantiatedObject(currentCellPosition))
             {
