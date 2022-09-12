@@ -5,6 +5,19 @@ using UnityEngine.Tilemaps;
 
 public class Controller : MonoBehaviour
 {
+    public State state;
+    public enum State
+    {
+        NothingSelected, 
+        CreatureSelected,
+        CreatureInHandSelected
+    }
+    //Could use a state machine if creature is selected change state to creature selected 
+    //if card in hand is selected change state to placing card
+    //if neither are selected change state to selecting
+    //if environment is selected change state to environment selected
+    //if environment card is selected change state to environment card selected
+
     MousePositionScript mousePositionScript;
 
     Vector3 mousePosition;

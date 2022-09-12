@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 
 public class BaseTile : MonoBehaviour
 {
-    Transform environmentTileOnBaseTile;
     Vector3Int tilePosition;
     Grid grid;
     Tilemap environmentMap;
