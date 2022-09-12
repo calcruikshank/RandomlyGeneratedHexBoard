@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3134075785791373804
+--- !u!1001 &93194238494339237
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 60d00613262778e46b8837d66fd34d59, type: 3}
       propertyPath: m_Name
-      value: Castle
+      value: Castle Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 60d00613262778e46b8837d66fd34d59, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 60d00613262778e46b8837d66fd34d59, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 60d00613262778e46b8837d66fd34d59, type: 3}
       propertyPath: m_LocalPosition.x

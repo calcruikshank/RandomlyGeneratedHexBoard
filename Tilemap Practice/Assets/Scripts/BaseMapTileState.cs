@@ -14,10 +14,15 @@ public class BaseMapTileState : MonoBehaviour
         singleton = this;
     }
     
-
-    internal Creature GetCreatureAtTile(Vector3Int currentCellPosition)
+    public Controller GetOwnerOfTile(Vector3Int cellPosition)
     {
-        BaseTile baseTile = GetBaseTileAtCellPosition(currentCellPosition);
+        BaseTile baseTile = GetBaseTileAtCellPosition(cellPosition);
+        return baseTile.playerOwningTile;
+    }
+
+    internal Creature GetCreatureAtTile(Vector3Int cellPosition)
+    {
+        BaseTile baseTile = GetBaseTileAtCellPosition(cellPosition);
         return baseTile.CreatureOnTile();
     }
 
@@ -35,4 +40,5 @@ public class BaseMapTileState : MonoBehaviour
         BaseTile baseTile = baseTiles[currentCellPosition];
         return baseTile;
     }
+
 }

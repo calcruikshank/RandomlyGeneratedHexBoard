@@ -19,7 +19,7 @@ public class Creature : MonoBehaviour
     LineRenderer lr;
     GameObject lrGameObject;
     int range = 1; //num of tiles that can attack
-    float speed = 1f;
+    float speed = 1f; //move speed
     float UsageRate; // the rate at which the minion can use abilities/ attack 
 
     Tilemap baseTileMap;

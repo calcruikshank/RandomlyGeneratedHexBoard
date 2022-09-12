@@ -12,6 +12,7 @@ public class BaseTile : MonoBehaviour
     Creature creatureOnTile;
     GameObject environmentOnTile;
 
+    public Controller playerOwningTile;
     private void Start()
     {
         grid = GameManager.singleton.grid;
@@ -56,5 +57,10 @@ public class BaseTile : MonoBehaviour
                 environmentOnTile.GetComponent<ChangeTransparency>().SetOpaque();
             }
         }
+    }
+
+    public void SetOwnedByPlayer(Controller playerOwningTileSent)
+    {
+        playerOwningTile = playerOwningTileSent;
     }
 }
