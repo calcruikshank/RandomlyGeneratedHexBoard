@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public State state;
     public Grid grid;
     public Tilemap baseMap;
+    public Tilemap enviornmentMap;
     private void Awake()
     {
         if (singleton != null) Destroy(this);

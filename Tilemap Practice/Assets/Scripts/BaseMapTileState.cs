@@ -26,6 +26,7 @@ public class BaseMapTileState : MonoBehaviour
         if (!baseTiles.ContainsKey(currentCellPosition))
         {
             baseTiles.Add(currentCellPosition, baseTile);
+            
         }
     }
 

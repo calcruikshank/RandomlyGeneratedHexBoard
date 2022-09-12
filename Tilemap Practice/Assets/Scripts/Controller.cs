@@ -16,8 +16,10 @@ public class Controller : MonoBehaviour
     Vector3Int previousCellPosition;
 
     Creature creatureSelected;
-
+    Vector3Int currentCellPosition;
     [SerializeField] Transform testPrefabToSpawn;
+
+    [SerializeField] LayerMask creatureMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class Controller : MonoBehaviour
     void Update()
     {
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
-        Vector3Int currentCellPosition = grid.WorldToCell(mousePosition);
+        currentCellPosition = grid.WorldToCell(mousePosition);
 
         if (currentCellPosition != previousCellPosition)
         {
@@ -39,19 +41,35 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) != null) 
+            #region creatureSelected
+            if (creatureSelected != null)
+            {
+                //determine if 
+                Vector3 positionToTarget = GetWorldPositionOfCell();
+                creatureSelected.SetMove(positionToTarget);
+                creatureSelected = null;
+                return;
+            }
+            //make sure to shoot a raycast to check to see if it hits a creature first
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, creatureMask))
+            {
+                if (raycastHit.transform.GetComponent<Creature>() != null)
+                {
+                    creatureSelected = raycastHit.transform.GetComponent<Creature>();
+                    return;
+                }
+            }
+            /*if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) != null) 
             {
                 creatureSelected = BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition);
                 Debug.Log(creatureSelected);
                 return;
-            }
-            
+            }*/
+            #endregion
 
-            Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(currentCellPosition);
-            if (baseMap.GetInstantiatedObject(currentCellPosition))
-            {
-                positionToSpawn = new Vector3(positionToSpawn.x, positionToSpawn.y + baseMap.GetInstantiatedObject(currentCellPosition).gameObject.GetComponent<Collider>().bounds.size.y, positionToSpawn.z);
-            }
+            #region spawningObjects
+            Vector3 positionToSpawn = GetWorldPositionOfCell();
             if (environmentMap.GetInstantiatedObject(currentCellPosition))
             {
                 GameObject instantiatedObject = environmentMap.GetInstantiatedObject(currentCellPosition);
@@ -67,6 +85,17 @@ public class Controller : MonoBehaviour
                 //positionToSpawn = new Vector3(positionToSpawn.x, positionToSpawn.y + environmentMap.GetInstantiatedObject(currentCellPosition).gameObject.GetComponent<Collider>().bounds.size.y, positionToSpawn.z);
             }
             Instantiate(testPrefabToSpawn, positionToSpawn, Quaternion.identity);
+            #endregion
         }
+    }
+
+    Vector3 GetWorldPositionOfCell()
+    {
+        Vector3 worldPositionOfCell = highlightMap.GetCellCenterWorld(currentCellPosition);
+        if (baseMap.GetInstantiatedObject(currentCellPosition))
+        {
+            worldPositionOfCell = new Vector3(worldPositionOfCell.x, worldPositionOfCell.y + baseMap.GetInstantiatedObject(currentCellPosition).gameObject.GetComponent<Collider>().bounds.size.y, worldPositionOfCell.z);
+        }
+        return worldPositionOfCell;
     }
 }

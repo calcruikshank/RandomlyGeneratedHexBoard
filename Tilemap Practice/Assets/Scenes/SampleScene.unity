@@ -28274,7 +28274,7 @@ GameObject:
   - component: {fileID: 862175793}
   - component: {fileID: 862175795}
   m_Layer: 0
-  m_Name: PlayerVariablesInScene
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28298,6 +28298,9 @@ MonoBehaviour:
   environmentMap: {fileID: 1565593535}
   grid: {fileID: 1604543377}
   testPrefabToSpawn: {fileID: 6239865746917987993, guid: c6f04e5db8e24b74e9ee5a6677ac52df, type: 3}
+  creatureMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &862175794
 Transform:
   m_ObjectHideFlags: 0
@@ -43599,6 +43602,7 @@ MonoBehaviour:
   state: 0
   grid: {fileID: 1604543377}
   baseMap: {fileID: 313121240}
+  enviornmentMap: {fileID: 1565593535}
 --- !u!1001 &1384433212
 PrefabInstance:
   m_ObjectHideFlags: 0
