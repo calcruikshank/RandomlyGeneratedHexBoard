@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Grid grid;
     public Tilemap baseMap;
     public Tilemap enviornmentMap;
+    public Material RenderInFrontMat;
     private void Awake()
     {
         if (singleton != null) Destroy(this);
