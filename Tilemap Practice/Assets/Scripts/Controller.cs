@@ -28,6 +28,7 @@ public class Controller : MonoBehaviour
     public Tilemap highlightMap;// set these = to gamemanage.singleton.highlightmap TODO
     public Tilemap baseMap;
     public Tilemap environmentMap;
+    public Tilemap waterMap;
     public Grid grid;
     Vector3Int previousCellPosition;
 
@@ -37,6 +38,8 @@ public class Controller : MonoBehaviour
     [SerializeField] Transform testPrefabToSpawn;
 
     [SerializeField] LayerMask creatureMask;
+
+    Vector3Int placedCellPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -119,10 +122,11 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(currentCellPosition);
-            if (environmentMap.GetInstantiatedObject(currentCellPosition))
+            placedCellPosition = currentCellPosition;
+            Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
+            if (environmentMap.GetInstantiatedObject(placedCellPosition))
             {
-                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(currentCellPosition);
+                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(placedCellPosition);
                 if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
                 {
                     instantiatedObject.AddComponent<ChangeTransparency>();
@@ -130,14 +134,25 @@ public class Controller : MonoBehaviour
                 ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
                 instantiatedObjectsChangeTransparency.ChangeTransparent(100);
             }
-            SetOwningTile(currentCellPosition);
-            SetOwningTile(new Vector3Int(currentCellPosition.x + 1, currentCellPosition.y + 1, currentCellPosition.z));
-            SetOwningTile(new Vector3Int(currentCellPosition.x + 1, currentCellPosition.y, currentCellPosition.z));
-            SetOwningTile(new Vector3Int(currentCellPosition.x + 1, currentCellPosition.y - 1, currentCellPosition.z));
-            SetOwningTile(new Vector3Int(currentCellPosition.x, currentCellPosition.y - 1, currentCellPosition.z));
-            SetOwningTile(new Vector3Int(currentCellPosition.x - 1, currentCellPosition.y, currentCellPosition.z));
-            SetOwningTile(new Vector3Int(currentCellPosition.x, currentCellPosition.y + 1, currentCellPosition.z));
-            
+            SetOwningTile(placedCellPosition);
+            if (Mathf.Abs(placedCellPosition.y % 2) ==1 )
+            {
+                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y + 1, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y - 1, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y - 1, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y + 1, placedCellPosition.z));
+            }
+            if (Mathf.Abs(placedCellPosition.y % 2) == 0)
+            {
+                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y + 1, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y - 1, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y - 1, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y, placedCellPosition.z));
+                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y + 1, placedCellPosition.z));
+            }
 
             Instantiate(castle, positionToSpawn, Quaternion.identity);
             state = State.NothingSelected;
@@ -163,7 +178,20 @@ public class Controller : MonoBehaviour
 
     void SetOwningTile(Vector3Int cellPosition)
     {
-        baseMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>().SetOwnedByPlayer(this);
-        tilesOwned.Add(cellPosition, baseMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>());
+        Debug.Log(cellPosition);
+        if (!tilesOwned.ContainsKey(cellPosition))
+        {
+            if (baseMap.GetInstantiatedObject(cellPosition) != null)
+            {
+                baseMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>().SetOwnedByPlayer(this);
+                tilesOwned.Add(cellPosition, baseMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>());
+
+            }
+            else
+            {
+                waterMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>().SetOwnedByPlayer(this);
+                tilesOwned.Add(cellPosition, waterMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>());
+            }
+        }
     }
 }

@@ -31697,6 +31697,7 @@ MonoBehaviour:
   highlightMap: {fileID: 809871723}
   baseMap: {fileID: 313121240}
   environmentMap: {fileID: 1565593535}
+  waterMap: {fileID: 903113511}
   grid: {fileID: 1604543377}
   castle: {fileID: 93194238494730789, guid: 686d43d1302e4a447917903c2d11f2c0, type: 3}
   testPrefabToSpawn: {fileID: 6239865746917987993, guid: c6f04e5db8e24b74e9ee5a6677ac52df, type: 3}
