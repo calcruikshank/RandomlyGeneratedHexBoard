@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33765579416655452}
   - component: {fileID: 23585079597606806}
   - component: {fileID: 64096864549496752}
+  - component: {fileID: 44254596547998798}
   m_Layer: 3
   m_Name: Hex26
   m_TagString: Untagged
@@ -92,9 +93,30 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025798088175778}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7590e19e847d1b4498786bd7e5045b7b, type: 3}
+--- !u!114 &44254596547998798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025798088175778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d2461fcfc9e7c488288f52779a42df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsOnTile: []

@@ -100,7 +100,6 @@ public class RandomMapGenerator : MonoBehaviour
             }
         }
 
-
     }
 
     public void initPos()
