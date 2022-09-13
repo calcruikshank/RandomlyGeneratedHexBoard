@@ -40,11 +40,25 @@ public class Controller : MonoBehaviour
     [SerializeField] LayerMask creatureMask;
 
     Vector3Int placedCellPosition;
+
+    public int mana = 1 ;
+    public float drawTimeThreshold = 5f;
+    public float drawTimer;
+    public float manaTimeThreshold = 5f;
+    public float manaTimer;
+
+    [SerializeField]List<CardInHand> cardsInDeck;
+
+    [SerializeField]Transform cardParent;
     // Start is called before the first frame update
     void Start()
     {
         state = State.PlacingCastle;
         mousePositionScript = GetComponent<MousePositionScript>();
+        for (int i = 0; i < 3; i++)
+        {
+            DrawCard();
+        }
     }
 
     // Update is called once per frame
@@ -68,6 +82,8 @@ public class Controller : MonoBehaviour
                 break;
             case State.NothingSelected:
                 HandleNothingSelected();
+                HandleMana();
+                HandleDrawCards();
                 break;
         }
         return;
@@ -163,7 +179,28 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(BaseMapTileState.singleton.GetOwnerOfTile(currentCellPosition));
+            //Debug.Log(BaseMapTileState.singleton.GetOwnerOfTile(currentCellPosition));
+        }
+    }
+
+    void HandleMana()
+    {
+        manaTimer += Time.deltaTime;
+        if (manaTimer >= manaTimeThreshold)
+        {
+            mana++;
+            Debug.Log(mana);
+            manaTimer = 0f;
+        }
+    }
+
+    void HandleDrawCards()
+    {
+        drawTimer += Time.deltaTime;
+        if (drawTimer >= drawTimeThreshold)
+        {
+            DrawCard();
+            drawTimer = 0f;
         }
     }
     Vector3 GetWorldPositionOfCell()
@@ -178,7 +215,6 @@ public class Controller : MonoBehaviour
 
     void SetOwningTile(Vector3Int cellPosition)
     {
-        Debug.Log(cellPosition);
         if (!tilesOwned.ContainsKey(cellPosition))
         {
             if (baseMap.GetInstantiatedObject(cellPosition) != null)
@@ -193,5 +229,12 @@ public class Controller : MonoBehaviour
                 tilesOwned.Add(cellPosition, waterMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>());
             }
         }
+    }
+
+    void DrawCard()
+    {
+        CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
+        cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
+        GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
     }
 }

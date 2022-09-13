@@ -61,7 +61,6 @@ public class BaseTile : MonoBehaviour
 
     public void SetOwnedByPlayer(Controller playerOwningTileSent)
     {
-        this.gameObject.SetActive(false);
         playerOwningTile = playerOwningTileSent;
     }
 }
