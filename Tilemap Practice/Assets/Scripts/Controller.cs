@@ -46,8 +46,9 @@ public class Controller : MonoBehaviour
     public float drawTimer;
     public float manaTimeThreshold = 5f;
     public float manaTimer;
-
+    int maxHandSize = 7;
     [SerializeField]List<CardInHand> cardsInDeck;
+    List<CardInHand> cardsInHand = new List<CardInHand>();
 
     [SerializeField]Transform cardParent;
     // Start is called before the first frame update
@@ -233,8 +234,13 @@ public class Controller : MonoBehaviour
 
     void DrawCard()
     {
+        if (cardsInHand.Count >= maxHandSize)
+        {
+            return;
+        }
         CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
         cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
         GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
+        cardsInHand.Add(cardAddingToHand);
     }
 }

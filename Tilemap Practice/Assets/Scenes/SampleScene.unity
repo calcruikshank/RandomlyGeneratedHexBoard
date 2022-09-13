@@ -28371,6 +28371,7 @@ MonoBehaviour:
   - {fileID: 5255841600039758024, guid: 6035a243017f92c498c4dfeb21b456a6, type: 3}
   - {fileID: 5255841600039758024, guid: 6035a243017f92c498c4dfeb21b456a6, type: 3}
   - {fileID: 5255841600039758024, guid: 6035a243017f92c498c4dfeb21b456a6, type: 3}
+  cardParent: {fileID: 1480288046}
 --- !u!4 &862175794
 Transform:
   m_ObjectHideFlags: 0
