@@ -192,6 +192,7 @@ public class Controller : MonoBehaviour
                 if (raycastHit.transform.GetComponent<CardInHand>() != null)
                 {
                     Debug.Log("always go back to roiots cuzx ti works" + raycastHit.transform);
+                    //raycastHit.transform.gameObject.SetActive(false);
                     return;
                 }
             }
