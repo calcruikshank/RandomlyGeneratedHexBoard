@@ -186,6 +186,15 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity))
+            {
+                if (raycastHit.transform.GetComponent<CardInHand>() != null)
+                {
+                    Debug.Log("always go back to roiots cuzx ti works" + raycastHit.transform);
+                    return;
+                }
+            }
         }
     }
 
