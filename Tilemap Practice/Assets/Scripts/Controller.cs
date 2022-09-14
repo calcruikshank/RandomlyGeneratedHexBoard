@@ -50,6 +50,8 @@ public class Controller : MonoBehaviour
     [SerializeField]List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
 
+    public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
+
     [SerializeField]Transform cardParent;
     // Start is called before the first frame update
     void Start()
@@ -172,7 +174,7 @@ public class Controller : MonoBehaviour
             }
 
             Instantiate(castle, positionToSpawn, Quaternion.identity);
-            state = State.NothingSelected;
+            //state = State.NothingSelected;
         }
     }
 
@@ -243,4 +245,5 @@ public class Controller : MonoBehaviour
         GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
         cardsInHand.Add(cardAddingToHand);
     }
+   
 }
