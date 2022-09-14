@@ -68,7 +68,7 @@ public class BaseTile : MonoBehaviour
     public void SetOwnedByPlayer(Controller playerOwningTileSent)
     {
         float y = 0;
-        Vector3 worldPositionOfCell = new Vector3( this.transform.position.x, .2f, this.transform.position.z) ;
+        Vector3 worldPositionOfCell = new Vector3( this.transform.position.x, .21f, this.transform.position.z) ;
         playerOwningTile = playerOwningTileSent;
         Vector3 topRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, grid.GetBoundsLocal(tilePosition).extents.z / 2);
         worldPositionsOfVectorsOnGrid.Add(topRight + worldPositionOfCell);
