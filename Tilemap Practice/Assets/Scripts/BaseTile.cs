@@ -104,11 +104,12 @@ public class BaseTile : MonoBehaviour
     void SetupLR()
     {
         lrGameObject = new GameObject("LineRendererGameObject", typeof(LineRenderer));
+        lrGameObject.transform.parent = this.transform;
         lr = lrGameObject.GetComponent<LineRenderer>();
         lr.enabled = false;
         lr.alignment = LineAlignment.TransformZ;
         lr.transform.localEulerAngles = new Vector3(90, 0, 0);
-        lr.sortingOrder = 1000;
+        lr.sortingOrder = 1;
         lr.startWidth = .1f;
         lr.endWidth = .1f;
         lr.numCapVertices = 90;

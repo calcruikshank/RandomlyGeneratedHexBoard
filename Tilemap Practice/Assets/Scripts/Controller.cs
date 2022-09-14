@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class Controller : MonoBehaviour
         CreatureInHandSelected,
         PlacingCastle
     }
+
+
     //Could use a state machine if creature is selected change state to creature selected 
     //if card in hand is selected change state to placing card
     //if neither are selected change state to selecting
@@ -50,6 +53,7 @@ public class Controller : MonoBehaviour
     [SerializeField]List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
 
+    public GameObject cardSelected;
     public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
 
     [SerializeField]Transform cardParent;
@@ -85,6 +89,11 @@ public class Controller : MonoBehaviour
                 break;
             case State.NothingSelected:
                 HandleNothingSelected();
+                HandleMana();
+                HandleDrawCards();
+                break;
+            case State.CreatureInHandSelected:
+                HandleCreatureInHandSelected();
                 HandleMana();
                 HandleDrawCards();
                 break;
@@ -146,12 +155,7 @@ public class Controller : MonoBehaviour
             if (environmentMap.GetInstantiatedObject(placedCellPosition))
             {
                 GameObject instantiatedObject = environmentMap.GetInstantiatedObject(placedCellPosition);
-                if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
-                {
-                    instantiatedObject.AddComponent<ChangeTransparency>();
-                }
-                ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
-                instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+                Destroy(instantiatedObject);
             }
             SetOwningTile(placedCellPosition);
             if (Mathf.Abs(placedCellPosition.y % 2) ==1 )
@@ -174,7 +178,7 @@ public class Controller : MonoBehaviour
             }
 
             Instantiate(castle, positionToSpawn, Quaternion.identity);
-            //state = State.NothingSelected;
+            state = State.NothingSelected;
         }
     }
 
@@ -182,9 +186,60 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //Debug.Log(BaseMapTileState.singleton.GetOwnerOfTile(currentCellPosition));
         }
     }
+
+    void HandleCreatureInHandSelected()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            #region creatureSelected
+            /*if (creatureSelected != null)
+            {
+                //determine if 
+                Vector3 positionToTarget = GetWorldPositionOfCell();
+                creatureSelected.SetMove(positionToTarget);
+                creatureSelected = null;
+                return;
+            }*/
+            //make sure to shoot a raycast to check to see if it hits a creature first
+            /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, creatureMask))
+            {
+                if (raycastHit.transform.GetComponent<Creature>() != null)
+                {
+                    creatureSelected = raycastHit.transform.GetComponent<Creature>();
+                    return;
+                }
+            }*/
+            /*if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) != null) 
+            {
+                creatureSelected = BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition);
+                Debug.Log(creatureSelected);
+                return;
+            }*/
+            #endregion
+
+            #region spawningObjects
+            Vector3 positionToSpawn = GetWorldPositionOfCell();
+            if (environmentMap.GetInstantiatedObject(currentCellPosition))
+            {
+                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(currentCellPosition);
+                if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
+                {
+                    instantiatedObject.AddComponent<ChangeTransparency>();
+                }
+                ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
+                instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+            }
+            Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
+
+            //todo make a method for changing state to nothing selected
+            state = State.NothingSelected;
+            #endregion
+        }
+    }
+
 
     void HandleMana()
     {
@@ -245,5 +300,15 @@ public class Controller : MonoBehaviour
         GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
         cardsInHand.Add(cardAddingToHand);
     }
-   
+
+
+
+
+    public void SetToCardSelected(CardInHand cardInHand)
+    {
+        //todo check if card selected is a creature
+        cardSelected = cardInHand.GameObjectToInstantiate.gameObject;
+        state = State.CreatureInHandSelected;
+    }
+
 }

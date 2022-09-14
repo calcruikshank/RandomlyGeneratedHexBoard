@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Tilemap baseMap;
     public Tilemap enviornmentMap;
     public Material RenderInFrontMat;
+
+    public List<Controller> playerList = new List<Controller>();
     private void Awake()
     {
         if (singleton != null) Destroy(this);
