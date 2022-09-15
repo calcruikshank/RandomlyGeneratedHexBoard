@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public Grid grid;
     public Tilemap baseMap;
     public Tilemap enviornmentMap;
+    public Tilemap waterTileMap;
     public Material RenderInFrontMat;
+    public Material TransparentSharedMat;
 
     public List<Controller> playerList = new List<Controller>();
     private void Awake()

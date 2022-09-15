@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
     public State state;
     public enum State
     {
-        NothingSelected, 
+        NothingSelected,
         CreatureSelected,
         CreatureInHandSelected,
         PlacingCastle
@@ -27,7 +27,7 @@ public class Controller : MonoBehaviour
     MousePositionScript mousePositionScript;
 
     Vector3 mousePosition;
-    public TileBase highlightTile; 
+    public TileBase highlightTile;
     public Tilemap highlightMap;// set these = to gamemanage.singleton.highlightmap TODO
     public Tilemap baseMap;
     public Tilemap environmentMap;
@@ -44,19 +44,19 @@ public class Controller : MonoBehaviour
 
     Vector3Int placedCellPosition;
 
-    public int mana = 1 ;
+    public int mana = 1;
     public float drawTimeThreshold = 5f;
     public float drawTimer;
     public float manaTimeThreshold = 5f;
     public float manaTimer;
     int maxHandSize = 7;
-    [SerializeField]List<CardInHand> cardsInDeck;
+    [SerializeField] List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
 
     public GameObject cardSelected;
     public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
 
-    [SerializeField]Transform cardParent;
+    [SerializeField] Transform cardParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,53 +97,13 @@ public class Controller : MonoBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
+            case State.CreatureSelected:
+                HandleCreatureOnBoardSelected();
+                HandleMana();
+                HandleDrawCards();
+                break;
         }
         return;
-       
-        if (Input.GetMouseButtonDown(0))
-        {
-            #region creatureSelected
-            if (creatureSelected != null)
-            {
-                //determine if 
-                Vector3 positionToTarget = GetWorldPositionOfCell();
-                creatureSelected.SetMove(positionToTarget);
-                creatureSelected = null;
-                return;
-            }
-            //make sure to shoot a raycast to check to see if it hits a creature first
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, creatureMask))
-            {
-                if (raycastHit.transform.GetComponent<Creature>() != null)
-                {
-                    creatureSelected = raycastHit.transform.GetComponent<Creature>();
-                    return;
-                }
-            }
-            /*if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) != null) 
-            {
-                creatureSelected = BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition);
-                Debug.Log(creatureSelected);
-                return;
-            }*/
-            #endregion
-
-            #region spawningObjects
-            Vector3 positionToSpawn = GetWorldPositionOfCell();
-            if (environmentMap.GetInstantiatedObject(currentCellPosition))
-            {
-                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(currentCellPosition);
-                if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
-                {
-                    instantiatedObject.AddComponent<ChangeTransparency>();
-                }
-                ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
-                instantiatedObjectsChangeTransparency.ChangeTransparent(100);
-            }
-            Instantiate(testPrefabToSpawn, positionToSpawn, Quaternion.identity);
-            #endregion
-        }
     }
 
     void HandlePlacingCastle()
@@ -157,28 +117,15 @@ public class Controller : MonoBehaviour
                 GameObject instantiatedObject = environmentMap.GetInstantiatedObject(placedCellPosition);
                 Destroy(instantiatedObject);
             }
-            SetOwningTile(placedCellPosition);
-            if (Mathf.Abs(placedCellPosition.y % 2) ==1 )
-            {
-                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y + 1, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y - 1, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y - 1, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y + 1, placedCellPosition.z));
-            }
-            if (Mathf.Abs(placedCellPosition.y % 2) == 0)
-            {
-                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y + 1, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x + 1, placedCellPosition.y, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y - 1, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x, placedCellPosition.y - 1, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y, placedCellPosition.z));
-                SetOwningTile(new Vector3Int(placedCellPosition.x - 1, placedCellPosition.y + 1, placedCellPosition.z));
-            }
 
+            SetOwningTile(placedCellPosition);
+
+            for (int i = 0; i < BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles.Count; i++)
+            {
+                SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
+            }
             Instantiate(castle, positionToSpawn, Quaternion.identity);
-            state = State.NothingSelected;
+            SetStateToNothingSelected();
         }
     }
 
@@ -186,15 +133,40 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+            if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
             {
-                if (raycastHit.transform.GetComponent<CardInHand>() != null)
+                if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
                 {
-                    SetToCardSelected(raycastHit.transform.GetComponent<CardInHand>());
+                    SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
                     return;
                 }
             }
+            if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
+            {
+                if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
+                {
+                    SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
+                    return;
+                }
+            }
+        }
+    }
+
+    void HandleCreatureOnBoardSelected()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            #region creatureSelected
+            if (creatureSelected != null)
+            {
+                //determine if 
+                Vector3 positionToTarget = GetWorldPositionOfCell();
+                creatureSelected.SetMove(positionToTarget);
+                creatureSelected = null;
+                SetStateToNothingSelected();
+            }
+            #endregion
         }
     }
 
@@ -202,32 +174,7 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            #region creatureSelected
-            /*if (creatureSelected != null)
-            {
-                //determine if 
-                Vector3 positionToTarget = GetWorldPositionOfCell();
-                creatureSelected.SetMove(positionToTarget);
-                creatureSelected = null;
-                return;
-            }*/
-            //make sure to shoot a raycast to check to see if it hits a creature first
-            /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, creatureMask))
-            {
-                if (raycastHit.transform.GetComponent<Creature>() != null)
-                {
-                    creatureSelected = raycastHit.transform.GetComponent<Creature>();
-                    return;
-                }
-            }*/
-            /*if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) != null) 
-            {
-                creatureSelected = BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition);
-                Debug.Log(creatureSelected);
-                return;
-            }*/
-            #endregion
+            
 
             #region spawningObjects
             Vector3 positionToSpawn = GetWorldPositionOfCell();
@@ -243,8 +190,7 @@ public class Controller : MonoBehaviour
             }
             Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
 
-            //todo make a method for changing state to nothing selected
-            state = State.NothingSelected;
+            SetStateToNothingSelected();
             #endregion
         }
     }
@@ -282,20 +228,8 @@ public class Controller : MonoBehaviour
 
     void SetOwningTile(Vector3Int cellPosition)
     {
-        if (!tilesOwned.ContainsKey(cellPosition))
-        {
-            if (baseMap.GetInstantiatedObject(cellPosition) != null)
-            {
-                baseMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>().SetOwnedByPlayer(this);
-                tilesOwned.Add(cellPosition, baseMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>());
-
-            }
-            else
-            {
-                waterMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>().SetOwnedByPlayer(this);
-                tilesOwned.Add(cellPosition, waterMap.GetInstantiatedObject(cellPosition).GetComponent<BaseTile>());
-            }
-        }
+        tilesOwned.Add(cellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellPosition));
+        BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellPosition).SetOwnedByPlayer(this);
     }
 
     void DrawCard()
@@ -318,6 +252,17 @@ public class Controller : MonoBehaviour
         //todo check if card selected is a creature
         cardSelected = cardInHand.GameObjectToInstantiate.gameObject;
         state = State.CreatureInHandSelected;
+    }
+    public void SetToCreatureOnFieldSelected(Creature creatureSelectedSent)
+    {
+        creatureSelected = creatureSelectedSent;
+        state = State.CreatureSelected;
+    }
+    void SetStateToNothingSelected()
+    {
+        cardSelected = null;
+        creatureSelected = null;
+        state = State.NothingSelected;
     }
 
 }

@@ -43529,7 +43529,9 @@ MonoBehaviour:
   grid: {fileID: 1604543377}
   baseMap: {fileID: 313121240}
   enviornmentMap: {fileID: 1565593535}
+  waterTileMap: {fileID: 903113511}
   RenderInFrontMat: {fileID: 2100000, guid: 2603743ee5548ef42832d5fc889ac9ce, type: 2}
+  TransparentSharedMat: {fileID: 2100000, guid: 293ce87cad5790147a3a67a85abaef59, type: 2}
   playerList:
   - {fileID: 862175793}
 --- !u!1001 &1384433212

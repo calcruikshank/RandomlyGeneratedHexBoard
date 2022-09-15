@@ -6,14 +6,19 @@ using UnityEngine.Tilemaps;
 
 public class BaseTile : MonoBehaviour
 {
-    Vector3Int tilePosition;
+    public Vector3Int tilePosition;
     Grid grid;
     Tilemap environmentMap;
     Tilemap baseTileMap;
+    Tilemap waterTileMap;
     Creature creatureOnTile;
     GameObject environmentOnTile;
 
     public Controller playerOwningTile;
+
+    public List<BaseTile> neighborTiles;
+
+    public Tilemap currentMapThatTileIsIn;
 
     private void Start()
     {
@@ -21,10 +26,51 @@ public class BaseTile : MonoBehaviour
         grid = GameManager.singleton.grid;
         environmentMap = GameManager.singleton.enviornmentMap;
         baseTileMap = GameManager.singleton.baseMap;
+        waterTileMap = GameManager.singleton.waterTileMap;
         tilePosition = grid.WorldToCell(this.transform.position);
+        
         BaseMapTileState.singleton.AddToBaseTiles(tilePosition, this);
         
         environmentOnTile = environmentMap.GetInstantiatedObject(tilePosition);
+
+
+        SetAllNeighborTiles();
+    }
+
+    void SetAllNeighborTiles()
+    {
+        if (Mathf.Abs(tilePosition.y % 2) == 1)
+        {
+            SetNeighborTile(new Vector3Int(tilePosition.x + 1, tilePosition.y + 1, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x + 1, tilePosition.y, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x + 1, tilePosition.y - 1, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x, tilePosition.y - 1, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x - 1, tilePosition.y, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z));
+        }
+        if (Mathf.Abs(tilePosition.y % 2) == 0)
+        {
+            SetNeighborTile(new Vector3Int(tilePosition.x, tilePosition.y + 1, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x + 1, tilePosition.y, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x - 1, tilePosition.y - 1, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x, tilePosition.y - 1, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x - 1, tilePosition.y, tilePosition.z));
+            SetNeighborTile(new Vector3Int(tilePosition.x - 1, tilePosition.y + 1, tilePosition.z));
+        }
+    }
+
+    public void SetNeighborTile(Vector3Int cellPosiitonSent)
+    {
+        if (baseTileMap.GetInstantiatedObject(cellPosiitonSent) != null)
+        {
+            neighborTiles.Add(baseTileMap.GetInstantiatedObject(cellPosiitonSent).GetComponent<BaseTile>());
+            return;
+        }
+        if (waterTileMap.GetInstantiatedObject(cellPosiitonSent) != null)
+        {
+            neighborTiles.Add(waterTileMap.GetInstantiatedObject(cellPosiitonSent).GetComponent<BaseTile>());
+            return;
+        }
     }
 
     internal Creature CreatureOnTile()
