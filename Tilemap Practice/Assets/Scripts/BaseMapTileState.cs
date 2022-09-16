@@ -90,10 +90,21 @@ public class BaseMapTileState : MonoBehaviour
         return worldPositionOfCell;
     }
 
-    int GetNumberOfTilesBetweenTwoTiles(BaseTile tile0, BaseTile tile1)
+    public int GetNumberOfTilesBetweenTwoTiles(BaseTile tile0, BaseTile tile1)
     {
         Vector3Int distanceVector = tile0.tilePosition - tile1.tilePosition;
-        Debug.Log(distanceVector + " distance vector");
-        return 0;
+        int greatestABSValueInVector = Math.Abs(distanceVector.x);
+        int absOfY = Math.Abs( distanceVector.y );
+        int absOfZ = Math.Abs(distanceVector.z);
+        if (absOfY > greatestABSValueInVector)
+        {
+            greatestABSValueInVector = absOfY;
+        }
+        if (absOfZ > greatestABSValueInVector)
+        {
+            greatestABSValueInVector = absOfZ;
+        }
+        Debug.Log(greatestABSValueInVector);
+        return greatestABSValueInVector;
     }
 }

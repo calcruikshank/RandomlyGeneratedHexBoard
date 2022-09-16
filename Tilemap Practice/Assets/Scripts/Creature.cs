@@ -75,6 +75,9 @@ public class Creature : MonoBehaviour
     }
     public void SetMove(Vector3 positionToTarget)
     {
+        Vector3Int targetedCellPosition = grid.WorldToCell(positionToTarget);
+        int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+        Debug.Log(numOfTilesFromTarget);
         SetNewTargetPosition(positionToTarget);
         creatureState = CreatureState.Moving;
     }
@@ -91,7 +94,8 @@ public class Creature : MonoBehaviour
 
     public void Move()
     {
-        
+
+        Vector3Int targetedCellPosition = grid.WorldToCell(targetPosition);
         positions[0] = this.transform.position;
         lr.SetPositions(positions);
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
@@ -104,14 +108,13 @@ public class Creature : MonoBehaviour
         }
         if (previousTilePosition != tileCurrentlyOn)
         {
-            Debug.Log(tileCurrentlyOn);
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
+            int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+            
         }
         tileCurrentlyOn.AddCreatureToTile(this);
 
-
-        Vector3Int targetedCellPosition = grid.WorldToCell(targetPosition);
         if (tileCurrentlyOn.neighborTiles.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition))) //if your next to the tile you targeted and 
         {
             if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != null)

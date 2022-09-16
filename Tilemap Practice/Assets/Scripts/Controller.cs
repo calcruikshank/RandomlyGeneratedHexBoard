@@ -220,7 +220,6 @@ public class Controller : MonoBehaviour
         if (manaTimer >= manaTimeThreshold)
         {
             mana++;
-            Debug.Log(mana);
             manaTimer = 0f;
         }
     }

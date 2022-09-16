@@ -15,7 +15,6 @@ public class CameraControl : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-        Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
             MoveCamera(Input.GetAxis("Mouse ScrollWheel"));
         }
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
