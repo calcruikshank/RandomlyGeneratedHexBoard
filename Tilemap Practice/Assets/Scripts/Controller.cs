@@ -178,6 +178,11 @@ public class Controller : MonoBehaviour
                 }*/
                 creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition));
 
+                if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition) == creatureSelected.tileCurrentlyOn) //this makes sure you can double click to stop the creature and also have it selected
+                {
+                    SetToCreatureOnFieldSelected(creatureSelected);
+                    return;
+                }
                 creatureSelected = null;
                 SetStateToNothingSelected();
             }

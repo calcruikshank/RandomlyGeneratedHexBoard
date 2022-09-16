@@ -44,6 +44,6 @@ public class CameraControl : MonoBehaviour
         {
             movementAmount = new Vector3(transform.position.x, minYForCamera, transform.position.z);
         }
-        transform.position = movementAmount;
+        transform.position = Vector3.MoveTowards(this.transform.position, movementAmount, 200 * Time.deltaTime);
     }
 }

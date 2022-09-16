@@ -193,7 +193,7 @@ public class RandomMapGenerator : MonoBehaviour
 
     public void SaveAssetMap()
     {
-        string saveName = "tmapXY_" + count;
+       /* string saveName = "tmapXY_" + count;
         var mf = GameObject.Find("Grid");
 
         if (mf)
@@ -209,7 +209,7 @@ public class RandomMapGenerator : MonoBehaviour
             }
 
 
-        }
+        }*/
 
 
     }

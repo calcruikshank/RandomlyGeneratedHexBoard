@@ -70587,7 +70587,7 @@ PrefabInstance:
       objectReference: {fileID: 313121240}
     - target: {fileID: 8279462425637013897, guid: 5e259dca5cc69fa4c916f8693e8b7919, type: 3}
       propertyPath: tmpSize.x
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8279462425637013897, guid: 5e259dca5cc69fa4c916f8693e8b7919, type: 3}
       propertyPath: tmpSize.y
