@@ -89,4 +89,11 @@ public class BaseMapTileState : MonoBehaviour
         }
         return worldPositionOfCell;
     }
+
+    int GetNumberOfTilesBetweenTwoTiles(BaseTile tile0, BaseTile tile1)
+    {
+        Vector3Int distanceVector = tile0.tilePosition - tile1.tilePosition;
+        Debug.Log(distanceVector + " distance vector");
+        return 0;
+    }
 }

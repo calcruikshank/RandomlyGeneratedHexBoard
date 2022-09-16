@@ -406,7 +406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4ebff844df3f29a47a4e42a06976e458, type: 2}
+  - {fileID: 2100000, guid: 7eee22aa9334bf340be3da56894e0194, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 6239865746917987998}
   - component: {fileID: 5731112149956000747}
   m_Layer: 6
-  m_Name: CylinderBaseGreen
+  m_Name: Elf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,6 +550,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureState: 0
+  playerOwningCreature: {fileID: 0}
+  currentCellPosition: {x: 0, y: 0, z: 0}
+  tileCurrentlyOn: {fileID: 0}
+  previousTilePosition: {fileID: 0}
 --- !u!1 &6330952787006823200
 GameObject:
   m_ObjectHideFlags: 0

@@ -184,11 +184,11 @@ public class RandomMapGenerator : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        /*if (Input.GetButtonDown("Fire2"))
         {
             clearMap(true);
             doSim(numR);
-        }
+        }*/
     }
 
     public void SaveAssetMap()
