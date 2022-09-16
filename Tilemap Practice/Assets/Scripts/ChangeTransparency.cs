@@ -13,19 +13,18 @@ public class ChangeTransparency : MonoBehaviour
     }
     private void Start()
     {
-        this.thisMaterial = thisRenderer.material;
     }
     public void ChangeTransparent(int v)
     {
         thisRenderer.material = GameManager.singleton.TransparentSharedMat;
-       Color32 col = thisRenderer.material.GetColor("_Color");
+        Color32 col = thisRenderer.material.GetColor("_Color");
         col.a = 50;
         this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", col);
     }
 
     public void SetOpaque()
     {
-        thisRenderer.material = thisMaterial;
+        thisRenderer.material = GameManager.singleton.OpaqueSharedMat;
         Color32 col = thisRenderer.material.GetColor("_Color");
         col.a = 255;
         this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", col);

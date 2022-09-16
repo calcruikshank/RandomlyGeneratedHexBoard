@@ -16,6 +16,8 @@ public class Creature : MonoBehaviour
         //not sure if i need a tapped state yet trying to keep it as simple as possible
     }
 
+    public Controller playerOwningCreature;
+
     LineRenderer lr;
     GameObject lrGameObject;
     int range = 1; //num of tiles that can attack
@@ -23,10 +25,10 @@ public class Creature : MonoBehaviour
     float UsageRate; // the rate at which the minion can use abilities/ attack 
 
     Tilemap baseTileMap;
-    Vector3Int currentCellPosition;
+    public Vector3Int currentCellPosition;
 
-    BaseTile tileCurrentlyOn;
-    BaseTile previousTilePosition;
+    public BaseTile tileCurrentlyOn;
+    public BaseTile previousTilePosition;
 
     Vector3 targetPosition;
 
@@ -73,24 +75,33 @@ public class Creature : MonoBehaviour
     }
     public void SetMove(Vector3 positionToTarget)
     {
+        SetNewTargetPosition(positionToTarget);
+        creatureState = CreatureState.Moving;
+    }
+
+   void SetNewTargetPosition(Vector3 positionToTarget)
+    {
         targetPosition = positionToTarget;
         positions[0] = this.transform.position;
         positions[1] = targetPosition;
         lr.enabled = true;
         lr.positionCount = positions.Length;
         lr.SetPositions(positions);
-        creatureState = CreatureState.Moving;
     }
 
     public void Move()
     {
+        
         positions[0] = this.transform.position;
         lr.SetPositions(positions);
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
 
         
         currentCellPosition = grid.WorldToCell(this.transform.position);
-        tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition); 
+        if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) == null)
+        {
+            tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
+        }
         if (previousTilePosition != tileCurrentlyOn)
         {
             Debug.Log(tileCurrentlyOn);
@@ -98,5 +109,20 @@ public class Creature : MonoBehaviour
             previousTilePosition = tileCurrentlyOn;
         }
         tileCurrentlyOn.AddCreatureToTile(this);
+
+
+        Vector3Int targetedCellPosition = grid.WorldToCell(targetPosition);
+        if (tileCurrentlyOn.neighborTiles.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition))) //if your next to the tile you targeted and 
+        {
+            if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != null)
+            {
+                if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition).playerOwningCreature == this.playerOwningCreature && BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != this)
+                {
+                    /*BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+                    SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));*/
+                    SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
+                }
+            }
+        }
     }
 }

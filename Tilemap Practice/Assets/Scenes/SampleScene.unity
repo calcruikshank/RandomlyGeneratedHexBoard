@@ -22676,7 +22676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &705837855
 PrefabInstance:
@@ -28313,7 +28313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &862175795
 MonoBehaviour:
@@ -31563,7 +31563,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -43511,7 +43511,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1383740587
 MonoBehaviour:
@@ -43530,8 +43530,10 @@ MonoBehaviour:
   baseMap: {fileID: 313121240}
   enviornmentMap: {fileID: 1565593535}
   waterTileMap: {fileID: 903113511}
+  highlightMap: {fileID: 809871723}
   RenderInFrontMat: {fileID: 2100000, guid: 2603743ee5548ef42832d5fc889ac9ce, type: 2}
   TransparentSharedMat: {fileID: 2100000, guid: 293ce87cad5790147a3a67a85abaef59, type: 2}
+  OpaqueSharedMat: {fileID: 2100000, guid: cf051fba995609b459f0eb4baf4bb478, type: 2}
   playerList:
   - {fileID: 862175793}
 --- !u!1001 &1384433212
@@ -44908,7 +44910,7 @@ Transform:
   - {fileID: 1708285775}
   - {fileID: 1847624968}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1419762620
 PrefabInstance:
@@ -51311,7 +51313,7 @@ Transform:
   - {fileID: 809871721}
   - {fileID: 1565593533}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1610050887
 PrefabInstance:
@@ -70517,7 +70519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8279462425637013896, guid: 5e259dca5cc69fa4c916f8693e8b7919, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8279462425637013896, guid: 5e259dca5cc69fa4c916f8693e8b7919, type: 3}
       propertyPath: m_LocalPosition.x

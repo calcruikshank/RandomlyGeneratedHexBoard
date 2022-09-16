@@ -38,6 +38,7 @@ public class Controller : MonoBehaviour
     [SerializeField] Transform castle;
     Creature creatureSelected;
     Vector3Int currentCellPosition;
+    Vector3Int targetedCellPosition;
     [SerializeField] Transform testPrefabToSpawn;
 
     [SerializeField] LayerMask creatureMask;
@@ -157,12 +158,26 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            targetedCellPosition = currentCellPosition;
             #region creatureSelected
             if (creatureSelected != null)
             {
                 //determine if 
-                Vector3 positionToTarget = GetWorldPositionOfCell();
-                creatureSelected.SetMove(positionToTarget);
+                //Vector3 positionToTarget = GetWorldPositionOfCell();
+
+                //select a tile if the tile contains something that isnt targetable then find nearest unnocupied tile and move to it
+                /*if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition))
+                {
+                    Creature creatureOnTileHit = BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition);
+                    //if the creature is a friendly creature hit move to nearest tile
+                    if (creatureOnTileHit.playerOwningCreature == this)
+                    {
+                        BaseTile tileToMoveTo = BaseMapTileState.singleton.GetNearestUnnocupiedBaseTileGivenCell(creatureSelected.tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+                        creatureSelected.SetMove(GetWorldPositionOfCell(tileToMoveTo.tilePosition));
+                    }
+                }*/
+                creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition));
+
                 creatureSelected = null;
                 SetStateToNothingSelected();
             }
@@ -174,10 +189,8 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
-
             #region spawningObjects
-            Vector3 positionToSpawn = GetWorldPositionOfCell();
+            Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition);
             if (environmentMap.GetInstantiatedObject(currentCellPosition))
             {
                 GameObject instantiatedObject = environmentMap.GetInstantiatedObject(currentCellPosition);
@@ -189,7 +202,7 @@ public class Controller : MonoBehaviour
                 instantiatedObjectsChangeTransparency.ChangeTransparent(100);
             }
             Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
-
+            cardSelected.GetComponent<Creature>().playerOwningCreature = this;
             SetStateToNothingSelected();
             #endregion
         }
@@ -215,15 +228,6 @@ public class Controller : MonoBehaviour
             DrawCard();
             drawTimer = 0f;
         }
-    }
-    Vector3 GetWorldPositionOfCell()
-    {
-        Vector3 worldPositionOfCell = highlightMap.GetCellCenterWorld(currentCellPosition);
-        if (baseMap.GetInstantiatedObject(currentCellPosition))
-        {
-            worldPositionOfCell = new Vector3(worldPositionOfCell.x, worldPositionOfCell.y + baseMap.GetInstantiatedObject(currentCellPosition).gameObject.GetComponent<Collider>().bounds.size.y, worldPositionOfCell.z);
-        }
-        return worldPositionOfCell;
     }
 
     void SetOwningTile(Vector3Int cellPosition)

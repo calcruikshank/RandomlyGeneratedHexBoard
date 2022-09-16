@@ -6648,3 +6648,1269 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002576 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.637 seconds
+Refreshing native plugins compatible for Editor in 3.76 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.664 seconds
+Domain Reload Profiling:
+	ReloadAssembly (193ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		LoadAllAssembliesAndSetupDomain (441ms)
+			LoadAssemblies (68ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (418ms)
+				TypeCache.Initialize (210ms)
+					TypeCache.ScanAssembly (205ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (284ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (21ms)
+				SetLoadedEditorAssemblies (5ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (71ms)
+				ProcessInitializeOnLoadAttributes (148ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4557.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.551500 ms (FindLiveObjects: 0.300200 ms CreateObjectMapping: 0.102200 ms MarkObjects: 2.112000 ms  DeleteObjects: 0.036000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002610 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.651 seconds
+Refreshing native plugins compatible for Editor in 4.38 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.725 seconds
+Domain Reload Profiling:
+	ReloadAssembly (197ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		LoadAllAssembliesAndSetupDomain (451ms)
+			LoadAssemblies (70ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (429ms)
+				TypeCache.Initialize (215ms)
+					TypeCache.ScanAssembly (211ms)
+				ResolveRequiredComponents (6ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (315ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (21ms)
+				SetLoadedEditorAssemblies (7ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (171ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4560.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.703000 ms (FindLiveObjects: 0.349300 ms CreateObjectMapping: 0.109200 ms MarkObjects: 2.198100 ms  DeleteObjects: 0.045700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002573 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.613 seconds
+Refreshing native plugins compatible for Editor in 4.13 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.655 seconds
+Domain Reload Profiling:
+	ReloadAssembly (183ms)
+		BeginReloadAssembly (108ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		LoadAllAssembliesAndSetupDomain (428ms)
+			LoadAssemblies (61ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (404ms)
+				TypeCache.Initialize (210ms)
+					TypeCache.ScanAssembly (206ms)
+				ResolveRequiredComponents (4ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (267ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (139ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 1.21 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4563.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 3.731400 ms (FindLiveObjects: 0.349400 ms CreateObjectMapping: 0.174300 ms MarkObjects: 3.151000 ms  DeleteObjects: 0.055300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002410 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.648 seconds
+Refreshing native plugins compatible for Editor in 4.10 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.718 seconds
+Domain Reload Profiling:
+	ReloadAssembly (190ms)
+		BeginReloadAssembly (111ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		LoadAllAssembliesAndSetupDomain (455ms)
+			LoadAssemblies (69ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (427ms)
+				TypeCache.Initialize (213ms)
+					TypeCache.ScanAssembly (209ms)
+				ResolveRequiredComponents (11ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (293ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (21ms)
+				SetLoadedEditorAssemblies (7ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (148ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4566.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 3.283600 ms (FindLiveObjects: 0.462100 ms CreateObjectMapping: 0.166900 ms MarkObjects: 2.610800 ms  DeleteObjects: 0.043000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002317 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.597 seconds
+Refreshing native plugins compatible for Editor in 3.88 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.665 seconds
+Domain Reload Profiling:
+	ReloadAssembly (194ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		LoadAllAssembliesAndSetupDomain (400ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (381ms)
+				TypeCache.Initialize (201ms)
+					TypeCache.ScanAssembly (198ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (272ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (72ms)
+				ProcessInitializeOnLoadAttributes (143ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.1 KB). Loaded Objects now: 4569.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.806600 ms (FindLiveObjects: 0.342600 ms CreateObjectMapping: 0.093700 ms MarkObjects: 2.331500 ms  DeleteObjects: 0.037500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002193 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.624 seconds
+Refreshing native plugins compatible for Editor in 3.52 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.632 seconds
+Domain Reload Profiling:
+	ReloadAssembly (185ms)
+		BeginReloadAssembly (106ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (27ms)
+		LoadAllAssembliesAndSetupDomain (437ms)
+			LoadAssemblies (61ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (413ms)
+				TypeCache.Initialize (204ms)
+					TypeCache.ScanAssembly (200ms)
+				ResolveRequiredComponents (4ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (269ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (7ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (65ms)
+				ProcessInitializeOnLoadAttributes (144ms)
+				ProcessInitializeOnLoadMethodAttributes (27ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4572.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 3.154400 ms (FindLiveObjects: 0.332700 ms CreateObjectMapping: 0.106700 ms MarkObjects: 2.669500 ms  DeleteObjects: 0.044500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002532 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.621 seconds
+Refreshing native plugins compatible for Editor in 4.59 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.656 seconds
+Domain Reload Profiling:
+	ReloadAssembly (177ms)
+		BeginReloadAssembly (108ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		LoadAllAssembliesAndSetupDomain (442ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (420ms)
+				TypeCache.Initialize (216ms)
+					TypeCache.ScanAssembly (211ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (258ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (18ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (133ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4575.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 3.160500 ms (FindLiveObjects: 0.301500 ms CreateObjectMapping: 0.103400 ms MarkObjects: 2.707900 ms  DeleteObjects: 0.046600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002327 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.585 seconds
+Refreshing native plugins compatible for Editor in 4.22 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.633 seconds
+Domain Reload Profiling:
+	ReloadAssembly (168ms)
+		BeginReloadAssembly (104ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (26ms)
+		LoadAllAssembliesAndSetupDomain (415ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (394ms)
+				TypeCache.Initialize (196ms)
+					TypeCache.ScanAssembly (192ms)
+				ResolveRequiredComponents (6ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (260ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (134ms)
+				ProcessInitializeOnLoadMethodAttributes (27ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4578.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.409700 ms (FindLiveObjects: 0.291700 ms CreateObjectMapping: 0.102400 ms MarkObjects: 1.981000 ms  DeleteObjects: 0.033800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002527 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.558 seconds
+Refreshing native plugins compatible for Editor in 3.56 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.652 seconds
+Domain Reload Profiling:
+	ReloadAssembly (167ms)
+		BeginReloadAssembly (101ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		LoadAllAssembliesAndSetupDomain (388ms)
+			LoadAssemblies (58ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (367ms)
+				TypeCache.Initialize (179ms)
+					TypeCache.ScanAssembly (175ms)
+				ResolveRequiredComponents (4ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (272ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (5ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (143ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.1 KB). Loaded Objects now: 4581.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.559300 ms (FindLiveObjects: 0.293000 ms CreateObjectMapping: 0.103000 ms MarkObjects: 2.125400 ms  DeleteObjects: 0.037000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002293 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.605 seconds
+Refreshing native plugins compatible for Editor in 3.69 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.637 seconds
+Domain Reload Profiling:
+	ReloadAssembly (185ms)
+		BeginReloadAssembly (107ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		LoadAllAssembliesAndSetupDomain (418ms)
+			LoadAssemblies (65ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (390ms)
+				TypeCache.Initialize (191ms)
+					TypeCache.ScanAssembly (188ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (258ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (134ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.1 KB). Loaded Objects now: 4584.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.660200 ms (FindLiveObjects: 0.263300 ms CreateObjectMapping: 0.087700 ms MarkObjects: 2.269000 ms  DeleteObjects: 0.038700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002911 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.609 seconds
+Refreshing native plugins compatible for Editor in 3.46 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.625 seconds
+Domain Reload Profiling:
+	ReloadAssembly (178ms)
+		BeginReloadAssembly (107ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		LoadAllAssembliesAndSetupDomain (429ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (408ms)
+				TypeCache.Initialize (197ms)
+					TypeCache.ScanAssembly (193ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (265ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (62ms)
+				ProcessInitializeOnLoadAttributes (143ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4587.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.470400 ms (FindLiveObjects: 0.306700 ms CreateObjectMapping: 0.102300 ms MarkObjects: 2.030000 ms  DeleteObjects: 0.030400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002543 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.571 seconds
+Refreshing native plugins compatible for Editor in 3.39 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.672 seconds
+Domain Reload Profiling:
+	ReloadAssembly (170ms)
+		BeginReloadAssembly (104ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (27ms)
+		LoadAllAssembliesAndSetupDomain (397ms)
+			LoadAssemblies (61ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (373ms)
+				TypeCache.Initialize (194ms)
+					TypeCache.ScanAssembly (190ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (284ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (4ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (150ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4590.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.978100 ms (FindLiveObjects: 0.349300 ms CreateObjectMapping: 0.189100 ms MarkObjects: 2.398500 ms  DeleteObjects: 0.040400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002598 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.635 seconds
+Refreshing native plugins compatible for Editor in 3.56 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.659 seconds
+Domain Reload Profiling:
+	ReloadAssembly (187ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		LoadAllAssembliesAndSetupDomain (444ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (419ms)
+				TypeCache.Initialize (204ms)
+					TypeCache.ScanAssembly (200ms)
+				ResolveRequiredComponents (12ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (278ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (18ms)
+				SetLoadedEditorAssemblies (4ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (149ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.1 KB). Loaded Objects now: 4593.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.990400 ms (FindLiveObjects: 0.294900 ms CreateObjectMapping: 0.102900 ms MarkObjects: 2.558900 ms  DeleteObjects: 0.032900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002784 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.623 seconds
+Refreshing native plugins compatible for Editor in 3.93 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.656 seconds
+Domain Reload Profiling:
+	ReloadAssembly (193ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		LoadAllAssembliesAndSetupDomain (427ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (406ms)
+				TypeCache.Initialize (206ms)
+					TypeCache.ScanAssembly (202ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (267ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (5ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (139ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4596.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.837300 ms (FindLiveObjects: 0.332600 ms CreateObjectMapping: 0.098300 ms MarkObjects: 2.365500 ms  DeleteObjects: 0.039700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002763 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.621 seconds
+Refreshing native plugins compatible for Editor in 3.50 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.633 seconds
+Domain Reload Profiling:
+	ReloadAssembly (200ms)
+		BeginReloadAssembly (120ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		LoadAllAssembliesAndSetupDomain (418ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (393ms)
+				TypeCache.Initialize (198ms)
+					TypeCache.ScanAssembly (194ms)
+				ResolveRequiredComponents (7ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (261ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (134ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.1 KB). Loaded Objects now: 4599.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.782200 ms (FindLiveObjects: 0.357500 ms CreateObjectMapping: 0.108500 ms MarkObjects: 2.279300 ms  DeleteObjects: 0.036000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003088 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.624 seconds
+Refreshing native plugins compatible for Editor in 4.06 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.614 seconds
+Domain Reload Profiling:
+	ReloadAssembly (184ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		LoadAllAssembliesAndSetupDomain (437ms)
+			LoadAssemblies (68ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (413ms)
+				TypeCache.Initialize (210ms)
+					TypeCache.ScanAssembly (206ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (259ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (21ms)
+				SetLoadedEditorAssemblies (4ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (64ms)
+				ProcessInitializeOnLoadAttributes (136ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4602.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.523100 ms (FindLiveObjects: 0.282900 ms CreateObjectMapping: 0.088700 ms MarkObjects: 2.110800 ms  DeleteObjects: 0.039700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002940 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.612 seconds
+Refreshing native plugins compatible for Editor in 3.65 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.643 seconds
+Domain Reload Profiling:
+	ReloadAssembly (177ms)
+		BeginReloadAssembly (105ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		LoadAllAssembliesAndSetupDomain (432ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (409ms)
+				TypeCache.Initialize (210ms)
+					TypeCache.ScanAssembly (205ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (276ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (7ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (65ms)
+				ProcessInitializeOnLoadAttributes (152ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4605.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.827600 ms (FindLiveObjects: 0.262400 ms CreateObjectMapping: 0.101100 ms MarkObjects: 2.417800 ms  DeleteObjects: 0.045300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002107 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.641 seconds
+Refreshing native plugins compatible for Editor in 3.88 ms, found 2 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.657 seconds
+Domain Reload Profiling:
+	ReloadAssembly (177ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (27ms)
+		LoadAllAssembliesAndSetupDomain (461ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (426ms)
+				TypeCache.Initialize (214ms)
+					TypeCache.ScanAssembly (210ms)
+				ResolveRequiredComponents (5ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (267ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (23ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (63ms)
+				ProcessInitializeOnLoadAttributes (140ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3695 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (41.0 KB). Loaded Objects now: 4608.
+Memory consumption went from 0.56 GB to 0.56 GB.
+Total: 2.535400 ms (FindLiveObjects: 0.276100 ms CreateObjectMapping: 0.088700 ms MarkObjects: 2.136100 ms  DeleteObjects: 0.033500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002600 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+- Loaded All Assemblies, in  0.639 seconds
+Callback registration failed. Increase kMaxCallback.
+Fatal Error! Callback registration failed. Increase kMaxCallback.
+Crash!!!
+SymInit: Symbol-SearchPath: 'C:/Program Files/Unity/Hub/Editor/2022.2.0b8/Editor/Data/Mono;.;C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice;C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\BurstCache\JIT;C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor;C:\WINDOWS;C:\WINDOWS\system32;SRV*C:\websymbols*http://msdl.microsoft.com/download/symbols;', symOptions: 534, UserName: 'cocru'
+OS-Version: 10.0.0
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\Unity.exe:Unity.exe (00007FF67FB10000), size: 76259328 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2022.2.0.46162
+C:\WINDOWS\SYSTEM32\ntdll.dll:ntdll.dll (00007FF9FF5E0000), size: 2134016 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\System32\KERNEL32.DLL:KERNEL32.DLL (00007FF9FDFE0000), size: 774144 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.708
+C:\WINDOWS\System32\KERNELBASE.dll:KERNELBASE.dll (00007FF9FCD40000), size: 3653632 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\System32\CRYPT32.dll:CRYPT32.dll (00007FF9FD300000), size: 1449984 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.856
+C:\WINDOWS\System32\ucrtbase.dll:ucrtbase.dll (00007FF9FD1E0000), size: 1118208 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\System32\USER32.dll:USER32.dll (00007FF9FF350000), size: 1757184 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\WINDOWS\System32\win32u.dll:win32u.dll (00007FF9FD0C0000), size: 155648 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.978
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\s3tcompress.dll:s3tcompress.dll (00007FF9F02E0000), size: 180224 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\GDI32.dll:GDI32.dll (00007FF9FE810000), size: 167936 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\libfbxsdk.dll:libfbxsdk.dll (00007FF95B4D0000), size: 10215424 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2020.2.0.0
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\etccompress.dll:etccompress.dll (00007FF95BE90000), size: 5066752 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\gdi32full.dll:gdi32full.dll (00007FF9FCB80000), size: 1150976 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.978
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\ispc_texcomp.dll:ispc_texcomp.dll (00007FF9A55A0000), size: 1740800 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\compress_bc7e.dll:compress_bc7e.dll (00007FF9D5640000), size: 1441792 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\msvcp_win.dll:msvcp_win.dll (00007FF9FCCA0000), size: 643072 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\FreeImage.dll:FreeImage.dll (0000000180000000), size: 6582272 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 3.18.0.0
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\WinPixEventRuntime.dll:WinPixEventRuntime.dll (00007FF9F9FB0000), size: 45056 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.0.1812.6001
+C:\WINDOWS\System32\ADVAPI32.dll:ADVAPI32.dll (00007FF9FE0A0000), size: 712704 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.653
+C:\WINDOWS\System32\msvcrt.dll:msvcrt.dll (00007FF9FE3C0000), size: 667648 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 7.0.22000.1
+C:\WINDOWS\System32\sechost.dll:sechost.dll (00007FF9FF500000), size: 647168 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.708
+C:\WINDOWS\System32\WS2_32.dll:WS2_32.dll (00007FF9FE7A0000), size: 454656 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\umbraoptimizer64.dll:umbraoptimizer64.dll (00007FF99CF60000), size: 1187840 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\RPCRT4.dll:RPCRT4.dll (00007FF9FDE90000), size: 1179648 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.675
+C:\WINDOWS\System32\SHELL32.dll:SHELL32.dll (00007FF9FD5F0000), size: 8093696 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\System32\SHLWAPI.dll:SHLWAPI.dll (00007FF9FED80000), size: 380928 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\MSVCP140.dll:MSVCP140.dll (00007FF9E58B0000), size: 581632 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.31.31103.0
+C:\WINDOWS\SYSTEM32\VCRUNTIME140.dll:VCRUNTIME140.dll (00007FF9E7AF0000), size: 110592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.31.31103.0
+C:\WINDOWS\System32\ole32.dll:ole32.dll (00007FF9FE470000), size: 1679360 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.120
+C:\WINDOWS\System32\combase.dll:combase.dll (00007FF9FE840000), size: 3641344 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\VCRUNTIME140_1.dll:VCRUNTIME140_1.dll (00007FF9E7690000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.31.31103.0
+C:\WINDOWS\System32\IMM32.dll:IMM32.dll (00007FF9FDE50000), size: 200704 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\System32\SETUPAPI.dll:SETUPAPI.dll (00007FF9FEDE0000), size: 4636672 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.469
+C:\WINDOWS\SYSTEM32\OPENGL32.dll:OPENGL32.dll (00007FF99D750000), size: 1052672 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.708
+C:\WINDOWS\SYSTEM32\GLU32.dll:GLU32.dll (00007FF9A3C00000), size: 184320 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.708
+C:\WINDOWS\System32\OLEAUT32.dll:OLEAUT32.dll (00007FF9FE6C0000), size: 876544 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\System32\WINTRUST.dll:WINTRUST.dll (00007FF9FD0F0000), size: 425984 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (00007FF9FB7D0000), size: 184320 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.282
+C:\WINDOWS\SYSTEM32\WINMM.dll:WINMM.dll (00007FF9F60C0000), size: 208896 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\WINHTTP.dll:WINHTTP.dll (00007FF9F5FB0000), size: 1097728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\bcrypt.dll:bcrypt.dll (00007FF9FC4A0000), size: 159744 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\HID.DLL:HID.DLL (00007FF9FB4A0000), size: 57344 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\dwmapi.dll:dwmapi.dll (00007FF9FA5B0000), size: 192512 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.41
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\SketchUpAPI.dll:SketchUpAPI.dll (00007FF95ABF0000), size: 9306112 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 20.2.172.0
+C:\WINDOWS\SYSTEM32\VERSION.dll:VERSION.dll (00007FF9F4E20000), size: 40960 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\WSOCK32.dll:WSOCK32.dll (00007FF9F8FD0000), size: 36864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\dxcore.dll:dxcore.dll (00007FF9FA3F0000), size: 229376 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.653
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\SketchUpCommonPreferences.dll:SketchUpCommonPreferences.dll (00007FF9D6DC0000), size: 479232 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 20.2.172.37
+C:\WINDOWS\SYSTEM32\Secur32.dll:Secur32.dll (00007FF9DF7E0000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.675
+C:\WINDOWS\SYSTEM32\SSPICLI.DLL:SSPICLI.DLL (00007FF9FBEC0000), size: 270336 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.556
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\OpenRL.dll:OpenRL.dll (000002BEF7050000), size: 12779520 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.5.0.2907
+C:\WINDOWS\SYSTEM32\MSVCP100.dll:MSVCP100.dll (0000000062860000), size: 622592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.40219.325
+C:\WINDOWS\SYSTEM32\MSVCR100.dll:MSVCR100.dll (0000000062900000), size: 860160 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.40219.325
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\embree.dll:embree.dll (00007FF959C00000), size: 16711680 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2.14.0.0
+C:\WINDOWS\SYSTEM32\cfgmgr32.DLL:cfgmgr32.DLL (00007FF9FC7C0000), size: 311296 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\tbb.dll:tbb.dll (00007FF9D6590000), size: 413696 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2017.0.2016.1004
+C:\WINDOWS\SYSTEM32\MSWSOCK.DLL:MSWSOCK.DLL (00007FF9FC0D0000), size: 421888 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\MSVCP120.dll:MSVCP120.dll (00007FF9C7A50000), size: 679936 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 12.0.21005.1
+C:\WINDOWS\SYSTEM32\MSVCR120.dll:MSVCR120.dll (00007FF99CE70000), size: 978944 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 12.0.21005.1
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\OpenRL_pthread.dll:OpenRL_pthread.dll (000002BEF7CA0000), size: 61440 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2.9.0.0
+C:\WINDOWS\SYSTEM32\MSASN1.dll:MSASN1.dll (00007FF9FC370000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\System32\bcryptprimitives.dll:bcryptprimitives.dll (00007FF9FD160000), size: 520192 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.778
+C:\WINDOWS\SYSTEM32\kernel.appcore.dll:kernel.appcore.dll (00007FF9FBCA0000), size: 98304 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.71
+C:\WINDOWS\system32\uxtheme.dll:uxtheme.dll (00007FF9FA140000), size: 704512 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\WINDOWS\SYSTEM32\windows.storage.dll:windows.storage.dll (00007FF9FAC30000), size: 8814592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\wintypes.dll:wintypes.dll (00007FF9FAAC0000), size: 1466368 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\System32\SHCORE.dll:SHCORE.dll (00007FF9FE200000), size: 958464 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.613
+C:\WINDOWS\SYSTEM32\profapi.dll:profapi.dll (00007FF9FC9F0000), size: 135168 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\system32\IconCodecService.dll:IconCodecService.dll (00007FF9EB590000), size: 36864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\WindowsCodecs.dll:WindowsCodecs.dll (00007FF9F4F00000), size: 1761280 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.653
+C:\WINDOWS\System32\clbcatq.dll:clbcatq.dll (00007FF9FE610000), size: 716800 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2001.12.10941.16384
+C:\WINDOWS\System32\netprofm.dll:netprofm.dll (00007FF9F7AB0000), size: 462848 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.708
+C:\WINDOWS\System32\npmproxy.dll:npmproxy.dll (00007FF9F3D50000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.65
+C:\WINDOWS\System32\NSI.dll:NSI.dll (00007FF9FF340000), size: 36864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL:dhcpcsvc6.DLL (00007FF9F5D40000), size: 102400 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL:dhcpcsvc.DLL (00007FF9F64C0000), size: 122880 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\DNSAPI.dll:DNSAPI.dll (00007FF9FB800000), size: 950272 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\System32\fwpuclnt.dll:fwpuclnt.dll (00007FF9F4C10000), size: 528384 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.978
+C:\Windows\System32\rasadhlp.dll:rasadhlp.dll (00007FF9F2010000), size: 40960 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\NVUnityPlugin.DLL:NVUnityPlugin.DLL (00007FF99C1B0000), size: 1536000 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\Data\Tools\astcenc-avx2.dll:astcenc-avx2.dll (00007FF9CAE70000), size: 540672 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\SYSTEM32\d3d11.dll:d3d11.dll (00007FF9F5AA0000), size: 2621440 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\dxgi.dll:dxgi.dll (00007FF9FA2B0000), size: 995328 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\directxdatabasehelper.dll:directxdatabasehelper.dll (00007FF9F7760000), size: 278528 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.653
+C:\WINDOWS\SYSTEM32\ntmarta.dll:ntmarta.dll (00007FF9FA470000), size: 212992 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_47917a79b8c7fd22\nvldumdx.dll:nvldumdx.dll (00007FF9F2C30000), size: 1142784 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 31.0.15.1694
+C:\WINDOWS\SYSTEM32\cryptnet.dll:cryptnet.dll (00007FF9F4BD0000), size: 200704 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\drvstore.dll:drvstore.dll (00007FF9F4A80000), size: 1347584 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.120
+C:\WINDOWS\SYSTEM32\devobj.dll:devobj.dll (00007FF9FC790000), size: 180224 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\wldp.dll:wldp.dll (00007FF9FC3E0000), size: 266240 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.918
+C:\WINDOWS\SYSTEM32\cryptbase.dll:cryptbase.dll (00007FF9FC330000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\System32\imagehlp.dll:imagehlp.dll (00007FF9FE150000), size: 126976 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\CRYPTSP.dll:CRYPTSP.dll (00007FF9FC310000), size: 98304 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\system32\rsaenh.dll:rsaenh.dll (00007FF9FBC00000), size: 217088 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.282
+C:\WINDOWS\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_47917a79b8c7fd22\nvwgf2umx.dll:nvwgf2umx.dll (00007FF9C3790000), size: 44015616 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 31.0.15.1694
+C:\WINDOWS\system32\nvspcap64.dll:nvspcap64.dll (00007FF96C480000), size: 2912256 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 3.25.1.27
+C:\WINDOWS\system32\wbem\wbemprox.dll:wbemprox.dll (00007FF9F30E0000), size: 65536 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\wbemcomn.dll:wbemcomn.dll (00007FF9EF550000), size: 532480 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\system32\wbem\wbemsvc.dll:wbemsvc.dll (00007FF9F20C0000), size: 81920 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\system32\wbem\fastprox.dll:fastprox.dll (00007FF9F1B80000), size: 1024000 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\amsi.dll:amsi.dll (00007FF9E7DA0000), size: 151552 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.593
+C:\WINDOWS\SYSTEM32\USERENV.dll:USERENV.dll (00007FF9FC1C0000), size: 167936 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2207.7-0\MpOav.dll:MpOav.dll (00007FF9E7C20000), size: 503808 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 4.18.2207.7
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\cudart64_90.dll:cudart64_90.dll (00007FF9C79E0000), size: 397312 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 6.14.11.9000
+C:\WINDOWS\SYSTEM32\opencl.dll:opencl.dll (00007FF99BAC0000), size: 1474560 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 3.0.1.0
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\radeonrays.dll:radeonrays.dll (00007FF9C0C70000), size: 557056 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.2.0b8\Editor\Data\MonoBleedingEdge\EmbedRuntime\mono-2.0-bdwgc.dll:mono-2.0-bdwgc.dll (00007FF9591C0000), size: 10690560 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\SYSTEM32\PROPSYS.dll:PROPSYS.dll (00007FF9F8CA0000), size: 1011712 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 7.0.22000.37
+C:\Windows\System32\Windows.FileExplorer.Common.dll:Windows.FileExplorer.Common.dll (00007FF9D5C60000), size: 487424 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.653
+C:\Windows\System32\iertutil.dll:iertutil.dll (00007FF9F6680000), size: 2830336 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 11.0.22000.918
+C:\Windows\System32\Windows.StateRepositoryPS.dll:Windows.StateRepositoryPS.dll (00007FF9E18E0000), size: 1261568 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\WINDOWS\SYSTEM32\windows.staterepositoryclient.dll:windows.staterepositoryclient.dll (00007FF9F20E0000), size: 253952 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\WINDOWS\SYSTEM32\edputil.dll:edputil.dll (00007FF9DA990000), size: 155648 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\VAULTCLI.dll:VAULTCLI.dll (00007FF9DF4C0000), size: 364544 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.613
+C:\WINDOWS\SYSTEM32\urlmon.dll:urlmon.dll (00007FF9F6ED0000), size: 2027520 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 11.0.22000.918
+C:\WINDOWS\SYSTEM32\srvcli.dll:srvcli.dll (00007FF9F7640000), size: 163840 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.613
+C:\WINDOWS\SYSTEM32\netutils.dll:netutils.dll (00007FF9FB7C0000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.434
+C:\Windows\System32\cldapi.dll:cldapi.dll (00007FF9DCFE0000), size: 139264 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.653
+C:\Windows\System32\appresolver.dll:appresolver.dll (00007FF9E0BB0000), size: 704512 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\Windows\System32\Bcp47Langs.dll:Bcp47Langs.dll (00007FF9E76F0000), size: 413696 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.71
+C:\Windows\System32\OneCoreUAPCommonProxyStub.dll:OneCoreUAPCommonProxyStub.dll (00007FF9F30F0000), size: 8478720 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.708
+C:\Windows\System32\Windows.System.Launcher.dll:Windows.System.Launcher.dll (00007FF9F21A0000), size: 1290240 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.434
+C:\Windows\System32\msvcp110_win.dll:msvcp110_win.dll (00007FF9F8920000), size: 598016 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+C:\WINDOWS\SYSTEM32\windows.staterepositorycore.dll:windows.staterepositorycore.dll (00007FF9F5100000), size: 110592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.832
+C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467\comctl32.dll:comctl32.dll (00007FF9EB990000), size: 2772992 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 6.10.22000.120
+C:\Windows\System32\thumbcache.dll:thumbcache.dll (00007FF9D7CE0000), size: 417792 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.51
+C:\WINDOWS\SYSTEM32\dbghelp.dll:dbghelp.dll (00007FF9F3E50000), size: 2232320 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.22000.1
+
+========== OUTPUTTING STACK TRACE ==================
+
+0x00007FF9FCD8474C (KERNELBASE) RaiseException
+0x00007FF681661D02 (Unity) EditorMonoConsole::LogToConsoleImplementation
+0x00007FF681662753 (Unity) EditorMonoConsole::LogToConsoleImplementation
+0x00007FF68231CFCF (Unity) DebugStringToFilePostprocessedStacktrace
+0x00007FF68231C72D (Unity) DebugStringToFile
+0x00007FF681B0CF2F (Unity) LoadDomainAndUserAssemblies
+0x00007FF681B0D5FA (Unity) LoadUserAssemblies
+0x00007FF682005DD8 (Unity) <lambda_562bce4301550418411b7a8dfac72f18>::operator()
+0x00007FF682041572 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)>,asio::io_context::basic_executor_type<std::allocator<void>,0> >::do_complete
+0x00007FF68202D46E (Unity) asio::detail::win_iocp_io_context::do_one
+0x00007FF68202F0D4 (Unity) asio::detail::win_iocp_io_context::run
+0x00007FF68203F91C (Unity) IOService::Run
+0x00007FF68201415F (Unity) AssetImportWorkerClient::Run
+0x00007FF681FDF187 (Unity) RunAssetImportWorkerClientV2
+0x00007FF681FDF20B (Unity) RunAssetImporterV2
+0x00007FF6817DCF7B (Unity) Application::InitializeProject
+0x00007FF681C6DEA5 (Unity) WinMain
+0x00007FF68301E5FE (Unity) __scrt_common_main_seh
+0x00007FF9FDFF54E0 (KERNEL32) BaseThreadInitThunk
+0x00007FF9FF5E485B (ntdll) RtlUserThreadStart
+
+========== END OF STACKTRACE ===========
+
+A crash has been intercepted by the crash handler. For call stack and other details, see the latest crash report generated in:
+ * C:/Users/cocru/AppData/Local/Temp/Unity/Editor/Crashes
