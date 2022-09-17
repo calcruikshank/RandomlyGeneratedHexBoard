@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 using System.Linq;
-public class RandomMapGenerator : MonoBehaviour
+using Unity.Netcode;
+public class RandomMapGenerator : NetworkBehaviour
 {
-
-
     [Range(0, 100)]
     public int iniChance = 25;
     [Range(1, 8)]
@@ -41,10 +40,18 @@ public class RandomMapGenerator : MonoBehaviour
     int height;
 
 
-    private void Awake()
+    public override void OnNetworkSpawn()
     {
         doSim(numR);
+        if (IsHost)
+        {
+        }
     }
+    private void Awake()
+    {
+    }
+
+
 
 
     public void doSim(int nu)

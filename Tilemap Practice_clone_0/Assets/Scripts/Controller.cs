@@ -153,6 +153,7 @@ public class Controller : NetworkBehaviour
             SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
         }
         Instantiate(castle, positionToSpawn, Quaternion.identity);
+        Debug.Log(positionToSpawn);
         SetStateToNothingSelected();
     }
 
