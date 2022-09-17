@@ -5,7 +5,11 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 using System.Linq;
 using Unity.Netcode;
-public class RandomMapGenerator : NetworkBehaviour
+using System;
+using Random = UnityEngine.Random;
+using Unity.Collections;
+
+[Serializable]public class RandomMapGenerator : NetworkBehaviour
 {
     [Range(0, 100)]
     public int iniChance = 25;
@@ -23,6 +27,7 @@ public class RandomMapGenerator : NetworkBehaviour
     public Tilemap baseMap;
     public Tilemap environmentMap;
     public Tilemap botMap;
+
     [SerializeField] TileBase[] tilesToChooseFrom;
 
 
@@ -39,20 +44,21 @@ public class RandomMapGenerator : NetworkBehaviour
     int width;
     int height;
 
+    NetworkVariable<int> seed = new NetworkVariable<int>();
 
     public override void OnNetworkSpawn()
     {
-        doSim(numR);
         if (IsHost)
         {
+            seed.Value = Random.Range(0, 2147483646);
+        }
+        if (IsClient)
+        {
+            Debug.Log(seed.Value);
+            Random.InitState(seed.Value);
+            doSim(numR);
         }
     }
-    private void Awake()
-    {
-    }
-
-
-
 
     public void doSim(int nu)
     {
@@ -106,6 +112,7 @@ public class RandomMapGenerator : NetworkBehaviour
                 botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
             }
         }
+
 
     }
 
