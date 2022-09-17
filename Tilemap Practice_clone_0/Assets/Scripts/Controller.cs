@@ -89,6 +89,10 @@ public class Controller : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         currentCellPosition = grid.WorldToCell(mousePosition);
         if (currentCellPosition != previousCellPosition)
@@ -128,23 +132,28 @@ public class Controller : NetworkBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            placedCellPosition = currentCellPosition;
-            Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
-            if (environmentMap.GetInstantiatedObject(placedCellPosition))
-            {
-                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(placedCellPosition);
-                Destroy(instantiatedObject);
-            }
-
-            SetOwningTile(placedCellPosition);
-
-            for (int i = 0; i < BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles.Count; i++)
-            {
-                SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
-            }
-            Instantiate(castle, positionToSpawn, Quaternion.identity);
-            SetStateToNothingSelected();
+            LeftClickHandlePlacingCastleServerRpc(currentCellPosition);
         }
+    }
+
+    void LocalPlaceCastle(Vector3Int positionSent)
+    {
+        placedCellPosition = positionSent;
+        Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
+        if (environmentMap.GetInstantiatedObject(placedCellPosition))
+        {
+            GameObject instantiatedObject = environmentMap.GetInstantiatedObject(placedCellPosition);
+            Destroy(instantiatedObject);
+        }
+
+        SetOwningTile(placedCellPosition);
+
+        for (int i = 0; i < BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles.Count; i++)
+        {
+            SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
+        }
+        Instantiate(castle, positionToSpawn, Quaternion.identity);
+        SetStateToNothingSelected();
     }
 
     void HandleNothingSelected()
@@ -290,4 +299,21 @@ public class Controller : NetworkBehaviour
         state = State.NothingSelected;
     }
 
+
+
+
+
+    #region RPCS
+
+    [ServerRpc]
+    private void LeftClickHandlePlacingCastleServerRpc(Vector3Int positionSent)
+    {
+        LeftClickHandlePlacingCastleClientRpc(positionSent);
+    }
+
+    [ClientRpc] private void LeftClickHandlePlacingCastleClientRpc(Vector3Int positionSent)
+    {
+        LocalPlaceCastle(positionSent);
+    }
+    #endregion
 }
