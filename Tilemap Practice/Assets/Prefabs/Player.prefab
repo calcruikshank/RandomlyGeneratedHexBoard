@@ -119,7 +119,7 @@ MonoBehaviour:
   - {fileID: 5255841600039758024, guid: a537093ed9ea8cb4fa6b52c94ea281da, type: 3}
   cardSelected: {fileID: 0}
   allVertextPointsInTilesOwned: []
-  cardParent: {fileID: 0}
+  cardParent: {fileID: 2345043074193135161, guid: 216d4af215eff9342815983c150fd6ac, type: 3}
 --- !u!114 &8164691875682251415
 MonoBehaviour:
   m_ObjectHideFlags: 0

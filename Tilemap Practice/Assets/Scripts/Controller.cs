@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class Controller : NetworkBehaviour
 {
@@ -38,7 +39,8 @@ public class Controller : NetworkBehaviour
 
     Transform castle;
     Creature creatureSelected;
-    Vector3Int currentCellPosition;
+    Vector3Int currentLocalHoverCellPosition;
+    Vector3Int cellPositionSentToClients;
     Vector3Int targetedCellPosition;
 
     [SerializeField] LayerMask creatureMask;
@@ -57,7 +59,10 @@ public class Controller : NetworkBehaviour
     public GameObject cardSelected;
     public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
 
-    Transform cardParent;
+    [SerializeField]Transform cardParent;
+    Transform instantiatedPlayerUI;
+
+    Canvas canvasMain;
 
     public override void OnNetworkSpawn()
     {
@@ -66,6 +71,7 @@ public class Controller : NetworkBehaviour
     void Start()
     {
         GrabAllObjectsFromGameManager();
+        SpawnHUDAndHideOnAllNonOwners();
         state = State.PlacingCastle;
         mousePositionScript = GetComponent<MousePositionScript>();
         for (int i = 0; i < 3; i++)
@@ -76,6 +82,7 @@ public class Controller : NetworkBehaviour
 
     void GrabAllObjectsFromGameManager()
     {
+        canvasMain = FindObjectOfType<Canvas>();
         highlightTile = GameManager.singleton.highlightTile;
         highlightMap = GameManager.singleton.highlightMap;// set these = to gamemanage.singleton.highlightmap TODO
         baseMap = GameManager.singleton.baseMap;
@@ -83,23 +90,50 @@ public class Controller : NetworkBehaviour
         waterMap = GameManager.singleton.waterTileMap;
         grid = GameManager.singleton.grid;
         castle = GameManager.singleton.castleTransform;
-        cardParent = GameManager.singleton.cardParent;
+    }
+    void SpawnHUDAndHideOnAllNonOwners()
+    {
+        instantiatedPlayerUI = Instantiate(cardParent, canvasMain.transform);
+        if (!IsOwner)
+        {
+            instantiatedPlayerUI.GetComponent<Image>().enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //all logic before checking if is owner this includes drawing cards/manaetc
+        switch (state)
+        {
+            case State.PlacingCastle:
+                break;
+            case State.NothingSelected:
+                HandleMana();
+                HandleDrawCards();
+                break;
+            case State.CreatureInHandSelected:
+                HandleMana();
+                HandleDrawCards();
+                break;
+            case State.CreatureSelected:
+                HandleMana();
+                HandleDrawCards();
+                break;
+        }
+
         if (!IsOwner)
         {
             return;
         }
-        currentCellPosition = grid.WorldToCell(mousePosition);
+        currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
-        if (currentCellPosition != previousCellPosition)
+        if (currentLocalHoverCellPosition != previousCellPosition)
         {
             highlightMap.SetTile(previousCellPosition, null);
-            highlightMap.SetTile(currentCellPosition, highlightTile);
-            previousCellPosition = currentCellPosition;
+            highlightMap.SetTile(currentLocalHoverCellPosition, highlightTile);
+            previousCellPosition = currentLocalHoverCellPosition;
             //Debug.Log(baseMap.GetInstantiatedObject(currentCellPosition));
         }
 
@@ -113,14 +147,13 @@ public class Controller : NetworkBehaviour
 
     void LocalLeftClick(Vector3 positionSent)
     {
-        currentCellPosition = grid.WorldToCell(positionSent); 
         switch (state)
         {
             case State.PlacingCastle:
-                HandlePlacingCastle();
+                HandlePlacingCastle(positionSent);
                 break;
             case State.NothingSelected:
-                HandleNothingSelected();
+                HandleNothingSelected(positionSent);
                 HandleMana();
                 HandleDrawCards();
                 break;
@@ -136,14 +169,10 @@ public class Controller : NetworkBehaviour
                 break;
         }
     }
-    void HandlePlacingCastle()
+    void HandlePlacingCastle(Vector3 positionSent)
     {
-        LocalPlaceCastle(currentCellPosition);
-    }
-
-    void LocalPlaceCastle(Vector3Int positionSent)
-    {
-        placedCellPosition = positionSent;
+        cellPositionSentToClients = grid.WorldToCell(positionSent);
+        placedCellPosition = cellPositionSentToClients;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
         if (environmentMap.GetInstantiatedObject(placedCellPosition))
         {
@@ -162,26 +191,25 @@ public class Controller : NetworkBehaviour
         SetStateToNothingSelected();
     }
 
-    void HandleNothingSelected()
+
+    void HandleNothingSelected(Vector3 positionSent)
     {
-        if (Input.GetMouseButtonDown(0))
+        Ray ray = Camera.main.ScreenPointToRay(positionSent);
+        if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
-            if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
+            if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
-                if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
-                {
-                    SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
-                    return;
-                }
+                Debug.Log(raycastHitCardInHand.transform.GetComponent<CardInHand>());
+                SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
+                return;
             }
-            if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
+        }
+        if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
+        {
+            if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
             {
-                if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
-                {
-                    SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
-                    return;
-                }
+                SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
+                return;
             }
         }
     }
@@ -190,7 +218,7 @@ public class Controller : NetworkBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            targetedCellPosition = currentCellPosition;
+            targetedCellPosition = cellPositionSentToClients;
             #region creatureSelected
             if (creatureSelected != null)
             {
@@ -227,10 +255,10 @@ public class Controller : NetworkBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             #region spawningObjects
-            Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition);
-            if (environmentMap.GetInstantiatedObject(currentCellPosition))
+            Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellPositionSentToClients);
+            if (environmentMap.GetInstantiatedObject(cellPositionSentToClients))
             {
-                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(currentCellPosition);
+                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellPositionSentToClients);
                 if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
                 {
                     instantiatedObject.AddComponent<ChangeTransparency>();
@@ -280,7 +308,7 @@ public class Controller : NetworkBehaviour
         }
         CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
         cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
-        GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
+        GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, instantiatedPlayerUI);
         cardsInHand.Add(cardAddingToHand);
     }
 
