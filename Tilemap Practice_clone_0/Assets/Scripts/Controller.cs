@@ -103,8 +103,10 @@ public class Controller : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //all logic before checking if is owner this includes drawing cards/manaetc
+        if (!IsOwner)
+        {
+            return;
+        } 
         switch (state)
         {
             case State.PlacingCastle:
@@ -121,11 +123,6 @@ public class Controller : NetworkBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
-        }
-
-        if (!IsOwner)
-        {
-            return;
         }
         currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
@@ -147,13 +144,14 @@ public class Controller : NetworkBehaviour
 
     void LocalLeftClick(Vector3 positionSent)
     {
+        cellPositionSentToClients = grid.WorldToCell(positionSent); 
         switch (state)
         {
             case State.PlacingCastle:
-                HandlePlacingCastle(positionSent);
+                HandlePlacingCastle();
                 break;
             case State.NothingSelected:
-                HandleNothingSelected(positionSent);
+                HandleNothingSelected();
                 HandleMana();
                 HandleDrawCards();
                 break;
@@ -169,10 +167,14 @@ public class Controller : NetworkBehaviour
                 break;
         }
     }
-    void HandlePlacingCastle(Vector3 positionSent)
+    void HandlePlacingCastle()
     {
-        cellPositionSentToClients = grid.WorldToCell(positionSent);
-        placedCellPosition = cellPositionSentToClients;
+        LocalPlaceCastle(cellPositionSentToClients);
+    }
+
+    void LocalPlaceCastle(Vector3Int positionSent)
+    {
+        placedCellPosition = positionSent;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
         if (environmentMap.GetInstantiatedObject(placedCellPosition))
         {
@@ -191,25 +193,26 @@ public class Controller : NetworkBehaviour
         SetStateToNothingSelected();
     }
 
-
-    void HandleNothingSelected(Vector3 positionSent)
+    void HandleNothingSelected()
     {
-        Ray ray = Camera.main.ScreenPointToRay(positionSent);
-        if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+            if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
             {
-                Debug.Log(raycastHitCardInHand.transform.GetComponent<CardInHand>());
-                SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
-                return;
+                if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
+                {
+                    SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
+                    return;
+                }
             }
-        }
-        if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
-        {
-            if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
+            if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
             {
-                SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
-                return;
+                if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
+                {
+                    SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
+                    return;
+                }
             }
         }
     }
