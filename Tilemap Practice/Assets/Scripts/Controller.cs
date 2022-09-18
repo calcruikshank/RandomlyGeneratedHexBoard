@@ -93,8 +93,8 @@ public class Controller : NetworkBehaviour
         {
             return;
         }
-        mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         currentCellPosition = grid.WorldToCell(mousePosition);
+        mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         if (currentCellPosition != previousCellPosition)
         {
             highlightMap.SetTile(previousCellPosition, null);
@@ -103,7 +103,17 @@ public class Controller : NetworkBehaviour
             //Debug.Log(baseMap.GetInstantiatedObject(currentCellPosition));
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerHitLeftClickServerRpc(mousePosition);
+            return;
+        }
 
+    }
+
+    void LocalLeftClick(Vector3 positionSent)
+    {
+        currentCellPosition = grid.WorldToCell(positionSent); 
         switch (state)
         {
             case State.PlacingCastle:
@@ -125,18 +135,8 @@ public class Controller : NetworkBehaviour
                 HandleDrawCards();
                 break;
         }
-        return;
     }
-
     void HandlePlacingCastle()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            LeftClickHandlePlacingCastleServerRpc(currentCellPosition);
-        }
-    }
-
-    void LocalPlaceCastle(Vector3Int positionSent)
     {
         placedCellPosition = positionSent;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
@@ -307,14 +307,14 @@ public class Controller : NetworkBehaviour
     #region RPCS
 
     [ServerRpc]
-    private void LeftClickHandlePlacingCastleServerRpc(Vector3Int positionSent)
+    private void PlayerHitLeftClickServerRpc (Vector3 positionSent)
     {
-        LeftClickHandlePlacingCastleClientRpc(positionSent);
+        PlayerHitLeftClickClientRpc(positionSent);
     }
-
-    [ClientRpc] private void LeftClickHandlePlacingCastleClientRpc(Vector3Int positionSent)
+    [ClientRpc]
+    private void PlayerHitLeftClickClientRpc(Vector3 positionSent)
     {
-        LocalPlaceCastle(positionSent);
+        LocalLeftClick (positionSent);
     }
     #endregion
 }
