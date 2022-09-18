@@ -138,6 +138,11 @@ public class Controller : NetworkBehaviour
     }
     void HandlePlacingCastle()
     {
+        LocalPlaceCastle(currentCellPosition);
+    }
+
+    void LocalPlaceCastle(Vector3Int positionSent)
+    {
         placedCellPosition = positionSent;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
         if (environmentMap.GetInstantiatedObject(placedCellPosition))
