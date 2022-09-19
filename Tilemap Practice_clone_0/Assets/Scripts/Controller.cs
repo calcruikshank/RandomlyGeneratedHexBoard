@@ -201,7 +201,9 @@ public class Controller : NetworkBehaviour
         {
             if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
-                SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
+                //do an rpc and send an index 
+                SetCardSelectedServerRpc(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
+                //SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
                 return;
             }
         }
@@ -215,6 +217,10 @@ public class Controller : NetworkBehaviour
         }
     }
 
+    void LocalSelectCardWithIndex(int indexOfCardSelected)
+    {
+        Debug.Log(indexOfCardSelected);
+    }
     void HandleCreatureOnBoardSelected()
     {
         if (Input.GetMouseButtonDown(0))
@@ -354,6 +360,16 @@ public class Controller : NetworkBehaviour
     private void PlayerHitLeftClickClientRpc(Vector3 positionSent)
     {
         LocalLeftClick(positionSent);
+    }
+    [ServerRpc]
+    private void SetCardSelectedServerRpc(int indexOfCardSelected)
+    {
+        SetCardSelectedClientRpc(indexOfCardSelected);
+    }
+    [ClientRpc]
+    private void SetCardSelectedClientRpc(int indexOfCardSelected)
+    {
+        LocalSelectCardWithIndex(indexOfCardSelected);
     }
     #endregion
 }

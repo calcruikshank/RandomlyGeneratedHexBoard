@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public TileBase highlightTile;
 
     public Transform cardParent;
-    public List<Controller> playerList = new List<Controller>();
+    List<Controller> playerList = new List<Controller>();
     private void Awake()
     {
         if (singleton != null) Destroy(this);
@@ -33,5 +33,6 @@ public class GameManager : MonoBehaviour
         Game, 
         End //Setup for scaling
     }
+
 
 }
