@@ -27,13 +27,4 @@ public class MousePositionScript : MonoBehaviour
     {
         return mousePositionWorldPoint;
     }
-    public Vector3 GetMousePositionWorldPointGivenInput(Vector3 positionSent)
-    {
-        Ray ray = mainCamera.ScreenPointToRay(positionSent);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, baseTileMap))
-        {
-            mousePositionWorldPoint = raycastHit.point;
-        }
-        return mousePositionWorldPoint;
-    }
 }

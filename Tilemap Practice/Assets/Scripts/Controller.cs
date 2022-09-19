@@ -59,7 +59,7 @@ public class Controller : NetworkBehaviour
     public GameObject cardSelected;
     public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
 
-    [SerializeField]Transform cardParent;
+    [SerializeField] Transform cardParent;
     Transform instantiatedPlayerUI;
 
     Canvas canvasMain;
@@ -103,10 +103,6 @@ public class Controller : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner)
-        {
-            return;
-        } 
         switch (state)
         {
             case State.PlacingCastle:
@@ -123,6 +119,10 @@ public class Controller : NetworkBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
+        }
+        if (!IsOwner)
+        {
+            return;
         }
         currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
@@ -136,7 +136,16 @@ public class Controller : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            PlayerHitLeftClickServerRpc(mousePosition);
+
+            if (state == State.NothingSelected)
+            {
+                HandleNothingSelected();
+            }
+            else
+            {
+                //if it is going to going to happen on everyone's computer put it here
+                PlayerHitLeftClickServerRpc(mousePosition);
+            }
             return;
         }
 
@@ -144,26 +153,19 @@ public class Controller : NetworkBehaviour
 
     void LocalLeftClick(Vector3 positionSent)
     {
-        cellPositionSentToClients = grid.WorldToCell(positionSent); 
+        cellPositionSentToClients = grid.WorldToCell(positionSent);
         switch (state)
         {
             case State.PlacingCastle:
                 HandlePlacingCastle();
                 break;
             case State.NothingSelected:
-                HandleNothingSelected();
-                HandleMana();
-                HandleDrawCards();
                 break;
             case State.CreatureInHandSelected:
                 HandleCreatureInHandSelected();
-                HandleMana();
-                HandleDrawCards();
                 break;
             case State.CreatureSelected:
                 HandleCreatureOnBoardSelected();
-                HandleMana();
-                HandleDrawCards();
                 break;
         }
     }
@@ -189,30 +191,26 @@ public class Controller : NetworkBehaviour
             SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
         }
         Instantiate(castle, positionToSpawn, Quaternion.identity);
-        Debug.Log(positionToSpawn);
         SetStateToNothingSelected();
     }
 
     void HandleNothingSelected()
     {
-        if (Input.GetMouseButtonDown(0))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
-            if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
+            if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
-                if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
-                {
-                    SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
-                    return;
-                }
+                SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
+                return;
             }
-            if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
+        }
+        if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
+        {
+            if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
             {
-                if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
-                {
-                    SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
-                    return;
-                }
+                SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
+                return;
             }
         }
     }
@@ -255,25 +253,20 @@ public class Controller : NetworkBehaviour
 
     void HandleCreatureInHandSelected()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellPositionSentToClients);
+        if (environmentMap.GetInstantiatedObject(cellPositionSentToClients))
         {
-            #region spawningObjects
-            Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellPositionSentToClients);
-            if (environmentMap.GetInstantiatedObject(cellPositionSentToClients))
+            GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellPositionSentToClients);
+            if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
             {
-                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellPositionSentToClients);
-                if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
-                {
-                    instantiatedObject.AddComponent<ChangeTransparency>();
-                }
-                ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
-                instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+                instantiatedObject.AddComponent<ChangeTransparency>();
             }
-            Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
-            cardSelected.GetComponent<Creature>().playerOwningCreature = this;
-            SetStateToNothingSelected();
-            #endregion
+            ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
+            instantiatedObjectsChangeTransparency.ChangeTransparent(100);
         }
+        Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
+        cardSelected.GetComponent<Creature>().playerOwningCreature = this;
+        SetStateToNothingSelected();
     }
 
 
@@ -311,17 +304,27 @@ public class Controller : NetworkBehaviour
         }
         CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
         cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
+
         GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, instantiatedPlayerUI);
-        cardsInHand.Add(cardAddingToHand);
+        cardInHand.GetComponent<CardInHand>().indexOfCard = cardsInHand.Count;
+        cardsInHand.Add(cardInHand.GetComponent<CardInHand>());
     }
 
 
 
-
+    int indexOfCardInHandSelected;
     public void SetToCardSelected(CardInHand cardInHand)
     {
         //todo check if card selected is a creature
         cardSelected = cardInHand.GameObjectToInstantiate.gameObject;
+        for (int i = 0; i < cardsInHand.Count; i++)
+        {
+            if (cardsInHand[i].indexOfCard == cardInHand.indexOfCard)
+            {
+                indexOfCardInHandSelected = i;
+            }
+        }
+        Debug.Log(indexOfCardInHandSelected + " Index of card selected " + cardInHand.gameObject.name);
         state = State.CreatureInHandSelected;
     }
     public void SetToCreatureOnFieldSelected(Creature creatureSelectedSent)
@@ -343,14 +346,14 @@ public class Controller : NetworkBehaviour
     #region RPCS
 
     [ServerRpc]
-    private void PlayerHitLeftClickServerRpc (Vector3 positionSent)
+    private void PlayerHitLeftClickServerRpc(Vector3 positionSent)
     {
         PlayerHitLeftClickClientRpc(positionSent);
     }
     [ClientRpc]
     private void PlayerHitLeftClickClientRpc(Vector3 positionSent)
     {
-        LocalLeftClick (positionSent);
+        LocalLeftClick(positionSent);
     }
     #endregion
 }
