@@ -219,42 +219,50 @@ public class Controller : NetworkBehaviour
 
     void LocalSelectCardWithIndex(int indexOfCardSelected)
     {
-        Debug.Log(indexOfCardSelected);
+        CardInHand cardToSelect;
+        for (int i = 0; i < cardsInHand.Count; i++)
+        {
+            if (cardsInHand[i].indexOfCard == indexOfCardSelected)
+            {
+                cardToSelect = cardsInHand[i];
+                cardSelected = cardToSelect.GameObjectToInstantiate.gameObject;
+                Debug.Log(indexOfCardInHandSelected + " Index of card selected " + cardToSelect.gameObject.name);
+                state = State.CreatureInHandSelected;
+            }
+        }
+        
     }
     void HandleCreatureOnBoardSelected()
     {
-        if (Input.GetMouseButtonDown(0))
+        targetedCellPosition = cellPositionSentToClients;
+        #region creatureSelected
+        if (creatureSelected != null)
         {
-            targetedCellPosition = cellPositionSentToClients;
-            #region creatureSelected
-            if (creatureSelected != null)
+            //determine if 
+            //Vector3 positionToTarget = GetWorldPositionOfCell();
+
+            //select a tile if the tile contains something that isnt targetable then find nearest unnocupied tile and move to it
+            /*if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition))
             {
-                //determine if 
-                //Vector3 positionToTarget = GetWorldPositionOfCell();
-
-                //select a tile if the tile contains something that isnt targetable then find nearest unnocupied tile and move to it
-                /*if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition))
+                Creature creatureOnTileHit = BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition);
+                //if the creature is a friendly creature hit move to nearest tile
+                if (creatureOnTileHit.playerOwningCreature == this)
                 {
-                    Creature creatureOnTileHit = BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition);
-                    //if the creature is a friendly creature hit move to nearest tile
-                    if (creatureOnTileHit.playerOwningCreature == this)
-                    {
-                        BaseTile tileToMoveTo = BaseMapTileState.singleton.GetNearestUnnocupiedBaseTileGivenCell(creatureSelected.tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
-                        creatureSelected.SetMove(GetWorldPositionOfCell(tileToMoveTo.tilePosition));
-                    }
-                }*/
-                creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition));
-
-                if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition) == creatureSelected.tileCurrentlyOn) //this makes sure you can double click to stop the creature and also have it selected
-                {
-                    SetToCreatureOnFieldSelected(creatureSelected);
-                    return;
+                    BaseTile tileToMoveTo = BaseMapTileState.singleton.GetNearestUnnocupiedBaseTileGivenCell(creatureSelected.tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+                    creatureSelected.SetMove(GetWorldPositionOfCell(tileToMoveTo.tilePosition));
                 }
-                creatureSelected = null;
-                SetStateToNothingSelected();
+            }*/
+            creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition));
+
+            if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition) == creatureSelected.tileCurrentlyOn) //this makes sure you can double click to stop the creature and also have it selected
+            {
+                SetToCreatureOnFieldSelected(creatureSelected);
+                return;
             }
-            #endregion
+            creatureSelected = null;
+            SetStateToNothingSelected();
         }
+        #endregion
     }
 
     void HandleCreatureInHandSelected()
@@ -319,7 +327,7 @@ public class Controller : NetworkBehaviour
 
 
     int indexOfCardInHandSelected;
-    public void SetToCardSelected(CardInHand cardInHand)
+    /*public void SetToCardSelected(CardInHand cardInHand)
     {
         //todo check if card selected is a creature
         cardSelected = cardInHand.GameObjectToInstantiate.gameObject;
@@ -332,7 +340,7 @@ public class Controller : NetworkBehaviour
         }
         Debug.Log(indexOfCardInHandSelected + " Index of card selected " + cardInHand.gameObject.name);
         state = State.CreatureInHandSelected;
-    }
+    }*/
     public void SetToCreatureOnFieldSelected(Creature creatureSelectedSent)
     {
         creatureSelected = creatureSelectedSent;
