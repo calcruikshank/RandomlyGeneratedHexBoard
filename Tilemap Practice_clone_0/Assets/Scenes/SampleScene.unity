@@ -12732,6 +12732,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4428311454710422, guid: cd4f2cbde7d033f45a5d96afb77a69e1, type: 3}
   m_PrefabInstance: {fileID: 426638269}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &427876245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 427876246}
+  - component: {fileID: 427876248}
+  - component: {fileID: 427876247}
+  m_Layer: 0
+  m_Name: Lockstep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &427876246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427876245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427876247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427876245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1843648266
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &427876248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427876245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709a7fc72bfbeb44c99a8f74581a7187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tick:
+    m_InternalValue: 0
 --- !u!1001 &431507680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40959,8 +41022,6 @@ MonoBehaviour:
   castleTransform: {fileID: 93194238494730789, guid: 686d43d1302e4a447917903c2d11f2c0, type: 3}
   highlightTile: {fileID: 11400000, guid: a2e0a1bfbd59d6c48a78b8ba9e1bcdeb, type: 2}
   cardParent: {fileID: 1539081632}
-  playerList:
-  - {fileID: 0}
 --- !u!1001 &1384433212
 PrefabInstance:
   m_ObjectHideFlags: 0

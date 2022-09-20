@@ -20,7 +20,12 @@ public class GameManager : MonoBehaviour
     public TileBase highlightTile;
 
     public Transform cardParent;
-    List<Controller> playerList = new List<Controller>();
+    public List<Controller> playerList = new List<Controller>();
+    public List<Controller> playersThatHaveBeenReceived = new List<Controller>();
+
+    public delegate void Tick();
+    public event Tick tick;
+
     private void Awake()
     {
         if (singleton != null) Destroy(this);
@@ -32,6 +37,20 @@ public class GameManager : MonoBehaviour
         Setup, //The state for placing your castle
         Game, 
         End //Setup for scaling
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    public void AddToPlayersThatHaveBeenReceived(Controller controller)
+    {
+        playersThatHaveBeenReceived.Add(controller);
+        if (playersThatHaveBeenReceived.Count == playerList.Count)
+        {
+            tick.Invoke();
+        }
     }
 
 

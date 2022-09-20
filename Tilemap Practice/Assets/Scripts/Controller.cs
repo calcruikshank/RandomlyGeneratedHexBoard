@@ -64,8 +64,13 @@ public class Controller : NetworkBehaviour
 
     Canvas canvasMain;
 
+    public List<Vector3> clickQueueForTick = new List<Vector3>();
+    public int tick = 0; //this is for determining basically everything
+    public float tickTimer; //this is for determining basically everything
+     float tickThreshold = 3f; //this is for determining basically everything
     public override void OnNetworkSpawn()
     {
+
     }
     // Start is called before the first frame update
     void Start()
@@ -82,6 +87,7 @@ public class Controller : NetworkBehaviour
 
     void GrabAllObjectsFromGameManager()
     {
+        GameManager.singleton.tick += OnTick;
         canvasMain = FindObjectOfType<Canvas>();
         highlightTile = GameManager.singleton.highlightTile;
         highlightMap = GameManager.singleton.highlightMap;// set these = to gamemanage.singleton.highlightmap TODO
@@ -90,6 +96,7 @@ public class Controller : NetworkBehaviour
         waterMap = GameManager.singleton.waterTileMap;
         grid = GameManager.singleton.grid;
         castle = GameManager.singleton.castleTransform;
+        GameManager.singleton.playerList.Add(this);
     }
     void SpawnHUDAndHideOnAllNonOwners()
     {
@@ -103,7 +110,7 @@ public class Controller : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (state)
+        /*switch (state)
         {
             case State.PlacingCastle:
                 break;
@@ -119,11 +126,22 @@ public class Controller : NetworkBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
-        }
+        }*/
         if (!IsOwner)
         {
             return;
         }
+
+        tickTimer += Time.deltaTime;
+        if (tickTimer > tickThreshold)
+        {
+            tickTimer = 0;
+            SendAllInputsInQueue();
+            //sendEmptyEvent
+        }
+
+
+
         currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         if (currentLocalHoverCellPosition != previousCellPosition)
@@ -139,16 +157,67 @@ public class Controller : NetworkBehaviour
 
             if (state == State.NothingSelected)
             {
-                HandleNothingSelected();
+                //HandleNothingSelected();
             }
             else
             {
-                //if it is going to going to happen on everyone's computer put it here
-                PlayerHitLeftClickServerRpc(mousePosition);
+                AddToTickQueue(mousePosition);
             }
             return;
         }
 
+    }
+    void AddToTickQueue(Vector3 positionSent)
+    {
+        clickQueueForTick.Add(positionSent);
+        Debug.LogError(clickQueueForTick.Count + " click queue count");
+        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+        {
+            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+            
+        }
+    }
+    void SendAllInputsInQueue()
+    {
+        if (clickQueueForTick.Count > 0)
+        {
+            for (int i = 0; i < clickQueueForTick.Count; i++)
+            {
+                PlayerHitLeftClickServerRpc(clickQueueForTick[i]);
+            }
+            return; //todo put this return right before the last rpc call
+        }
+
+        //if indexqueuefortick.count is greater than 0 then do the cardinhand selected rpc
+        SendEmptyInputServerRpc();
+        SendEmptyInputLocally();
+    }
+    void SendEmptyInputLocally()
+    {
+        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+        {
+            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+
+        }
+    }
+    void EmptyInput()
+    {
+        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+        {
+            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+
+        }
+    }
+    void OnTick()
+    {
+        for (int i = 0; i < clickQueueForTick.Count; i++)
+        {
+            Debug.Log(clickQueueForTick[i]);
+            LocalLeftClick(clickQueueForTick[i]);
+        }
+        tick++;
+        clickQueueForTick.Clear();
+        GameManager.singleton.playersThatHaveBeenReceived.Clear();
     }
 
     void LocalLeftClick(Vector3 positionSent)
@@ -191,7 +260,7 @@ public class Controller : NetworkBehaviour
             SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
         }
         Instantiate(castle, positionToSpawn, Quaternion.identity);
-        SetStateToNothingSelected();
+        //SetStateToNothingSelected();
     }
 
     void HandleNothingSelected()
@@ -230,7 +299,7 @@ public class Controller : NetworkBehaviour
                 state = State.CreatureInHandSelected;
             }
         }
-        
+
     }
     void HandleCreatureOnBoardSelected()
     {
@@ -367,7 +436,9 @@ public class Controller : NetworkBehaviour
     [ClientRpc]
     private void PlayerHitLeftClickClientRpc(Vector3 positionSent)
     {
-        LocalLeftClick(positionSent);
+        if (IsOwner) return;
+        AddToTickQueue(positionSent);
+        //LocalLeftClick(positionSent);
     }
     [ServerRpc]
     private void SetCardSelectedServerRpc(int indexOfCardSelected)
@@ -378,6 +449,20 @@ public class Controller : NetworkBehaviour
     private void SetCardSelectedClientRpc(int indexOfCardSelected)
     {
         LocalSelectCardWithIndex(indexOfCardSelected);
+    }
+    [ServerRpc]
+    private void SendEmptyInputServerRpc()
+    {
+        SendEmptyInputClientRpc();
+    }
+    [ClientRpc]
+    private void SendEmptyInputClientRpc()
+    {
+        if (IsOwner)
+        {
+            return;
+        }
+        EmptyInput();
     }
     #endregion
 }

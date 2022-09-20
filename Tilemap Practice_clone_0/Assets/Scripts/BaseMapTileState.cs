@@ -104,7 +104,6 @@ public class BaseMapTileState : MonoBehaviour
         {
             greatestABSValueInVector = absOfZ;
         }
-        Debug.Log(greatestABSValueInVector);
         return greatestABSValueInVector;
     }
 }
