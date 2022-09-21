@@ -1,0 +1,490 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.9f1 (ad3870b89536) revision 11352176'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22000) 64bit Core' Language: 'en' Physical Memory: 32694 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker6
+-projectPath
+C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
+-logFile
+Logs/AssetImportWorker6.log
+-srvPort
+64420
+Successfully changed project path to: C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
+C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 117.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.9f1 (ad3870b89536)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:   NVIDIA
+    VRAM:     12108 MB
+    Driver:   31.0.15.1694
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56416
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004399 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 117.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.625 seconds
+Domain Reload Profiling:
+	ReloadAssembly (626ms)
+		BeginReloadAssembly (58ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (477ms)
+			LoadAssemblies (57ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (91ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (25ms)
+			SetupLoadedEditorAssemblies (313ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (55ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (117ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (95ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007887 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 102.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.199 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1200ms)
+		BeginReloadAssembly (204ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (125ms)
+		EndReloadAssembly (895ms)
+			LoadAssemblies (75ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (205ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (508ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (103ms)
+				BeforeProcessingInitializeOnLoad (120ms)
+				ProcessInitializeOnLoadAttributes (224ms)
+				ProcessInitializeOnLoadMethodAttributes (42ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4938 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (55.4 KB). Loaded Objects now: 5405.
+Memory consumption went from 183.8 MB to 183.7 MB.
+Total: 2.872100 ms (FindLiveObjects: 0.348200 ms CreateObjectMapping: 0.117300 ms MarkObjects: 2.342800 ms  DeleteObjects: 0.062900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 282277.069061 seconds.
+  path: Assets/TextMesh Pro/Sprites/EmojiOne.png
+  artifactKey: Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Sprites/EmojiOne.png using Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82805709879cf9a3f4098b5f325b9a75') in 0.099870 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.414405 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Sprites/DropCap Numbers.psd
+  artifactKey: Guid(fd09957580ac4326916010f1f260975b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Sprites/DropCap Numbers.psd using Guid(fd09957580ac4326916010f1f260975b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c5f9ca41f11001cc7c5262f7812f74e') in 0.019975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.355752 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Textures/Floor Tiles 1 - diffuse.jpg
+  artifactKey: Guid(85ac55597b97403c82fc6601a93cf241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Textures/Floor Tiles 1 - diffuse.jpg using Guid(85ac55597b97403c82fc6601a93cf241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '157e99d273968510e2875c721c61734f') in 0.018282 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.018635 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers.ttf
+  artifactKey: Guid(5dd49b3eacc540408c98eee0de38e0f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers.ttf using Guid(5dd49b3eacc540408c98eee0de38e0f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f411dc487d862051c8615ed2fedf126') in 0.061511 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.533967 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold.ttf
+  artifactKey: Guid(c9f6d0e7bc8541498c9a4799ba184ede) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold.ttf using Guid(c9f6d0e7bc8541498c9a4799ba184ede) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c39f9c91bf5165c219272e3d19e471cd') in 0.020149 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.500994 seconds.
+  path: Assets/Dragon TCG v1.1/Dragons Images/gold_dragon_02-assets/golden01.png
+  artifactKey: Guid(0fb29b07bae6b4ab09662c7e2c3d8ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/Dragons Images/gold_dragon_02-assets/golden01.png using Guid(0fb29b07bae6b4ab09662c7e2c3d8ced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2a4c20ae82b3abdd8236ac8e1d6d7df') in 0.267597 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.319902 seconds.
+  path: Assets/Dragon TCG v1.1/square images/golden02.png
+  artifactKey: Guid(a2fd88e4ec0eb4d95bca564b40859907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/square images/golden02.png using Guid(a2fd88e4ec0eb4d95bca564b40859907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61e1b63dc3885b00709af0cff0c516a4') in 0.258407 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.476285 seconds.
+  path: Assets/Dragon TCG v1.1/croped images/golden03.png
+  artifactKey: Guid(5c2fcba1e108041d99497777578ad9d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/croped images/golden03.png using Guid(5c2fcba1e108041d99497777578ad9d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fad63d048723cd4a86700a9c49df9d7') in 0.240237 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.122531 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_wing_04.png
+  artifactKey: Guid(807271e326f294286bb7302b5ccb29b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_wing_04.png using Guid(807271e326f294286bb7302b5ccb29b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fbf3320e3b00d93437a155111c9df31') in 0.056989 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.332510 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_tail_05.png
+  artifactKey: Guid(47120f082c3cf4e3c92e5e7f72cbd176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_tail_05.png using Guid(47120f082c3cf4e3c92e5e7f72cbd176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd9eac15f530f9fd1dd22ad1ac03e2df') in 0.035080 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.024358 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_tail_03.png
+  artifactKey: Guid(438b795fda244488998d978a1fde1752) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_tail_03.png using Guid(438b795fda244488998d978a1fde1752) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '490c299e9383d934e9a442fc173108ac') in 0.028033 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.323287 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_tail_01.png
+  artifactKey: Guid(d46809f21edee42d99baef8ccce4858f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_tail_01.png using Guid(d46809f21edee42d99baef8ccce4858f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cbee2145060c826ae61a1c18ed94284') in 0.028046 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.013110 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_head_03.png
+  artifactKey: Guid(95d617d1ca50842169285935d42c75e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/dragon_head_03.png using Guid(95d617d1ca50842169285935d42c75e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a0fc11b9b3841d289af0966796328e2') in 0.051934 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.395529 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/card back.png
+  artifactKey: Guid(8f4cde6d6742f461aa145ef8c505103f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/card back.png using Guid(8f4cde6d6742f461aa145ef8c505103f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3439cd2298d87ffd4fd9e31cac1f33e7') in 0.129182 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.015926 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/boxatk05.png
+  artifactKey: Guid(cf98613b6bcac42caa12624e965da4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/boxatk05.png using Guid(cf98613b6bcac42caa12624e965da4a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6b9de99d15d43527cf9f3dd01446f20') in 0.029447 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.952917 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/boxatk03.png
+  artifactKey: Guid(575dfce283a0d43e6a4cf4fc606b2595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/boxatk03.png using Guid(575dfce283a0d43e6a4cf4fc606b2595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bc8565c4250c699d4eaa5ca37a77439') in 0.023793 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.121789 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/boxatk01.png
+  artifactKey: Guid(3acdc2511a5e843968d5d34c9ee15033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/boxatk01.png using Guid(3acdc2511a5e843968d5d34c9ee15033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4663dc708de99eec7190aa8d91559803') in 0.025087 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.415046 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/border_illustration04.png
+  artifactKey: Guid(f6786e6872fff44e79d6dc9b6b4045c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/border_illustration04.png using Guid(f6786e6872fff44e79d6dc9b6b4045c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b967b3f7dc7aebe86282f3f3f868d5f5') in 0.054339 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.346315 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/border_cardname05.png
+  artifactKey: Guid(0c9bec0e82956404a84848a29b331302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/border_cardname05.png using Guid(0c9bec0e82956404a84848a29b331302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cb40b862e78a456a3eaa7cb808d5bd5') in 0.030441 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.096163 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/border_cardname01.png
+  artifactKey: Guid(f27b5b0b3b71f4135a6eb10908d3f7ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/border_cardname01.png using Guid(f27b5b0b3b71f4135a6eb10908d3f7ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '126db7fe3507d1d1ba8eadce55919cfb') in 0.026778 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.306225 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/border_card04.png
+  artifactKey: Guid(4e84c45662ef84306a3aaae3bf48758d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/border_card04.png using Guid(4e84c45662ef84306a3aaae3bf48758d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4db4b1d79ed827d2d5487284d8631d3') in 0.087415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Dragon TCG v1.1/croped images/bones_03.png
+  artifactKey: Guid(87d730396a12646cb9db0737f29e94b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/croped images/bones_03.png using Guid(87d730396a12646cb9db0737f29e94b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9df30a113534cd0b48329e1d832991c2') in 0.250697 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.023994 seconds.
+  path: Assets/Dragon TCG v1.1/Dragons Images/bone_dragon_02-assets/bones_02.png
+  artifactKey: Guid(37db2b9a2dc444e9997251813f7e4ab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/Dragons Images/bone_dragon_02-assets/bones_02.png using Guid(37db2b9a2dc444e9997251813f7e4ab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c357da6eb2d8d862d056ba7b7009f3fb') in 0.217892 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Dragon TCG v1.1/square images/bones_01.png
+  artifactKey: Guid(53c11dfadeab34c989a521243dd04634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/square images/bones_01.png using Guid(53c11dfadeab34c989a521243dd04634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89d022ee3f1672571b69cbd03bf597a9') in 0.257833 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Dragon TCG v1.1/croped images/blue03.png
+  artifactKey: Guid(dc959a14ec4fa4536ae8503ff8fbd080) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/croped images/blue03.png using Guid(dc959a14ec4fa4536ae8503ff8fbd080) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fecbdfda144b900da102313344054231') in 0.218013 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Dragon TCG v1.1/croped images/blue02.png
+  artifactKey: Guid(6468ef80daf4e48dd9bce1b336c668e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/croped images/blue02.png using Guid(6468ef80daf4e48dd9bce1b336c668e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4101ce8618522b2b5e2ebaa014c4f5d3') in 0.229005 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Dragon TCG v1.1/square images/blue02.png
+  artifactKey: Guid(5e57550ee12964a17bd062d502140e4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/square images/blue02.png using Guid(5e57550ee12964a17bd062d502140e4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ba0a26a594a368ca377312e282f7d10') in 0.255629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Dragon TCG v1.1/Dragons Images/black_dragon_02-assets/Black_01.png
+  artifactKey: Guid(2aed8c5faf5f84e8c93f47f7aa663a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/Dragons Images/black_dragon_02-assets/Black_01.png using Guid(2aed8c5faf5f84e8c93f47f7aa663a38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f310efea955f9bca1ffe9be986eaf861') in 0.226139 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/base_card_04.png
+  artifactKey: Guid(260e88e290ad04e2bbd9b15d54f4dca8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/base_card_04.png using Guid(260e88e290ad04e2bbd9b15d54f4dca8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bcd08a669302eb00f12142b7604a50e') in 0.146841 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.056416 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/base_card_01.png
+  artifactKey: Guid(8799d6714e45f4410b59c189a6f13e69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/base_card_01.png using Guid(8799d6714e45f4410b59c189a6f13e69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '975a16439655a4ee2d6e574a3621e914') in 0.141652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/03decoration_02.png
+  artifactKey: Guid(8655417c5b6a94fc1bb9bbeb8504ef37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/03decoration_02.png using Guid(8655417c5b6a94fc1bb9bbeb8504ef37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a22ee23d77725bfa1c19d3efafe2de19') in 0.033362 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.088681 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/03decoration_01.png
+  artifactKey: Guid(67876cc4a85bb4c2a878881f5a3a026c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/03decoration_01.png using Guid(67876cc4a85bb4c2a878881f5a3a026c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f00aa301d4a2e1e0fed04d1b0f5a8ef4') in 0.027448 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.011744 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/02decoration_04.png
+  artifactKey: Guid(a32ad3aee36db4eaebe225b3834698cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/02decoration_04.png using Guid(a32ad3aee36db4eaebe225b3834698cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2d1289c1527cc8038b49a8c2c932e12') in 0.028347 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.006972 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/02decoration_02.png
+  artifactKey: Guid(c08a724df80c44cca989494132e05f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/02decoration_02.png using Guid(c08a724df80c44cca989494132e05f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfea30b5e663408c4a2fdaaf5b93aeb7') in 0.039901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.314787 seconds.
+  path: Assets/Dragon TCG v1.1/dragon_TCG-assets/01decoration_05.png
+  artifactKey: Guid(0f93b437e9d884745a61a444c1cf9af2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/dragon_TCG-assets/01decoration_05.png using Guid(0f93b437e9d884745a61a444c1cf9af2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0e131e5cd0269d27848d23f86a03055') in 0.026392 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007267 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.023 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1024ms)
+		BeginReloadAssembly (106ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (827ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (233ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (396ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (24ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (214ms)
+				ProcessInitializeOnLoadMethodAttributes (46ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4914 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (24.6 KB). Loaded Objects now: 5491.
+Memory consumption went from 186.6 MB to 186.6 MB.
+Total: 5.722000 ms (FindLiveObjects: 0.976900 ms CreateObjectMapping: 0.677700 ms MarkObjects: 4.036500 ms  DeleteObjects: 0.029600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007120 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.074 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1075ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (851ms)
+			LoadAssemblies (89ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (249ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (400ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (23ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (215ms)
+				ProcessInitializeOnLoadMethodAttributes (48ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.16 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4914 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (24.6 KB). Loaded Objects now: 5494.
+Memory consumption went from 186.6 MB to 186.6 MB.
+Total: 4.476800 ms (FindLiveObjects: 0.651100 ms CreateObjectMapping: 0.159000 ms MarkObjects: 3.628400 ms  DeleteObjects: 0.036700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

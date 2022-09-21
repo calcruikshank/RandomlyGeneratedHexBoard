@@ -730,7 +730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e9ab5d53adeb342d4a6f72c4146b3445, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfd4d00cc5a5aa84bad9aa35527e3f1d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1560,6 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObjectToInstantiate: {fileID: 6239865746917987993, guid: c6f04e5db8e24b74e9ee5a6677ac52df, type: 3}
+  indexOfCard: 0
 --- !u!65 &1037695483380822100
 BoxCollider:
   m_ObjectHideFlags: 0

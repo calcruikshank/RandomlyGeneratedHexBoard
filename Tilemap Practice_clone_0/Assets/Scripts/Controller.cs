@@ -65,8 +65,8 @@ public class Controller : NetworkBehaviour
     Canvas canvasMain;
 
     public int tick = 0; //this is for determining basically everything
-    public float tickTimer; //this is for determining basically everything
-    float tickThreshold = .12f; //this is for determining basically everything
+    public float tickTimer = 0f; 
+    float tickThreshold = .12f; 
     public List<Vector3> clickQueueForTick = new List<Vector3>();
     List<Vector3> tempLocalPositionsToSend = new List<Vector3>();
     List<int> tempLocalIndecesOfCardsInHand = new List<int>();
@@ -151,7 +151,7 @@ public class Controller : NetworkBehaviour
         tickTimer += Time.deltaTime;
         if (tickTimer > tickThreshold)
         {
-            tickTimer = 0;
+            tickTimer = 0f;
             SendAllInputsInQueue();
             //sendEmptyEvent
         }
@@ -257,7 +257,7 @@ public class Controller : NetworkBehaviour
         GameManager.singleton.playersThatHaveBeenReceived.Clear();
         if (tempLocalPositionsToSend.Count >= 1 || tempLocalIndecesOfCardsInHand.Count > 0) //or creatures on board selected .count > 0
         {
-            if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+            if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this) && GameManager.singleton.playerList.Count > 1)
             {
                 GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
             }
