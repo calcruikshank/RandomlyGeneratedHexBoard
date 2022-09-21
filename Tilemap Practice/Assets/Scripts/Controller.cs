@@ -67,7 +67,7 @@ public class Controller : NetworkBehaviour
     public List<Vector3> clickQueueForTick = new List<Vector3>();
     public int tick = 0; //this is for determining basically everything
     public float tickTimer; //this is for determining basically everything
-     float tickThreshold = 3f; //this is for determining basically everything
+     float tickThreshold = .12f; //this is for determining basically everything
     public override void OnNetworkSpawn()
     {
 
