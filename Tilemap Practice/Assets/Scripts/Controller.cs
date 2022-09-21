@@ -67,7 +67,7 @@ public class Controller : NetworkBehaviour
     public List<Vector3> clickQueueForTick = new List<Vector3>();
     public int tick = 0; //this is for determining basically everything
     public float tickTimer; //this is for determining basically everything
-     float tickThreshold = .12f; //this is for determining basically everything
+     float tickThreshold = 3f; //this is for determining basically everything
     public override void OnNetworkSpawn()
     {
 
@@ -176,45 +176,45 @@ public class Controller : NetworkBehaviour
     void AddToTickQueue(Vector3 positionSent)
     {
         clickQueueForTick.Add(positionSent);
-        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
-        {
-            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-        }
     }
+
     void SendAllInputsInQueue()
     {
-        if (tempLocalPositionsToSend.Count > 0)
+        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
-            for (int i = 0; i < tempLocalPositionsToSend.Count; i++)
+            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+        }
+        Message message = new Message();
+        message.leftClicksWorldPos = tempLocalPositionsToSend;
+        //set guids of struct
+        string messageString = JsonUtility.ToJson(message);
+        SendMessageServerRpc(messageString);
+
+        for (int i = 0; i < tempLocalPositionsToSend.Count; i++)
+        {
+            clickQueueForTick.Add(tempLocalPositionsToSend[i]);
+        }
+        tempLocalPositionsToSend.Clear();
+    }
+
+    void TranslateToFuntionalStruct(string jsonOfMessage)
+    {
+        Message receievedMessage = JsonUtility.FromJson<Message>(jsonOfMessage);
+        if (receievedMessage.leftClicksWorldPos.Count > 0)
+        {
+            for (int i = 0; i < receievedMessage.leftClicksWorldPos.Count; i++)
             {
-                PlayerHitLeftClickServerRpc(tempLocalPositionsToSend[i]);
-                clickQueueForTick.Add(tempLocalPositionsToSend[i]);
+                AddToTickQueue(receievedMessage.leftClicksWorldPos[i]);
             }
-            tempLocalPositionsToSend.Clear();
-            return; //todo put this return right before the last rpc call
         }
-
-        //if indexqueuefortick.count is greater than 0 then do the cardinhand selected rpc
-        SendEmptyInputServerRpc();
-        EmptyInputLocal();
-    }
-    void EmptyInputLocal()
-    {
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
             GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-        }
-    }
-    void EmptyInput()
-    {
-        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
-        {
-            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-
         }
     }
     void OnTick()
     {
+        tick++;
         for (int i = 0; i < clickQueueForTick.Count; i++)
         {
             LocalLeftClick(clickQueueForTick[i]);
@@ -281,7 +281,6 @@ public class Controller : NetworkBehaviour
             if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
                 //do an rpc and send an index 
-                SetCardSelectedServerRpc(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
                 //SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
                 return;
             }
@@ -440,37 +439,16 @@ public class Controller : NetworkBehaviour
 
 
     #region RPCS
-
     [ServerRpc]
-    private void PlayerHitLeftClickServerRpc(Vector3 positionSent)
+    private void SendMessageServerRpc(string json)
     {
-        PlayerHitLeftClickClientRpc(positionSent);
+        SendMessageClientRpc(json);
     }
     [ClientRpc]
-    private void PlayerHitLeftClickClientRpc(Vector3 positionSent)
+    private void SendMessageClientRpc(string json)
     {
-        AddToTickQueue(positionSent);
-        //LocalLeftClick(positionSent);
-    }
-    [ServerRpc]
-    private void SetCardSelectedServerRpc(int indexOfCardSelected)
-    {
-        SetCardSelectedClientRpc(indexOfCardSelected);
-    }
-    [ClientRpc]
-    private void SetCardSelectedClientRpc(int indexOfCardSelected)
-    {
-        LocalSelectCardWithIndex(indexOfCardSelected);
-    }
-    [ServerRpc]
-    private void SendEmptyInputServerRpc()
-    {
-        SendEmptyInputClientRpc();
-    }
-    [ClientRpc]
-    private void SendEmptyInputClientRpc()
-    {
-        EmptyInput();
+        if (IsOwner) return;
+        TranslateToFuntionalStruct(json);
     }
     #endregion
 }
