@@ -132,13 +132,6 @@ public class Controller : NetworkBehaviour
             return;
         }
 
-        tickTimer += Time.deltaTime;
-        if (tickTimer > tickThreshold)
-        {
-            tickTimer = 0;
-            SendAllInputsInQueue();
-            //sendEmptyEvent
-        }
 
 
 
@@ -152,6 +145,13 @@ public class Controller : NetworkBehaviour
             //Debug.Log(baseMap.GetInstantiatedObject(currentCellPosition));
         }
 
+        tickTimer += Time.deltaTime;
+        if (tickTimer > tickThreshold)
+        {
+            tickTimer = 0;
+            SendAllInputsInQueue();
+            //sendEmptyEvent
+        }
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -161,45 +161,44 @@ public class Controller : NetworkBehaviour
             }
             else
             {
-                AddToTickQueue(mousePosition);
+                AddToTickQueueLocal(mousePosition);
             }
             return;
         }
 
     }
+
+    List<Vector3> tempLocalPositionsToSend = new List<Vector3>();
+    void AddToTickQueueLocal(Vector3 positionSent)
+    {
+        Debug.LogError("Locally");
+        tempLocalPositionsToSend.Add(positionSent);
+    }
     void AddToTickQueue(Vector3 positionSent)
     {
+        Debug.LogError(positionSent);
         clickQueueForTick.Add(positionSent);
-        Debug.LogError(clickQueueForTick.Count + " click queue count");
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
             GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-            
         }
     }
     void SendAllInputsInQueue()
     {
-        if (clickQueueForTick.Count > 0)
+        if (tempLocalPositionsToSend.Count > 0)
         {
-            for (int i = 0; i < clickQueueForTick.Count; i++)
+            for (int i = 0; i < tempLocalPositionsToSend.Count; i++)
             {
-                PlayerHitLeftClickServerRpc(clickQueueForTick[i]);
+                PlayerHitLeftClickServerRpc(tempLocalPositionsToSend[i]);
             }
+            tempLocalPositionsToSend.Clear();
             return; //todo put this return right before the last rpc call
         }
 
         //if indexqueuefortick.count is greater than 0 then do the cardinhand selected rpc
         SendEmptyInputServerRpc();
-        SendEmptyInputLocally();
     }
-    void SendEmptyInputLocally()
-    {
-        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
-        {
-            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
 
-        }
-    }
     void EmptyInput()
     {
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
@@ -436,7 +435,6 @@ public class Controller : NetworkBehaviour
     [ClientRpc]
     private void PlayerHitLeftClickClientRpc(Vector3 positionSent)
     {
-        if (IsOwner) return;
         AddToTickQueue(positionSent);
         //LocalLeftClick(positionSent);
     }
@@ -458,10 +456,6 @@ public class Controller : NetworkBehaviour
     [ClientRpc]
     private void SendEmptyInputClientRpc()
     {
-        if (IsOwner)
-        {
-            return;
-        }
         EmptyInput();
     }
     #endregion
