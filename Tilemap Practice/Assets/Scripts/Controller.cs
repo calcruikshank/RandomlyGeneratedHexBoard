@@ -64,10 +64,13 @@ public class Controller : NetworkBehaviour
 
     Canvas canvasMain;
 
-    public List<Vector3> clickQueueForTick = new List<Vector3>();
     public int tick = 0; //this is for determining basically everything
     public float tickTimer; //this is for determining basically everything
-     float tickThreshold = 3f; //this is for determining basically everything
+    float tickThreshold = .12f; //this is for determining basically everything
+    public List<Vector3> clickQueueForTick = new List<Vector3>();
+    List<Vector3> tempLocalPositionsToSend = new List<Vector3>();
+    List<int> tempLocalIndecesOfCardsInHand = new List<int>();
+    List<int> IndecesOfCardsInHandQueue = new List<int>();
     public override void OnNetworkSpawn()
     {
 
@@ -157,7 +160,7 @@ public class Controller : NetworkBehaviour
 
             if (state == State.NothingSelected)
             {
-                //HandleNothingSelected();
+                HandleNothingSelected();
             }
             else
             {
@@ -168,14 +171,21 @@ public class Controller : NetworkBehaviour
 
     }
 
-    List<Vector3> tempLocalPositionsToSend = new List<Vector3>();
     void AddToTickQueueLocal(Vector3 positionSent)
     {
         tempLocalPositionsToSend.Add(positionSent);
     }
+    void AddIndexOfCardInHandToTickQueueLocal(int index)
+    {
+        tempLocalIndecesOfCardsInHand.Add(index);
+    }
     void AddToTickQueue(Vector3 positionSent)
     {
         clickQueueForTick.Add(positionSent);
+    }
+    void AddToIndexQueue(int indexSent)
+    {
+        IndecesOfCardsInHandQueue.Add(indexSent);
     }
 
     void SendAllInputsInQueue()
@@ -186,6 +196,7 @@ public class Controller : NetworkBehaviour
         }
         Message message = new Message();
         message.leftClicksWorldPos = tempLocalPositionsToSend;
+        message.guidsForCards = tempLocalIndecesOfCardsInHand;
         //set guids of struct
         string messageString = JsonUtility.ToJson(message);
         SendMessageServerRpc(messageString);
@@ -194,7 +205,12 @@ public class Controller : NetworkBehaviour
         {
             clickQueueForTick.Add(tempLocalPositionsToSend[i]);
         }
+        for (int i = 0; i < tempLocalIndecesOfCardsInHand.Count; i++)
+        {
+            IndecesOfCardsInHandQueue.Add(tempLocalIndecesOfCardsInHand[i]);
+        }
         tempLocalPositionsToSend.Clear();
+        tempLocalIndecesOfCardsInHand.Clear();
     }
 
     void TranslateToFuntionalStruct(string jsonOfMessage)
@@ -205,6 +221,13 @@ public class Controller : NetworkBehaviour
             for (int i = 0; i < receievedMessage.leftClicksWorldPos.Count; i++)
             {
                 AddToTickQueue(receievedMessage.leftClicksWorldPos[i]);
+            }
+        }
+        if (receievedMessage.guidsForCards.Count > 0)
+        {
+            for (int i = 0; i < receievedMessage.guidsForCards.Count; i++)
+            {
+                AddToIndexQueue(receievedMessage.guidsForCards[i]);
             }
         }
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
@@ -219,9 +242,14 @@ public class Controller : NetworkBehaviour
         {
             LocalLeftClick(clickQueueForTick[i]);
         }
+        for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
+        {
+            LocalSelectCardWithIndex(IndecesOfCardsInHandQueue[i]);
+        }
         clickQueueForTick.Clear();
+        IndecesOfCardsInHandQueue.Clear();
         GameManager.singleton.playersThatHaveBeenReceived.Clear();
-        if (tempLocalPositionsToSend.Count >= 1)
+        if (tempLocalPositionsToSend.Count >= 1 || tempLocalIndecesOfCardsInHand.Count > 0) //or creatures on board selected .count > 0
         {
             if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
             {
@@ -270,7 +298,7 @@ public class Controller : NetworkBehaviour
             SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
         }
         Instantiate(castle, positionToSpawn, Quaternion.identity);
-        //SetStateToNothingSelected();
+        SetStateToNothingSelected();
     }
 
     void HandleNothingSelected()
@@ -280,6 +308,7 @@ public class Controller : NetworkBehaviour
         {
             if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
+                AddIndexOfCardInHandToTickQueueLocal(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
                 //do an rpc and send an index 
                 //SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
                 return;
