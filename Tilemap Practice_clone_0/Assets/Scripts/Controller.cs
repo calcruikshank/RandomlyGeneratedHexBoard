@@ -243,6 +243,7 @@ public class Controller : NetworkBehaviour
     void OnTick()
     {
         tick++;
+        //order matters here bigtime later set this up in the enum
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
             LocalSelectCardWithIndex(IndecesOfCardsInHandQueue[i]);
@@ -269,7 +270,7 @@ public class Controller : NetworkBehaviour
         switch (state)
         {
             case State.PlacingCastle:
-                HandlePlacingCastle();
+                LocalPlaceCastle(cellPositionSentToClients);
                 break;
             case State.NothingSelected:
                 break;
@@ -280,10 +281,6 @@ public class Controller : NetworkBehaviour
                 HandleCreatureOnBoardSelected();
                 break;
         }
-    }
-    void HandlePlacingCastle()
-    {
-        LocalPlaceCastle(cellPositionSentToClients);
     }
 
     void LocalPlaceCastle(Vector3Int positionSent)
@@ -314,8 +311,6 @@ public class Controller : NetworkBehaviour
             if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
                 AddIndexOfCardInHandToTickQueueLocal(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
-                //do an rpc and send an index 
-                //SetToCardSelected(raycastHitCardInHand.transform.GetComponent<CardInHand>());
                 return;
             }
         }
