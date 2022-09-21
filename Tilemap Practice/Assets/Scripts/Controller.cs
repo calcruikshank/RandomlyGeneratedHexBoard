@@ -160,7 +160,11 @@ public class Controller : NetworkBehaviour
 
             if (state == State.NothingSelected)
             {
-                HandleNothingSelected();
+                CheckForRaycast();
+                if (tempLocalIndecesOfCardsInHand.Count == 0)
+                {
+                    AddToTickQueueLocal(mousePosition);
+                }
             }
             else
             {
@@ -216,18 +220,19 @@ public class Controller : NetworkBehaviour
     void TranslateToFuntionalStruct(string jsonOfMessage)
     {
         Message receievedMessage = JsonUtility.FromJson<Message>(jsonOfMessage);
-        if (receievedMessage.leftClicksWorldPos.Count > 0)
-        {
-            for (int i = 0; i < receievedMessage.leftClicksWorldPos.Count; i++)
-            {
-                AddToTickQueue(receievedMessage.leftClicksWorldPos[i]);
-            }
-        }
+
         if (receievedMessage.guidsForCards.Count > 0)
         {
             for (int i = 0; i < receievedMessage.guidsForCards.Count; i++)
             {
                 AddToIndexQueue(receievedMessage.guidsForCards[i]);
+            }
+        }
+        if (receievedMessage.leftClicksWorldPos.Count > 0)
+        {
+            for (int i = 0; i < receievedMessage.leftClicksWorldPos.Count; i++)
+            {
+                AddToTickQueue(receievedMessage.leftClicksWorldPos[i]);
             }
         }
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
@@ -238,13 +243,13 @@ public class Controller : NetworkBehaviour
     void OnTick()
     {
         tick++;
-        for (int i = 0; i < clickQueueForTick.Count; i++)
-        {
-            LocalLeftClick(clickQueueForTick[i]);
-        }
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
             LocalSelectCardWithIndex(IndecesOfCardsInHandQueue[i]);
+        }
+        for (int i = 0; i < clickQueueForTick.Count; i++)
+        {
+            LocalLeftClick(clickQueueForTick[i]);
         }
         clickQueueForTick.Clear();
         IndecesOfCardsInHandQueue.Clear();
@@ -301,7 +306,7 @@ public class Controller : NetworkBehaviour
         SetStateToNothingSelected();
     }
 
-    void HandleNothingSelected()
+    void CheckForRaycast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
@@ -318,7 +323,7 @@ public class Controller : NetworkBehaviour
         {
             if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
             {
-                SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
+                //SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
                 return;
             }
         }
@@ -333,7 +338,6 @@ public class Controller : NetworkBehaviour
             {
                 cardToSelect = cardsInHand[i];
                 cardSelected = cardToSelect.GameObjectToInstantiate.gameObject;
-                Debug.Log(indexOfCardInHandSelected + " Index of card selected " + cardToSelect.gameObject.name);
                 state = State.CreatureInHandSelected;
             }
         }
