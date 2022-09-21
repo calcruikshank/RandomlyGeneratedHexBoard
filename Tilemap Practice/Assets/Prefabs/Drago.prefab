@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatureState: 0
+  colorIndicator: {fileID: 7921025047922479681}
   playerOwningCreature: {fileID: 0}
   currentCellPosition: {x: 0, y: 0, z: 0}
   tileCurrentlyOn: {fileID: 0}
@@ -619,7 +620,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: aed0f4da8d5324a63bc6fb74f98b69a3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.779686, g: 0.07794011, b: 0.14692593, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

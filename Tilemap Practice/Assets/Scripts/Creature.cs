@@ -7,6 +7,8 @@ using UnityEngine.Tilemaps;
 public class Creature : MonoBehaviour
 {
     public CreatureState creatureState;
+
+    [SerializeField] Transform colorIndicator;
     public enum CreatureState
     {
         Summoned, //On The turn created
@@ -127,5 +129,12 @@ public class Creature : MonoBehaviour
                 }
             }
         }
+    }
+
+    internal void SetToPlayerOwningCreature(Controller controller)
+    {
+        Debug.Log(controller + " !!!!!!!!!!!!!!" );
+        this.playerOwningCreature = controller;
+        colorIndicator.GetComponent<SpriteRenderer>().color = controller.col;
     }
 }

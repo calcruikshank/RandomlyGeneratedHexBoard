@@ -28,6 +28,9 @@ public class Controller : NetworkBehaviour
 
     MousePositionScript mousePositionScript;
 
+    public Color col;
+
+
     Vector3 mousePosition;
     TileBase highlightTile;
     Tilemap highlightMap;// set these = to gamemanage.singleton.highlightmap TODO
@@ -81,6 +84,13 @@ public class Controller : NetworkBehaviour
         GrabAllObjectsFromGameManager();
         SpawnHUDAndHideOnAllNonOwners();
         state = State.PlacingCastle;
+        col = Color.red;
+
+        col = new Color(
+       UnityEngine.Random.Range(0f, 1f),
+       UnityEngine.Random.Range(0f, 1f),
+       UnityEngine.Random.Range(0f, 1f)
+  );
         mousePositionScript = GetComponent<MousePositionScript>();
         for (int i = 0; i < 3; i++)
         {
@@ -384,8 +394,8 @@ public class Controller : NetworkBehaviour
             ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
             instantiatedObjectsChangeTransparency.ChangeTransparent(100);
         }
-        Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
-        cardSelected.GetComponent<Creature>().playerOwningCreature = this;
+        GameObject instantiatedCreature = Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
+        instantiatedCreature.GetComponent<Creature>().SetToPlayerOwningCreature(this);
         SetStateToNothingSelected();
     }
 
