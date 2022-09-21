@@ -171,12 +171,10 @@ public class Controller : NetworkBehaviour
     List<Vector3> tempLocalPositionsToSend = new List<Vector3>();
     void AddToTickQueueLocal(Vector3 positionSent)
     {
-        Debug.LogError("Locally");
         tempLocalPositionsToSend.Add(positionSent);
     }
     void AddToTickQueue(Vector3 positionSent)
     {
-        Debug.LogError(positionSent);
         clickQueueForTick.Add(positionSent);
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
@@ -190,6 +188,7 @@ public class Controller : NetworkBehaviour
             for (int i = 0; i < tempLocalPositionsToSend.Count; i++)
             {
                 PlayerHitLeftClickServerRpc(tempLocalPositionsToSend[i]);
+                clickQueueForTick.Add(tempLocalPositionsToSend[i]);
             }
             tempLocalPositionsToSend.Clear();
             return; //todo put this return right before the last rpc call
@@ -197,8 +196,15 @@ public class Controller : NetworkBehaviour
 
         //if indexqueuefortick.count is greater than 0 then do the cardinhand selected rpc
         SendEmptyInputServerRpc();
+        EmptyInputLocal();
     }
-
+    void EmptyInputLocal()
+    {
+        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+        {
+            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+        }
+    }
     void EmptyInput()
     {
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
@@ -211,12 +217,17 @@ public class Controller : NetworkBehaviour
     {
         for (int i = 0; i < clickQueueForTick.Count; i++)
         {
-            Debug.Log(clickQueueForTick[i]);
             LocalLeftClick(clickQueueForTick[i]);
         }
-        tick++;
         clickQueueForTick.Clear();
         GameManager.singleton.playersThatHaveBeenReceived.Clear();
+        if (tempLocalPositionsToSend.Count >= 1)
+        {
+            if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+            {
+                GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+            }
+        }
     }
 
     void LocalLeftClick(Vector3 positionSent)
@@ -374,8 +385,11 @@ public class Controller : NetworkBehaviour
 
     void SetOwningTile(Vector3Int cellPosition)
     {
-        tilesOwned.Add(cellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellPosition));
-        BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellPosition).SetOwnedByPlayer(this);
+        if (!tilesOwned.ContainsKey(cellPosition))
+        {
+            tilesOwned.Add(cellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellPosition));
+            BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellPosition).SetOwnedByPlayer(this);
+        }
     }
 
     void DrawCard()
