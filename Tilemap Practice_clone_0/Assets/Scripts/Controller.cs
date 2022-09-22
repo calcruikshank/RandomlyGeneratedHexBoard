@@ -199,7 +199,6 @@ public class Controller : NetworkBehaviour
     List<int> tempIndexOfCreatureOnBoard = new List<int>();
     void AddIndexOfCreatureOnBoard(int index)
     {
-        Debug.Log("Adding ");
         tempIndexOfCreatureOnBoard.Add(index);
     }
     void AddToTickQueue(Vector3 positionSent)
@@ -357,7 +356,7 @@ public class Controller : NetworkBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
         {
             if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
-            {
+            { 
                 if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>().playerOwningCreature == this)
                 {
                     AddIndexOfCreatureOnBoard(raycastHitCreatureOnBoard.transform.GetComponent<Creature>().creatureID);

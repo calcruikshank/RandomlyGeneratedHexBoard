@@ -81,7 +81,6 @@ public class Creature : MonoBehaviour
     {
         Vector3Int targetedCellPosition = grid.WorldToCell(positionToTarget);
         int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
-        Debug.Log(numOfTilesFromTarget);
         SetNewTargetPosition(positionToTarget);
         creatureState = CreatureState.Moving;
     }
@@ -123,11 +122,11 @@ public class Creature : MonoBehaviour
         {
             if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != null)
             {
+                SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
                 if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition).playerOwningCreature == this.playerOwningCreature && BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != this)
                 {
                     /*BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
                     SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));*/
-                    SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
                 }
             }
         }
