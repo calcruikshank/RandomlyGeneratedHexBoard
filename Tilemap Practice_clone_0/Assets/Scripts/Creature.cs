@@ -68,7 +68,7 @@ public class Creature : MonoBehaviour
         lr.material = GameManager.singleton.RenderInFrontMat;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         switch (creatureState)
         {
@@ -101,7 +101,7 @@ public class Creature : MonoBehaviour
         Vector3Int targetedCellPosition = grid.WorldToCell(targetPosition);
         positions[0] = this.transform.position;
         lr.SetPositions(positions);
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.fixedDeltaTime);
 
         
         currentCellPosition = grid.WorldToCell(this.transform.position);
