@@ -11,6 +11,7 @@ public class BaseMapTileState : MonoBehaviour
     Tilemap baseMap;
     Tilemap highlightMap;
     Grid grid;
+
     public Dictionary<Vector3Int, BaseTile> baseTiles = new Dictionary<Vector3Int, BaseTile>();
     private void Awake()
     {

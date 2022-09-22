@@ -285,7 +285,7 @@ public class Controller : NetworkBehaviour
             case State.NothingSelected:
                 break;
             case State.CreatureInHandSelected:
-                HandleCreatureInHandSelected();
+                HandleCreatureInHandSelected(cellPositionSentToClients);
                 break;
             case State.CreatureSelected:
                 HandleCreatureOnBoardSelected();
@@ -297,11 +297,6 @@ public class Controller : NetworkBehaviour
     {
         placedCellPosition = positionSent;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
-        if (environmentMap.GetInstantiatedObject(placedCellPosition))
-        {
-            GameObject instantiatedObject = environmentMap.GetInstantiatedObject(placedCellPosition);
-            Destroy(instantiatedObject);
-        }
 
         SetOwningTile(placedCellPosition);
 
@@ -309,7 +304,9 @@ public class Controller : NetworkBehaviour
         {
             SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
         }
-        Instantiate(castle, positionToSpawn, Quaternion.identity);
+        Transform instantiatedCaste = Instantiate(castle, positionToSpawn, Quaternion.identity);
+        instantiatedCaste.GetComponent<MeshRenderer>().material.color = col;
+        instantiatedCaste.GetComponent<Structure>().playerOwningStructure = this;
         SetStateToNothingSelected();
     }
 
@@ -381,22 +378,33 @@ public class Controller : NetworkBehaviour
         #endregion
     }
 
-    void HandleCreatureInHandSelected()
+    void HandleCreatureInHandSelected(Vector3Int cellSent)
     {
-        Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellPositionSentToClients);
-        if (environmentMap.GetInstantiatedObject(cellPositionSentToClients))
+        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent) == null)
         {
-            GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellPositionSentToClients);
-            if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
-            {
-                instantiatedObject.AddComponent<ChangeTransparency>();
-            }
-            ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
-            instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+            //show error
+            return;
         }
-        GameObject instantiatedCreature = Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
-        instantiatedCreature.GetComponent<Creature>().SetToPlayerOwningCreature(this);
-        SetStateToNothingSelected();
+        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent).playerOwningTile == this)
+        {
+            if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent).structureOnTile == null)
+            {
+                Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellPositionSentToClients);
+                if (environmentMap.GetInstantiatedObject(cellPositionSentToClients))
+                {
+                    GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellPositionSentToClients);
+                    if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
+                    {
+                        instantiatedObject.AddComponent<ChangeTransparency>();
+                    }
+                    ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
+                    instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+                }
+                GameObject instantiatedCreature = Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
+                instantiatedCreature.GetComponent<Creature>().SetToPlayerOwningCreature(this);
+                SetStateToNothingSelected();
+            }
+        }
     }
 
 

@@ -133,7 +133,6 @@ public class Creature : MonoBehaviour
 
     internal void SetToPlayerOwningCreature(Controller controller)
     {
-        Debug.Log(controller + " !!!!!!!!!!!!!!" );
         this.playerOwningCreature = controller;
         colorIndicator.GetComponent<SpriteRenderer>().color = controller.col;
     }

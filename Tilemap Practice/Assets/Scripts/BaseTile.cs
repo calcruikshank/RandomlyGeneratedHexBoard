@@ -13,6 +13,7 @@ public class BaseTile : MonoBehaviour
     Tilemap waterTileMap;
     Creature creatureOnTile;
     GameObject environmentOnTile;
+    public Structure structureOnTile;
 
     public Controller playerOwningTile;
 
@@ -77,6 +78,10 @@ public class BaseTile : MonoBehaviour
     {
         return creatureOnTile;
     }
+    internal Structure StructureOnTile()
+    {
+        return structureOnTile;
+    }
 
     internal void AddCreatureToTile(Creature creature)
     {
@@ -109,13 +114,28 @@ public class BaseTile : MonoBehaviour
             }
         }
     }
+    internal void AddStructureToTile(Structure structure)
+    {
+        structureOnTile = structure;
+        if (environmentOnTile != null)
+        {
+            Destroy(environmentOnTile);
+        }
+
+    }
+    internal void RemoveStructureFromTile(Structure structure)
+    {
+        structureOnTile = null;
+    }
 
     List<Vector3> worldPositionsOfVectorsOnGrid = new List<Vector3>();
     public void SetOwnedByPlayer(Controller playerOwningTileSent)
     {
+        playerOwningTile = playerOwningTileSent;
+        lr.startColor = (playerOwningTile.col);
+        lr.endColor = (playerOwningTile.col);
         float y = 0;
         Vector3 worldPositionOfCell = new Vector3( this.transform.position.x, .21f, this.transform.position.z) ;
-        playerOwningTile = playerOwningTileSent;
         Vector3 topRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, grid.GetBoundsLocal(tilePosition).extents.z / 2);
         worldPositionsOfVectorsOnGrid.Add(topRight + worldPositionOfCell);
         Vector3 bottomRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, -grid.GetBoundsLocal(tilePosition).extents.z / 2);
