@@ -70,8 +70,8 @@ public class Controller : NetworkBehaviour
     public int tick = 0; //this is for determining basically everything
     public float tickTimer = 0f; 
     float tickThreshold = .12f; 
-    public List<Vector3> clickQueueForTick = new List<Vector3>();
-    List<Vector3> tempLocalPositionsToSend = new List<Vector3>();
+    public List<Vector3Int> clickQueueForTick = new List<Vector3Int>();
+    List<Vector3Int> tempLocalPositionsToSend = new List<Vector3Int>();
     List<int> tempLocalIndecesOfCardsInHand = new List<int>();
     List<int> IndecesOfCardsInHandQueue = new List<int>();
     public override void OnNetworkSpawn()
@@ -123,7 +123,7 @@ public class Controller : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*switch (state)
+        switch (state)
         {
             case State.PlacingCastle:
                 break;
@@ -139,14 +139,12 @@ public class Controller : NetworkBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
-        }*/
+        }
+
         if (!IsOwner)
         {
             return;
         }
-
-
-
 
         currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
@@ -167,18 +165,19 @@ public class Controller : NetworkBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-
+            cellPositionSentToClients = grid.WorldToCell(mousePosition);
             if (state == State.NothingSelected)
             {
                 CheckForRaycast();
                 if (tempLocalIndecesOfCardsInHand.Count == 0)
                 {
-                    AddToTickQueueLocal(mousePosition);
+                    Debug.Log(grid.WorldToCell(mousePosition) + " mous");
+                    AddToTickQueueLocal(cellPositionSentToClients);
                 }
             }
             else
             {
-                AddToTickQueueLocal(mousePosition);
+                AddToTickQueueLocal(cellPositionSentToClients);
             }
             return;
         }
@@ -187,7 +186,7 @@ public class Controller : NetworkBehaviour
 
 
     #region regionOfTicks
-    void AddToTickQueueLocal(Vector3 positionSent)
+    void AddToTickQueueLocal(Vector3Int positionSent)
     {
         tempLocalPositionsToSend.Add(positionSent);
     }
@@ -201,7 +200,7 @@ public class Controller : NetworkBehaviour
     {
         tempIndexOfCreatureOnBoard.Add(index);
     }
-    void AddToTickQueue(Vector3 positionSent)
+    void AddToTickQueue(Vector3Int positionSent)
     {
         clickQueueForTick.Add(positionSent);
     }
@@ -306,27 +305,27 @@ public class Controller : NetworkBehaviour
     }
     #endregion
 
-    void LocalLeftClick(Vector3 positionSent)
+    void LocalLeftClick(Vector3Int positionSent)
     {
-        cellPositionSentToClients = grid.WorldToCell(positionSent);
         switch (state)
         {
             case State.PlacingCastle:
-                LocalPlaceCastle(cellPositionSentToClients);
+                LocalPlaceCastle(positionSent);
                 break;
             case State.NothingSelected:
                 break;
             case State.CreatureInHandSelected:
-                HandleCreatureInHandSelected(cellPositionSentToClients);
+                HandleCreatureInHandSelected(positionSent);
                 break;
             case State.CreatureSelected:
-                HandleCreatureOnBoardSelected();
+                HandleCreatureOnBoardSelected(positionSent);
                 break;
         }
     }
 
     void LocalPlaceCastle(Vector3Int positionSent)
     {
+        Debug.Log(positionSent);
         placedCellPosition = positionSent;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
 
@@ -381,9 +380,9 @@ public class Controller : NetworkBehaviour
         }
 
     }
-    void HandleCreatureOnBoardSelected()
+    void HandleCreatureOnBoardSelected(Vector3Int positionSent)
     {
-        targetedCellPosition = cellPositionSentToClients;
+        targetedCellPosition = positionSent;
         #region creatureSelected
         if (creatureSelected != null)
         {
@@ -426,10 +425,10 @@ public class Controller : NetworkBehaviour
         {
             if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent).structureOnTile == null)
             {
-                Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellPositionSentToClients);
-                if (environmentMap.GetInstantiatedObject(cellPositionSentToClients))
+                Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellSent);
+                if (environmentMap.GetInstantiatedObject(cellSent))
                 {
-                    GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellPositionSentToClients);
+                    GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellSent);
                     if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
                     {
                         instantiatedObject.AddComponent<ChangeTransparency>();

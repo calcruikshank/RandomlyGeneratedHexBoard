@@ -12,7 +12,7 @@ public class Message
         leftClick,
         creatureSelect
     }
-    public List<Vector3> leftClicksWorldPos = new List<Vector3>();
+    public List<Vector3Int> leftClicksWorldPos = new List<Vector3Int>();
     public List<int> guidsForCards = new List<int>();
     public List<int> guidsForCreatures = new List<int>();
 }
