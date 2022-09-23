@@ -40961,6 +40961,9 @@ MonoBehaviour:
   cardParent: {fileID: 1539081632}
   playerList: []
   playersThatHaveBeenReceived: []
+  localTick: 0
+  clientTick: 0
+  creatureGuidCounter: 0
 --- !u!1001 &1384433212
 PrefabInstance:
   m_ObjectHideFlags: 0

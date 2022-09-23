@@ -51,10 +51,10 @@ public class Controller : NetworkBehaviour
     Vector3Int placedCellPosition;
 
     public int mana = 1;
-    public float drawTimeThreshold = 5f;
-    public float drawTimer;
-    public float manaTimeThreshold = 5f;
-    public float manaTimer;
+    public int drawTimeThreshold = 100;
+    public int drawTimer;
+    public int manaTimeThreshold = 100;
+    public int manaTimer;
     int maxHandSize = 7;
     [SerializeField] List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
@@ -73,7 +73,7 @@ public class Controller : NetworkBehaviour
     public List<Vector3Int> clickQueueForTick = new List<Vector3Int>();
     List<Vector3Int> tempLocalPositionsToSend = new List<Vector3Int>();
     List<int> tempLocalIndecesOfCardsInHand = new List<int>();
-    List<int> IndecesOfCardsInHandQueue = new List<int>();
+    public List<int> IndecesOfCardsInHandQueue = new List<int>();
     public override void OnNetworkSpawn()
     {
 
@@ -123,7 +123,7 @@ public class Controller : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (state)
+        /*switch (state)
         {
             case State.PlacingCastle:
                 break;
@@ -139,13 +139,17 @@ public class Controller : NetworkBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
-        }
+        }*/
 
         if (!IsOwner)
         {
             return;
         }
 
+        if (GameManager.singleton.playerList.Count < 3)
+        {
+            return;
+        }
         currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         if (currentLocalHoverCellPosition != previousCellPosition)
@@ -169,11 +173,6 @@ public class Controller : NetworkBehaviour
             if (state == State.NothingSelected)
             {
                 CheckForRaycast();
-                if (tempLocalIndecesOfCardsInHand.Count == 0)
-                {
-                    Debug.Log(grid.WorldToCell(mousePosition) + " mous");
-                    AddToTickQueueLocal(cellPositionSentToClients);
-                }
             }
             else
             {
@@ -216,10 +215,6 @@ public class Controller : NetworkBehaviour
 
     void SendAllInputsInQueue()
     {
-        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
-        {
-            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-        }
         Message message = new Message();
         message.leftClicksWorldPos = tempLocalPositionsToSend;
         message.guidsForCards = tempLocalIndecesOfCardsInHand;
@@ -243,6 +238,10 @@ public class Controller : NetworkBehaviour
         tempLocalPositionsToSend.Clear();
         tempLocalIndecesOfCardsInHand.Clear();
         tempIndexOfCreatureOnBoard.Clear();
+        if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
+        {
+            GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+        }
     }
 
     void TranslateToFuntionalStruct(string jsonOfMessage)
@@ -278,6 +277,15 @@ public class Controller : NetworkBehaviour
     void OnTick()
     {
         tick++;
+        manaTimer++;
+        if (manaTimer > manaTimeThreshold)
+        {
+            mana++;
+        }
+        if (drawTimer > drawTimeThreshold)
+        {
+            DrawCard();
+        }
         //order matters here bigtime later set this up in the enum
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
@@ -295,13 +303,6 @@ public class Controller : NetworkBehaviour
         IndecesOfCardsInHandQueue.Clear();
         indecesOfCreaturesInQueue.Clear();
         GameManager.singleton.playersThatHaveBeenReceived.Clear();
-        if (tempLocalPositionsToSend.Count >= 1 || tempLocalIndecesOfCardsInHand.Count > 0 || tempIndexOfCreatureOnBoard.Count > 0) //or creatures on board selected .count > 0
-        {
-            if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this) && GameManager.singleton.playerList.Count > 1)
-            {
-                GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-            }
-        }
     }
     #endregion
 
@@ -444,27 +445,6 @@ public class Controller : NetworkBehaviour
         }
     }
 
-
-    void HandleMana()
-    {
-        manaTimer += Time.deltaTime;
-        if (manaTimer >= manaTimeThreshold)
-        {
-            mana++;
-            manaTimer = 0f;
-        }
-    }
-
-    void HandleDrawCards()
-    {
-        drawTimer += Time.deltaTime;
-        if (drawTimer >= drawTimeThreshold)
-        {
-            DrawCard();
-            drawTimer = 0f;
-        }
-    }
-
     void SetOwningTile(Vector3Int cellPosition)
     {
         if (!tilesOwned.ContainsKey(cellPosition))
@@ -530,7 +510,7 @@ public class Controller : NetworkBehaviour
     [ClientRpc]
     private void SendMessageClientRpc(string json)
     {
-        if (IsOwner) return;
+        if (IsOwner) return; 
         TranslateToFuntionalStruct(json);
     }
     #endregion
