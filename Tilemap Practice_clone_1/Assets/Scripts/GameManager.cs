@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     public delegate void Tick();
     public event Tick tick;
 
+    float tickTimer = 0f;
+    float tickThreshold = .24f;
+
+    int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
     public int creatureGuidCounter;
     private void Awake()
@@ -43,15 +47,33 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (playerList.Count < 3) return;
+        tickTimer += Time.deltaTime;
+        if (tickTimer > tickThreshold)
+        {
+            if (allPlayersReceived)
+            {
+                tickTimer = 0;
+
+                tick.Invoke();
+                playersThatHaveBeenReceived.Clear();
+                allPlayersReceived = false;
+            }
+            else
+            {
+                Debug.Log(tickTimer);
+                //Debug.Break();
+            }
+        }
     }
 
+    bool allPlayersReceived = false;
     public void AddToPlayersThatHaveBeenReceived(Controller controller)
     {
         playersThatHaveBeenReceived.Add(controller);
         if (playersThatHaveBeenReceived.Count == playerList.Count)
         {
-            tick.Invoke();
+            allPlayersReceived = true ;
         }
     }
 

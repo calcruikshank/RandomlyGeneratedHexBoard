@@ -302,7 +302,6 @@ public class Controller : NetworkBehaviour
         clickQueueForTick.Clear();
         IndecesOfCardsInHandQueue.Clear();
         indecesOfCreaturesInQueue.Clear();
-        GameManager.singleton.playersThatHaveBeenReceived.Clear();
     }
     #endregion
 
