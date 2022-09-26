@@ -165,6 +165,14 @@ public class Controller : NetworkBehaviour
         tickTimer += Time.deltaTime;
         if (tickTimer > tickThreshold && hasTickedSinceSendingLastMessage)
         {
+            hasTickedSinceSendingLastMessage = false;
+            tickTimer = 0f;
+            SendAllInputsInQueue();
+        }
+        if (!hasTickedSinceSendingLastMessage && !GameManager.singleton.playerList.Contains(this)) //attempts to resend on a failed rpc
+        {
+            Debug.LogError("Failed sending message attempting to try again at tick " + tick);
+            hasTickedSinceSendingLastMessage = false;
             tickTimer = 0f;
             SendAllInputsInQueue();
         }
@@ -245,7 +253,6 @@ public class Controller : NetworkBehaviour
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
             GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
-            hasTickedSinceSendingLastMessage = false;
         }
     }
 
