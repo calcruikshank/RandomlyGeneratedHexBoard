@@ -68,12 +68,14 @@ public class Controller : NetworkBehaviour
     Canvas canvasMain;
 
     public int tick = 0; //this is for determining basically everything
-    public float tickTimer = 0f; 
-    float tickThreshold = .12f; 
+    public float tickTimer = 0f;
+    float tickThreshold = .12f;
     public List<Vector3Int> clickQueueForTick = new List<Vector3Int>();
     List<Vector3Int> tempLocalPositionsToSend = new List<Vector3Int>();
     List<int> tempLocalIndecesOfCardsInHand = new List<int>();
     public List<int> IndecesOfCardsInHandQueue = new List<int>();
+
+    public bool hasTickedSinceSendingLastMessage = true;
     public override void OnNetworkSpawn()
     {
 
@@ -161,18 +163,20 @@ public class Controller : NetworkBehaviour
         }
 
         tickTimer += Time.deltaTime;
-        if (tickTimer > tickThreshold)
+        if (tickTimer > tickThreshold && hasTickedSinceSendingLastMessage)
         {
             tickTimer = 0f;
             SendAllInputsInQueue();
-            //sendEmptyEvent
         }
         if (Input.GetMouseButtonDown(0))
         {
             cellPositionSentToClients = grid.WorldToCell(mousePosition);
             if (state == State.NothingSelected)
             {
-                CheckForRaycast();
+                if (!CheckForRaycast())
+                {
+                    AddToTickQueueLocal(cellPositionSentToClients);
+                }
             }
             else
             {
@@ -241,6 +245,7 @@ public class Controller : NetworkBehaviour
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
             GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
+            hasTickedSinceSendingLastMessage = false;
         }
     }
 
@@ -290,18 +295,22 @@ public class Controller : NetworkBehaviour
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
             LocalSelectCardWithIndex(IndecesOfCardsInHandQueue[i]);
+            Debug.Log(IndecesOfCardsInHandQueue[i] + " IndecesOfCardsInHandQueue at i + tick " + tick);
         }
         for (int i = 0; i < indecesOfCreaturesInQueue.Count; i++)
         {
             SetToCreatureOnFieldSelected(creaturesOwned[indecesOfCreaturesInQueue[i]]);
+            Debug.Log(creaturesOwned[indecesOfCreaturesInQueue[i]] + " creaturesOwned at i + tick " + tick);
         }
         for (int i = 0; i < clickQueueForTick.Count; i++)
         {
             LocalLeftClick(clickQueueForTick[i]);
+            Debug.Log(clickQueueForTick[i] + " local left click + " + tick);
         }
         clickQueueForTick.Clear();
         IndecesOfCardsInHandQueue.Clear();
         indecesOfCreaturesInQueue.Clear();
+        hasTickedSinceSendingLastMessage = true;
     }
     #endregion
 
@@ -325,7 +334,6 @@ public class Controller : NetworkBehaviour
 
     void LocalPlaceCastle(Vector3Int positionSent)
     {
-        Debug.Log(positionSent);
         placedCellPosition = positionSent;
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
 
@@ -341,7 +349,7 @@ public class Controller : NetworkBehaviour
         SetStateToNothingSelected();
     }
 
-    void CheckForRaycast()
+    bool CheckForRaycast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHitCardInHand, Mathf.Infinity))
@@ -349,21 +357,22 @@ public class Controller : NetworkBehaviour
             if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
                 AddIndexOfCardInHandToTickQueueLocal(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
-                return;
+                return true;
             }
         }
         if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
         {
             if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
-            { 
+            {
                 if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>().playerOwningCreature == this)
                 {
                     AddIndexOfCreatureOnBoard(raycastHitCreatureOnBoard.transform.GetComponent<Creature>().creatureID);
                     //SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     void LocalSelectCardWithIndex(int indexOfCardSelected)
@@ -509,7 +518,7 @@ public class Controller : NetworkBehaviour
     [ClientRpc]
     private void SendMessageClientRpc(string json)
     {
-        if (IsOwner) return; 
+        if (IsOwner) return;
         TranslateToFuntionalStruct(json);
     }
     #endregion

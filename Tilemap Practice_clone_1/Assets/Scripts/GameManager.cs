@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     public static GameManager singleton;
     public State state;
@@ -26,8 +27,7 @@ public class GameManager : MonoBehaviour
     public delegate void Tick();
     public event Tick tick;
 
-    float tickTimer = 0f;
-    float tickThreshold = .24f;
+    public int gameManagerTick = 0;
 
     int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
@@ -41,41 +41,18 @@ public class GameManager : MonoBehaviour
     public enum State
     {
         Setup, //The state for placing your castle
-        Game, 
+        Game,
         End //Setup for scaling
     }
-
-    private void Update()
-    {
-        if (playerList.Count < 3) return;
-        tickTimer += Time.deltaTime;
-        if (tickTimer > tickThreshold)
-        {
-            if (allPlayersReceived)
-            {
-                tickTimer = 0;
-
-                tick.Invoke();
-                playersThatHaveBeenReceived.Clear();
-                allPlayersReceived = false;
-            }
-            else
-            {
-                Debug.Log(tickTimer);
-                //Debug.Break();
-            }
-        }
-    }
-
-    bool allPlayersReceived = false;
     public void AddToPlayersThatHaveBeenReceived(Controller controller)
     {
         playersThatHaveBeenReceived.Add(controller);
         if (playersThatHaveBeenReceived.Count == playerList.Count)
         {
-            allPlayersReceived = true ;
+            playersThatHaveBeenReceived.Clear();
+            tick.Invoke();
+            //allPlayersReceived = true;
         }
     }
-
 
 }
