@@ -84,9 +84,9 @@ public class BaseMapTileState : MonoBehaviour
     public Vector3 GetWorldPositionOfCell(Vector3Int cellPositionSent)
     {
         Vector3 worldPositionOfCell = highlightMap.GetCellCenterWorld(cellPositionSent);
-        if (baseMap.GetInstantiatedObject(cellPositionSent))
+        worldPositionOfCell = new Vector3(worldPositionOfCell.x, worldPositionOfCell.y + .2f, worldPositionOfCell.z);
+        if (baseMap.GetInstantiatedObject(cellPositionSent) == null)
         {
-            worldPositionOfCell = new Vector3(worldPositionOfCell.x, worldPositionOfCell.y + baseMap.GetInstantiatedObject(cellPositionSent).gameObject.GetComponent<Collider>().bounds.size.y, worldPositionOfCell.z);
         }
         return worldPositionOfCell;
     }

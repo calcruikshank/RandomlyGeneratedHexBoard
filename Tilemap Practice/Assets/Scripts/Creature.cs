@@ -16,7 +16,8 @@ public class Creature : MonoBehaviour
         Summoned, //On The turn created
         Attack,
         UseAbility,
-        Moving
+        Moving,
+        Idle
         //not sure if i need a tapped state yet trying to keep it as simple as possible
     }
 
@@ -101,16 +102,16 @@ public class Creature : MonoBehaviour
         Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(targetPosition.x, 0, targetPosition.z));
         positions[0] = this.transform.position;
         lr.SetPositions(positions);
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, speed * Time.fixedDeltaTime);
-
+        this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3( targetPosition.x, transform.position.y, targetPosition.z ) , speed * Time.fixedDeltaTime);
         
-        currentCellPosition = grid.WorldToCell(new Vector3(this.transform.position.x, 0, this.transform.position.z));
+        currentCellPosition = grid.WorldToCell(new Vector3Int((int)this.transform.position.x, 0, (int)this.transform.position.z));
         if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) == null)
         {
             tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
         }
         if (previousTilePosition != tileCurrentlyOn)
         {
+            Debug.Log(currentCellPosition);
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
             int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
@@ -121,13 +122,17 @@ public class Creature : MonoBehaviour
         {
             if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != null)
             {
-                SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
+                //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
                 if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition).playerOwningCreature == this.playerOwningCreature && BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != this)
                 {
                     /*BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
                     SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));*/
                 }
             }
+        }
+        if ((new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z) - targetPosition).magnitude < .02f)
+        {
+            SetStateToIdle();
         }
     }
 
@@ -137,5 +142,16 @@ public class Creature : MonoBehaviour
         colorIndicator.GetComponent<SpriteRenderer>().color = controller.col;
         creatureID = GameManager.singleton.creatureGuidCounter;
         GameManager.singleton.creatureGuidCounter++;
+    }
+
+    void SetStateToIdle()
+    {
+        lr.enabled = false;
+        Debug.Log("setting state to idle");
+        this.transform.position = targetPosition;
+        currentCellPosition = grid.WorldToCell(new Vector3(this.transform.position.x, 0, this.transform.position.z));
+        tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
+        tileCurrentlyOn.AddCreatureToTile(this);
+        creatureState = CreatureState.Idle;
     }
 }

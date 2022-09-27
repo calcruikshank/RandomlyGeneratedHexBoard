@@ -19,6 +19,9 @@ public class FlyingCreature : Creature
             case CreatureState.Summoned:
                 HandleFlyingAnimation();
                 break;
+            case CreatureState.Idle:
+                HandleFlyingAnimation();
+                break;
         }
     }
 
