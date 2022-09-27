@@ -21347,7 +21347,7 @@ Light:
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -40962,6 +40962,7 @@ MonoBehaviour:
   cardParent: {fileID: 1539081632}
   playerList: []
   playersThatHaveBeenReceived: []
+  gameManagerTick: 0
   creatureGuidCounter: 0
 --- !u!114 &1383740588
 MonoBehaviour:

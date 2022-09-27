@@ -37,7 +37,7 @@ public class Controller : NetworkBehaviour
     Tilemap baseMap;
     Tilemap environmentMap;
     Tilemap waterMap;
-    Grid grid;
+    protected Grid grid;
     Vector3Int previousCellPosition;
 
     Transform castle;
@@ -76,6 +76,7 @@ public class Controller : NetworkBehaviour
     public List<int> IndecesOfCardsInHandQueue = new List<int>();
 
     public bool hasTickedSinceSendingLastMessage = true;
+    bool locallySelectedCreature = false;
     public override void OnNetworkSpawn()
     {
 
@@ -181,6 +182,12 @@ public class Controller : NetworkBehaviour
             cellPositionSentToClients = grid.WorldToCell(mousePosition);
             if (state == State.NothingSelected)
             {
+                if (locallySelectedCreature)
+                {
+                    AddToTickQueueLocal(cellPositionSentToClients);
+                    locallySelectedCreature = false;
+                    return;
+                }
                 if (!CheckForRaycast())
                 {
                     AddToTickQueueLocal(cellPositionSentToClients);
@@ -199,6 +206,7 @@ public class Controller : NetworkBehaviour
     #region regionOfTicks
     void AddToTickQueueLocal(Vector3Int positionSent)
     {
+        locallySelectedCreature = false;
         tempLocalPositionsToSend.Add(positionSent);
     }
     void AddIndexOfCardInHandToTickQueueLocal(int index)
@@ -373,6 +381,7 @@ public class Controller : NetworkBehaviour
             {
                 if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>().playerOwningCreature == this)
                 {
+                    locallySelectedCreature = true;
                     AddIndexOfCreatureOnBoard(raycastHitCreatureOnBoard.transform.GetComponent<Creature>().creatureID);
                     //SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
                     return true;
