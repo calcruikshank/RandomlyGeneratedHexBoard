@@ -29,6 +29,10 @@ public class CameraControl : MonoBehaviour
             transform.Translate(-delta.x * mouseSensitivity * Time.deltaTime, -delta.y * mouseSensitivity * Time.deltaTime, 0) ;
             lastPosition = Input.mousePosition;
         }
+        if (transform.position.y < minYForCamera)
+        {
+            this.transform.position = new Vector3(transform.position.x, minYForCamera, transform.position.z);
+        }
     }
     void MoveCamera(float y)
     {

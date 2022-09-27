@@ -104,7 +104,7 @@ public class Creature : MonoBehaviour
         lr.SetPositions(positions);
         this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3( targetPosition.x, transform.position.y, targetPosition.z ) , speed * Time.fixedDeltaTime);
         
-        currentCellPosition = grid.WorldToCell(new Vector3Int((int)this.transform.position.x, 0, (int)this.transform.position.z));
+        currentCellPosition = grid.WorldToCell(new Vector3(this.transform.position.x, 0, this.transform.position.z));
         if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) == null)
         {
             tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
@@ -146,6 +146,7 @@ public class Creature : MonoBehaviour
 
     void SetStateToIdle()
     {
+        tileCurrentlyOn.RemoveCreatureFromTile(this);
         lr.enabled = false;
         Debug.Log("setting state to idle");
         this.transform.position = targetPosition;
