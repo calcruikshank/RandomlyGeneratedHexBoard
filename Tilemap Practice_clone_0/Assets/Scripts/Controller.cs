@@ -164,7 +164,7 @@ public class Controller : NetworkBehaviour
         }
 
         tickTimer += Time.deltaTime;
-        if (tickTimer > tickThreshold && hasTickedSinceSendingLastMessage)
+        if (hasTickedSinceSendingLastMessage)
         {
             hasTickedSinceSendingLastMessage = false;
             tickTimer = 0f;

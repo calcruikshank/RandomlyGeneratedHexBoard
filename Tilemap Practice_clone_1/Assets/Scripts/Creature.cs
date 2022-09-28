@@ -148,7 +148,7 @@ public class Creature : MonoBehaviour
     {
         tileCurrentlyOn.RemoveCreatureFromTile(this);
         lr.enabled = false;
-        Debug.Log("setting state to idle");
+        Debug.Log("setting state to idle and tick " + playerOwningCreature.tick);
         this.transform.position = targetPosition;
         currentCellPosition = grid.WorldToCell(new Vector3(this.transform.position.x, 0, this.transform.position.z));
         tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
