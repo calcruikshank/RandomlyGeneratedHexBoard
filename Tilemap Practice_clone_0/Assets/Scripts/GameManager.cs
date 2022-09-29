@@ -28,10 +28,19 @@ public class GameManager : NetworkBehaviour
     public event Tick tick;
 
     public int gameManagerTick = 0;
-
+    float totalTickTime;
+    public float tickTimeAverage;
     int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
     public int creatureGuidCounter;
+
+    public float timeBetweenLastTick;
+    protected float timeBetweenTickCounter;
+
+    private void Update()
+    {
+        timeBetweenTickCounter += Time.deltaTime;
+    }
     private void Awake()
     {
         if (singleton != null) Destroy(this);
@@ -51,6 +60,13 @@ public class GameManager : NetworkBehaviour
         {
             playersThatHaveBeenReceived.Clear();
             tick.Invoke();
+            timeBetweenLastTick = timeBetweenTickCounter;
+
+            totalTickTime += timeBetweenLastTick;
+            tickTimeAverage = totalTickTime / gameManagerTick;
+            gameManagerTick++;
+            timeBetweenTickCounter = 0;
+
             //allPlayersReceived = true;
         }
     }

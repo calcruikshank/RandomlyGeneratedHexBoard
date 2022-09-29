@@ -8,12 +8,12 @@ public class FlyingCreature : Creature
     float animationFlyingHeight = .2f;
     float lifeTime = 0;
 
-    protected override void FixedUpdate()
+    protected override void Update()
     {
         switch (creatureState)
         {
             case CreatureState.Moving:
-                Move();
+                VisualMove();
                 HandleFlyingAnimation();
                 break;
             case CreatureState.Summoned:
