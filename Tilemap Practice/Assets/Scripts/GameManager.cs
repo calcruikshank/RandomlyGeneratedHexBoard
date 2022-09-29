@@ -39,6 +39,10 @@ public class GameManager : NetworkBehaviour
 
     private void Update()
     {
+        if (playerList.Count < 3)
+        {
+            return;
+        }
         timeBetweenTickCounter += Time.deltaTime;
     }
     private void Awake()
@@ -63,8 +67,8 @@ public class GameManager : NetworkBehaviour
             timeBetweenLastTick = timeBetweenTickCounter;
 
             totalTickTime += timeBetweenLastTick;
-            tickTimeAverage = totalTickTime / gameManagerTick;
             gameManagerTick++;
+            tickTimeAverage = totalTickTime / gameManagerTick;
             timeBetweenTickCounter = 0;
 
             //allPlayersReceived = true;

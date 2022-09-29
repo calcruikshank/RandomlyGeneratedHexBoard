@@ -199,7 +199,7 @@ public class Controller : NetworkBehaviour
             {
                 AddToTickQueueLocal(cellPositionSentToClients);
             }
-            timeBetweenLastTick = GameManager.singleton.tickTimeAverage;
+            timeBetweenLastTick = (GameManager.singleton.tickTimeAverage + GameManager.singleton.timeBetweenLastTick) / 2;
             return;
         }
 
