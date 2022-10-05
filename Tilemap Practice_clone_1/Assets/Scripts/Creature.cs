@@ -11,6 +11,8 @@ public class Creature : MonoBehaviour
 
     [SerializeField] Transform colorIndicator;
 
+
+    public List<BaseTile> allTilesWithinRange;
     public int creatureID;
     public enum CreatureState
     {
@@ -26,7 +28,7 @@ public class Creature : MonoBehaviour
 
     LineRenderer lr;
     GameObject lrGameObject;
-    int range = 1; //num of tiles that can attack
+    [SerializeField] int range; //num of tiles that can attack
     float speed = 1f; //move speed
     float UsageRate; // the rate at which the minion can use abilities/ attack 
 
@@ -126,6 +128,7 @@ public class Creature : MonoBehaviour
         }
         if (previousTilePosition != tileCurrentlyOn)
         {
+            CalculateAllTilesWithinRange();
             Debug.Log(currentCellPosition);
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
@@ -179,5 +182,33 @@ public class Creature : MonoBehaviour
         tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
         tileCurrentlyOn.AddCreatureToTile(this);
         creatureState = CreatureState.Idle;
+    }
+
+
+    void CalculateAllTilesWithinRange()
+    {
+        allTilesWithinRange.Clear();
+        int xthreshold;
+        int threshold;
+        for (int x = 0; x < range + 1; x++)
+        {
+            for (int y = 0; y < range + 1; y++)
+            {
+                xthreshold = range - x;
+                threshold = range + xthreshold;
+                if (y + x > threshold && currentCellPosition.y % 2 == 0)
+                {
+                    continue;
+                }
+                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
+                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
+                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
+                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+            }
+        }
+        for (int i = 0; i < allTilesWithinRange.Count; i++) 
+        {
+            allTilesWithinRange[i].SetOwnedByPlayer(this.playerOwningCreature);
+        }
     }
 }
