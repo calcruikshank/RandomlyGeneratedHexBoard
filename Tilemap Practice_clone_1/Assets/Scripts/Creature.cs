@@ -100,7 +100,7 @@ public class Creature : MonoBehaviour
     public virtual void SetMove(Vector3 positionToTarget, float timeBetweenLastTickOnMoveSent)
     {
         timeBetweenLastTickOnMove = timeBetweenLastTickOnMoveSent;
-           Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(positionToTarget.x, 0, positionToTarget.z));
+        Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(positionToTarget.x, 0, positionToTarget.z));
         int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
         SetNewTargetPosition(positionToTarget);
         creatureState = CreatureState.Moving;
@@ -120,7 +120,6 @@ public class Creature : MonoBehaviour
     {
         Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(targetPosition.x, 0, targetPosition.z));
         actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetPosition.x, actualPosition.y, targetPosition.z), speed * timeBetweenLastTickOnMove);
-        Debug.Log(timeBetweenLastTickOnMove + " TIme between last tick on move");
         currentCellPosition = grid.WorldToCell(new Vector3(actualPosition.x, 0, actualPosition.z));
         if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) == null)
         {
@@ -129,7 +128,6 @@ public class Creature : MonoBehaviour
         if (previousTilePosition != tileCurrentlyOn)
         {
             CalculateAllTilesWithinRange();
-            Debug.Log(currentCellPosition);
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
             int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
@@ -196,17 +194,34 @@ public class Creature : MonoBehaviour
             {
                 xthreshold = range - x;
                 threshold = range + xthreshold;
-                if (y + x > threshold && currentCellPosition.y % 2 == 0)
+                if (y + x > threshold)
                 {
+                    if (currentCellPosition.y % 2 == 0)
+                    {
+                        if (y + x <= threshold + 1)
+                        {
+                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
+                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+                        }
+                    }
+                    if (currentCellPosition.y % 2 != 0)
+                    {
+                        if (y + x <= threshold + 1)
+                        {
+                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
+                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
+                        }
+                    }
                     continue;
                 }
                 allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
                 allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
+                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
                 allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+                
             }
         }
-        for (int i = 0; i < allTilesWithinRange.Count; i++) 
+        for (int i = 0; i < allTilesWithinRange.Count; i++)
         {
             allTilesWithinRange[i].SetOwnedByPlayer(this.playerOwningCreature);
         }

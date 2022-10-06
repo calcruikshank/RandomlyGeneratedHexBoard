@@ -315,17 +315,14 @@ public class Controller : NetworkBehaviour
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
             LocalSelectCardWithIndex(IndecesOfCardsInHandQueue[i]);
-            Debug.Log(IndecesOfCardsInHandQueue[i] + " IndecesOfCardsInHandQueue at i + tick " + tick);
         }
         for (int i = 0; i < indecesOfCreaturesInQueue.Count; i++)
         {
             SetToCreatureOnFieldSelected(creaturesOwned[indecesOfCreaturesInQueue[i]]);
-            Debug.Log(creaturesOwned[indecesOfCreaturesInQueue[i]] + " creaturesOwned at i + tick " + tick);
         }
         for (int i = 0; i < clickQueueForTick.Count; i++)
         {
             LocalLeftClick(clickQueueForTick[i]);
-            Debug.Log(clickQueueForTick[i] + " local left click + " + tick);
         }
         clickQueueForTick.Clear();
         IndecesOfCardsInHandQueue.Clear();
