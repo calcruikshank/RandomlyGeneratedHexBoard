@@ -16,6 +16,7 @@ public class GameManager : NetworkBehaviour
     public Tilemap highlightMap;
     public Material RenderInFrontMat;
     public Material TransparentSharedMat;
+    public Material rangeIndicatorMat;
     public Material OpaqueSharedMat;
     public Transform castleTransform;
     public TileBase highlightTile;
@@ -73,6 +74,17 @@ public class GameManager : NetworkBehaviour
 
             //allPlayersReceived = true;
         }
+    }
+    public List<CardInHand> Shuffle(List<CardInHand> alpha)
+    {
+        for (int i = 0; i < alpha.Count; i++)
+        {
+            CardInHand temp = alpha[i];
+            int randomIndex = UnityEngine.Random.Range(i, alpha.Count);
+            alpha[i] = alpha[randomIndex];
+            alpha[randomIndex] = temp;
+        }
+        return alpha;
     }
 
 }

@@ -64,6 +64,7 @@ public class Creature : MonoBehaviour
         SetupLR();
         SetRangeLineRenderer();
         actualPosition = this.transform.position;
+        CalculateAllTilesWithinRange();
     }
     void SetupLR()
     {
@@ -78,7 +79,6 @@ public class Creature : MonoBehaviour
         lr.numCapVertices = 1;
         lr.material = GameManager.singleton.RenderInFrontMat;
     }
-
 
     protected virtual void Update()
     {
@@ -159,6 +159,8 @@ public class Creature : MonoBehaviour
         float valueToAdd = 0f;
         positions[0] = this.transform.position;
         lr.SetPositions(positions);
+        lr.startColor = playerOwningCreature.col;
+        lr.endColor = playerOwningCreature.col;
         float distanceFromActualPosition = (this.transform.position - actualPosition).magnitude;
         this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z), speed * Time.deltaTime);
     }
@@ -300,7 +302,9 @@ public class Creature : MonoBehaviour
         rangeLr.startWidth = .2f;
         rangeLr.endWidth = .2f;
         rangeLr.numCapVertices = 1;
-        rangeLr.material = GameManager.singleton.RenderInFrontMat;
+        rangeLr.material = GameManager.singleton.rangeIndicatorMat;
+        rangeLr.startColor = playerOwningCreature.col;
+        rangeLr.endColor = playerOwningCreature.col;
     }
     void SetNewPositionsForRangeLr(List<Vector3> rangePositionsSent)
     {

@@ -41076,6 +41076,7 @@ MonoBehaviour:
   highlightMap: {fileID: 809871723}
   RenderInFrontMat: {fileID: 2100000, guid: 2603743ee5548ef42832d5fc889ac9ce, type: 2}
   TransparentSharedMat: {fileID: 2100000, guid: 293ce87cad5790147a3a67a85abaef59, type: 2}
+  rangeIndicatorMat: {fileID: 2100000, guid: 556d2c1d83ba63b4fa76d7ac502a9a33, type: 2}
   OpaqueSharedMat: {fileID: 2100000, guid: cf051fba995609b459f0eb4baf4bb478, type: 2}
   castleTransform: {fileID: 93194238494730789, guid: 686d43d1302e4a447917903c2d11f2c0, type: 3}
   highlightTile: {fileID: 11400000, guid: a2e0a1bfbd59d6c48a78b8ba9e1bcdeb, type: 2}
@@ -56727,6 +56728,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8465971551277622531, guid: 7ed47ee3db17a8642945246fb69166b6, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465971551277622531, guid: 7ed47ee3db17a8642945246fb69166b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8465971551428376752, guid: 7ed47ee3db17a8642945246fb69166b6, type: 3}
       propertyPath: m_Name
       value: Canvas

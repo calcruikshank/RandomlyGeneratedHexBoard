@@ -91,11 +91,8 @@ public class Controller : NetworkBehaviour
         state = State.PlacingCastle;
         col = Color.red;
 
-        col = new Color(
-       UnityEngine.Random.Range(0f, 1f),
-       UnityEngine.Random.Range(0f, 1f),
-       UnityEngine.Random.Range(0f, 1f)
-  );
+        cardsInDeck = GameManager.singleton.Shuffle(cardsInDeck);
+        col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
         mousePositionScript = GetComponent<MousePositionScript>();
         for (int i = 0; i < 3; i++)
         {
@@ -303,6 +300,7 @@ public class Controller : NetworkBehaviour
     {
         tick++;
         manaTimer++;
+        drawTimer++;
         if (manaTimer > manaTimeThreshold)
         {
             mana++;
