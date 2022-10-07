@@ -45,6 +45,7 @@ public class Creature : MonoBehaviour
 
     float timeBetweenLastTickOnMove;
 
+    List<Vector3> rangePositions = new List<Vector3>();
     protected Grid grid;
     private void Awake()
     {
@@ -61,6 +62,7 @@ public class Creature : MonoBehaviour
         previousTilePosition = tileCurrentlyOn;
         tileCurrentlyOn.AddCreatureToTile(this);
         SetupLR();
+        SetRangeLineRenderer();
         actualPosition = this.transform.position;
     }
     void SetupLR()
@@ -182,10 +184,13 @@ public class Creature : MonoBehaviour
         creatureState = CreatureState.Idle;
     }
 
-
+    List<Vector3Int> extents;
+    List<Vector3Int> previousExtents;
     void CalculateAllTilesWithinRange()
     {
+        extents = new List<Vector3Int>();
         allTilesWithinRange.Clear();
+        rangePositions.Clear();
         int xthreshold;
         int threshold;
         for (int x = 0; x < range + 1; x++)
@@ -194,8 +199,10 @@ public class Creature : MonoBehaviour
             {
                 xthreshold = range - x;
                 threshold = range + xthreshold;
+
                 if (y + x > threshold)
                 {
+                   
                     if (currentCellPosition.y % 2 == 0)
                     {
                         if (y + x <= threshold + 1)
@@ -214,6 +221,18 @@ public class Creature : MonoBehaviour
                     }
                     continue;
                 }
+                if (y == range && y + x == threshold - 1 && currentCellPosition.y % 2 == 0)
+                {
+                    extents.Add(new Vector3Int(x,  y, currentCellPosition.z));
+                }
+                if (y == range && y + x == threshold - 1 && currentCellPosition.y % 2 != 0)
+                {
+                    extents.Add(new Vector3Int(x + 1, y, currentCellPosition.z));
+                }
+                if (x == range && y + x == threshold)
+                {
+                    extents.Add(new Vector3Int( x,  y, currentCellPosition.z));
+                }
                 allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
                 allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
                 allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
@@ -221,9 +240,72 @@ public class Creature : MonoBehaviour
                 
             }
         }
-        for (int i = 0; i < allTilesWithinRange.Count; i++)
+
+        extents.Add(new Vector3Int(extents[0].x, -extents[0].y, extents[0].z));
+        if (currentCellPosition.y % 2 != 0)
         {
-            allTilesWithinRange[i].SetOwnedByPlayer(this.playerOwningCreature);
+            extents.Add(new Vector3Int(-extents[0].x + 1, -extents[0].y, extents[0].z));
         }
+        if (currentCellPosition.y % 2 == 0)
+        {
+            extents.Add(new Vector3Int(-extents[0].x - 1, -extents[0].y, extents[0].z));
+        }
+        extents.Add(new Vector3Int(-extents[1].x, extents[1].y, extents[1].z));
+        if (currentCellPosition.y % 2 != 0)
+        {
+            extents.Add(new Vector3Int(-extents[0].x + 1, +extents[0].y, extents[0].z));
+        }
+        if (currentCellPosition.y % 2 == 0)
+        {
+            extents.Add(new Vector3Int(-extents[0].x - 1, +extents[0].y, extents[0].z));
+        }
+
+        for (int i = 0; i < extents.Count; i++)
+        {
+            if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[i]) == null)
+            {
+            }
+        }
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).top);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).topRight);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[1]).topRight);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[1]).bottomRight);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[2]).bottomRight);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[2]).bottom);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[3]).bottom);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[3]).bottomLeft);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[4]).bottomLeft);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[4]).topLeft);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[5]).topLeft);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[5]).top);
+        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).top);
+
+
+       List <Vector3> newRangePositions = new List<Vector3>();
+        
+
+        SetNewPositionsForRangeLr(rangePositions);
+    }
+
+    GameObject rangeLrGO;
+    LineRenderer rangeLr;
+    private void SetRangeLineRenderer()
+    {
+        rangeLrGO = new GameObject("LineRendererGameObjectForRange", typeof(LineRenderer));
+        rangeLr = rangeLrGO.GetComponent<LineRenderer>();
+        rangeLr.enabled = false;
+        rangeLr.alignment = LineAlignment.TransformZ;
+        rangeLr.transform.localEulerAngles = new Vector3(90, 0, 0);
+        rangeLr.sortingOrder = 1000;
+        rangeLr.startWidth = .2f;
+        rangeLr.endWidth = .2f;
+        rangeLr.numCapVertices = 1;
+        rangeLr.material = GameManager.singleton.RenderInFrontMat;
+    }
+    void SetNewPositionsForRangeLr(List<Vector3> rangePositionsSent)
+    {
+        rangeLr.enabled = true;
+        rangeLr.positionCount = rangePositionsSent.Count;
+        rangeLr.SetPositions(rangePositionsSent.ToArray());
     }
 }

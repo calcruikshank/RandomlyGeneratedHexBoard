@@ -27,6 +27,7 @@ using Unity.Collections;
     public Tilemap baseMap;
     public Tilemap environmentMap;
     public Tilemap botMap;
+    public Tilemap backgroundMap;
 
     [SerializeField] TileBase[] tilesToChooseFrom;
 
@@ -38,6 +39,7 @@ using Unity.Collections;
     [SerializeField] TileBase[] forestEnvironmentTilesToChooseFrom;
 
     public TileBase botTile;
+    public TileBase backgroundTile;
 
     List<int> modeList = new List<int>();
     int? randomNeighborTile;
@@ -110,6 +112,15 @@ using Unity.Collections;
                 }
 
                 botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
+
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2) + width, (-y + height / 2) + height, 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2) - width, (-y + height / 2) - height, 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2) + width, (-y + height / 2) - height, 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2) - width, (-y + height / 2) + height, 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2) + width, (-y + height / 2), 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2) - width, (-y + height / 2), 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2), (-y + height / 2) + height, 0), backgroundTile);
+                backgroundMap.SetTile(new Vector3Int((-x + width / 2), (-y + height / 2) - height, 0), backgroundTile);
             }
         }
 

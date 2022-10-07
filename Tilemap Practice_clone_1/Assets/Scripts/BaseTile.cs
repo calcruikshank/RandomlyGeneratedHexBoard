@@ -34,6 +34,7 @@ public class BaseTile : MonoBehaviour
         
         environmentOnTile = environmentMap.GetInstantiatedObject(tilePosition);
 
+        CalculateAllPoints();
 
         SetAllNeighborTiles();
     }
@@ -128,28 +129,40 @@ public class BaseTile : MonoBehaviour
         structureOnTile = null;
     }
 
-    List<Vector3> worldPositionsOfVectorsOnGrid = new List<Vector3>();
+    public List<Vector3> worldPositionsOfVectorsOnGrid = new List<Vector3>();
+
+    public Vector3 topRight;
+    public Vector3 bottomRight;
+    public Vector3 bottom;
+    public Vector3 bottomLeft;
+    public Vector3 topLeft;
+    public Vector3 top;
+
+    void CalculateAllPoints()
+    {
+        float y = 0;
+        Vector3 worldPositionOfCell = new Vector3(this.transform.position.x, .21f, this.transform.position.z);
+        topRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, grid.GetBoundsLocal(tilePosition).extents.z / 2) + worldPositionOfCell;
+        worldPositionsOfVectorsOnGrid.Add(topRight);
+
+        bottomRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, -grid.GetBoundsLocal(tilePosition).extents.z / 2) + worldPositionOfCell;
+        worldPositionsOfVectorsOnGrid.Add(bottomRight);
+
+        bottom = new Vector3(0, y, -grid.GetBoundsLocal(tilePosition).extents.z) + worldPositionOfCell;
+        worldPositionsOfVectorsOnGrid.Add(bottom);
+        bottomLeft = new Vector3(-grid.GetBoundsLocal(tilePosition).extents.x, y, -grid.GetBoundsLocal(tilePosition).extents.z / 2) + worldPositionOfCell;
+        worldPositionsOfVectorsOnGrid.Add(bottomLeft);
+        topLeft = new Vector3(-grid.GetBoundsLocal(tilePosition).extents.x, y, grid.GetBoundsLocal(tilePosition).extents.z / 2) + worldPositionOfCell;
+        worldPositionsOfVectorsOnGrid.Add(topLeft);
+        top = new Vector3(0, y, grid.GetBoundsLocal(tilePosition).extents.z) + worldPositionOfCell;
+        worldPositionsOfVectorsOnGrid.Add(top);
+        worldPositionsOfVectorsOnGrid.Add(topRight);
+    }
     public void SetOwnedByPlayer(Controller playerOwningTileSent)
     {
         playerOwningTile = playerOwningTileSent;
         lr.startColor = (playerOwningTile.col);
         lr.endColor = (playerOwningTile.col);
-        float y = 0;
-        Vector3 worldPositionOfCell = new Vector3( this.transform.position.x, .21f, this.transform.position.z) ;
-        Vector3 topRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, grid.GetBoundsLocal(tilePosition).extents.z / 2);
-        worldPositionsOfVectorsOnGrid.Add(topRight + worldPositionOfCell);
-        Vector3 bottomRight = new Vector3(grid.GetBoundsLocal(tilePosition).extents.x, y, -grid.GetBoundsLocal(tilePosition).extents.z / 2);
-        worldPositionsOfVectorsOnGrid.Add(bottomRight + worldPositionOfCell);
-        Vector3 bottom = new Vector3(0, y, -grid.GetBoundsLocal(tilePosition).extents.z);
-        worldPositionsOfVectorsOnGrid.Add(bottom + worldPositionOfCell);
-        Vector3 bottomLeft = new Vector3(-grid.GetBoundsLocal(tilePosition).extents.x, y, -grid.GetBoundsLocal(tilePosition).extents.z / 2);
-        worldPositionsOfVectorsOnGrid.Add(bottomLeft + worldPositionOfCell);
-        Vector3 topLeft = new Vector3(-grid.GetBoundsLocal(tilePosition).extents.x, y, grid.GetBoundsLocal(tilePosition).extents.z / 2);
-        worldPositionsOfVectorsOnGrid.Add(topLeft + worldPositionOfCell);
-        Vector3 top = new Vector3(0, y, grid.GetBoundsLocal(tilePosition).extents.z);
-        worldPositionsOfVectorsOnGrid.Add(top + worldPositionOfCell);
-        worldPositionsOfVectorsOnGrid.Add(topRight + worldPositionOfCell);
-
         for (int i  = 0; i < worldPositionsOfVectorsOnGrid.Count; i++)
         {
             if (playerOwningTileSent.allVertextPointsInTilesOwned.Contains(worldPositionsOfVectorsOnGrid[i]))
