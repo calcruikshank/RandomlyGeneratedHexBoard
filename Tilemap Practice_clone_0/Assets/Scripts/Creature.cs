@@ -38,9 +38,8 @@ public class Creature : MonoBehaviour
     public BaseTile tileCurrentlyOn;
     public BaseTile previousTilePosition;
 
-    Vector3 targetPosition;
     Vector3 actualPosition;
-
+    Vector3 targetedPosition;
     Vector3[] positions = new Vector3[2];
 
     float timeBetweenLastTickOnMove;
@@ -99,22 +98,33 @@ public class Creature : MonoBehaviour
                 break;
         }
     }
+    public List<BaseTile> pathVectorList = new List<BaseTile>();
+    int currentPathIndex;
     public virtual void SetMove(Vector3 positionToTarget, float timeBetweenLastTickOnMoveSent)
     {
-        timeBetweenLastTickOnMove = timeBetweenLastTickOnMoveSent;
         Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(positionToTarget.x, 0, positionToTarget.z));
-        int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
-        SetNewTargetPosition(positionToTarget);
-        creatureState = CreatureState.Moving;
+
         Pathfinding pathfinder = new Pathfinding();
-        pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition);
+        List<BaseTile> path = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition);
+        pathVectorList = path;
+        for (int i = 0; i < path.Count; i++)
+        {
+            path[i].GetComponent<MeshRenderer>().enabled = false;
+        }
+        timeBetweenLastTickOnMove = timeBetweenLastTickOnMoveSent;
+        Debug.Log(path.Count);
+        //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(path[1].tilePosition));
+        //SetNewTargetPosition(positionToTarget);
+        currentPathIndex = 0;
+        creatureState = CreatureState.Moving;
+
     }
 
     protected void SetNewTargetPosition(Vector3 positionToTarget)
     {
-        targetPosition = positionToTarget;
+        //targetPosition = positionToTarget;
         positions[0] = this.transform.position;
-        positions[1] = targetPosition;
+        //positions[1] = targetPosition;
         lr.enabled = true;
         lr.positionCount = positions.Length;
         lr.SetPositions(positions);
@@ -122,8 +132,24 @@ public class Creature : MonoBehaviour
 
     public void Move()
     {
-        Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(targetPosition.x, 0, targetPosition.z));
-        actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetPosition.x, actualPosition.y, targetPosition.z), speed * timeBetweenLastTickOnMove);
+        if (pathVectorList != null)
+        {
+            targetedPosition = BaseMapTileState.singleton.GetWorldPositionOfCell( pathVectorList[currentPathIndex].tilePosition );
+
+            if (Vector3.Distance(actualPosition, targetedPosition) > 1f)
+            {
+                actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetedPosition.x, actualPosition.y, targetedPosition.z), speed * timeBetweenLastTickOnMove);
+            }
+            else
+            {
+                currentPathIndex++;
+                if (currentPathIndex >= pathVectorList.Count)
+                {
+                    SetStateToIdle();
+                }
+            }
+        }
+        //Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(targetPosition.x, 0, targetPosition.z));
         currentCellPosition = grid.WorldToCell(new Vector3(actualPosition.x, 0, actualPosition.z));
         if (BaseMapTileState.singleton.GetCreatureAtTile(currentCellPosition) == null)
         {
@@ -134,37 +160,38 @@ public class Creature : MonoBehaviour
             CalculateAllTilesWithinRange();
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
-            int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
         }
         tileCurrentlyOn.AddCreatureToTile(this);
 
-        if (tileCurrentlyOn.neighborTiles.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition))) //if your next to the tile you targeted and 
+        /*if (tileCurrentlyOn.neighborTiles.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition))) //if your next to the tile you targeted and 
         {
             if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != null)
             {
                 //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
                 if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition).playerOwningCreature == this.playerOwningCreature && BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != this)
                 {
-                    /*BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
-                    SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));*/
+                    BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+                    SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));
                 }
             }
         }
         if ((new Vector3(actualPosition.x, targetPosition.y, actualPosition.z) - targetPosition).magnitude < .02f)
         {
             SetStateToIdle();
-        }
+        }*/
     }
 
     protected void VisualMove()
     {
+        this.transform.position = actualPosition;
+        return;
         float valueToAdd = 0f;
         positions[0] = this.transform.position;
         lr.SetPositions(positions);
         lr.startColor = playerOwningCreature.col;
         lr.endColor = playerOwningCreature.col;
         float distanceFromActualPosition = (this.transform.position - actualPosition).magnitude;
-        this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z), speed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(actualPosition.x, this.transform.position.y, actualPosition.z), speed * Time.deltaTime);
     }
 
     internal void SetToPlayerOwningCreature(Controller controller)
@@ -180,8 +207,8 @@ public class Creature : MonoBehaviour
         tileCurrentlyOn.RemoveCreatureFromTile(this);
         lr.enabled = false;
         Debug.Log("setting state to idle and tick " + playerOwningCreature.tick);
-        this.transform.position = targetPosition;
-        actualPosition = targetPosition;
+        actualPosition = targetedPosition;
+        this.transform.position = actualPosition;
         currentCellPosition = grid.WorldToCell(new Vector3(this.transform.position.x, 0, this.transform.position.z));
         tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
         tileCurrentlyOn.AddCreatureToTile(this);

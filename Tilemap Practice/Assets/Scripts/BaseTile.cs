@@ -21,6 +21,11 @@ public class BaseTile : MonoBehaviour
 
     public Tilemap currentMapThatTileIsIn;
 
+    public int gCost;
+    public int hCost;
+    public int fCost;
+    public BaseTile cameFromBaseTile;
+
     public enum traversableType
     {
         Untraversable,
@@ -203,4 +208,9 @@ public class BaseTile : MonoBehaviour
         lr.numCornerVertices = 90;
         lr.material = GameManager.singleton.RenderInFrontMat;
     }
+    internal void CalculateFCost()
+    {
+        fCost = gCost + hCost;
+    }
+
 }
