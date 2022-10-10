@@ -111,15 +111,24 @@ public class Creature : MonoBehaviour
         Debug.Log(path.Count);
         //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(path[1].tilePosition));
         //SetNewTargetPosition(positionToTarget);
+        SetLRPoints();
         currentPathIndex = 0;
         creatureState = CreatureState.Moving;
 
     }
 
-    protected void SetNewTargetPosition(Vector3 positionToTarget)
+    protected void SetLRPoints()
     {
+        List<Vector3> lrList = new List<Vector3>();
         //targetPosition = positionToTarget;
-        positions[0] = this.transform.position;
+
+        lrList.Add(new Vector3(this.transform.position.x, BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[0].tilePosition).y, this.transform.position.z));
+        for (int i = currentPathIndex; i < pathVectorList.Count; i++)
+        {
+            lrList.Add(BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[i].tilePosition));
+        }
+        positions = lrList.ToArray();
+        //positions[0] = this.transform.position;
         //positions[1] = targetPosition;
         lr.enabled = true;
         lr.positionCount = positions.Length;
@@ -132,9 +141,10 @@ public class Creature : MonoBehaviour
         {
             targetedPosition = BaseMapTileState.singleton.GetWorldPositionOfCell( pathVectorList[currentPathIndex].tilePosition );
 
-            if (Vector3.Distance(actualPosition, targetedPosition) > 1f)
+            if (Vector3.Distance(actualPosition, targetedPosition) > .02f)
             {
                 actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetedPosition.x, actualPosition.y, targetedPosition.z), speed * timeBetweenLastTickOnMove);
+                SetLRPoints();
             }
             else
             {
