@@ -21,6 +21,14 @@ public class BaseTile : MonoBehaviour
 
     public Tilemap currentMapThatTileIsIn;
 
+    public enum traversableType
+    {
+        Untraversable,
+        OnlyFlying,
+        SwimmingAndFlying,
+        TraversableByAll
+    }
+    [SerializeField] traversableType traverseType;
     private void Start()
     {
         SetupLR();

@@ -68,6 +68,10 @@ using Unity.Collections;
         width = tmpSize.x;
         height = tmpSize.y;
 
+        GameManager.singleton.startingX = (-width + 1) + (width / 2);
+        GameManager.singleton.startingY = (-height + 1) + (height / 2);
+        GameManager.singleton.endingY = height + GameManager.singleton.startingY;
+        GameManager.singleton.endingX = width + GameManager.singleton.startingX;
         if (terrainMap == null)
         {
             terrainMap = new int[width, height];

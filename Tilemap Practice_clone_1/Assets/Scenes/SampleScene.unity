@@ -41087,6 +41087,8 @@ MonoBehaviour:
   tickTimeAverage: 0
   creatureGuidCounter: 0
   timeBetweenLastTick: 0
+  mapWidth: 0
+  mapHeight: 0
 --- !u!114 &1383740588
 MonoBehaviour:
   m_ObjectHideFlags: 0

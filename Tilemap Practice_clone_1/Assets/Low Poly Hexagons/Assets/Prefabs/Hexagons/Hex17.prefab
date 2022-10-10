@@ -93,17 +93,9 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163984033840858}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
+  serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 150942d75cdef8e41a71887d3400b4ac, type: 3}
@@ -119,4 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d2461fcfc9e7c488288f52779a42df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsOnTile: []
+  tilePosition: {x: 0, y: 0, z: 0}
+  structureOnTile: {fileID: 0}
+  playerOwningTile: {fileID: 0}
+  neighborTiles: []
+  currentMapThatTileIsIn: {fileID: 0}
+  traverseType: 2
+  worldPositionsOfVectorsOnGrid: []
+  topRight: {x: 0, y: 0, z: 0}
+  bottomRight: {x: 0, y: 0, z: 0}
+  bottom: {x: 0, y: 0, z: 0}
+  bottomLeft: {x: 0, y: 0, z: 0}
+  topLeft: {x: 0, y: 0, z: 0}
+  top: {x: 0, y: 0, z: 0}

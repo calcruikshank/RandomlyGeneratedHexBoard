@@ -38,6 +38,10 @@ public class GameManager : NetworkBehaviour
     public float timeBetweenLastTick;
     protected float timeBetweenTickCounter;
 
+    public int endingX;
+    public int endingY;
+    public int startingX;
+    public int startingY;
     private void Update()
     {
         if (playerList.Count < 3)

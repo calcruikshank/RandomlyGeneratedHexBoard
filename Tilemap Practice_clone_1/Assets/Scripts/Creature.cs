@@ -106,6 +106,8 @@ public class Creature : MonoBehaviour
         int numOfTilesFromTarget = BaseMapTileState.singleton.GetNumberOfTilesBetweenTwoTiles(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
         SetNewTargetPosition(positionToTarget);
         creatureState = CreatureState.Moving;
+        Pathfinding pathfinder = new Pathfinding();
+        pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition);
     }
 
     protected void SetNewTargetPosition(Vector3 positionToTarget)
