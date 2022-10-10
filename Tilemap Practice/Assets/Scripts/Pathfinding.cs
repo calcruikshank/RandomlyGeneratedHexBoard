@@ -92,10 +92,11 @@ public class Pathfinding
 
     private int CalculateDistanceCost(BaseTile a, BaseTile b)
     {
-        int xDistance = Mathf.Abs(Mathf.Abs(a.tilePosition.x) - Mathf.Abs(b.tilePosition.x));
-        int yDistance = Mathf.Abs(Mathf.Abs(a.tilePosition.y) - Mathf.Abs(b.tilePosition.y));
+        return Mathf.RoundToInt(Vector3.Distance(10 *BaseMapTileState.singleton.GetWorldPositionOfCell(a.tilePosition), BaseMapTileState.singleton.GetWorldPositionOfCell(b.tilePosition)));
+        int xDistance = Mathf.Abs(a.tilePosition.x - b.tilePosition.x);
+        int yDistance = Mathf.Abs(a.tilePosition.y - b.tilePosition.y);
         int remainingDistance = Mathf.Abs(xDistance - yDistance);
-        return remainingDistance;
+        return remainingDistance * 10;
     }
 
     private BaseTile GetTheLowestFCostNode(List<BaseTile> baseTileList)

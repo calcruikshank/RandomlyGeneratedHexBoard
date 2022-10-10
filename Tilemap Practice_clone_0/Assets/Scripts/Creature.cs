@@ -107,10 +107,6 @@ public class Creature : MonoBehaviour
         Pathfinding pathfinder = new Pathfinding();
         List<BaseTile> path = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition);
         pathVectorList = path;
-        for (int i = 0; i < path.Count; i++)
-        {
-            path[i].GetComponent<MeshRenderer>().enabled = false;
-        }
         timeBetweenLastTickOnMove = timeBetweenLastTickOnMoveSent;
         Debug.Log(path.Count);
         //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(path[1].tilePosition));
