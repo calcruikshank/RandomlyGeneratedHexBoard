@@ -197,7 +197,7 @@ public class Creature : MonoBehaviour
         lr.startColor = playerOwningCreature.col;
         lr.endColor = playerOwningCreature.col;
         float distanceFromActualPosition = (this.transform.position - actualPosition).magnitude;
-        this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(actualPosition.x, this.transform.position.y, actualPosition.z), speed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetedPosition.x, actualPosition.y, targetedPosition.z), speed * Time.deltaTime);
     }
 
     internal void SetToPlayerOwningCreature(Controller controller)
