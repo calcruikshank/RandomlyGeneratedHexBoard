@@ -74,8 +74,6 @@ public class Controller : NetworkBehaviour
     List<Vector3Int> tempLocalPositionsToSend = new List<Vector3Int>();
     List<int> tempLocalIndecesOfCardsInHand = new List<int>();
     public List<int> IndecesOfCardsInHandQueue = new List<int>();
-    float tempTimeBetweenLastTick;
-    float timeBetweenLastTick;
 
     public bool hasTickedSinceSendingLastMessage = true;
     bool locallySelectedCreature = false;
@@ -196,7 +194,7 @@ public class Controller : NetworkBehaviour
             {
                 AddToTickQueueLocal(cellPositionSentToClients);
             }
-            timeBetweenLastTick = (GameManager.singleton.tickTimeAverage + GameManager.singleton.timeBetweenLastTick) / 2;
+            //timeBetweenLastTick = (GameManager.singleton.tickTimeAverage + GameManager.singleton.timeBetweenLastTick) / 2;
             return;
         }
 
@@ -239,7 +237,7 @@ public class Controller : NetworkBehaviour
         message.leftClicksWorldPos = tempLocalPositionsToSend;
         message.guidsForCards = tempLocalIndecesOfCardsInHand;
         message.guidsForCreatures = tempIndexOfCreatureOnBoard;
-        message.timeBetweenLastTick = timeBetweenLastTick;
+        //message.timeBetweenLastTick = timeBetweenLastTick;
         //set guids of struct
         string messageString = JsonUtility.ToJson(message);
         SendMessageServerRpc(messageString);
@@ -269,7 +267,7 @@ public class Controller : NetworkBehaviour
     {
         Message receievedMessage = JsonUtility.FromJson<Message>(jsonOfMessage);
 
-        timeBetweenLastTick = receievedMessage.timeBetweenLastTick;
+        //timeBetweenLastTick = receievedMessage.timeBetweenLastTick;
         if (receievedMessage.guidsForCards.Count > 0)
         {
             for (int i = 0; i < receievedMessage.guidsForCards.Count; i++)
@@ -425,7 +423,7 @@ public class Controller : NetworkBehaviour
                     creatureSelected.SetMove(GetWorldPositionOfCell(tileToMoveTo.tilePosition));
                 }
             }*/
-            creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition) ,timeBetweenLastTick);
+            creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition));
 
             if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition) == creatureSelected.tileCurrentlyOn) //this makes sure you can double click to stop the creature and also have it selected
             {

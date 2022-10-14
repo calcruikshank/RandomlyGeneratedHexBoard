@@ -10,8 +10,11 @@ public class Pathfinding
    Tilemap baseMap;
     private List<BaseTile> openList;
     private List<BaseTile> closedList;
-    public List<BaseTile> FindPath(Vector3Int startingPosition, Vector3Int endingPosition)
+    Creature.travType travTypeSent;
+    public List<BaseTile> FindPath(Vector3Int startingPosition, Vector3Int endingPosition, Creature.travType travTypeOfCreature)
     {
+        travTypeSent = travTypeOfCreature;
+        Debug.Log(travTypeOfCreature);
         openList = new List<BaseTile>();
         BaseTile startingTile = BaseMapTileState.singleton.GetBaseTileAtCellPosition(startingPosition);
         BaseTile endingTile = BaseMapTileState.singleton.GetBaseTileAtCellPosition(endingPosition);
@@ -54,6 +57,29 @@ public class Pathfinding
                     continue;
                 }
 
+                switch (travTypeSent)
+                {
+                    case Creature.travType.Flying:
+                        if (neighbor.traverseType == BaseTile.traversableType.Untraversable)
+                        {
+                            continue;
+                        }
+                        break;
+                    case Creature.travType.Walking:
+                        if (neighbor.traverseType == BaseTile.traversableType.Untraversable)
+                        {
+                            continue;
+                        }
+                        if (neighbor.traverseType == BaseTile.traversableType.OnlyFlying)
+                        {
+                            continue;
+                        }
+                        if (neighbor.traverseType == BaseTile.traversableType.SwimmingAndFlying)
+                        {
+                            continue;
+                        }
+                        break;
+                }
                 int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbor);
                 if (tentativeGCost < neighbor.gCost)
                 {
@@ -92,7 +118,7 @@ public class Pathfinding
 
     private int CalculateDistanceCost(BaseTile a, BaseTile b)
     {
-        return Mathf.RoundToInt(Vector3.Distance(10 *BaseMapTileState.singleton.GetWorldPositionOfCell(a.tilePosition), BaseMapTileState.singleton.GetWorldPositionOfCell(b.tilePosition)));
+        return Mathf.RoundToInt(Vector3.Distance(10 *BaseMapTileState.singleton.GetWorldPositionOfCell(a.tilePosition), 10 * BaseMapTileState.singleton.GetWorldPositionOfCell(b.tilePosition)));
         int xDistance = Mathf.Abs(a.tilePosition.x - b.tilePosition.x);
         int yDistance = Mathf.Abs(a.tilePosition.y - b.tilePosition.y);
         int remainingDistance = Mathf.Abs(xDistance - yDistance);

@@ -34,4 +34,9 @@ public class FlyingCreature : Creature
         //set the object's Y to the new calculated Y
         transform.position = new Vector3(transform.position.x,(.5f + newY ), transform.position.z);
     }
+
+    protected override void SetTravType()
+    {
+        thisTraversableType = travType.Flying;
+    }
 }

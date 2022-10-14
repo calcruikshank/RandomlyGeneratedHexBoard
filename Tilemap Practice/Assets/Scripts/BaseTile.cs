@@ -33,7 +33,7 @@ public class BaseTile : MonoBehaviour
         SwimmingAndFlying,
         TraversableByAll
     }
-    [SerializeField] traversableType traverseType;
+    [SerializeField] public traversableType traverseType;
     private void Start()
     {
         SetupLR();

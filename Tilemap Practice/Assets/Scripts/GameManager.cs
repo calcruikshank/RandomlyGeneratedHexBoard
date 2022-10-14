@@ -30,13 +30,13 @@ public class GameManager : NetworkBehaviour
 
     public int gameManagerTick = 0;
     float totalTickTime;
-    public float tickTimeAverage;
+    //public float tickTimeAverage;
     int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
     public int creatureGuidCounter;
 
-    public float timeBetweenLastTick;
-    protected float timeBetweenTickCounter;
+    //public float timeBetweenLastTick;
+    //protected float timeBetweenTickCounter;
 
     public int endingX;
     public int endingY;
@@ -48,7 +48,7 @@ public class GameManager : NetworkBehaviour
         {
             return;
         }
-        timeBetweenTickCounter += Time.deltaTime;
+        //timeBetweenTickCounter += Time.deltaTime;
     }
     private void Awake()
     {
@@ -69,12 +69,12 @@ public class GameManager : NetworkBehaviour
         {
             playersThatHaveBeenReceived.Clear();
             tick.Invoke();
-            timeBetweenLastTick = timeBetweenTickCounter;
+            //timeBetweenLastTick = timeBetweenTickCounter;
 
-            totalTickTime += timeBetweenLastTick;
+            //totalTickTime += timeBetweenLastTick;
             gameManagerTick++;
-            tickTimeAverage = totalTickTime / gameManagerTick;
-            timeBetweenTickCounter = 0;
+            //tickTimeAverage = totalTickTime / gameManagerTick;
+            //timeBetweenTickCounter = 0;
 
             //allPlayersReceived = true;
         }

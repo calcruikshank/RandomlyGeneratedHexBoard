@@ -26,6 +26,16 @@ public class Creature : MonoBehaviour
 
     public Controller playerOwningCreature;
 
+    public enum travType
+    {
+        Swimming,
+        SwimmingAndWalking,
+        Flying,
+        Walking
+    }
+    public travType thisTraversableType;
+
+
     LineRenderer lr;
     GameObject lrGameObject;
     [SerializeField] int range; //num of tiles that can attack
@@ -42,7 +52,6 @@ public class Creature : MonoBehaviour
     Vector3 targetedPosition;
     Vector3[] positions = new Vector3[2];
 
-    float timeBetweenLastTickOnMove;
 
     List<Vector3> rangePositions = new List<Vector3>();
     protected Grid grid;
@@ -51,7 +60,7 @@ public class Creature : MonoBehaviour
         creatureState = CreatureState.Summoned;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         GameManager.singleton.tick += OnTick;
         grid = GameManager.singleton.grid;
@@ -64,7 +73,14 @@ public class Creature : MonoBehaviour
         SetRangeLineRenderer();
         actualPosition = this.transform.position;
         CalculateAllTilesWithinRange();
+        SetTravType();
     }
+
+    protected virtual void SetTravType()
+    {
+        thisTraversableType = travType.Walking;
+    }
+
     void SetupLR()
     {
         lrGameObject = new GameObject("LineRendererGameObject", typeof(LineRenderer));
@@ -84,12 +100,11 @@ public class Creature : MonoBehaviour
         switch (creatureState)
         {
             case CreatureState.Moving:
-                //Move();
                 VisualMove();
                 break;
         }
     }
-    void OnTick()
+    void FixedUpdate()
     {
         switch (creatureState)
         {
@@ -98,17 +113,22 @@ public class Creature : MonoBehaviour
                 break;
         }
     }
+    private void OnTick()
+    {
+    }
+
     public List<BaseTile> pathVectorList = new List<BaseTile>();
     int currentPathIndex;
-    public virtual void SetMove(Vector3 positionToTarget, float timeBetweenLastTickOnMoveSent)
+
+    public virtual void SetMove(Vector3 positionToTarget)
     {
         Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(positionToTarget.x, 0, positionToTarget.z));
 
         Pathfinding pathfinder = new Pathfinding();
-        List<BaseTile> path = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition);
+        List<BaseTile> tempPathVectorList = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition, thisTraversableType);
+        if (tempPathVectorList == null) return;
+        List<BaseTile> path = tempPathVectorList;
         pathVectorList = path;
-        timeBetweenLastTickOnMove = timeBetweenLastTickOnMoveSent;
-        Debug.Log(path.Count);
         //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(path[1].tilePosition));
         //SetNewTargetPosition(positionToTarget);
         SetLRPoints();
@@ -143,7 +163,7 @@ public class Creature : MonoBehaviour
 
             if (Vector3.Distance(actualPosition, targetedPosition) > .02f)
             {
-                actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetedPosition.x, actualPosition.y, targetedPosition.z), speed * timeBetweenLastTickOnMove);
+                actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetedPosition.x, actualPosition.y, targetedPosition.z), speed * Time.fixedDeltaTime);
                 SetLRPoints();
             }
             else
