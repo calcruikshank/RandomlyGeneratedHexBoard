@@ -35,7 +35,6 @@ public class Pathfinding
 
         startingTile.gCost = 0;
         startingTile.hCost = CalculateDistanceCost(startingTile, endingTile);
-        Debug.LogError(startingTile.hCost);
         startingTile.CalculateFCost();
 
         while (openList.Count > 0)
