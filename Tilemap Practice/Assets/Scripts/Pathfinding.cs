@@ -121,7 +121,6 @@ public class Pathfinding
 
     private int CalculateDistanceCost(BaseTile a, BaseTile b)
     {
-        //return Mathf.RoundToInt(Vector3.Distance(10 *BaseMapTileState.singleton.GetWorldPositionOfCell(a.tilePosition), 10 * BaseMapTileState.singleton.GetWorldPositionOfCell(b.tilePosition)));
         int potentialRange = Mathf.Abs(a.tilePosition.x - b.tilePosition.x);
         if (Mathf.Abs(a.tilePosition.y - b.tilePosition.y) > potentialRange)
         {
@@ -133,17 +132,24 @@ public class Pathfinding
         int threshold = potentialRange + xThreshold;
         int yDistance = Mathf.Abs(a.tilePosition.y - b.tilePosition.y);
         int remaining = 0;
+
+        /*if (a.tilePosition.y % 2 == 0)
+        {
+            if (b.tilePosition.x < a.tilePosition.x )
+            {
+                threshold++;
+            }
+        } 
+        if (a.tilePosition.y % 2 != 0)
+        {
+            if (b.tilePosition.x > a.tilePosition.x )
+            {
+                threshold++;
+            }
+        }*/
         if (threshold < xDistance + yDistance)
         {
             remaining = (Math.Abs(threshold - (xDistance + yDistance)));
-        }
-        if (a.tilePosition.y % 2 == 0 && b.tilePosition.x < a.tilePosition.x )
-        {
-            //remaining--;
-        }
-        if (a.tilePosition.y % 2 != 0 && b.tilePosition.x > a.tilePosition.x )
-        {
-            //remaining--;
         }
         return (potentialRange + remaining) * 10;
     }
