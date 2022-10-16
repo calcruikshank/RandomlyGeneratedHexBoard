@@ -116,6 +116,11 @@ MonoBehaviour:
   playerOwningTile: {fileID: 0}
   neighborTiles: []
   currentMapThatTileIsIn: {fileID: 0}
+  gCost: 0
+  hCost: 0
+  fCost: 0
+  cameFromBaseTile: {fileID: 0}
+  manaType: 1
   traverseType: 3
   worldPositionsOfVectorsOnGrid: []
   topRight: {x: 0, y: 0, z: 0}

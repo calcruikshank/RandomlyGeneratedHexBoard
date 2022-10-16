@@ -25,7 +25,15 @@ public class BaseTile : MonoBehaviour
     public int hCost;
     public int fCost;
     public BaseTile cameFromBaseTile;
-
+    public enum ManaType
+    {
+        Red,
+        Green,
+        Blue,
+        Black,
+        White
+    }
+    public ManaType manaType;
     public enum traversableType
     {
         Untraversable,

@@ -41080,15 +41080,15 @@ MonoBehaviour:
   OpaqueSharedMat: {fileID: 2100000, guid: cf051fba995609b459f0eb4baf4bb478, type: 2}
   castleTransform: {fileID: 93194238494730789, guid: 686d43d1302e4a447917903c2d11f2c0, type: 3}
   highlightTile: {fileID: 11400000, guid: a2e0a1bfbd59d6c48a78b8ba9e1bcdeb, type: 2}
-  cardParent: {fileID: 1539081632}
+  cardParent: {fileID: 208376561471265153, guid: 3e21a26925e157d43a8ffd858d07f429, type: 3}
   playerList: []
   playersThatHaveBeenReceived: []
   gameManagerTick: 0
-  tickTimeAverage: 0
   creatureGuidCounter: 0
-  timeBetweenLastTick: 0
-  mapWidth: 0
-  mapHeight: 0
+  endingX: 0
+  endingY: 0
+  startingX: 0
+  startingY: 0
 --- !u!114 &1383740588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46298,11 +46298,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4428311454710422, guid: cd4f2cbde7d033f45a5d96afb77a69e1, type: 3}
   m_PrefabInstance: {fileID: 1536398364}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1539081632 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8465971551277622557, guid: 7ed47ee3db17a8642945246fb69166b6, type: 3}
-  m_PrefabInstance: {fileID: 1851214132}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1539378559
 PrefabInstance:
@@ -56738,6 +56733,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8465971551277622558, guid: 7ed47ee3db17a8642945246fb69166b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8465971551428376752, guid: 7ed47ee3db17a8642945246fb69166b6, type: 3}
       propertyPath: m_Name
       value: Canvas

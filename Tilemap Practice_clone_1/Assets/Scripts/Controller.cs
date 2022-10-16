@@ -77,6 +77,13 @@ public class Controller : NetworkBehaviour
 
     public bool hasTickedSinceSendingLastMessage = true;
     bool locallySelectedCreature = false;
+
+    PlayerResources resources;
+
+    delegate void ResourcesChanged(PlayerResources resources);
+    ResourcesChanged resourcesChanged;
+
+    HudElements hudElements;
     public override void OnNetworkSpawn()
     {
 
@@ -85,17 +92,20 @@ public class Controller : NetworkBehaviour
     void Start()
     {
         GrabAllObjectsFromGameManager();
+        col = Color.red;
+        col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
+        resources = new PlayerResources();
+        resourcesChanged += UpdateHudForResourcesChanged;
         SpawnHUDAndHideOnAllNonOwners();
         state = State.PlacingCastle;
-        col = Color.red;
 
         cardsInDeck = GameManager.singleton.Shuffle(cardsInDeck);
-        col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
         mousePositionScript = GetComponent<MousePositionScript>();
         for (int i = 0; i < 3; i++)
         {
             DrawCard();
         }
+
     }
 
     void GrabAllObjectsFromGameManager()
@@ -116,7 +126,12 @@ public class Controller : NetworkBehaviour
         instantiatedPlayerUI = Instantiate(cardParent, canvasMain.transform);
         if (!IsOwner)
         {
-            instantiatedPlayerUI.GetComponent<Image>().enabled = false;
+            instantiatedPlayerUI.gameObject.SetActive(false);
+        }
+        if (IsOwner)
+        {
+            instantiatedPlayerUI.gameObject.GetComponent<Image>().color = col;
+            hudElements = instantiatedPlayerUI.GetComponent<HudElements>();
         }
     }
 
@@ -519,6 +534,79 @@ public class Controller : NetworkBehaviour
         state = State.NothingSelected;
     }
 
+    public void AddToMaxMana(BaseTile.ManaType manaTypeToAdd)
+    {
+        if (manaTypeToAdd == BaseTile.ManaType.Black)
+        {
+            resources.blackManaCap++;
+        }
+        if (manaTypeToAdd == BaseTile.ManaType.Red)
+        {
+            resources.redManaCap++;
+        }
+        if (manaTypeToAdd == BaseTile.ManaType.White)
+        {
+            resources.whiteManaCap++;
+        }
+        if (manaTypeToAdd == BaseTile.ManaType.Green)
+        {
+            resources.greenManaCap++;
+        }
+        if (manaTypeToAdd == BaseTile.ManaType.Blue)
+        {
+            resources.blueManaCap++;
+        }
+
+    }
+
+
+    public void AddToMana()
+    {
+        for (int i = 0; i < resources.blueManaCap; i++)
+        {
+            if (resources.blueMana < resources.blueManaCap)
+            {
+                resources.blueMana++;
+            }
+        }
+        for (int i = 0; i < resources.blackMana; i++)
+        {
+            if (resources.blackMana < resources.blueManaCap)
+            {
+                resources.blackMana++;
+            }
+        }
+        for (int i = 0; i < resources.redMana; i++)
+        {
+            if (resources.redMana < resources.blueManaCap)
+            {
+                resources.redMana++;
+            }
+        }
+        for (int i = 0; i < resources.whiteManaCap; i++)
+        {
+            if (resources.whiteMana < resources.blueManaCap)
+            {
+                resources.whiteMana++;
+            }
+        }
+        for (int i = 0; i < resources.greenManaCap; i++)
+        {
+            if (resources.greenMana < resources.blueManaCap)
+            {
+                resources.greenMana++;
+            }
+        }
+
+        resourcesChanged.Invoke(resources);
+    }
+    private void UpdateHudForResourcesChanged(PlayerResources resources)
+    {
+        if (IsOwner)
+        {
+            hudElements.UpdateHudElements(resources);
+        }
+    }
 
 
 
@@ -536,4 +624,22 @@ public class Controller : NetworkBehaviour
         TranslateToFuntionalStruct(json);
     }
     #endregion
+
+
+
+}
+
+public struct PlayerResources
+{
+    public int blueManaCap;
+    public int redManaCap;
+    public int whiteManaCap;
+    public int blackManaCap;
+    public int greenManaCap;
+    public int blueMana;
+    public int redMana;
+    public int whiteMana;
+    public int blackMana;
+    public int greenMana;
+
 }

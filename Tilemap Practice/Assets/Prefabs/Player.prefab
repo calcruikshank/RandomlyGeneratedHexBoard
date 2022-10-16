@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  col: {r: 0, g: 0, b: 0, a: 0}
   creatureMask:
     serializedVersion: 2
     m_Bits: 64
@@ -120,6 +121,11 @@ MonoBehaviour:
   cardSelected: {fileID: 0}
   allVertextPointsInTilesOwned: []
   cardParent: {fileID: 2345043074193135161, guid: 216d4af215eff9342815983c150fd6ac, type: 3}
+  tick: 0
+  tickTimer: 0
+  clickQueueForTick: []
+  IndecesOfCardsInHandQueue: 
+  hasTickedSinceSendingLastMessage: 1
 --- !u!114 &8164691875682251415
 MonoBehaviour:
   m_ObjectHideFlags: 0

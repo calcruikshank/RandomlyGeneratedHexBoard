@@ -195,25 +195,26 @@ public class Creature : MonoBehaviour
             CalculateAllTilesWithinRange();
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
-        }
-        if (tileCurrentlyOn.CreatureOnTile() == null)
-        {
             tileCurrentlyOn.AddCreatureToTile(this);
         }
-        if (pathVectorList[currentPathIndex].CreatureOnTile() != null && pathVectorList[currentPathIndex].CreatureOnTile() != this && pathVectorList.Contains(tileCurrentlyOn))
-        {
-            //SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[pathVectorList.Count - 1].tilePosition));
-        }
 
-        /*if (BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition) != null)
+        if (BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition) != null)
         {
             if (currentPathIndex == pathVectorList.Count - 1 && BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition) != this)
             {
+                if (pathVectorList[currentPathIndex - 1] != null)
+                {
+                    if (pathVectorList[currentPathIndex - 1].CreatureOnTile() == this || pathVectorList[currentPathIndex - 1].CreatureOnTile() == null)
+                    {
+                        SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[currentPathIndex - 1].tilePosition));
+                        return;
+                    }
+                }
                 foreach (BaseTile neighbor in pathVectorList[currentPathIndex].neighborTiles)
                 {
                     if (neighbor.CreatureOnTile() == null)
                     {
-                        SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(neighbor.tilePosition));
+                        //SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(neighbor.tilePosition));
                     }
                 }
                 return;
@@ -226,7 +227,7 @@ public class Creature : MonoBehaviour
                 //BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
                 //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));
             }
-        }*/
+        }
     }
 
     protected void VisualMove()
