@@ -168,10 +168,19 @@ public class Creature : MonoBehaviour
             }
             else
             {
-                currentPathIndex++;
-                if (currentPathIndex >= pathVectorList.Count)
+                if (currentPathIndex >= pathVectorList.Count - 1)
                 {
-                    SetStateToIdle();
+                    if (pathVectorList[currentPathIndex].CreatureOnTile() == null || pathVectorList[currentPathIndex].CreatureOnTile() == this)
+                    {
+                        SetStateToIdle();
+                    }
+                    else
+                    {
+                    }
+                }
+                else
+                {
+                    currentPathIndex++;
                 }
             }
         }
@@ -187,23 +196,36 @@ public class Creature : MonoBehaviour
             previousTilePosition.RemoveCreatureFromTile(this);
             previousTilePosition = tileCurrentlyOn;
         }
-        tileCurrentlyOn.AddCreatureToTile(this);
-
-        /*if (tileCurrentlyOn.neighborTiles.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition))) //if your next to the tile you targeted and 
+        if (tileCurrentlyOn.CreatureOnTile() == null)
         {
-            if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != null)
-            {
-                //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
-                if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition).playerOwningCreature == this.playerOwningCreature && BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition) != this)
-                {
-                    BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
-                    SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));
-                }
-            }
+            tileCurrentlyOn.AddCreatureToTile(this);
         }
-        if ((new Vector3(actualPosition.x, targetPosition.y, actualPosition.z) - targetPosition).magnitude < .02f)
+        if (pathVectorList[currentPathIndex].CreatureOnTile() != null && pathVectorList[currentPathIndex].CreatureOnTile() != this && pathVectorList.Contains(tileCurrentlyOn))
         {
-            SetStateToIdle();
+            //SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[pathVectorList.Count - 1].tilePosition));
+        }
+
+        /*if (BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition) != null)
+        {
+            if (currentPathIndex == pathVectorList.Count - 1 && BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition) != this)
+            {
+                foreach (BaseTile neighbor in pathVectorList[currentPathIndex].neighborTiles)
+                {
+                    if (neighbor.CreatureOnTile() == null)
+                    {
+                        SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(neighbor.tilePosition));
+                    }
+                }
+                return;
+            }
+            //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(currentCellPosition));
+            if (BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition).playerOwningCreature == this.playerOwningCreature && BaseMapTileState.singleton.GetCreatureAtTile(pathVectorList[currentPathIndex].tilePosition) != this)
+            {
+                SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[pathVectorList.Count - 1].tilePosition));
+                //pathVectorList.RemoveAt(pathVectorList.Count - 1);
+                //BaseTile newBaseTileToMoveTo = BaseMapTileState.singleton.GetNearestBaseTileGivenCell(tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
+                //SetNewTargetPosition(BaseMapTileState.singleton.GetWorldPositionOfCell(newBaseTileToMoveTo.tilePosition));
+            }
         }*/
     }
 
@@ -243,6 +265,8 @@ public class Creature : MonoBehaviour
 
     List<Vector3Int> extents;
     List<Vector3Int> previousExtents;
+
+    #region range
     void CalculateAllTilesWithinRange()
     {
         extents = new List<Vector3Int>();
@@ -363,8 +387,19 @@ public class Creature : MonoBehaviour
     }
     void SetNewPositionsForRangeLr(List<Vector3> rangePositionsSent)
     {
-        rangeLr.enabled = true;
+        //rangeLr.enabled = true;
         rangeLr.positionCount = rangePositionsSent.Count;
         rangeLr.SetPositions(rangePositionsSent.ToArray());
     }
+
+    private void OnMouseOver()
+    {
+        rangeLr.enabled = true;
+    }
+
+    private void OnMouseExit()
+    {
+        rangeLr.enabled = false;
+    }
+    #endregion
 }

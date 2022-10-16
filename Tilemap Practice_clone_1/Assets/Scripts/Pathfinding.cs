@@ -14,7 +14,6 @@ public class Pathfinding
     public List<BaseTile> FindPath(Vector3Int startingPosition, Vector3Int endingPosition, Creature.travType travTypeOfCreature)
     {
         travTypeSent = travTypeOfCreature;
-        Debug.Log(travTypeOfCreature);
         openList = new List<BaseTile>();
         BaseTile startingTile = BaseMapTileState.singleton.GetBaseTileAtCellPosition(startingPosition);
         BaseTile endingTile = BaseMapTileState.singleton.GetBaseTileAtCellPosition(endingPosition);
@@ -36,6 +35,7 @@ public class Pathfinding
 
         startingTile.gCost = 0;
         startingTile.hCost = CalculateDistanceCost(startingTile, endingTile);
+        Debug.LogError(startingTile.hCost);
         startingTile.CalculateFCost();
 
         while (openList.Count > 0)
@@ -56,7 +56,10 @@ public class Pathfinding
                 {
                     continue;
                 }
-
+                if (neighbor.CreatureOnTile() != null)
+                {
+                    continue;
+                }
                 switch (travTypeSent)
                 {
                     case Creature.travType.Flying:
@@ -118,11 +121,31 @@ public class Pathfinding
 
     private int CalculateDistanceCost(BaseTile a, BaseTile b)
     {
-        return Mathf.RoundToInt(Vector3.Distance(10 *BaseMapTileState.singleton.GetWorldPositionOfCell(a.tilePosition), 10 * BaseMapTileState.singleton.GetWorldPositionOfCell(b.tilePosition)));
+        //return Mathf.RoundToInt(Vector3.Distance(10 *BaseMapTileState.singleton.GetWorldPositionOfCell(a.tilePosition), 10 * BaseMapTileState.singleton.GetWorldPositionOfCell(b.tilePosition)));
+        int potentialRange = Mathf.Abs(a.tilePosition.x - b.tilePosition.x);
+        if (Mathf.Abs(a.tilePosition.y - b.tilePosition.y) > potentialRange)
+        {
+            potentialRange = Mathf.Abs(a.tilePosition.y - b.tilePosition.y);
+        }
+
         int xDistance = Mathf.Abs(a.tilePosition.x - b.tilePosition.x);
+        int xThreshold = potentialRange - xDistance;
+        int threshold = potentialRange + xThreshold;
         int yDistance = Mathf.Abs(a.tilePosition.y - b.tilePosition.y);
-        int remainingDistance = Mathf.Abs(xDistance - yDistance);
-        return remainingDistance * 10;
+        int remaining = 0;
+        if (threshold < xDistance + yDistance)
+        {
+            remaining = (Math.Abs(threshold - (xDistance + yDistance)));
+        }
+        if (a.tilePosition.y % 2 == 0 && b.tilePosition.x < a.tilePosition.x )
+        {
+            //remaining--;
+        }
+        if (a.tilePosition.y % 2 != 0 && b.tilePosition.x > a.tilePosition.x )
+        {
+            //remaining--;
+        }
+        return (potentialRange + remaining) * 10;
     }
 
     private BaseTile GetTheLowestFCostNode(List<BaseTile> baseTileList)
