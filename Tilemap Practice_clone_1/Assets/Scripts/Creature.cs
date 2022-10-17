@@ -186,7 +186,7 @@ public class Creature : MonoBehaviour
     {
         if (pathVectorList != null)
         {
-            targetedPosition = BaseMapTileState.singleton.GetWorldPositionOfCell( pathVectorList[currentPathIndex].tilePosition );
+            targetedPosition = BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[currentPathIndex].tilePosition);
 
             if (Vector3.Distance(actualPosition, targetedPosition) > .02f)
             {
@@ -297,103 +297,109 @@ public class Creature : MonoBehaviour
     #region range
     void CalculateAllTilesWithinRange()
     {
-        extents = new List<Vector3Int>();
-        allTilesWithinRange.Clear();
-        rangePositions.Clear();
-        int xthreshold;
-        int threshold;
-        for (int x = 0; x < range + 1; x++)
+        if (range % 2 != 0)
         {
-            for (int y = 0; y < range + 1; y++)
+
+            extents = new List<Vector3Int>();
+            allTilesWithinRange.Clear();
+            rangePositions.Clear();
+            int xthreshold;
+            int threshold;
+            for (int x = 0; x < range + 1; x++)
             {
-                xthreshold = range - x;
-                threshold = range + xthreshold;
+                for (int y = 0; y < range + 1; y++)
+                {
+                    xthreshold = range - x;
+                    threshold = range + xthreshold;
 
-                if (y + x > threshold)
-                {
-                   
-                    if (currentCellPosition.y % 2 == 0)
+                    if (y + x > threshold)
                     {
-                        if (y + x <= threshold + 1)
+
+                        if (currentCellPosition.y % 2 == 0)
                         {
-                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
-                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+                            if (y + x <= threshold + 1)
+                            {
+                                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
+                                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+                            }
                         }
+                        if (currentCellPosition.y % 2 != 0)
+                        {
+                            if (y + x <= threshold + 1)
+                            {
+                                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
+                                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
+                            }
+                        }
+                        continue;
                     }
-                    if (currentCellPosition.y % 2 != 0)
+                    if (y == range && y + x == threshold - 1 && currentCellPosition.y % 2 == 0)
                     {
-                        if (y + x <= threshold + 1)
-                        {
-                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
-                            allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
-                        }
+                        extents.Add(new Vector3Int(x, y, currentCellPosition.z));
                     }
-                    continue;
+                    if (y == range && y + x == threshold - 1 && currentCellPosition.y % 2 != 0)
+                    {
+                        extents.Add(new Vector3Int(x + 1, y, currentCellPosition.z));
+                    }
+                    if (x == range && y + x == threshold)
+                    {
+                        extents.Add(new Vector3Int(x, y, currentCellPosition.z));
+                    }
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+
                 }
-                if (y == range && y + x == threshold - 1 && currentCellPosition.y % 2 == 0)
-                {
-                    extents.Add(new Vector3Int(x,  y, currentCellPosition.z));
-                }
-                if (y == range && y + x == threshold - 1 && currentCellPosition.y % 2 != 0)
-                {
-                    extents.Add(new Vector3Int(x + 1, y, currentCellPosition.z));
-                }
-                if (x == range && y + x == threshold)
-                {
-                    extents.Add(new Vector3Int( x,  y, currentCellPosition.z));
-                }
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
-                
             }
-        }
 
-        extents.Add(new Vector3Int(extents[0].x, -extents[0].y, extents[0].z));
-        if (currentCellPosition.y % 2 != 0)
-        {
-            extents.Add(new Vector3Int(-extents[0].x + 1, -extents[0].y, extents[0].z));
-        }
-        if (currentCellPosition.y % 2 == 0)
-        {
-            extents.Add(new Vector3Int(-extents[0].x - 1, -extents[0].y, extents[0].z));
-        }
-        extents.Add(new Vector3Int(-extents[1].x, extents[1].y, extents[1].z));
-        if (currentCellPosition.y % 2 != 0)
-        {
-            extents.Add(new Vector3Int(-extents[0].x + 1, +extents[0].y, extents[0].z));
-        }
-        if (currentCellPosition.y % 2 == 0)
-        {
-            extents.Add(new Vector3Int(-extents[0].x - 1, +extents[0].y, extents[0].z));
-        }
-
-        for (int i = 0; i < extents.Count; i++)
-        {
-            if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[i]) == null)
+            extents.Add(new Vector3Int(extents[0].x, -extents[0].y, extents[0].z));
+            if (currentCellPosition.y % 2 != 0)
             {
+                extents.Add(new Vector3Int(-extents[0].x + 1, -extents[0].y, extents[0].z));
             }
+            if (currentCellPosition.y % 2 == 0)
+            {
+                extents.Add(new Vector3Int(-extents[0].x - 1, -extents[0].y, extents[0].z));
+            }
+            extents.Add(new Vector3Int(-extents[1].x, extents[1].y, extents[1].z));
+            if (currentCellPosition.y % 2 != 0)
+            {
+                extents.Add(new Vector3Int(-extents[0].x + 1, +extents[0].y, extents[0].z));
+            }
+            if (currentCellPosition.y % 2 == 0)
+            {
+                extents.Add(new Vector3Int(-extents[0].x - 1, +extents[0].y, extents[0].z));
+            }
+
+            for (int i = 0; i < extents.Count; i++)
+            {
+                if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[i]) == null)
+                {
+                }
+            }
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).top);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).topRight);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[1]).topRight);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[1]).bottomRight);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[2]).bottomRight);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[2]).bottom);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[3]).bottom);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[3]).bottomLeft);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[4]).bottomLeft);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[4]).topLeft);
+
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[5]).topLeft);
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[5]).top);
+
+            rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).top);
+
+
+            List<Vector3> newRangePositions = new List<Vector3>();
+
+
+            SetNewPositionsForRangeLr(rangePositions);
         }
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).top);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).topRight);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[1]).topRight);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[1]).bottomRight);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[2]).bottomRight);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[2]).bottom);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[3]).bottom);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[3]).bottomLeft);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[4]).bottomLeft);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[4]).topLeft);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[5]).topLeft);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[5]).top);
-        rangePositions.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition + extents[0]).top);
-
-
-       List <Vector3> newRangePositions = new List<Vector3>();
-        
-
-        SetNewPositionsForRangeLr(rangePositions);
     }
 
 

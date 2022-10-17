@@ -624,18 +624,17 @@ public class Controller : NetworkBehaviour
                 resources.blueMana++;
             }
         }
-        for (int i = 0; i < resources.blackMana; i++)
+        for (int i = 0; i < resources.blackManaCap; i++)
         {
             if (resources.blackMana < resources.blackManaCap)
             {
                 resources.blackMana++;
             }
         }
-        for (int i = 0; i < resources.redMana; i++)
+        for (int i = 0; i < resources.redManaCap; i++)
         {
             if (resources.redMana < resources.redManaCap)
             {
-                Debug.LogError("adding red");
                 resources.redMana++;
             }
         }
