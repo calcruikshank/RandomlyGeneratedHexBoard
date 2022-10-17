@@ -92,7 +92,7 @@ using Unity.Collections;
                 {
                     baseMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), tilesToChooseFrom[terrainMap[x, y] - 1]);
 
-                    if (Random.Range(0, 100) > 50)
+                    if (Random.Range(0, 100) > 75)
                     {
                         int tileValue = terrainMap[x, y];
                         if (tileValue == 1)
