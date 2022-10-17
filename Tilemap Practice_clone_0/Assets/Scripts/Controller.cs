@@ -179,14 +179,14 @@ public class Controller : NetworkBehaviour
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         if (currentLocalHoverCellPosition != previousCellPosition)
         {
-            if (locallySelectedCreature != null)
-            {
-                VisualPathfinderOnCreatureSelected(locallySelectedCreature);
-            }
             highlightMap.SetTile(previousCellPosition, null);
             highlightMap.SetTile(currentLocalHoverCellPosition, highlightTile);
             previousCellPosition = currentLocalHoverCellPosition;
             //Debug.Log(baseMap.GetInstantiatedObject(currentCellPosition));
+            if (locallySelectedCreature != null)
+            {
+                VisualPathfinderOnCreatureSelected(locallySelectedCreature);
+            }
         }
 
         tickTimer += Time.deltaTime;
@@ -456,10 +456,7 @@ public class Controller : NetworkBehaviour
             creature.HidePathfinderLR();
             return;
         }
-        if (previousCellPosition != currentLocalHoverCellPosition)
-        {
-            creature.ShowPathfinderLinerRenderer(currentLocalHoverCellPosition);
-        }
+        creature.ShowPathfinderLinerRendererAsync(currentLocalHoverCellPosition);
     }
 
     void LocalSelectCardWithIndex(int indexOfCardSelected)

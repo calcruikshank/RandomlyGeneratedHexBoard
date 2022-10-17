@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -26,6 +28,8 @@ public class Creature : MonoBehaviour
     }
 
     public Controller playerOwningCreature;
+    Pathfinding pathfinder1;
+    Pathfinding pathfinder2;
 
     public enum travType
     {
@@ -78,6 +82,8 @@ public class Creature : MonoBehaviour
         actualPosition = this.transform.position;
         CalculateAllTilesWithinRange();
         SetTravType();
+        pathfinder1 = new Pathfinding();
+        pathfinder2 = new Pathfinding();
     }
 
     protected virtual void SetTravType()
@@ -146,8 +152,7 @@ public class Creature : MonoBehaviour
         HidePathfinderLR();
         Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(positionToTarget.x, 0, positionToTarget.z));
 
-        Pathfinding pathfinder = new Pathfinding();
-        List<BaseTile> tempPathVectorList = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition, thisTraversableType);
+        List<BaseTile> tempPathVectorList = pathfinder1.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition).tilePosition, thisTraversableType);
         if (tempPathVectorList == null) return;
         List<BaseTile> path = tempPathVectorList;
         pathVectorList = path;
@@ -409,10 +414,11 @@ public class Creature : MonoBehaviour
         rangeLr.startColor = playerOwningCreature.col;
         rangeLr.endColor = playerOwningCreature.col;
     }
-    internal void ShowPathfinderLinerRenderer(Vector3Int hoveredTilePosition)
+    CancellationTokenSource s_cts;
+    internal void ShowPathfinderLinerRendererAsync(Vector3Int hoveredTilePosition)
     {
-        Pathfinding pathfinder = new Pathfinding();
-        List<BaseTile> tempPathVectorList = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(hoveredTilePosition).tilePosition, thisTraversableType);
+        s_cts = new CancellationTokenSource();
+        List<BaseTile> tempPathVectorList = pathfinder2.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(hoveredTilePosition).tilePosition, thisTraversableType);
         List<Vector3> lrList = new List<Vector3>();
         //targetPosition = positionToTarget;
         if (tempPathVectorList == null)
@@ -431,6 +437,10 @@ public class Creature : MonoBehaviour
         lr2.enabled = true;
         lr2.positionCount = lrList.Count;
         lr2.SetPositions(lrList.ToArray());
+    }
+    public async Task<List<BaseTile>> FindPathAsync(Vector3Int hoveredTilePosition, CancellationTokenSource cts)
+    {
+        return await Task.FromResult(pathfinder2.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(hoveredTilePosition).tilePosition, thisTraversableType));
     }
     internal void HidePathfinderLR()
     {

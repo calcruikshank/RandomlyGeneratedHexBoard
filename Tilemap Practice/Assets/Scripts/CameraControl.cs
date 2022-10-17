@@ -26,7 +26,7 @@ public class CameraControl : MonoBehaviour
         {
 
             Vector3 delta = Input.mousePosition - lastPosition;
-            transform.Translate(-delta.x * mouseSensitivity * Time.deltaTime, -delta.y * mouseSensitivity * Time.deltaTime, 0) ;
+            transform.Translate(-delta.x * mouseSensitivity * Time.fixedDeltaTime, -delta.y * mouseSensitivity * Time.fixedDeltaTime, 0) ;
             lastPosition = Input.mousePosition;
         }
         if (transform.position.y < minYForCamera)
@@ -38,7 +38,7 @@ public class CameraControl : MonoBehaviour
     {
         if (transform.position.y > maxYForCamera && y < 0) return;
         if (transform.position.y < minYForCamera && y > 0) return;
-        Vector3 movementAmount = new Vector3(transform.position.x, transform.position.y - (y * speed * Time.deltaTime), transform.position.z);
+        Vector3 movementAmount = new Vector3(transform.position.x, transform.position.y - (y * speed * Time.fixedDeltaTime), transform.position.z);
         if (movementAmount.y > maxYForCamera)
         {
             movementAmount = new Vector3(transform.position.x, maxYForCamera, transform.position.z);
@@ -47,6 +47,6 @@ public class CameraControl : MonoBehaviour
         {
             movementAmount = new Vector3(transform.position.x, minYForCamera, transform.position.z);
         }
-        transform.position = Vector3.MoveTowards(this.transform.position, movementAmount, 200 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(this.transform.position, movementAmount, 200 * Time.fixedDeltaTime);
     }
 }
