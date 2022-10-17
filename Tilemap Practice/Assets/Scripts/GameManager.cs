@@ -27,34 +27,31 @@ public class GameManager : NetworkBehaviour
 
     public delegate void Tick();
     public event Tick tick;
+    public event Tick tickTookTooLong;
 
     public int gameManagerTick = 0;
-    float totalTickTime;
     //public float tickTimeAverage;
     int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
     public int creatureGuidCounter;
 
-    //public float timeBetweenLastTick;
-    //protected float timeBetweenTickCounter;
-
     public int endingX;
     public int endingY;
     public int startingX;
     public int startingY;
+
+    private void Awake()
+    {
+        if (singleton != null) Destroy(this);
+        singleton = this;
+        state = State.Setup;
+    }
     private void Update()
     {
         if (playerList.Count < 3)
         {
             return;
         }
-        //timeBetweenTickCounter += Time.deltaTime;
-    }
-    private void Awake()
-    {
-        if (singleton != null) Destroy(this);
-        singleton = this;
-        state = State.Setup;
     }
     public enum State
     {
@@ -69,13 +66,8 @@ public class GameManager : NetworkBehaviour
         {
             playersThatHaveBeenReceived.Clear();
             tick.Invoke();
-            //timeBetweenLastTick = timeBetweenTickCounter;
-
-            //totalTickTime += timeBetweenLastTick;
             gameManagerTick++;
             //tickTimeAverage = totalTickTime / gameManagerTick;
-            //timeBetweenTickCounter = 0;
-
             //allPlayersReceived = true;
         }
     }
