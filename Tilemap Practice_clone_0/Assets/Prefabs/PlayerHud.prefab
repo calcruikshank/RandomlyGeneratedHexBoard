@@ -2786,6 +2786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardParent
       objectReference: {fileID: 0}
+    - target: {fileID: 208376561471265183, guid: 3e21a26925e157d43a8ffd858d07f429, type: 3}
+      propertyPath: m_Color.a
+      value: 0.39215687
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e21a26925e157d43a8ffd858d07f429, type: 3}
 --- !u!224 &7855724757556455360 stripped

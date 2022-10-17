@@ -247,6 +247,7 @@ public class Controller : NetworkBehaviour
         if (turnTimer > turnThreshold)
         {
             turn.Invoke();
+            turnTimer = 0;
         }
     }
 
@@ -591,7 +592,6 @@ public class Controller : NetworkBehaviour
         {
             resources.blueManaCap++;
         }
-
         resourcesChanged.Invoke(resources);
     }
 
@@ -607,28 +607,29 @@ public class Controller : NetworkBehaviour
         }
         for (int i = 0; i < resources.blackMana; i++)
         {
-            if (resources.blackMana < resources.blueManaCap)
+            Debug.LogError("adding black");
+            if (resources.blackMana < resources.blackManaCap)
             {
                 resources.blackMana++;
             }
         }
         for (int i = 0; i < resources.redMana; i++)
         {
-            if (resources.redMana < resources.blueManaCap)
+            if (resources.redMana < resources.redManaCap)
             {
                 resources.redMana++;
             }
         }
         for (int i = 0; i < resources.whiteManaCap; i++)
         {
-            if (resources.whiteMana < resources.blueManaCap)
+            if (resources.whiteMana < resources.whiteManaCap)
             {
                 resources.whiteMana++;
             }
         }
         for (int i = 0; i < resources.greenManaCap; i++)
         {
-            if (resources.greenMana < resources.blueManaCap)
+            if (resources.greenMana < resources.greenManaCap)
             {
                 resources.greenMana++;
             }

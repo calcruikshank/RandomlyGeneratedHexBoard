@@ -21,8 +21,8 @@ public class NetworkButtons : MonoBehaviour
 
     private void Awake() {
          GetComponent<UnityTransport>().SetDebugSimulatorParameters(
-             packetDelay: 120,
-             packetJitter: 3,
-            dropRate: 3);
+             packetDelay: 0,
+             packetJitter: 0,
+            dropRate: 0);
      }
 }

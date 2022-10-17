@@ -52,11 +52,8 @@ MonoBehaviour:
   creatureMask:
     serializedVersion: 2
     m_Bits: 64
-  mana: 0
-  drawTimeThreshold: 5
-  drawTimer: 0
-  manaTimeThreshold: 5
-  manaTimer: 0
+  turnTimer: 0
+  turnThreshold: 400
   cardsInDeck:
   - {fileID: 5255841600039758024, guid: 6035a243017f92c498c4dfeb21b456a6, type: 3}
   - {fileID: 5255841600039758024, guid: a537093ed9ea8cb4fa6b52c94ea281da, type: 3}
@@ -120,12 +117,12 @@ MonoBehaviour:
   - {fileID: 5255841600039758024, guid: a537093ed9ea8cb4fa6b52c94ea281da, type: 3}
   cardSelected: {fileID: 0}
   allVertextPointsInTilesOwned: []
-  cardParent: {fileID: 2345043074193135161, guid: 216d4af215eff9342815983c150fd6ac, type: 3}
   tick: 0
   tickTimer: 0
   clickQueueForTick: []
   IndecesOfCardsInHandQueue: 
   hasTickedSinceSendingLastMessage: 1
+  playerHud: {fileID: 8061840716336608874, guid: ff649b0ea61d66149a0f91d41f2ab955, type: 3}
 --- !u!114 &8164691875682251415
 MonoBehaviour:
   m_ObjectHideFlags: 0
