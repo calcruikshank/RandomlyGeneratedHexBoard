@@ -451,7 +451,11 @@ public class Controller : NetworkBehaviour
 
     private void VisualPathfinderOnCreatureSelected(Creature creature)
     {
-        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentLocalHoverCellPosition).traverseType == BaseTile.traversableType.Untraversable) return;
+        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentLocalHoverCellPosition).traverseType == BaseTile.traversableType.Untraversable)
+        {
+            creature.HidePathfinderLR();
+            return;
+        }
         if (previousCellPosition != currentLocalHoverCellPosition)
         {
             creature.ShowPathfinderLinerRenderer(currentLocalHoverCellPosition);

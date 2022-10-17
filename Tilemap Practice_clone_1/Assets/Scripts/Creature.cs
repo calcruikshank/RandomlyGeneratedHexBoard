@@ -97,6 +97,8 @@ public class Creature : MonoBehaviour
         lr.endWidth = .2f;
         lr.numCapVertices = 1;
         lr.material = GameManager.singleton.RenderInFrontMat;
+        lr.startColor = playerOwningCreature.col;
+        lr.endColor = playerOwningCreature.col;
     }
     void SetupLR2()
     {
@@ -109,7 +111,9 @@ public class Creature : MonoBehaviour
         lr2.startWidth = .2f;
         lr2.endWidth = .2f;
         lr2.numCapVertices = 1;
-        lr2.material = GameManager.singleton.RenderInFrontMat;
+        lr2.material = GameManager.singleton.rangeIndicatorMat;
+        lr2.startColor = playerOwningCreature.col;
+        lr2.endColor = playerOwningCreature.col;
     }
 
     protected virtual void Update()
@@ -139,6 +143,7 @@ public class Creature : MonoBehaviour
 
     public virtual void SetMove(Vector3 positionToTarget)
     {
+        HidePathfinderLR();
         Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(positionToTarget.x, 0, positionToTarget.z));
 
         Pathfinding pathfinder = new Pathfinding();
@@ -427,7 +432,7 @@ public class Creature : MonoBehaviour
         lr2.positionCount = lrList.Count;
         lr2.SetPositions(lrList.ToArray());
     }
-    internal void HidePathfinderLR(Vector3Int hoveredTilePosition)
+    internal void HidePathfinderLR()
     {
         lr2.enabled = false;
         lr2.positionCount = positions.Length;
