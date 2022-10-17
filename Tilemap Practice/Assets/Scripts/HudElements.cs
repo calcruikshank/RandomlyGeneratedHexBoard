@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class HudElements : MonoBehaviour
 {
-    [SerializeField] TextMeshPro blueManaCap;
-    [SerializeField] TextMeshPro redManaCap;
-    [SerializeField] TextMeshPro whiteManaCap;
-    [SerializeField] TextMeshPro blackManaCap;
-    [SerializeField] TextMeshPro greenManaCap;
+    [SerializeField] TextMeshProUGUI blueManaCap;
+    [SerializeField] TextMeshProUGUI redManaCap;
+    [SerializeField] TextMeshProUGUI whiteManaCap;
+    [SerializeField] TextMeshProUGUI blackManaCap;
+    [SerializeField] TextMeshProUGUI greenManaCap;
 
-    [SerializeField] TextMeshPro whiteMana;
-    [SerializeField] TextMeshPro blackMana;
-    [SerializeField] TextMeshPro blueMana;
-    [SerializeField] TextMeshPro greenMana;
-    [SerializeField] TextMeshPro redMana;
+    [SerializeField] TextMeshProUGUI whiteMana;
+    [SerializeField] TextMeshProUGUI blackMana;
+    [SerializeField] TextMeshProUGUI blueMana;
+    [SerializeField] TextMeshProUGUI greenMana;
+    [SerializeField] TextMeshProUGUI redMana;
 
     public void UpdateHudElements(PlayerResources playerResources)
     {

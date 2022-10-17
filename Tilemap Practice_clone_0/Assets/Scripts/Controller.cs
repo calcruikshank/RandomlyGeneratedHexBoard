@@ -50,11 +50,8 @@ public class Controller : NetworkBehaviour
 
     Vector3Int placedCellPosition;
 
-    public int mana = 1;
-    public int drawTimeThreshold = 100;
-    public int drawTimer;
-    public int manaTimeThreshold = 100;
-    public int manaTimer;
+    public int turnTimer;
+    public int turnThreshold = 400;
     int maxHandSize = 7;
     [SerializeField] List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
@@ -62,8 +59,8 @@ public class Controller : NetworkBehaviour
     public GameObject cardSelected;
     public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
 
-    [SerializeField] Transform cardParent;
     Transform instantiatedPlayerUI;
+    Transform cardParent;
 
     Canvas canvasMain;
 
@@ -83,7 +80,12 @@ public class Controller : NetworkBehaviour
     delegate void ResourcesChanged(PlayerResources resources);
     ResourcesChanged resourcesChanged;
 
+    [SerializeField] Transform playerHud;
     HudElements hudElements;
+
+    delegate void Turn();
+    event Turn turn;
+
     public override void OnNetworkSpawn()
     {
 
@@ -94,6 +96,7 @@ public class Controller : NetworkBehaviour
         GrabAllObjectsFromGameManager();
         col = Color.red;
         col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
+        turn += OnTurn;
         resources = new PlayerResources();
         resourcesChanged += UpdateHudForResourcesChanged;
         SpawnHUDAndHideOnAllNonOwners();
@@ -107,6 +110,7 @@ public class Controller : NetworkBehaviour
         }
 
     }
+
 
     void GrabAllObjectsFromGameManager()
     {
@@ -123,22 +127,22 @@ public class Controller : NetworkBehaviour
     }
     void SpawnHUDAndHideOnAllNonOwners()
     {
-        instantiatedPlayerUI = Instantiate(cardParent, canvasMain.transform);
+        instantiatedPlayerUI = Instantiate(playerHud, canvasMain.transform);
+        cardParent = instantiatedPlayerUI.GetChild(0);
         if (!IsOwner)
         {
             instantiatedPlayerUI.gameObject.SetActive(false);
         }
         if (IsOwner)
         {
-            instantiatedPlayerUI.gameObject.GetComponent<Image>().color = col;
+            cardParent.gameObject.GetComponent<Image>().color = col;
             hudElements = instantiatedPlayerUI.GetComponent<HudElements>();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTurn()
     {
-        /*switch (state)
+        switch (state)
         {
             case State.PlacingCastle:
                 break;
@@ -154,8 +158,11 @@ public class Controller : NetworkBehaviour
                 HandleMana();
                 HandleDrawCards();
                 break;
-        }*/
-
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
         if (!IsOwner)
         {
             return;
@@ -215,6 +222,43 @@ public class Controller : NetworkBehaviour
 
     }
 
+
+    private void FixedUpdate()
+    {
+        switch (state)
+        {
+            case State.PlacingCastle:
+                break;
+            case State.NothingSelected:
+                HandleTurn();
+                break;
+            case State.CreatureInHandSelected:
+                HandleTurn();
+                break;
+            case State.CreatureSelected:
+                HandleTurn();
+                break;
+        }
+    }
+
+    private void HandleTurn()
+    {
+        turnTimer++;
+        if (turnTimer > turnThreshold)
+        {
+            turn.Invoke();
+        }
+    }
+
+    private void HandleDrawCards()
+    {
+        DrawCard();
+    }
+
+    private void HandleMana()
+    {
+        AddToMana();
+    }
 
     #region regionOfTicks
     void AddToTickQueueLocal(Vector3Int positionSent)
@@ -312,16 +356,6 @@ public class Controller : NetworkBehaviour
     void OnTick()
     {
         tick++;
-        manaTimer++;
-        drawTimer++;
-        if (manaTimer > manaTimeThreshold)
-        {
-            mana++;
-        }
-        if (drawTimer > drawTimeThreshold)
-        {
-            DrawCard();
-        }
         //order matters here bigtime later set this up in the enum
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
@@ -374,6 +408,7 @@ public class Controller : NetworkBehaviour
         Transform instantiatedCaste = Instantiate(castle, positionToSpawn, Quaternion.identity);
         instantiatedCaste.GetComponent<MeshRenderer>().material.color = col;
         instantiatedCaste.GetComponent<Structure>().playerOwningStructure = this;
+        AddToMaxMana(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).manaType);
         SetStateToNothingSelected();
     }
 
@@ -500,7 +535,7 @@ public class Controller : NetworkBehaviour
         CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
         cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
 
-        GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, instantiatedPlayerUI);
+        GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
         cardInHand.GetComponent<CardInHand>().indexOfCard = cardsInHand.Count;
         cardsInHand.Add(cardInHand.GetComponent<CardInHand>());
     }
@@ -557,6 +592,7 @@ public class Controller : NetworkBehaviour
             resources.blueManaCap++;
         }
 
+        resourcesChanged.Invoke(resources);
     }
 
 
