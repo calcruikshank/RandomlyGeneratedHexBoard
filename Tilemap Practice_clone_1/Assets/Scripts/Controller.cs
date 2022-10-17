@@ -74,7 +74,7 @@ public class Controller : NetworkBehaviour
     public List<int> IndecesOfCardsInHandQueue = new List<int>();
 
     public bool hasTickedSinceSendingLastMessage = true;
-    bool locallySelectedCreature = false;
+    Creature locallySelectedCreature;
 
     PlayerResources resources;
 
@@ -179,6 +179,10 @@ public class Controller : NetworkBehaviour
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         if (currentLocalHoverCellPosition != previousCellPosition)
         {
+            if (locallySelectedCreature != null)
+            {
+                VisualPathfinderOnCreatureSelected(locallySelectedCreature);
+            }
             highlightMap.SetTile(previousCellPosition, null);
             highlightMap.SetTile(currentLocalHoverCellPosition, highlightTile);
             previousCellPosition = currentLocalHoverCellPosition;
@@ -202,12 +206,13 @@ public class Controller : NetworkBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             cellPositionSentToClients = grid.WorldToCell(mousePosition);
+
             if (state == State.NothingSelected)
             {
-                if (locallySelectedCreature)
+                if (locallySelectedCreature != null)
                 {
                     AddToTickQueueLocal(cellPositionSentToClients);
-                    locallySelectedCreature = false;
+                    locallySelectedCreature = null;
                     return;
                 }
                 if (!CheckForRaycast())
@@ -267,7 +272,7 @@ public class Controller : NetworkBehaviour
     #region regionOfTicks
     void AddToTickQueueLocal(Vector3Int positionSent)
     {
-        locallySelectedCreature = false;
+        locallySelectedCreature = null;
         tempLocalPositionsToSend.Add(positionSent);
     }
     void AddIndexOfCardInHandToTickQueueLocal(int index)
@@ -433,14 +438,24 @@ public class Controller : NetworkBehaviour
             {
                 if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>().playerOwningCreature == this)
                 {
-                    locallySelectedCreature = true;
+                    locallySelectedCreature = raycastHitCreatureOnBoard.transform.GetComponent<Creature>();
                     AddIndexOfCreatureOnBoard(raycastHitCreatureOnBoard.transform.GetComponent<Creature>().creatureID);
+
                     //SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    private void VisualPathfinderOnCreatureSelected(Creature creature)
+    {
+        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentLocalHoverCellPosition).traverseType == BaseTile.traversableType.Untraversable) return;
+        if (previousCellPosition != currentLocalHoverCellPosition)
+        {
+            creature.ShowPathfinderLinerRenderer(currentLocalHoverCellPosition);
+        }
     }
 
     void LocalSelectCardWithIndex(int indexOfCardSelected)

@@ -38,7 +38,9 @@ public class Creature : MonoBehaviour
 
 
     LineRenderer lr;
+    LineRenderer lr2;
     GameObject lrGameObject;
+    GameObject lrGameObject2;
     [SerializeField] int range; //num of tiles that can attack
     float speed = 1f; //move speed
     float UsageRate; // the rate at which the minion can use abilities/ attack 
@@ -71,6 +73,7 @@ public class Creature : MonoBehaviour
         previousTilePosition = tileCurrentlyOn;
         tileCurrentlyOn.AddCreatureToTile(this);
         SetupLR();
+        SetupLR2();
         SetRangeLineRenderer();
         actualPosition = this.transform.position;
         CalculateAllTilesWithinRange();
@@ -94,6 +97,19 @@ public class Creature : MonoBehaviour
         lr.endWidth = .2f;
         lr.numCapVertices = 1;
         lr.material = GameManager.singleton.RenderInFrontMat;
+    }
+    void SetupLR2()
+    {
+        lrGameObject2 = new GameObject("LineRendererGameObject2", typeof(LineRenderer));
+        lr2 = lrGameObject2.GetComponent<LineRenderer>();
+        lr2.enabled = false;
+        lr2.alignment = LineAlignment.TransformZ;
+        lr2.transform.localEulerAngles = new Vector3(90, 0, 0);
+        lr2.sortingOrder = 1000;
+        lr2.startWidth = .2f;
+        lr2.endWidth = .2f;
+        lr2.numCapVertices = 1;
+        lr2.material = GameManager.singleton.RenderInFrontMat;
     }
 
     protected virtual void Update()
@@ -370,6 +386,7 @@ public class Creature : MonoBehaviour
         SetNewPositionsForRangeLr(rangePositions);
     }
 
+
     GameObject rangeLrGO;
     LineRenderer rangeLr;
     private void SetRangeLineRenderer()
@@ -387,9 +404,39 @@ public class Creature : MonoBehaviour
         rangeLr.startColor = playerOwningCreature.col;
         rangeLr.endColor = playerOwningCreature.col;
     }
+    internal void ShowPathfinderLinerRenderer(Vector3Int hoveredTilePosition)
+    {
+        Pathfinding pathfinder = new Pathfinding();
+        List<BaseTile> tempPathVectorList = pathfinder.FindPath(currentCellPosition, BaseMapTileState.singleton.GetBaseTileAtCellPosition(hoveredTilePosition).tilePosition, thisTraversableType);
+        List<Vector3> lrList = new List<Vector3>();
+        //targetPosition = positionToTarget;
+        if (tempPathVectorList == null)
+        {
+            lr2.enabled = false;
+            return;
+        }
+        if (tempPathVectorList != null)
+        {
+            for (int i = 0; i < tempPathVectorList.Count; i++)
+            {
+                lrList.Add(BaseMapTileState.singleton.GetWorldPositionOfCell(tempPathVectorList[i].tilePosition));
+            }
+        }
+
+        lr2.enabled = true;
+        lr2.positionCount = lrList.Count;
+        lr2.SetPositions(lrList.ToArray());
+    }
+    internal void HidePathfinderLR(Vector3Int hoveredTilePosition)
+    {
+        lr2.enabled = false;
+        lr2.positionCount = positions.Length;
+        lr2.SetPositions(positions);
+    }
     void SetNewPositionsForRangeLr(List<Vector3> rangePositionsSent)
     {
         //rangeLr.enabled = true;
+
         rangeLr.positionCount = rangePositionsSent.Count;
         rangeLr.SetPositions(rangePositionsSent.ToArray());
     }
