@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
@@ -440,9 +440,9 @@ GameObject:
   - component: {fileID: 6239865746917987992}
   - component: {fileID: 6239865746917987999}
   - component: {fileID: 6239865746917987998}
-  - component: {fileID: 5731112149956000747}
+  - component: {fileID: 6720730979571068887}
   m_Layer: 6
-  m_Name: Elf
+  m_Name: ElvishMystic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,7 +528,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5731112149956000747
+--- !u!114 &6720730979571068887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6239865746917987997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71993d2be2273814f99ef1f5bd7a6b48, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a162f6973a76ae4fabee9c5e4722480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   creatureState: 0
@@ -545,10 +545,12 @@ MonoBehaviour:
   allTilesWithinRange: []
   creatureID: 0
   playerOwningCreature: {fileID: 0}
-  range: 1
+  thisTraversableType: 0
+  range: 7
   currentCellPosition: {x: 0, y: 0, z: 0}
   tileCurrentlyOn: {fileID: 0}
   previousTilePosition: {fileID: 0}
+  pathVectorList: []
 --- !u!1 &6330952787006823200
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,8 +576,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6330952787006823200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.691, z: 0.4}
-  m_LocalScale: {x: 0.1929022, y: 0.1929022, z: 0.19283393}
+  m_LocalPosition: {x: 0, y: -0.612, z: 0.84}
+  m_LocalScale: {x: 0.1814706, y: 0.24906276, z: 9.255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4742030054974793146}
@@ -622,11 +624,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: aed0f4da8d5324a63bc6fb74f98b69a3, type: 3}
-  m_Color: {r: 0.10117257, g: 0.5613112, b: 0.13033187, a: 1}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 8.16, y: 4.93}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -733,7 +735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}

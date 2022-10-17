@@ -9,6 +9,7 @@ public class Creature : MonoBehaviour
 {
     public CreatureState creatureState;
 
+
     [SerializeField] Transform colorIndicator;
 
 

@@ -29,6 +29,7 @@ public class Controller : NetworkBehaviour
     MousePositionScript mousePositionScript;
 
     public Color col;
+    public Color transparentCol;
 
 
     Vector3 mousePosition;
@@ -96,6 +97,8 @@ public class Controller : NetworkBehaviour
         GrabAllObjectsFromGameManager();
         col = Color.red;
         col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
+        transparentCol = col;
+        transparentCol.a = .3f;
         turn += OnTurn;
         resources = new PlayerResources();
         resourcesChanged += UpdateHudForResourcesChanged;
@@ -135,7 +138,7 @@ public class Controller : NetworkBehaviour
         }
         if (IsOwner)
         {
-            cardParent.gameObject.GetComponent<Image>().color = col;
+            cardParent.gameObject.GetComponent<Image>().color = transparentCol;
             hudElements = instantiatedPlayerUI.GetComponent<HudElements>();
         }
     }
@@ -607,7 +610,6 @@ public class Controller : NetworkBehaviour
         }
         for (int i = 0; i < resources.blackMana; i++)
         {
-            Debug.LogError("adding black");
             if (resources.blackMana < resources.blackManaCap)
             {
                 resources.blackMana++;
@@ -617,6 +619,7 @@ public class Controller : NetworkBehaviour
         {
             if (resources.redMana < resources.redManaCap)
             {
+                Debug.LogError("adding red");
                 resources.redMana++;
             }
         }
