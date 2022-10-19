@@ -33,6 +33,9 @@ public class GameManager : NetworkBehaviour
     //public float tickTimeAverage;
     int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
+
+    int tickTimer;
+    int tickTimerThreshold;
     public int creatureGuidCounter;
 
     public int endingX;
@@ -53,6 +56,21 @@ public class GameManager : NetworkBehaviour
             return;
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (playerList.Count < 2) return; 
+        tickTimer++;
+        if (tickTimer >= tickTimerThreshold && playersThatHaveBeenReceived.Count == playerList.Count)
+        {
+            tickTimer = 0;
+            playersThatHaveBeenReceived.Clear();
+            tick.Invoke();
+            gameManagerTick++;
+            //tickTimeAverage = totalTickTime / gameManagerTick;
+            //allPlayersReceived = true;
+        }
+    }
     public enum State
     {
         Setup, //The state for placing your castle
@@ -64,11 +82,6 @@ public class GameManager : NetworkBehaviour
         playersThatHaveBeenReceived.Add(controller);
         if (playersThatHaveBeenReceived.Count == playerList.Count)
         {
-            playersThatHaveBeenReceived.Clear();
-            tick.Invoke();
-            gameManagerTick++;
-            //tickTimeAverage = totalTickTime / gameManagerTick;
-            //allPlayersReceived = true;
         }
     }
     public List<CardInHand> Shuffle(List<CardInHand> alpha)
