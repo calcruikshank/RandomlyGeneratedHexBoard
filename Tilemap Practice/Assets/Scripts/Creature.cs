@@ -187,13 +187,13 @@ public class Creature : MonoBehaviour
         if (pathVectorList != null)
         {
             targetedPosition = BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[currentPathIndex].tilePosition);
-
+            
             if (Vector3.Distance(actualPosition, targetedPosition) > .02f)
             {
                 actualPosition = Vector3.MoveTowards(actualPosition, new Vector3(targetedPosition.x, actualPosition.y, targetedPosition.z), speed * Time.fixedDeltaTime);
                 SetLRPoints();
             }
-            else
+            if (Vector3.Distance(actualPosition, targetedPosition) <= .02f)
             {
                 if (currentPathIndex >= pathVectorList.Count - 1)
                 {
@@ -209,6 +209,10 @@ public class Creature : MonoBehaviour
                 {
                     currentPathIndex++;
                 }
+            }
+            if (tileCurrentlyOn == pathVectorList[0] && currentPathIndex == 0 && pathVectorList.Count > 1)
+            {
+                currentPathIndex++;
             }
         }
         //Vector3Int targetedCellPosition = grid.WorldToCell(new Vector3(targetPosition.x, 0, targetPosition.z));
@@ -231,7 +235,7 @@ public class Creature : MonoBehaviour
             {
                 if (pathVectorList[currentPathIndex - 1] != null)
                 {
-                    if (pathVectorList[currentPathIndex - 1].CreatureOnTile() == this || pathVectorList[currentPathIndex - 1].CreatureOnTile() == null)
+                    if (pathVectorList[currentPathIndex - 1].CreatureOnTile() == this)
                     {
                         SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(pathVectorList[currentPathIndex - 1].tilePosition));
                         return;
