@@ -171,7 +171,7 @@ public class Controller : NetworkBehaviour
             return;
         }
 
-        if (GameManager.singleton.playerList.Count < 3)
+        if (GameManager.singleton.playerList.Count < 2)
         {
             return;
         }

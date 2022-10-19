@@ -48,7 +48,7 @@ public class GameManager : NetworkBehaviour
     }
     private void Update()
     {
-        if (playerList.Count < 3)
+        if (playerList.Count < 2)
         {
             return;
         }
