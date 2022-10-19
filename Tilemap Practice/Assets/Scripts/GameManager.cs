@@ -27,15 +27,14 @@ public class GameManager : NetworkBehaviour
 
     public delegate void Tick();
     public event Tick tick;
-    public event Tick tickTookTooLong;
 
     public int gameManagerTick = 0;
     //public float tickTimeAverage;
     int playerCount; //TODO set this equal to players in scene and return if a player has not hit
 
 
-    int tickTimer;
-    int tickTimerThreshold;
+    public int tickTimer;
+    public int tickTimerThreshold = 10;
     public int creatureGuidCounter;
 
     public int endingX;

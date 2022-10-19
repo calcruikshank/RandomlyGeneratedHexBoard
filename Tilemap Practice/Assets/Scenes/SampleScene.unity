@@ -37569,7 +37569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4876fc7a3b9886409106512422ba13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenLastTick: 0
   hasPaused: 0
 --- !u!1001 &1279744611
 PrefabInstance:
@@ -41130,6 +41129,8 @@ MonoBehaviour:
   playerList: []
   playersThatHaveBeenReceived: []
   gameManagerTick: 0
+  tickTimer: 0
+  tickTimerThreshold: 10
   creatureGuidCounter: 0
   endingX: 0
   endingY: 0
