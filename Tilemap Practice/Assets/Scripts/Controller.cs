@@ -514,6 +514,7 @@ public class Controller : NetworkBehaviour
             //show error
             return;
         }
+
         if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent).playerOwningTile == this)
         {
             if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent).structureOnTile == null)
@@ -555,9 +556,12 @@ public class Controller : NetworkBehaviour
         CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
         cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
 
-        GameObject cardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
-        cardInHand.GetComponent<CardInHand>().indexOfCard = cardsInHand.Count;
-        cardsInHand.Add(cardInHand.GetComponent<CardInHand>());
+        GameObject instantiatedCardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
+        CardInHand instantiatedCardInHandBehaviour = instantiatedCardInHand.GetComponent<CardInHand>();
+        instantiatedCardInHandBehaviour.indexOfCard = cardsInHand.Count;
+
+        cardsInHand.Add(instantiatedCardInHandBehaviour);
+        instantiatedCardInHandBehaviour.playerOwningCard = this;
     }
 
 
@@ -657,6 +661,10 @@ public class Controller : NetworkBehaviour
     }
     private void UpdateHudForResourcesChanged(PlayerResources resources)
     {
+        foreach (CardInHand cardInHand in cardsInHand)
+        {
+            cardInHand.CheckToSeeIfPurchasable(resources);
+        }
         if (IsOwner)
         {
             hudElements.UpdateHudElements(resources);

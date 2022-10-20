@@ -223,3 +223,7 @@ Received Import Request.
   path: Assets/Low Poly Hexagons/Assets/Prefabs/Objects/Candy.prefab
   artifactKey: Guid(25cba09db03db5f4ca304e42752ec650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Objects/Candy.prefab using Guid(25cba09db03db5f4ca304e42752ec650) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05680fa918446d1b8f47392658aea24c') in 0.155622 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -25,6 +25,10 @@ public class CardInHand : MonoBehaviour
     [SerializeField] TextMeshProUGUI genericManaText;
 
     BaseTile.ManaType manaType;
+
+    public Controller playerOwningCard;
+
+    public bool isPurchasable;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,5 +101,68 @@ public class CardInHand : MonoBehaviour
     void Update()
     {
         
+    }
+
+    internal void CheckToSeeIfPurchasable(PlayerResources resources)
+    {
+        int tempBlueMana;
+        int tempRedMana;
+        int tempGreenMana;
+        int tempWhiteMana;
+        int tempBlackMana;
+
+        tempBlueMana = resources.blueMana - blueManaCost;
+        tempRedMana = resources.redMana - redManaCost;
+        tempGreenMana = resources.greenMana - greenManaCost;
+        tempWhiteMana = resources.whiteMana - whiteManaCost;
+        tempBlackMana = resources.blackMana - blackManaCost;
+
+        if (tempBlueMana < 0)
+        {
+            SetToNotPurchasable();
+            return;
+        }
+        if (tempRedMana < 0)
+        {
+
+            SetToNotPurchasable();
+            return;
+        }
+        if (tempGreenMana < 0)
+        {
+
+            SetToNotPurchasable();
+            return;
+        }
+        if (tempWhiteMana < 0)
+        {
+
+            SetToNotPurchasable();
+            return;
+        }
+        if (tempBlackMana < 0)
+        {
+
+            SetToNotPurchasable();
+            return;
+        }
+
+        int remainingMana = tempBlueMana + tempRedMana + tempGreenMana + tempWhiteMana + tempBlackMana;
+        if (remainingMana >= genericManaCost)
+        {
+            SetToPurchasable();
+        }
+    }
+
+    private void SetToPurchasable()
+    {
+        isPurchasable = false;
+        this.gameObject.SetActive(true);
+    }
+
+    private void SetToNotPurchasable()
+    {
+        isPurchasable = false;
+        this.gameObject.SetActive(false);
     }
 }
