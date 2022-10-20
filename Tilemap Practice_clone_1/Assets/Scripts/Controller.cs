@@ -87,6 +87,9 @@ public class Controller : NetworkBehaviour
     delegate void Turn();
     event Turn turn;
 
+
+    public List<BaseTile> harvestedTiles = new List<BaseTile>();
+
     public override void OnNetworkSpawn()
     {
 
@@ -258,10 +261,28 @@ public class Controller : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             CameraControl.Singleton.ReturnHome(new Vector3(instantiatedCaste.transform.position.x, instantiatedCaste.transform.position.y, instantiatedCaste.transform.position.z - 7));
+            ShowHarvestedTiles();
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             CameraControl.Singleton.CancelReturnHome();
+            HideHarvestedTiles();
+        }
+    }
+
+    private void ShowHarvestedTiles()
+    {
+        foreach (BaseTile bt in harvestedTiles)
+        {
+            bt.ShowHarvestIcon();
+        }
+    }
+
+    private void HideHarvestedTiles()
+    {
+        foreach (BaseTile bt in harvestedTiles)
+        {
+            bt.HideHarvestIcon();
         }
     }
 
@@ -433,9 +454,16 @@ public class Controller : NetworkBehaviour
         instantiatedCaste = Instantiate(castle, positionToSpawn, Quaternion.identity);
         instantiatedCaste.GetComponent<MeshRenderer>().material.color = col;
         instantiatedCaste.GetComponent<Structure>().playerOwningStructure = this;
-        AddToMaxMana(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).manaType);
+        AddTileToHarvestedTilesList(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition));
         AddToMana();
         SetStateToNothingSelected();
+    }
+
+    private void AddTileToHarvestedTilesList(BaseTile baseTileSent)
+    {
+        harvestedTiles.Add(baseTileSent);
+        baseTileSent.SetBeingHarvested();
+        AddToMaxMana(baseTileSent.manaType);
     }
 
     bool CheckForRaycast()

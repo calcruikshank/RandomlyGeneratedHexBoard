@@ -221,4 +221,44 @@ public class BaseTile : MonoBehaviour
         fCost = gCost + hCost;
     }
 
+    public void SetBeingHarvested()
+    {
+        InstantiateCorrectColorManaSymbol();
+        instantiatedManaSymbol.gameObject.SetActive(false);
+    }
+
+    Transform instantiatedManaSymbol;
+    private void InstantiateCorrectColorManaSymbol()
+    {
+        if (manaType == ManaType.Blue)
+        {
+            instantiatedManaSymbol = Instantiate(GameManager.singleton.blueManaSymbol, this.transform);
+        }
+        if (manaType == ManaType.Black)
+        {
+            instantiatedManaSymbol = Instantiate(GameManager.singleton.blackManaSymbol, this.transform);
+        }
+        if (manaType == ManaType.White)
+        {
+            instantiatedManaSymbol = Instantiate(GameManager.singleton.whiteManaSymbol, this.transform);
+        }
+        if (manaType == ManaType.Red)
+        {
+            instantiatedManaSymbol = Instantiate(GameManager.singleton.redManaSymbol, this.transform);
+        }
+        if (manaType == ManaType.Green)
+        {
+            instantiatedManaSymbol = Instantiate(GameManager.singleton.greenManaSymbol, this.transform);
+        }
+    }
+
+    internal void HideHarvestIcon()
+    {
+        instantiatedManaSymbol.gameObject.SetActive(false);
+    }
+
+    internal void ShowHarvestIcon()
+    {
+        instantiatedManaSymbol.gameObject.SetActive(true);
+    }
 }

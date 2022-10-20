@@ -43,6 +43,12 @@ public class GameManager : NetworkBehaviour
     public int startingX;
     public int startingY;
 
+    public Transform blueManaSymbol;
+    public Transform redManaSymbol;
+    public Transform greenManaSymbol;
+    public Transform blackManaSymbol;
+    public Transform whiteManaSymbol;
+
     private void Awake()
     {
         if (singleton != null) Destroy(this);
