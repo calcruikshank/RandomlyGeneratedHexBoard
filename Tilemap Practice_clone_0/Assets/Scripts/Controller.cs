@@ -149,40 +149,7 @@ public class Controller : NetworkBehaviour
 
     private void OnTurn()
     {
-        EndTurnPhase();
         StartTurnPhase();
-        
-    }
-    public void EndTurnPhase()
-    {
-        switch (state)
-        {
-            case State.PlacingCastle:
-                break;
-            case State.NothingSelected:
-                PurchaseRandomHarvestTiles();
-                break;
-            case State.CreatureInHandSelected:
-                PurchaseRandomHarvestTiles();
-                break;
-            case State.CreatureSelected:
-                PurchaseRandomHarvestTiles();
-                break;
-        }
-    }
-
-    private void PurchaseRandomHarvestTiles()
-    {
-        for (int i = 0; i < numOfPurchasableHarvestTiles; i++)
-        {
-            foreach (KeyValuePair<Vector3Int, BaseTile> kp in tilesOwned)
-            {
-                if (!harvestedTiles.Contains( kp.Value ))
-                {
-                    PurchaseHarvestTile(kp.Value);
-                }
-            }
-        }
     }
 
     public void StartTurnPhase()
@@ -194,31 +161,16 @@ public class Controller : NetworkBehaviour
             case State.NothingSelected:
                 HandleDrawCards();
                 HandleMana();
-                HandleCanPurchaseHarvestTile();
                 break;
             case State.CreatureInHandSelected:
                 HandleDrawCards();
                 HandleMana();
-                HandleCanPurchaseHarvestTile();
                 break;
             case State.CreatureSelected:
                 HandleDrawCards();
                 HandleMana();
-                HandleCanPurchaseHarvestTile();
                 break;
         }
-    }
-    private void PurchaseHarvestTile(BaseTile baseTileToPurchase)
-    {
-        if (numOfPurchasableHarvestTiles > 0)
-        {
-            numOfPurchasableHarvestTiles--;
-            AddTileToHarvestedTilesList(baseTileToPurchase);
-        }
-    }
-    private void HandleCanPurchaseHarvestTile()
-    {
-        numOfPurchasableHarvestTiles = 1;
     }
 
     // Update is called once per frame
@@ -240,7 +192,6 @@ public class Controller : NetworkBehaviour
             highlightMap.SetTile(previousCellPosition, null);
             highlightMap.SetTile(currentLocalHoverCellPosition, highlightTile);
             previousCellPosition = currentLocalHoverCellPosition;
-            //Debug.Log(baseMap.GetInstantiatedObject(currentCellPosition));
             if (locallySelectedCreature != null)
             {
                 VisualPathfinderOnCreatureSelected(locallySelectedCreature);
@@ -286,7 +237,6 @@ public class Controller : NetworkBehaviour
             {
                 AddToTickQueueLocal(cellPositionSentToClients);
             }
-            //timeBetweenLastTick = (GameManager.singleton.tickTimeAverage + GameManager.singleton.timeBetweenLastTick) / 2;
             return;
         }
 
@@ -518,7 +468,7 @@ public class Controller : NetworkBehaviour
     {
         harvestedTiles.Add(baseTileSent);
         baseTileSent.SetBeingHarvested(Input.GetKey(KeyCode.Space));
-        AddToMaxMana(baseTileSent.manaType);
+        //AddToMaxMana(baseTileSent.manaType);
     }
 
     bool CheckForRaycast()
@@ -582,20 +532,6 @@ public class Controller : NetworkBehaviour
         #region creatureSelected
         if (creatureSelected != null)
         {
-            //determine if 
-            //Vector3 positionToTarget = GetWorldPositionOfCell();
-
-            //select a tile if the tile contains something that isnt targetable then find nearest unnocupied tile and move to it
-            /*if (BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition))
-            {
-                Creature creatureOnTileHit = BaseMapTileState.singleton.GetCreatureAtTile(targetedCellPosition);
-                //if the creature is a friendly creature hit move to nearest tile
-                if (creatureOnTileHit.playerOwningCreature == this)
-                {
-                    BaseTile tileToMoveTo = BaseMapTileState.singleton.GetNearestUnnocupiedBaseTileGivenCell(creatureSelected.tileCurrentlyOn, BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition));
-                    creatureSelected.SetMove(GetWorldPositionOfCell(tileToMoveTo.tilePosition));
-                }
-            }*/
             creatureSelected.SetMove(BaseMapTileState.singleton.GetWorldPositionOfCell(targetedCellPosition));
 
             if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(targetedCellPosition) == creatureSelected.tileCurrentlyOn) //this makes sure you can double click to stop the creature and also have it selected
@@ -692,20 +628,6 @@ public class Controller : NetworkBehaviour
 
 
     int indexOfCardInHandSelected;
-    /*public void SetToCardSelected(CardInHand cardInHand)
-    {
-        //todo check if card selected is a creature
-        cardSelected = cardInHand.GameObjectToInstantiate.gameObject;
-        for (int i = 0; i < cardsInHand.Count; i++)
-        {
-            if (cardsInHand[i].indexOfCard == cardInHand.indexOfCard)
-            {
-                indexOfCardInHandSelected = i;
-            }
-        }
-        Debug.Log(indexOfCardInHandSelected + " Index of card selected " + cardInHand.gameObject.name);
-        state = State.CreatureInHandSelected;
-    }*/
     public void SetToCreatureOnFieldSelected(Creature creatureSelectedSent)
     {
         creatureSelected = creatureSelectedSent;
@@ -718,65 +640,28 @@ public class Controller : NetworkBehaviour
         state = State.NothingSelected;
     }
 
-    public void AddToMaxMana(BaseTile.ManaType manaTypeToAdd)
-    {
-        if (manaTypeToAdd == BaseTile.ManaType.Black)
-        {
-            resources.blackManaCap++;
-        }
-        if (manaTypeToAdd == BaseTile.ManaType.Red)
-        {
-            resources.redManaCap++;
-        }
-        if (manaTypeToAdd == BaseTile.ManaType.White)
-        {
-            resources.whiteManaCap++;
-        }
-        if (manaTypeToAdd == BaseTile.ManaType.Green)
-        {
-            resources.greenManaCap++;
-        }
-        if (manaTypeToAdd == BaseTile.ManaType.Blue)
-        {
-            resources.blueManaCap++;
-        }
-        resourcesChanged.Invoke(resources);
-    }
-
 
     public void AddToMana()
     {
-        for (int i = 0; i < resources.blueManaCap; i++)
+        for (int i = 0; i < harvestedTiles.Count; i++)
         {
-            if (resources.blueMana < resources.blueManaCap)
+            if (harvestedTiles[i].manaType == BaseTile.ManaType.Blue)
             {
                 resources.blueMana++;
             }
-        }
-        for (int i = 0; i < resources.blackManaCap; i++)
-        {
-            if (resources.blackMana < resources.blackManaCap)
+            if (harvestedTiles[i].manaType == BaseTile.ManaType.Black)
             {
                 resources.blackMana++;
             }
-        }
-        for (int i = 0; i < resources.redManaCap; i++)
-        {
-            if (resources.redMana < resources.redManaCap)
+            if (harvestedTiles[i].manaType == BaseTile.ManaType.Red)
             {
                 resources.redMana++;
             }
-        }
-        for (int i = 0; i < resources.whiteManaCap; i++)
-        {
-            if (resources.whiteMana < resources.whiteManaCap)
+            if (harvestedTiles[i].manaType == BaseTile.ManaType.White)
             {
                 resources.whiteMana++;
             }
-        }
-        for (int i = 0; i < resources.greenManaCap; i++)
-        {
-            if (resources.greenMana < resources.greenManaCap)
+            if (harvestedTiles[i].manaType == BaseTile.ManaType.Green)
             {
                 resources.greenMana++;
             }
@@ -819,11 +704,6 @@ public class Controller : NetworkBehaviour
 
 public struct PlayerResources
 {
-    public int blueManaCap;
-    public int redManaCap;
-    public int whiteManaCap;
-    public int blackManaCap;
-    public int greenManaCap;
     public int blueMana;
     public int redMana;
     public int whiteMana;
