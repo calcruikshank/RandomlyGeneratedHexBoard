@@ -28,8 +28,17 @@ public class CameraControl : MonoBehaviour
     {
         if (returningHome)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z), 200f * Time.deltaTime);
-            if (Vector3.Distance(this.transform.position, new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z)) < .02f)
+            float targetY;
+            if (this.transform.position.y < 16)
+            {
+                targetY = 16;
+            }
+            else
+            {
+                targetY = this.transform.position.y;
+            }
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetPosition.x, targetY, targetPosition.z), 200f * Time.deltaTime);
+            if (Vector3.Distance(this.transform.position, new Vector3(targetPosition.x, targetY, targetPosition.z)) < .02f)
             {
                 returningHome = false;
             }
@@ -53,6 +62,10 @@ public class CameraControl : MonoBehaviour
         if (transform.position.y < minYForCamera)
         {
             this.transform.position = new Vector3(transform.position.x, minYForCamera, transform.position.z);
+        }
+        if (transform.position.y > maxYForCamera)
+        {
+            this.transform.position = new Vector3(transform.position.x, maxYForCamera, transform.position.z);
         }
     }
     void MoveCamera(float y)
