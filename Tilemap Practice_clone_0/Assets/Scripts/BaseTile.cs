@@ -221,10 +221,10 @@ public class BaseTile : MonoBehaviour
         fCost = gCost + hCost;
     }
 
-    public void SetBeingHarvested()
+    public void SetBeingHarvested(bool activeornot)
     {
         InstantiateCorrectColorManaSymbol();
-        instantiatedManaSymbol.gameObject.SetActive(false);
+        instantiatedManaSymbol.gameObject.SetActive(activeornot);
     }
 
     Transform instantiatedManaSymbol;

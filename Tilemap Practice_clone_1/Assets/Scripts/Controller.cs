@@ -87,6 +87,7 @@ public class Controller : NetworkBehaviour
     delegate void Turn();
     event Turn turn;
 
+    int numOfPurchasableHarvestTiles = 1;
 
     public List<BaseTile> harvestedTiles = new List<BaseTile>();
 
@@ -148,6 +149,44 @@ public class Controller : NetworkBehaviour
 
     private void OnTurn()
     {
+        EndTurnPhase();
+        StartTurnPhase();
+        
+    }
+    public void EndTurnPhase()
+    {
+        switch (state)
+        {
+            case State.PlacingCastle:
+                break;
+            case State.NothingSelected:
+                PurchaseRandomHarvestTiles();
+                break;
+            case State.CreatureInHandSelected:
+                PurchaseRandomHarvestTiles();
+                break;
+            case State.CreatureSelected:
+                PurchaseRandomHarvestTiles();
+                break;
+        }
+    }
+
+    private void PurchaseRandomHarvestTiles()
+    {
+        for (int i = 0; i < numOfPurchasableHarvestTiles; i++)
+        {
+            foreach (KeyValuePair<Vector3Int, BaseTile> kp in tilesOwned)
+            {
+                if (!harvestedTiles.Contains( kp.Value ))
+                {
+                    PurchaseHarvestTile(kp.Value);
+                }
+            }
+        }
+    }
+
+    public void StartTurnPhase()
+    {
         switch (state)
         {
             case State.PlacingCastle:
@@ -155,17 +194,33 @@ public class Controller : NetworkBehaviour
             case State.NothingSelected:
                 HandleDrawCards();
                 HandleMana();
+                HandleCanPurchaseHarvestTile();
                 break;
             case State.CreatureInHandSelected:
                 HandleDrawCards();
                 HandleMana();
+                HandleCanPurchaseHarvestTile();
                 break;
             case State.CreatureSelected:
                 HandleDrawCards();
                 HandleMana();
+                HandleCanPurchaseHarvestTile();
                 break;
         }
     }
+    private void PurchaseHarvestTile(BaseTile baseTileToPurchase)
+    {
+        if (numOfPurchasableHarvestTiles > 0)
+        {
+            numOfPurchasableHarvestTiles--;
+            AddTileToHarvestedTilesList(baseTileToPurchase);
+        }
+    }
+    private void HandleCanPurchaseHarvestTile()
+    {
+        numOfPurchasableHarvestTiles = 1;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -462,7 +517,7 @@ public class Controller : NetworkBehaviour
     private void AddTileToHarvestedTilesList(BaseTile baseTileSent)
     {
         harvestedTiles.Add(baseTileSent);
-        baseTileSent.SetBeingHarvested();
+        baseTileSent.SetBeingHarvested(Input.GetKey(KeyCode.Space));
         AddToMaxMana(baseTileSent.manaType);
     }
 
