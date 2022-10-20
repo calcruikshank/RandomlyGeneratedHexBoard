@@ -57,7 +57,7 @@ public class Controller : NetworkBehaviour
     [SerializeField] List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
 
-    public GameObject cardSelected;
+    public CardInHand cardSelected;
     public List<Vector3> allVertextPointsInTilesOwned = new List<Vector3>();
 
     Transform instantiatedPlayerUI;
@@ -428,8 +428,11 @@ public class Controller : NetworkBehaviour
         {
             if (raycastHitCardInHand.transform.GetComponent<CardInHand>() != null)
             {
-                AddIndexOfCardInHandToTickQueueLocal(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
-                return true;
+                if (raycastHitCardInHand.transform.GetComponent<CardInHand>().isPurchasable)
+                {
+                    AddIndexOfCardInHandToTickQueueLocal(raycastHitCardInHand.transform.GetComponent<CardInHand>().indexOfCard);
+                    return true;
+                }
             }
         }
         if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
@@ -467,7 +470,7 @@ public class Controller : NetworkBehaviour
             if (cardsInHand[i].indexOfCard == indexOfCardSelected)
             {
                 cardToSelect = cardsInHand[i];
-                cardSelected = cardToSelect.GameObjectToInstantiate.gameObject;
+                cardSelected = cardToSelect;
                 state = State.CreatureInHandSelected;
             }
         }
@@ -530,12 +533,23 @@ public class Controller : NetworkBehaviour
                     ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
                     instantiatedObjectsChangeTransparency.ChangeTransparent(100);
                 }
-                GameObject instantiatedCreature = Instantiate(cardSelected, positionToSpawn, Quaternion.identity);
+                SpendManaToCast(cardSelected.GetComponent<CardInHand>());
+                GameObject instantiatedCreature = Instantiate(cardSelected.GameObjectToInstantiate.gameObject, positionToSpawn, Quaternion.identity);
                 instantiatedCreature.GetComponent<Creature>().SetToPlayerOwningCreature(this);
                 creaturesOwned.Add(instantiatedCreature.GetComponent<Creature>().creatureID, instantiatedCreature.GetComponent<Creature>());
                 SetStateToNothingSelected();
             }
         }
+    }
+
+    private void SpendManaToCast(CardInHand cardSelected)
+    {
+        resources.blueMana -= cardSelected.blueManaCost;
+        resources.redMana -= cardSelected.redManaCost;
+        resources.whiteMana -= cardSelected.whiteManaCost;
+        resources.blackMana -= cardSelected.blackManaCost;
+        resources.greenMana -= cardSelected.greenManaCost;
+        resourcesChanged.Invoke(resources);
     }
 
     void SetOwningTile(Vector3Int cellPosition)

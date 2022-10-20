@@ -14,15 +14,16 @@ public class CardInHand : MonoBehaviour
     public int whiteManaCost;
     public int blackManaCost;
     public int redManaCost;
-    public int genericManaCost;
+    //public int genericManaCost;
 
+    public int remainingMana;
 
     [SerializeField] TextMeshProUGUI greenManaText;
     [SerializeField] TextMeshProUGUI redManaText;
     [SerializeField] TextMeshProUGUI whiteManaText;
     [SerializeField] TextMeshProUGUI blackManaText;
     [SerializeField] TextMeshProUGUI blueManaText;
-    [SerializeField] TextMeshProUGUI genericManaText;
+    //[SerializeField] TextMeshProUGUI genericManaText;
 
     BaseTile.ManaType manaType;
 
@@ -37,10 +38,10 @@ public class CardInHand : MonoBehaviour
 
     private void UpdateMana()
     {
-        if (genericManaCost == 0)
+        /*if (genericManaCost == 0)
         {
             genericManaText.transform.parent.gameObject.SetActive(false);
-        }
+        }*/
         if (greenManaCost == 0)
         {
             greenManaText.transform.parent.gameObject.SetActive(false);
@@ -65,11 +66,11 @@ public class CardInHand : MonoBehaviour
 
 
 
-        if (genericManaCost != 0)
+        /*if (genericManaCost != 0)
         {
             genericManaText.transform.parent.gameObject.SetActive(true);
             genericManaText.text = genericManaCost.ToString();
-        }
+        }*/
         if (greenManaCost != 0)
         {
             greenManaText.transform.parent.gameObject.SetActive(true);
@@ -146,23 +147,21 @@ public class CardInHand : MonoBehaviour
             SetToNotPurchasable();
             return;
         }
+        SetToPurchasable();
 
-        int remainingMana = tempBlueMana + tempRedMana + tempGreenMana + tempWhiteMana + tempBlackMana;
+        /*remainingMana = tempBlueMana + tempRedMana + tempGreenMana + tempWhiteMana + tempBlackMana;
         if (remainingMana >= genericManaCost)
         {
-            SetToPurchasable();
-        }
+        }*/
     }
 
     private void SetToPurchasable()
     {
-        isPurchasable = false;
-        this.gameObject.SetActive(true);
+        isPurchasable = true;
     }
 
     private void SetToNotPurchasable()
     {
         isPurchasable = false;
-        this.gameObject.SetActive(false);
     }
 }

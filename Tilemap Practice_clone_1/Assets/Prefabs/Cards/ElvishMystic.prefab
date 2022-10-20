@@ -1706,13 +1706,14 @@ MonoBehaviour:
   whiteManaCost: 0
   blackManaCost: 0
   redManaCost: 0
-  genericManaCost: 0
+  remainingMana: 0
   greenManaText: {fileID: 249541396620921924}
   redManaText: {fileID: 5377936536012385752}
   whiteManaText: {fileID: 1862174774730423174}
   blackManaText: {fileID: 2079449243462400693}
   blueManaText: {fileID: 561585764347037611}
-  genericManaText: {fileID: 4832636107309639750}
+  playerOwningCard: {fileID: 0}
+  isPurchasable: 0
 --- !u!65 &1037695483380822100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2618,7 +2619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2626,7 +2627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2678,11 +2679,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.55275
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -2.17382
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440898, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2702,7 +2703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937214673105440899, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecfcc521b6efef34e9514420337edd2a, type: 3}

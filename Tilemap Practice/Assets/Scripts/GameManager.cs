@@ -23,6 +23,7 @@ public class GameManager : NetworkBehaviour
 
     public Transform cardParent;
     public List<Controller> playerList = new List<Controller>();
+    public List<Controller> playersThatHavePlacedCastle = new List<Controller>();
     public List<Controller> playersThatHaveBeenReceived = new List<Controller>();
 
     public delegate void Tick();
