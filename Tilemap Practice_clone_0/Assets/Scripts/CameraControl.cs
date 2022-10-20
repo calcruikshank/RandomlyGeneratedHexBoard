@@ -10,9 +10,30 @@ public class CameraControl : MonoBehaviour
     public float speed =2000;
     float mouseSensitivity = 3.0f;
     private Vector3 lastPosition;
+
+    bool returningHome;
+    Vector3 targetPosition;
+
+    public static CameraControl Singleton;
+    private void Awake()
+    {
+        if (Singleton != null)
+        {
+            Destroy(this);
+        }
+        Singleton = this;
+    }
     // Update is called once per frame
     void Update()
     {
+        if (returningHome)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z), 200f * Time.deltaTime);
+            if (Vector3.Distance(this.transform.position, new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z)) < .02f)
+            {
+                returningHome = false;
+            }
+        }
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
             MoveCamera(Input.GetAxis("Mouse ScrollWheel"));
@@ -48,5 +69,14 @@ public class CameraControl : MonoBehaviour
             movementAmount = new Vector3(transform.position.x, minYForCamera, transform.position.z);
         }
         transform.position = Vector3.MoveTowards(this.transform.position, movementAmount, 200 * Time.fixedDeltaTime);
+    }
+    public void ReturnHome(Vector3 returnHomePosition)
+    {
+        targetPosition = new Vector3( returnHomePosition.x, this.transform.position.y, returnHomePosition.z );
+        returningHome = true;
+    }
+    public void CancelReturnHome()
+    {
+        returningHome = false;
     }
 }

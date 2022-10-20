@@ -42,6 +42,7 @@ public class Controller : NetworkBehaviour
     Vector3Int previousCellPosition;
 
     Transform castle;
+    Transform instantiatedCaste;
     Creature creatureSelected;
     Vector3Int currentLocalHoverCellPosition;
     Vector3Int cellPositionSentToClients;
@@ -83,7 +84,6 @@ public class Controller : NetworkBehaviour
 
     [SerializeField] Transform playerHud;
     HudElements hudElements;
-
     delegate void Turn();
     event Turn turn;
 
@@ -150,16 +150,16 @@ public class Controller : NetworkBehaviour
             case State.PlacingCastle:
                 break;
             case State.NothingSelected:
-                HandleMana();
                 HandleDrawCards();
+                HandleMana();
                 break;
             case State.CreatureInHandSelected:
-                HandleMana();
                 HandleDrawCards();
+                HandleMana();
                 break;
             case State.CreatureSelected:
-                HandleMana();
                 HandleDrawCards();
+                HandleMana();
                 break;
         }
     }
@@ -189,6 +189,10 @@ public class Controller : NetworkBehaviour
             }
         }
 
+        if (state != State.PlacingCastle)
+        {
+            HandleSpacebarPressed();
+        }
         tickTimer += Time.deltaTime;
         if (hasTickedSinceSendingLastMessage)
         {
@@ -246,6 +250,18 @@ public class Controller : NetworkBehaviour
             case State.CreatureSelected:
                 HandleTurn();
                 break;
+        }
+    }
+
+    private void HandleSpacebarPressed()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            CameraControl.Singleton.ReturnHome(new Vector3(instantiatedCaste.transform.position.x, instantiatedCaste.transform.position.y, instantiatedCaste.transform.position.z - 7));
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            CameraControl.Singleton.CancelReturnHome();
         }
     }
 
@@ -414,10 +430,11 @@ public class Controller : NetworkBehaviour
         {
             SetOwningTile(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles[i].tilePosition);
         }
-        Transform instantiatedCaste = Instantiate(castle, positionToSpawn, Quaternion.identity);
+        instantiatedCaste = Instantiate(castle, positionToSpawn, Quaternion.identity);
         instantiatedCaste.GetComponent<MeshRenderer>().material.color = col;
         instantiatedCaste.GetComponent<Structure>().playerOwningStructure = this;
         AddToMaxMana(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).manaType);
+        AddToMana();
         SetStateToNothingSelected();
     }
 
@@ -537,6 +554,7 @@ public class Controller : NetworkBehaviour
                 GameObject instantiatedCreature = Instantiate(cardSelected.GameObjectToInstantiate.gameObject, positionToSpawn, Quaternion.identity);
                 instantiatedCreature.GetComponent<Creature>().SetToPlayerOwningCreature(this);
                 creaturesOwned.Add(instantiatedCreature.GetComponent<Creature>().creatureID, instantiatedCreature.GetComponent<Creature>());
+                RemoveCardFromHand(cardSelected);
                 SetStateToNothingSelected();
             }
         }
@@ -563,21 +581,31 @@ public class Controller : NetworkBehaviour
 
     void DrawCard()
     {
+        if (cardsInDeck.Count <= 0)
+        {
+            return;
+        }
         if (cardsInHand.Count >= maxHandSize)
         {
             return;
         }
-        CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1];
+        CardInHand cardAddingToHand = cardsInDeck[cardsInDeck.Count - 1]; //todo this might cause problems when dealing with shuffling cards back into the deck
+        cardAddingToHand.indexOfCard = cardsInDeck.Count - 1;
         cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
 
         GameObject instantiatedCardInHand = Instantiate(cardAddingToHand.gameObject, cardParent);
         CardInHand instantiatedCardInHandBehaviour = instantiatedCardInHand.GetComponent<CardInHand>();
-        instantiatedCardInHandBehaviour.indexOfCard = cardsInHand.Count;
+        instantiatedCardInHandBehaviour.indexOfCard = cardAddingToHand.indexOfCard;
 
         cardsInHand.Add(instantiatedCardInHandBehaviour);
         instantiatedCardInHandBehaviour.playerOwningCard = this;
     }
 
+    void RemoveCardFromHand(CardInHand cardToRemove)
+    {
+        cardsInHand.Remove(cardToRemove);
+        Destroy(cardToRemove.gameObject);
+    }
 
 
     int indexOfCardInHandSelected;
@@ -675,13 +703,13 @@ public class Controller : NetworkBehaviour
     }
     private void UpdateHudForResourcesChanged(PlayerResources resources)
     {
-        foreach (CardInHand cardInHand in cardsInHand)
-        {
-            cardInHand.CheckToSeeIfPurchasable(resources);
-        }
         if (IsOwner)
         {
             hudElements.UpdateHudElements(resources);
+        }
+        foreach (CardInHand cardInHand in cardsInHand)
+        {
+            cardInHand.CheckToSeeIfPurchasable(resources);
         }
     }
 
