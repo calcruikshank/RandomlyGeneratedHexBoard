@@ -546,11 +546,12 @@ MonoBehaviour:
   creatureID: 0
   playerOwningCreature: {fileID: 0}
   thisTraversableType: 0
-  range: 5
+  range: 6
   currentCellPosition: {x: 0, y: 0, z: 0}
   tileCurrentlyOn: {fileID: 0}
   previousTilePosition: {fileID: 0}
   pathVectorList: []
+  extents: []
 --- !u!1 &6330952787006823200
 GameObject:
   m_ObjectHideFlags: 0
