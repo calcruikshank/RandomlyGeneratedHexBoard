@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -25,6 +26,10 @@ public class BaseTile : MonoBehaviour
     public int hCost;
     public int fCost;
     public BaseTile cameFromBaseTile;
+
+    public int harvestCost;
+
+    int harvestCostMultiplier = 3;
     public enum ManaType
     {
         Red,
@@ -179,6 +184,7 @@ public class BaseTile : MonoBehaviour
         worldPositionsOfVectorsOnGrid.Add(top);
         worldPositionsOfVectorsOnGrid.Add(topRight);
     }
+    TextMeshPro costText;
     public void SetOwnedByPlayer(Controller playerOwningTileSent)
     {
         playerOwningTile = playerOwningTileSent;
@@ -199,7 +205,20 @@ public class BaseTile : MonoBehaviour
         lr.positionCount = worldPositionsOfVectorsOnGrid.Count;
         lr.SetPositions(worldPositionsOfVectorsOnGrid.ToArray());
         InstantiateCorrectColorManaSymbol();
+
+        //Instantiate(new GameObject(), new Vector3( this.transform.position.x, 1, this.transform.position.z), this.transform, );
     }
+
+    private void MakeTextObjectForTileCost(Transform parentToSet)
+    {
+        GameObject instantiatedText = Instantiate(new GameObject("DrawMeshSingle", typeof(TextMeshPro)), parentToSet);
+        instantiatedText.transform.localPosition = new Vector3(0, .01f, 0);
+        costText = instantiatedText.GetComponent<TextMeshPro>();
+        costText.color = playerOwningTile.col;
+        costText.alignment = TextAlignmentOptions.Center;
+        costText.alignment = TextAlignmentOptions.Midline;
+    }
+
     LineRenderer lr;
     GameObject lrGameObject;
     void SetupLR()
@@ -264,6 +283,7 @@ public class BaseTile : MonoBehaviour
         transparentColor.a = playerOwningTile.transparentCol.a;
         instantiatedManaSymbol.GetComponent<SpriteRenderer>().color = transparentColor;
         HideHarvestIcon();
+        MakeTextObjectForTileCost(instantiatedManaSymbol);
     }
 
     internal void HideHarvestIcon()
@@ -274,5 +294,11 @@ public class BaseTile : MonoBehaviour
     internal void ShowHarvestIcon()
     {
         instantiatedManaSymbol.gameObject.SetActive(true);
+    }
+
+    internal void SetHarvestCost(int count)
+    {
+        this.harvestCost = harvestCostMultiplier * count;
+        costText.text = harvestCost.ToString();
     }
 }

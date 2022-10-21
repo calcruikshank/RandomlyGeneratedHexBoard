@@ -71,6 +71,8 @@ public class Controller : NetworkBehaviour
     float tickThreshold = .12f;
     public List<Vector3Int> clickQueueForTick = new List<Vector3Int>();
     List<Vector3Int> tempLocalPositionsToSend = new List<Vector3Int>();
+    List<Vector3Int> tempLocalTilePositionPurchased = new List<Vector3Int>();
+    List<Vector3Int> localTilePositionPurchasedToSend = new List<Vector3Int>();
     List<int> tempLocalIndecesOfCardsInHand = new List<int>();
     public List<int> IndecesOfCardsInHandQueue = new List<int>();
 
@@ -237,6 +239,13 @@ public class Controller : NetworkBehaviour
             {
                 AddToTickQueueLocal(cellPositionSentToClients);
             }
+            if (ShowingPurchasableHarvestTiles)
+            {
+                if (CheckToSeeIfClickedHarvestTileCanBePurchased(cellPositionSentToClients))
+                {
+                    AddToPuchaseTileQueueLocal(cellPositionSentToClients);
+                }
+            }
             return;
         }
 
@@ -261,6 +270,7 @@ public class Controller : NetworkBehaviour
         }
     }
 
+    bool ShowingPurchasableHarvestTiles = false;
     private void HandleSpacebarPressed()
     {
         if (Input.GetKeyDown(KeyCode.Space)) 
@@ -281,6 +291,7 @@ public class Controller : NetworkBehaviour
         {
             bt.Value.ShowHarvestIcon();
         }
+        ShowingPurchasableHarvestTiles = true;
     }
 
     private void HideHarvestedTiles()
@@ -289,6 +300,7 @@ public class Controller : NetworkBehaviour
         {
             bt.Value.HideHarvestIcon();
         }
+        ShowingPurchasableHarvestTiles = false;
     }
 
     private void HandleTurn()
@@ -311,11 +323,31 @@ public class Controller : NetworkBehaviour
         AddToMana();
     }
 
+    private bool CheckToSeeIfClickedHarvestTileCanBePurchased(Vector3Int tilePositionSent)
+    {
+        if (!harvestedTiles.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(tilePositionSent)))
+        {
+            if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(tilePositionSent))
+            {
+                if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(tilePositionSent).harvestCost == 0) return false;
+                if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(tilePositionSent).playerOwningTile == this && BaseMapTileState.singleton.GetBaseTileAtCellPosition(tilePositionSent).harvestCost <= totalMana)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     #region regionOfTicks
     void AddToTickQueueLocal(Vector3Int positionSent)
     {
         locallySelectedCreature = null;
         tempLocalPositionsToSend.Add(positionSent);
+    }
+    private void AddToPuchaseTileQueueLocal(Vector3Int cellPositionSentToClients)
+    {
+        tempLocalTilePositionPurchased.Add(cellPositionSentToClients);
     }
     void AddIndexOfCardInHandToTickQueueLocal(int index)
     {
@@ -347,11 +379,15 @@ public class Controller : NetworkBehaviour
         message.leftClicksWorldPos = tempLocalPositionsToSend;
         message.guidsForCards = tempLocalIndecesOfCardsInHand;
         message.guidsForCreatures = tempIndexOfCreatureOnBoard;
+        message.localTilePositionsToBePurchased = tempLocalTilePositionPurchased;
         //message.timeBetweenLastTick = timeBetweenLastTick;
         //set guids of struct
         string messageString = JsonUtility.ToJson(message);
         SendMessageServerRpc(messageString);
-
+        for (int i = 0; i < tempLocalTilePositionPurchased.Count; i++)
+        {
+            localTilePositionPurchasedToSend.Add(tempLocalTilePositionPurchased[i]);
+        }
         for (int i = 0; i < tempLocalPositionsToSend.Count; i++)
         {
             clickQueueForTick.Add(tempLocalPositionsToSend[i]);
@@ -367,6 +403,7 @@ public class Controller : NetworkBehaviour
         tempLocalPositionsToSend.Clear();
         tempLocalIndecesOfCardsInHand.Clear();
         tempIndexOfCreatureOnBoard.Clear();
+        tempLocalTilePositionPurchased.Clear();
         if (!GameManager.singleton.playersThatHaveBeenReceived.Contains(this))
         {
             GameManager.singleton.AddToPlayersThatHaveBeenReceived(this);
@@ -378,6 +415,13 @@ public class Controller : NetworkBehaviour
         Message receievedMessage = JsonUtility.FromJson<Message>(jsonOfMessage);
 
         //timeBetweenLastTick = receievedMessage.timeBetweenLastTick;
+        if (receievedMessage.localTilePositionsToBePurchased.Count > 0)
+        {
+            for (int i = 0; i < receievedMessage.localTilePositionsToBePurchased.Count; i++)
+            {
+                localTilePositionPurchasedToSend.Add(receievedMessage.localTilePositionsToBePurchased[i]);
+            }
+        }
         if (receievedMessage.guidsForCards.Count > 0)
         {
             for (int i = 0; i < receievedMessage.guidsForCards.Count; i++)
@@ -408,6 +452,11 @@ public class Controller : NetworkBehaviour
     {
         tick++;
         //order matters here bigtime later set this up in the enum
+
+        for (int i = 0; i < localTilePositionPurchasedToSend.Count; i++)
+        {
+            PurchaseHarvestTile(localTilePositionPurchasedToSend[i]);
+        }
         for (int i = 0; i < IndecesOfCardsInHandQueue.Count; i++)
         {
             LocalSelectCardWithIndex(IndecesOfCardsInHandQueue[i]);
@@ -420,11 +469,19 @@ public class Controller : NetworkBehaviour
         {
             LocalLeftClick(clickQueueForTick[i]);
         }
+        localTilePositionPurchasedToSend.Clear();
         clickQueueForTick.Clear();
         IndecesOfCardsInHandQueue.Clear();
         indecesOfCreaturesInQueue.Clear();
         hasTickedSinceSendingLastMessage = true;
     }
+
+    private void PurchaseHarvestTile(Vector3Int vector3Int)
+    {
+        SubtractFromMana(BaseMapTileState.singleton.GetBaseTileAtCellPosition(vector3Int).harvestCost);
+        AddTileToHarvestedTilesList(BaseMapTileState.singleton.GetBaseTileAtCellPosition(vector3Int));
+    }
+
     #endregion
 
     void LocalLeftClick(Vector3Int positionSent)
@@ -468,6 +525,13 @@ public class Controller : NetworkBehaviour
     {
         harvestedTiles.Add(baseTileSent);
         baseTileSent.SetBeingHarvested();
+        foreach (KeyValuePair<Vector3Int, BaseTile> bt in tilesOwned)
+        {
+            if (!harvestedTiles.Contains(bt.Value))
+            {
+                bt.Value.SetHarvestCost(harvestedTiles.Count);
+            }
+        }
         //AddToMaxMana(baseTileSent.manaType);
     }
 
@@ -641,6 +705,48 @@ public class Controller : NetworkBehaviour
     }
 
 
+    private void SubtractFromMana(int harvestCost)
+    {
+        for (int x = 0; x < harvestCost; x++)
+        {
+            if (resources.blueMana > 0)
+            {
+                for (int i = 0; i < resources.blueMana; i++)
+                {
+                    resources.blueMana--;
+                }
+            }
+            if (resources.whiteMana > 0)
+            {
+                for (int i = 0; i < resources.whiteMana; i++)
+                {
+                    resources.whiteMana--;
+                }
+            }
+            if (resources.redMana > 0)
+            {
+                for (int i = 0; i < resources.redMana; i++)
+                {
+                    resources.redMana--;
+                }
+            }
+            if (resources.blackMana > 0)
+            {
+                for (int i = 0; i < resources.blackMana; i++)
+                {
+                    resources.blackMana--;
+                }
+            }
+            if (resources.greenMana > 0)
+            {
+                for (int i = 0; i < resources.greenMana; i++)
+                {
+                    resources.greenMana--;
+                }
+            }
+        }
+        resourcesChanged.Invoke(resources);
+    }
     public void AddToMana()
     {
         for (int i = 0; i < harvestedTiles.Count; i++)
@@ -669,6 +775,7 @@ public class Controller : NetworkBehaviour
 
         resourcesChanged.Invoke(resources);
     }
+    int totalMana;
     private void UpdateHudForResourcesChanged(PlayerResources resources)
     {
         if (IsOwner)
@@ -679,6 +786,7 @@ public class Controller : NetworkBehaviour
         {
             cardInHand.CheckToSeeIfPurchasable(resources);
         }
+        totalMana = resources.blackMana + resources.blueMana + resources.whiteMana + resources.greenMana + resources.redMana;
     }
 
 
