@@ -57,15 +57,10 @@ public class GameManager : NetworkBehaviour
     }
     private void Update()
     {
-        if (playerList.Count < 2)
-        {
-            return;
-        }
     }
 
     private void FixedUpdate()
     {
-        if (playerList.Count < 2) return; 
         tickTimer++;
         if (tickTimer >= tickTimerThreshold && playersThatHaveBeenReceived.Count == playerList.Count)
         {
@@ -102,4 +97,18 @@ public class GameManager : NetworkBehaviour
         return alpha;
     }
 
+    internal void AddPlayerToReady(Controller controller)
+    {
+        playersThatHavePlacedCastle.Add(controller);
+
+        if (playersThatHavePlacedCastle.Count == playerList.Count)
+        {
+            state = State.Game;
+            foreach (Controller player in playerList)
+            {
+                player.StartGame();
+                gameManagerTick = 0;
+            }
+        }
+    }
 }

@@ -14,7 +14,8 @@ public class Controller : NetworkBehaviour
         NothingSelected,
         CreatureSelected,
         CreatureInHandSelected,
-        PlacingCastle
+        PlacingCastle,
+        Waiting
     }
 
 
@@ -105,21 +106,23 @@ public class Controller : NetworkBehaviour
         col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
         transparentCol = col;
         transparentCol.a = .3f;
+        SpawnHUDAndHideOnAllNonOwners();
+        cardsInDeck = GameManager.singleton.Shuffle(cardsInDeck);
         turn += OnTurn;
         resources = new PlayerResources();
         resourcesChanged += UpdateHudForResourcesChanged;
-        SpawnHUDAndHideOnAllNonOwners();
-        state = State.PlacingCastle;
-
-        cardsInDeck = GameManager.singleton.Shuffle(cardsInDeck);
         mousePositionScript = GetComponent<MousePositionScript>();
+        state = State.PlacingCastle;
+    }
+
+    internal void StartGame()
+    {
         for (int i = 0; i < 3; i++)
         {
             DrawCard();
         }
-
+        SetStateToNothingSelected();
     }
-
 
     void GrabAllObjectsFromGameManager()
     {
@@ -183,10 +186,6 @@ public class Controller : NetworkBehaviour
             return;
         }
 
-        if (GameManager.singleton.playerList.Count < 2)
-        {
-            return;
-        }
         currentLocalHoverCellPosition = grid.WorldToCell(mousePosition);
         mousePosition = mousePositionScript.GetMousePositionWorldPoint();
         if (currentLocalHoverCellPosition != previousCellPosition)
@@ -507,9 +506,13 @@ public class Controller : NetworkBehaviour
 
     void LocalPlaceCastle(Vector3Int positionSent)
     {
-        placedCellPosition = positionSent;
+        placedCellPosition = positionSent; 
+        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(positionSent).traverseType == BaseTile.traversableType.Untraversable)
+        {
+            return;
+        }
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
-
+        
         SetOwningTile(placedCellPosition);
 
         for (int i = 0; i < BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles.Count; i++)
@@ -521,7 +524,8 @@ public class Controller : NetworkBehaviour
         instantiatedCaste.GetComponent<Structure>().playerOwningStructure = this;
         AddTileToHarvestedTilesList(BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition));
         AddToMana();
-        SetStateToNothingSelected();
+        SetStateToWaiting();
+        GameManager.singleton.AddPlayerToReady(this);
     }
 
     private void AddTileToHarvestedTilesList(BaseTile baseTileSent)
@@ -689,6 +693,7 @@ public class Controller : NetworkBehaviour
 
         cardsInHand.Add(instantiatedCardInHandBehaviour);
         instantiatedCardInHandBehaviour.playerOwningCard = this;
+        instantiatedCardInHandBehaviour.CheckToSeeIfPurchasable(resources);
     }
 
     void RemoveCardFromHand(CardInHand cardToRemove)
@@ -709,6 +714,12 @@ public class Controller : NetworkBehaviour
         cardSelected = null;
         creatureSelected = null;
         state = State.NothingSelected;
+    }
+    void SetStateToWaiting()
+    {
+        cardSelected = null;
+        creatureSelected = null;
+        state = State.Waiting;
     }
 
 
