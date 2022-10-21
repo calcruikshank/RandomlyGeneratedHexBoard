@@ -63,6 +63,10 @@ MonoBehaviour:
   - {fileID: 5255841600039758024, guid: a537093ed9ea8cb4fa6b52c94ea281da, type: 3}
   - {fileID: 5255841600039758024, guid: a537093ed9ea8cb4fa6b52c94ea281da, type: 3}
   - {fileID: 5255841600039758024, guid: a537093ed9ea8cb4fa6b52c94ea281da, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
   cardSelected: {fileID: 0}
   allVertextPointsInTilesOwned: []
   tick: 0
