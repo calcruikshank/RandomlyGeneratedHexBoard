@@ -239,11 +239,14 @@ public class Controller : NetworkBehaviour
             {
                 AddToTickQueueLocal(cellPositionSentToClients);
             }
-            if (ShowingPurchasableHarvestTiles)
+            if (state == State.NothingSelected)
             {
-                if (CheckToSeeIfClickedHarvestTileCanBePurchased(cellPositionSentToClients))
+                if (ShowingPurchasableHarvestTiles)
                 {
-                    AddToPuchaseTileQueueLocal(cellPositionSentToClients);
+                    if (CheckToSeeIfClickedHarvestTileCanBePurchased(cellPositionSentToClients))
+                    {
+                        AddToPuchaseTileQueueLocal(cellPositionSentToClients);
+                    }
                 }
             }
             return;
