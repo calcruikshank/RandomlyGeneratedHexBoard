@@ -198,6 +198,7 @@ public class BaseTile : MonoBehaviour
         lr.enabled = true;
         lr.positionCount = worldPositionsOfVectorsOnGrid.Count;
         lr.SetPositions(worldPositionsOfVectorsOnGrid.ToArray());
+        InstantiateCorrectColorManaSymbol();
     }
     LineRenderer lr;
     GameObject lrGameObject;
@@ -221,13 +222,20 @@ public class BaseTile : MonoBehaviour
         fCost = gCost + hCost;
     }
 
-    public void SetBeingHarvested(bool activeornot)
-    {
-        InstantiateCorrectColorManaSymbol();
-        instantiatedManaSymbol.gameObject.SetActive(activeornot);
-    }
-
+    public bool isBeingHarvested;
+    Color transparentColor;
+    Color opaqueColor;
     Transform instantiatedManaSymbol;
+    public void SetBeingHarvested()
+    {
+        isBeingHarvested = true;
+        instantiatedManaSymbol.GetComponent<SpriteRenderer>().color = opaqueColor;
+    }
+    public void SetNotBeingHarvested()
+    {
+        isBeingHarvested = false;
+        instantiatedManaSymbol.GetComponent<SpriteRenderer>().color = transparentColor;
+    }
     private void InstantiateCorrectColorManaSymbol()
     {
         if (manaType == ManaType.Blue)
@@ -250,6 +258,12 @@ public class BaseTile : MonoBehaviour
         {
             instantiatedManaSymbol = Instantiate(GameManager.singleton.greenManaSymbol, this.transform);
         }
+        transparentColor = instantiatedManaSymbol.GetComponent<SpriteRenderer>().color;
+        opaqueColor = instantiatedManaSymbol.GetComponent<SpriteRenderer>().color;
+        opaqueColor.a = playerOwningTile.col.a;
+        transparentColor.a = playerOwningTile.transparentCol.a;
+        instantiatedManaSymbol.GetComponent<SpriteRenderer>().color = transparentColor;
+        HideHarvestIcon();
     }
 
     internal void HideHarvestIcon()

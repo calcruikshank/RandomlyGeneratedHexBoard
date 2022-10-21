@@ -277,17 +277,17 @@ public class Controller : NetworkBehaviour
 
     private void ShowHarvestedTiles()
     {
-        foreach (BaseTile bt in harvestedTiles)
+        foreach (KeyValuePair<Vector3Int, BaseTile> bt in tilesOwned)
         {
-            bt.ShowHarvestIcon();
+            bt.Value.ShowHarvestIcon();
         }
     }
 
     private void HideHarvestedTiles()
     {
-        foreach (BaseTile bt in harvestedTiles)
+        foreach (KeyValuePair<Vector3Int, BaseTile> bt in tilesOwned)
         {
-            bt.HideHarvestIcon();
+            bt.Value.HideHarvestIcon();
         }
     }
 
@@ -467,7 +467,7 @@ public class Controller : NetworkBehaviour
     private void AddTileToHarvestedTilesList(BaseTile baseTileSent)
     {
         harvestedTiles.Add(baseTileSent);
-        baseTileSent.SetBeingHarvested(Input.GetKey(KeyCode.Space));
+        baseTileSent.SetBeingHarvested();
         //AddToMaxMana(baseTileSent.manaType);
     }
 
