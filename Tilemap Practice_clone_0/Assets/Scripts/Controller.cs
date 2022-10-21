@@ -107,16 +107,22 @@ public class Controller : NetworkBehaviour
         transparentCol = col;
         transparentCol.a = .3f;
         SpawnHUDAndHideOnAllNonOwners();
+        instantiatedPlayerUI.gameObject.SetActive(false);
         cardsInDeck = GameManager.singleton.Shuffle(cardsInDeck);
         turn += OnTurn;
         resources = new PlayerResources();
         resourcesChanged += UpdateHudForResourcesChanged;
         mousePositionScript = GetComponent<MousePositionScript>();
         state = State.PlacingCastle;
+
     }
 
     internal void StartGame()
     {
+        if (IsOwner)
+        {
+            instantiatedPlayerUI.gameObject.SetActive(true);
+        }
         for (int i = 0; i < 3; i++)
         {
             DrawCard();
