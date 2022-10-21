@@ -552,6 +552,10 @@ public class Controller : NetworkBehaviour
                 }
             }
         }
+        if (ShowingPurchasableHarvestTiles && CheckToSeeIfClickedHarvestTileCanBePurchased(currentLocalHoverCellPosition))
+        {
+            return false;
+        }
         if (Physics.Raycast(ray, out RaycastHit raycastHitCreatureOnBoard, Mathf.Infinity, creatureMask))
         {
             if (raycastHitCreatureOnBoard.transform.GetComponent<Creature>() != null)
@@ -710,41 +714,53 @@ public class Controller : NetworkBehaviour
 
     private void SubtractFromMana(int harvestCost)
     {
+        int totalAdded = 0;
         for (int x = 0; x < harvestCost; x++)
         {
+            if (totalAdded >= harvestCost) continue;
             if (resources.blueMana > 0)
             {
                 for (int i = 0; i < resources.blueMana; i++)
                 {
+                    totalAdded++;
                     resources.blueMana--;
+                    if (totalAdded == harvestCost) continue;
                 }
             }
             if (resources.whiteMana > 0)
             {
                 for (int i = 0; i < resources.whiteMana; i++)
                 {
+                    totalAdded++;
                     resources.whiteMana--;
+                    if (totalAdded == harvestCost) continue;
                 }
             }
             if (resources.redMana > 0)
             {
                 for (int i = 0; i < resources.redMana; i++)
                 {
+                    totalAdded++;
                     resources.redMana--;
+                    if (totalAdded == harvestCost) continue;
                 }
             }
             if (resources.blackMana > 0)
             {
                 for (int i = 0; i < resources.blackMana; i++)
                 {
+                    totalAdded++;
                     resources.blackMana--;
+                    if (totalAdded == harvestCost) continue;
                 }
             }
             if (resources.greenMana > 0)
             {
                 for (int i = 0; i < resources.greenMana; i++)
                 {
+                    totalAdded++;
                     resources.greenMana--;
+                    if (totalAdded == harvestCost) continue;
                 }
             }
         }
