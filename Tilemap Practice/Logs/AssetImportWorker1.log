@@ -172,3 +172,31 @@ Received Import Request.
   path: Assets/Prefabs/Cards/Images/elder dragon.png
   artifactKey: Guid(3880c01bc6da5744cbaadc0dc38e1dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Cards/Images/elder dragon.png using Guid(3880c01bc6da5744cbaadc0dc38e1dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdccd6d45ee1cd1dcb3761ab17aa0024') in 0.057495 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 820.944239 seconds.
+  path: Assets/Prefabs/Cards/Dissolve.prefab
+  artifactKey: Guid(74925e6ecbf343841b0307779dc3021c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Dissolve.prefab using Guid(74925e6ecbf343841b0307779dc3021c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '113df06f8da20f1c77ca4e4fbe4564e6') in 0.047610 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/Cards/HiredAssassin.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a97583b0ca642d1c9aba6f35026e524a') in 0.062788 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f9fe61b6f86271271e29c3f93bc3c31') in 0.055087 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/Cards/Raziel.prefab
+  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '828207e8a4a2561cd2cd1ecc79d0da85') in 0.043102 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

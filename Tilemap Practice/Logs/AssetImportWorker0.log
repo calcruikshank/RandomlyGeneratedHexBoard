@@ -280,3 +280,73 @@ Received Import Request.
   path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
   artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb289223606c2137109d9afa51c82c1f') in 0.042371 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 192.295567 seconds.
+  path: Assets/Prefabs/Cards/hired assassin.png
+  artifactKey: Guid(d4eac1ae4e4f8cc45b1cfe07730cc8a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/hired assassin.png using Guid(d4eac1ae4e4f8cc45b1cfe07730cc8a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '515749c42f96f7bf394d4b492fd0843f') in 0.019566 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.724659 seconds.
+  path: Assets/Prefabs/Cards/Images/hired assassin.png
+  artifactKey: Guid(d4eac1ae4e4f8cc45b1cfe07730cc8a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Images/hired assassin.png using Guid(d4eac1ae4e4f8cc45b1cfe07730cc8a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071d88b7498f85d070da054f340d4bc7') in 0.009962 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 61.861353 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon 1.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon 1.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '095c6ee3c15036a844e067fe97e28c0d') in 0.048592 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.792657 seconds.
+  path: Assets/Prefabs/Cards/HiredAssassin.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbb8f96dd8c0c20f6ff26494bd63de4f') in 0.051055 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.001945 seconds.
+  path: Assets/Prefabs/Cards/HiredAssassin.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cad189950eb1392454567e5696935593') in 0.055105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 83.936172 seconds.
+  path: Assets/Prefabs/Cards/skeleton necromancer.png
+  artifactKey: Guid(4068841d4ef642f49a8e8fc036923d40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/skeleton necromancer.png using Guid(4068841d4ef642f49a8e8fc036923d40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6e0e487d73628a325bcaf28689d6f4f') in 0.011555 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 92.362454 seconds.
+  path: Assets/Prefabs/Cards/Images/hired assassin.png
+  artifactKey: Guid(d4eac1ae4e4f8cc45b1cfe07730cc8a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Images/hired assassin.png using Guid(d4eac1ae4e4f8cc45b1cfe07730cc8a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8e64c2b9c2b585522c7a748b96e8860') in 0.042627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 168.835903 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '576aba9ed874fec11c75979607cd8636') in 0.054411 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/MeteorShower.prefab
+  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41992a4e57ec22f5981776da7ee88c25') in 0.047801 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
+  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32427f49fc6bebf6d0e74e3453c51ca9') in 0.044216 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/Cards/ElvishMystic.prefab
+  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f99a2083e151659c544de77b42980e02') in 0.047463 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
