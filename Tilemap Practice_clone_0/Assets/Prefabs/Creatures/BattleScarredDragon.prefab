@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
@@ -406,7 +406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4fa4351ced3beb4db4a24c0580e5f7b, type: 2}
+  - {fileID: 2100000, guid: 3e78ae2b0a62e39488cc9706bdaba3fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -440,9 +440,9 @@ GameObject:
   - component: {fileID: 6239865746917987992}
   - component: {fileID: 6239865746917987999}
   - component: {fileID: 6239865746917987998}
-  - component: {fileID: 5613487829935830462}
+  - component: {fileID: 70999914544279457}
   m_Layer: 6
-  m_Name: AngryTurtle
+  m_Name: BattleScarredDragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +492,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90367128c5a8eef4aade784c431cda0f, type: 2}
+  - {fileID: 2100000, guid: e3017b4d92c72704cac5fa55df712ed7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -528,7 +528,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5613487829935830462
+--- !u!114 &70999914544279457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,12 +537,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6239865746917987997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0dfa4d1ac30fe340af5e25c83433ef0, type: 3}
+  m_Script: {fileID: 11500000, guid: a7da7728b6b591a4491f278a48f51c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colorIndicator: {fileID: 7921025047922479681}
-  speed: 0.8
-  range: 1
+  speed: 2
+  range: 7
   UsageRate: 0
   allTilesWithinRange: []
   creatureID: 0
@@ -577,9 +577,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6330952787006823200}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.612, z: 0.84000003}
-  m_LocalScale: {x: 0.1814706, y: 0.24906279, z: 9.254999}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.612, z: 0.84}
+  m_LocalScale: {x: 0.1814706, y: 0.24906276, z: 9.255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4742030054974793146}
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}

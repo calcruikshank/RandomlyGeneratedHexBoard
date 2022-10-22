@@ -147,7 +147,7 @@ public class Controller : NetworkBehaviour
     void SpawnHUDAndHideOnAllNonOwners()
     {
         instantiatedPlayerUI = Instantiate(playerHud, canvasMain.transform);
-        cardParent = instantiatedPlayerUI.GetChild(0);
+        cardParent = instantiatedPlayerUI.GetComponent<HudElements>().cardParent;
         if (!IsOwner)
         {
             instantiatedPlayerUI.gameObject.SetActive(false);
@@ -156,6 +156,7 @@ public class Controller : NetworkBehaviour
         {
             cardParent.gameObject.GetComponent<Image>().color = transparentCol;
             hudElements = instantiatedPlayerUI.GetComponent<HudElements>();
+            hudElements.UpdateHudVisuals(this, turnThreshold);
         }
     }
 
@@ -329,6 +330,10 @@ public class Controller : NetworkBehaviour
     private void HandleTurn()
     {
         turnTimer++;
+        if (hudElements != null)
+        {
+            hudElements.UpdateDrawSlider(turnTimer);
+        }
         if (turnTimer > turnThreshold)
         {
             turn.Invoke();

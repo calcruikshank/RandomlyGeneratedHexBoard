@@ -540,13 +540,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dfa4d1ac30fe340af5e25c83433ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureState: 0
   colorIndicator: {fileID: 7921025047922479681}
+  speed: 0.8
+  range: 1
+  UsageRate: 0
   allTilesWithinRange: []
   creatureID: 0
+  creatureState: 0
   playerOwningCreature: {fileID: 0}
   thisTraversableType: 0
-  range: 1
   currentCellPosition: {x: 0, y: 0, z: 0}
   tileCurrentlyOn: {fileID: 0}
   previousTilePosition: {fileID: 0}
