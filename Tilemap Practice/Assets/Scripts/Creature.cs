@@ -9,15 +9,15 @@ using UnityEngine.Tilemaps;
 
 public class Creature : MonoBehaviour
 {
-    public CreatureState creatureState;
-
-
     [SerializeField] Transform colorIndicator;
+    [SerializeField] float speed = 1f; //move speed
+    [SerializeField] int range; //num of tiles that can attack
+    [SerializeField] float UsageRate; // the rate at which the minion can use abilities/ attack 
 
-
-    public List<BaseTile> allTilesWithinRange;
-    public int creatureID;
-    public enum CreatureState
+    [HideInInspector] public List<BaseTile> allTilesWithinRange;
+    [HideInInspector] public int creatureID;
+    [HideInInspector] public CreatureState creatureState;
+    [HideInInspector] public enum CreatureState
     {
         Summoned, //On The turn created
         Attack,
@@ -27,7 +27,7 @@ public class Creature : MonoBehaviour
         //not sure if i need a tapped state yet trying to keep it as simple as possible
     }
 
-    public Controller playerOwningCreature;
+    [HideInInspector] public Controller playerOwningCreature;
     Pathfinding pathfinder1;
     Pathfinding pathfinder2;
 
@@ -38,22 +38,19 @@ public class Creature : MonoBehaviour
         SwimmingAndWalking,
         Flying
     }
-    public travType thisTraversableType;
+    [HideInInspector]public travType thisTraversableType;
 
 
     LineRenderer lr;
     LineRenderer lr2;
     GameObject lrGameObject;
     GameObject lrGameObject2;
-    [SerializeField] int range; //num of tiles that can attack
-    float speed = 1f; //move speed
-    float UsageRate; // the rate at which the minion can use abilities/ attack 
 
     Tilemap baseTileMap;
-    public Vector3Int currentCellPosition;
+    [HideInInspector] public Vector3Int currentCellPosition;
 
-    public BaseTile tileCurrentlyOn;
-    public BaseTile previousTilePosition;
+    [HideInInspector] public BaseTile tileCurrentlyOn;
+    [HideInInspector] public BaseTile previousTilePosition;
 
     Vector3 actualPosition;
     Vector3 targetedPosition;
@@ -145,7 +142,7 @@ public class Creature : MonoBehaviour
     {
     }
 
-    public List<BaseTile> pathVectorList = new List<BaseTile>();
+    [HideInInspector] public List<BaseTile> pathVectorList = new List<BaseTile>();
     int currentPathIndex;
 
     public virtual void SetMove(Vector3 positionToTarget)
