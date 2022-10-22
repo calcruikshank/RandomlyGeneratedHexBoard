@@ -514,3 +514,330 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2288.107507 seconds.
+  path: Assets/Blink
+  artifactKey: Guid(a6d3c811e3ca0c54997baa0f8f7a0ce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink using Guid(a6d3c811e3ca0c54997baa0f8f7a0ce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1bdeb25e92b8044cc7aa3db51989b06') in 0.013575 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.478097 seconds.
+  path: Assets/Blink/Art
+  artifactKey: Guid(a960b7b240d190646a38ec865ba80c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art using Guid(a960b7b240d190646a38ec865ba80c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85189699e60f981a8b092f9d095327dc') in 0.005733 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.619267 seconds.
+  path: Assets/Blink/Art/Textures
+  artifactKey: Guid(017a24fb30499fd4fabfb573639d0153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures using Guid(017a24fb30499fd4fabfb573639d0153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e23e89b6e3ea12f493cf5ebefb35d22b') in 0.005094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.355582 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures
+  artifactKey: Guid(23a779e1abb582149893f7f3206fa5bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures using Guid(23a779e1abb582149893f7f3206fa5bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58a99b6b044311d499934b09f1a1890e') in 0.005764 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.109268 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures/Rocks_1
+  artifactKey: Guid(3e2ea202c75142e43891b06d30575e9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures/Rocks_1 using Guid(3e2ea202c75142e43891b06d30575e9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2457d69d47135553bb41af8e384c997') in 0.005136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.047103 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures/Rocks_1/Rocks_1.mat
+  artifactKey: Guid(9360872cfc7cefc41b268228a897cb9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures/Rocks_1/Rocks_1.mat using Guid(9360872cfc7cefc41b268228a897cb9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e37ac60863a690cde276a392cbb2869c') in 0.383805 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 51.760958 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Materials
+  artifactKey: Guid(cdb3fb4ad8060a247971d6ff8cc703b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Materials using Guid(cdb3fb4ad8060a247971d6ff8cc703b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da8321e16553a58a62620e39b3c271eb') in 0.005089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.878425 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex29.prefab
+  artifactKey: Guid(f2360a07b6cee064aad307fa66e6f8f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex29.prefab using Guid(f2360a07b6cee064aad307fa66e6f8f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cbc92a765bfed53e42c377b3ed4821a') in 0.034692 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex31.prefab
+  artifactKey: Guid(a41f077c11efded408e9a886cd98d8be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex31.prefab using Guid(a41f077c11efded408e9a886cd98d8be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53fe90ad0c26d1e39d035ba6b1f08a4a') in 0.022438 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Lake.prefab
+  artifactKey: Guid(d8deb0d5cca03814e8f5cd71fb9e7a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Lake.prefab using Guid(d8deb0d5cca03814e8f5cd71fb9e7a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab4f580f50e27d8130ac20c380a12b7c') in 0.019732 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.771801 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat
+  artifactKey: Guid(c719e38f25a9480abd2480ab621a2949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat using Guid(c719e38f25a9480abd2480ab621a2949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd987cde26697bd8458294089f74b5a99') in 0.024353 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Blink/Art/Textures/StylizedIceTextures/Ice_1/Ice_1.mat
+  artifactKey: Guid(0aabfba9f06e0774fb30da8bc5cf1153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedIceTextures/Ice_1/Ice_1.mat using Guid(0aabfba9f06e0774fb30da8bc5cf1153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '408e1666532ddccbd544acaba5906954') in 0.196017 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Blink/Art/Textures/StylizedIceTextures/Ice_2_Snow_1/Ice_2_Snow_1.mat
+  artifactKey: Guid(1a63bacf13766504987e9af0e8529412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedIceTextures/Ice_2_Snow_1/Ice_2_Snow_1.mat using Guid(1a63bacf13766504987e9af0e8529412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fac27d9596ea5e9f92c5a87d08c41ecd') in 0.018657 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Blink/Art/Textures/StylizedIceTextures/Ice_2/Ice_2.mat
+  artifactKey: Guid(5ffcb3dd490bebf43b02a022efa0c516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedIceTextures/Ice_2/Ice_2.mat using Guid(5ffcb3dd490bebf43b02a022efa0c516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fff5b6bf970a91e951deb73998cfcdd6') in 0.017065 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.688023 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex1.prefab
+  artifactKey: Guid(88d6135510f32df49aeb43b51172cc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex1.prefab using Guid(88d6135510f32df49aeb43b51172cc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8eace3588207c1fabd54be71c3eabbf4') in 0.016023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.777228 seconds.
+  path: Assets/Blink/Art/Textures/StylizedIceTextures/Ice_3_Snow_2/Ice_3_Snow_2.mat
+  artifactKey: Guid(a185b11bc97906b429bd68ec20584e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedIceTextures/Ice_3_Snow_2/Ice_3_Snow_2.mat using Guid(a185b11bc97906b429bd68ec20584e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c05bfddeb3f65340b698b860f752f94') in 0.018513 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.056197 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Lava/Lava.mat
+  artifactKey: Guid(3be482ee22c08784a95d4f8738df0459) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Lava/Lava.mat using Guid(3be482ee22c08784a95d4f8738df0459) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93c3613a938d79039b2627789516b79d') in 0.020873 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.434290 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Lava_Ground_01/Lava_Ground_01.mat
+  artifactKey: Guid(6b0c030e4f842ac4f8bd3351001c835d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Lava_Ground_01/Lava_Ground_01.mat using Guid(6b0c030e4f842ac4f8bd3351001c835d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ff5c21b4372522ac0d3b39a1e2111ab') in 0.024603 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.445805 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Lava_Ground_2_Cliff_2/Lava_Ground_2_Cliff_2.mat
+  artifactKey: Guid(24321af12711db142b71ee288fce8079) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Lava_Ground_2_Cliff_2/Lava_Ground_2_Cliff_2.mat using Guid(24321af12711db142b71ee288fce8079) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7fa43057344c169213ddb72df056676') in 0.019609 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.051739 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc5f16c760b20926ab7f48194ca1c945') in 0.034855 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.526691 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Soft Mask.mat
+  artifactKey: Guid(42df1c7856584b6b8db9a509b6b10074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Soft Mask.mat using Guid(42df1c7856584b6b8db9a509b6b10074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d56e6b1aa32458f375a8d6bfc451e34') in 0.033124 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.584890 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Drop Shadow.mat
+  artifactKey: Guid(749b9069dc4742c5bfa5c74644049926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Drop Shadow.mat using Guid(749b9069dc4742c5bfa5c74644049926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4f17f8e95f746b7ce85fc50c256da16') in 0.022970 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset
+  artifactKey: Guid(8a89fa14b10d46a99122fd4f73fca9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset using Guid(8a89fa14b10d46a99122fd4f73fca9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '182b376073f565760bf60582180c543d') in 0.073317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.526902 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat
+  artifactKey: Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat using Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bfa08a0e5570ab56402a17b8e2e2b74') in 0.024772 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.043481 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
+  artifactKey: Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset using Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af68905d105ae4e22db5e0f83efcf5d9') in 0.020434 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.045416 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_1/Cliff_1.mat
+  artifactKey: Guid(ee0b7688b006ba3418371e3c94af81e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_1/Cliff_1.mat using Guid(ee0b7688b006ba3418371e3c94af81e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b5fd25754d623ffb2154d42b57ae31a') in 0.017276 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.292845 seconds.
+  path: Assets/Blink/Art/Textures/StylizedForestTextures/Cliff_1/Cliff_1.mat
+  artifactKey: Guid(a04bccbfb304fad4fb16786b10096fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedForestTextures/Cliff_1/Cliff_1.mat using Guid(a04bccbfb304fad4fb16786b10096fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f5eab985a0f5592ebba4940f4b51bf2') in 0.019438 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.107598 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_3_Cliff_5/Cliff_1_Cliff_5.mat
+  artifactKey: Guid(1d47452ccc9b7ab469503cad1d20df6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_3_Cliff_5/Cliff_1_Cliff_5.mat using Guid(1d47452ccc9b7ab469503cad1d20df6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2545654899db00bebb5329521286e5fc') in 0.021558 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.645582 seconds.
+  path: Assets/Blink/Art/Textures/StylizedForestTextures/Cliff_2/Cliff_2.mat
+  artifactKey: Guid(179d31b18ed343f438935c8fb541714f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedForestTextures/Cliff_2/Cliff_2.mat using Guid(179d31b18ed343f438935c8fb541714f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df63bdda3cfe69f3bd7162da2db7711a') in 0.024525 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_4/Cliff_4.mat
+  artifactKey: Guid(229f201063f8f524f99409dd17237f6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_4/Cliff_4.mat using Guid(229f201063f8f524f99409dd17237f6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab5589d94ede400487dc85fdbd76dcb6') in 0.028461 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001705 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_5/Cliff_5.mat
+  artifactKey: Guid(e6052f0931bb3664ba4f640c0b0f0a74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Cliff_5/Cliff_5.mat using Guid(e6052f0931bb3664ba4f640c0b0f0a74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d8f1b6a80431c7dec9e9104f92766fe') in 0.033124 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.408403 seconds.
+  path: Assets/Dragon TCG v1.1/Dragons Images/red_dragon_02-assets/Drago.mat
+  artifactKey: Guid(1f6106bd78995dd41ba81cf8cbefc847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dragon TCG v1.1/Dragons Images/red_dragon_02-assets/Drago.mat using Guid(1f6106bd78995dd41ba81cf8cbefc847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '527a681da1c08ba42d407e7ac9eebed2') in 0.031037 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.501780 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Dry_Lava/Dry_Lava.mat
+  artifactKey: Guid(c4f5b5fe4dd970a418b1187690e3d631) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Dry_Lava/Dry_Lava.mat using Guid(c4f5b5fe4dd970a418b1187690e3d631) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc922977275aee7d4929716819644e81') in 0.018077 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.263557 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset
+  artifactKey: Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset using Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '413fd3b767e2dbaf4a7e85e34ac1b728') in 0.023575 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.568391 seconds.
+  path: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+  artifactKey: Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Fonts/LiberationSans.ttf using Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3bd036785823e2281556a384dd6489b') in 0.030059 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.020898 seconds.
+  path: Assets/Blink/Art/Textures/StylizedIceTextures/Frozen_Lake/FrozenLake.mat
+  artifactKey: Guid(ff3c411f6130ead4f85085eaed984e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedIceTextures/Frozen_Lake/FrozenLake.mat using Guid(ff3c411f6130ead4f85085eaed984e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42b8a7cf4ef8ea2f81512cac786a4d4e') in 0.019366 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.335517 seconds.
+  path: Assets/Blink/Art/Textures/StylizedIceTextures/Frozen_Lake_Ice/FrozenLakeIce.mat
+  artifactKey: Guid(317b216e08e60344d9f9953c654fe83d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedIceTextures/Frozen_Lake_Ice/FrozenLakeIce.mat using Guid(317b216e08e60344d9f9953c654fe83d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccb8b3668b209ce7250c9b67a278d351') in 0.024570 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.069495 seconds.
+  path: Assets/Blink/Art/Textures/StylizedForestTextures/Grass_1/Grass_1.mat
+  artifactKey: Guid(54ffff8c2578bda49932bdb655e0b450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedForestTextures/Grass_1/Grass_1.mat using Guid(54ffff8c2578bda49932bdb655e0b450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36584aed681b6a600aec4e72a5e55c8b') in 0.020894 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.436190 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex1.prefab
+  artifactKey: Guid(88d6135510f32df49aeb43b51172cc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex1.prefab using Guid(88d6135510f32df49aeb43b51172cc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd8eefe24bbf921943d5b562222a582c') in 0.020332 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009038 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.971 seconds
+Domain Reload Profiling:
+	ReloadAssembly (972ms)
+		BeginReloadAssembly (120ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (757ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (223ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (357ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (186ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4919 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (24.7 KB). Loaded Objects now: 5466.
+Memory consumption went from 187.2 MB to 187.2 MB.
+Total: 5.034700 ms (FindLiveObjects: 0.524200 ms CreateObjectMapping: 0.143300 ms MarkObjects: 4.325400 ms  DeleteObjects: 0.040900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 47.405927 seconds.
+  path: Assets/Blink/Art/Textures/StylizedLavaTextures/Rock_Ground/Rock_Ground.mat
+  artifactKey: Guid(e74907a6e14c1b7409950ff43ad74066) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedLavaTextures/Rock_Ground/Rock_Ground.mat using Guid(e74907a6e14c1b7409950ff43ad74066) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a84184133c8322692b5f2d3148c6606') in 0.087059 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.342971 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1
+  artifactKey: Guid(082585cf6a581ef4c94dd499a3749d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1 using Guid(082585cf6a581ef4c94dd499a3749d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6e2a30fc5865c0779f59b4065a526ef') in 0.005518 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.041578 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1/Sand_1.mat
+  artifactKey: Guid(a8bafeb9ce249ad449cd43f428bf7668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1/Sand_1.mat using Guid(a8bafeb9ce249ad449cd43f428bf7668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55b3f04f8711f64b6e627cbd340a9cc9') in 0.022116 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1/Sand_1_BaseColor.png
+  artifactKey: Guid(6b4e261c39e63234db51459653a84d0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1/Sand_1_BaseColor.png using Guid(6b4e261c39e63234db51459653a84d0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e9d6992b3fc716b0c13018a35d81fe3') in 0.023744 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1/Sand_1_Normal.png
+  artifactKey: Guid(302ddbefe653e71408c2c43abfb75d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Textures/StylizedDesertTextures/Sand_1/Sand_1_Normal.png using Guid(302ddbefe653e71408c2c43abfb75d3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14a9db509be7c61063709ce0dd6af161') in 0.019951 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 53.953843 seconds.
+  path: Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex1.prefab
+  artifactKey: Guid(88d6135510f32df49aeb43b51172cc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Hex1.prefab using Guid(88d6135510f32df49aeb43b51172cc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '452bf0123cf628906b3101679f28bbc4') in 0.022946 seconds 
