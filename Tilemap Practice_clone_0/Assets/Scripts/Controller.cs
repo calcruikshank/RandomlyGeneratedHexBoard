@@ -242,7 +242,10 @@ public class Controller : NetworkBehaviour
             }
             else
             {
-                AddToTickQueueLocal(cellPositionSentToClients);
+                if (!CheckForRaycast())
+                {
+                    AddToTickQueueLocal(cellPositionSentToClients);
+                }
             }
             if (state == State.NothingSelected)
             {

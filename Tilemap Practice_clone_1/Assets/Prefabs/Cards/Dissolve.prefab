@@ -1409,6 +1409,7 @@ MonoBehaviour:
   blueManaText: {fileID: 561585764347037611}
   playerOwningCard: {fileID: 0}
   isPurchasable: 0
+  cardType: 1
 --- !u!65 &1037695483380822100
 BoxCollider:
   m_ObjectHideFlags: 0

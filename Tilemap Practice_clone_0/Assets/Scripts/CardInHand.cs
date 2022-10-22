@@ -30,6 +30,14 @@ public class CardInHand : MonoBehaviour
     public Controller playerOwningCard;
 
     public bool isPurchasable;
+
+    public enum CardType
+    {
+        Creature,
+        Spell,
+        Structure
+    }
+    public CardType cardType;
     // Start is called before the first frame update
     void Start()
     {
