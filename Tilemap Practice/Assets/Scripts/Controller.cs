@@ -14,6 +14,7 @@ public class Controller : NetworkBehaviour
         NothingSelected,
         CreatureSelected,
         CreatureInHandSelected,
+        SpellInHandSelected,
         PlacingCastle,
         Waiting
     }
@@ -177,6 +178,10 @@ public class Controller : NetworkBehaviour
                 HandleDrawCards();
                 HandleMana();
                 break;
+            case State.SpellInHandSelected:
+                HandleDrawCards();
+                HandleMana();
+                break;
             case State.CreatureSelected:
                 HandleDrawCards();
                 HandleMana();
@@ -273,6 +278,9 @@ public class Controller : NetworkBehaviour
                 HandleTurn();
                 break;
             case State.CreatureInHandSelected:
+                HandleTurn();
+                break;
+            case State.SpellInHandSelected:
                 HandleTurn();
                 break;
             case State.CreatureSelected:
@@ -507,6 +515,9 @@ public class Controller : NetworkBehaviour
             case State.CreatureInHandSelected:
                 HandleCreatureInHandSelected(positionSent);
                 break;
+            case State.SpellInHandSelected:
+                HandleSpellInHandSelected(positionSent);
+                break;
             case State.CreatureSelected:
                 HandleCreatureOnBoardSelected(positionSent);
                 break;
@@ -605,7 +616,14 @@ public class Controller : NetworkBehaviour
             {
                 cardToSelect = cardsInHand[i];
                 cardSelected = cardToSelect;
-                state = State.CreatureInHandSelected;
+                if (cardSelected.cardType == CardInHand.CardType.Creature)
+                {
+                    state = State.CreatureInHandSelected;
+                }
+                if (cardSelected.cardType == CardInHand.CardType.Spell)
+                {
+                    state = State.SpellInHandSelected;
+                }
             }
         }
 
@@ -661,6 +679,30 @@ public class Controller : NetworkBehaviour
                 SetStateToNothingSelected();
             }
         }
+    }
+
+    private void HandleSpellInHandSelected(Vector3Int cellSent)
+    {
+        if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(cellSent) == null)
+        {
+            return;
+        }
+        Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellSent);
+        if (environmentMap.GetInstantiatedObject(cellSent))
+        {
+            GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellSent);
+            if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
+            {
+                instantiatedObject.AddComponent<ChangeTransparency>();
+            }
+            ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
+            instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+        }
+        SpendManaToCast(cardSelected.GetComponent<CardInHand>());
+        GameObject instantiatedSpell = Instantiate(cardSelected.GameObjectToInstantiate.gameObject, positionToSpawn, Quaternion.identity);
+        instantiatedSpell.GetComponent<Spell>().InjectDependencies(cellSent, this);
+        RemoveCardFromHand(cardSelected);
+        SetStateToNothingSelected();
     }
 
     private void SpendManaToCast(CardInHand cardSelected)

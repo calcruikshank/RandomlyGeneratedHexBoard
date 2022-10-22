@@ -80,6 +80,7 @@ public class Creature : MonoBehaviour
         SetupLR2();
         SetRangeLineRenderer();
         actualPosition = this.transform.position;
+
         CalculateAllTilesWithinRange();
         SetTravType();
         pathfinder1 = new Pathfinding();
@@ -305,13 +306,10 @@ public class Creature : MonoBehaviour
         creatureState = CreatureState.Idle;
     }
 
-    public List<Vector3Int> extents;
-    List<Vector3Int> previousExtents;
-
     #region range
     void CalculateAllTilesWithinRange()
     {
-        extents = new List<Vector3Int>();
+        List<Vector3Int> extents = new List<Vector3Int>();
         allTilesWithinRange.Clear();
         rangePositions.Clear();
         int xthreshold;

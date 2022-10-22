@@ -63,6 +63,18 @@ MonoBehaviour:
   - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
   - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
   - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
+  - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
+  - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
+  - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
+  - {fileID: 5255841600039758024, guid: a5e55e4c6dc8f16458776c4eba7c3e33, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 5b89c2ae167118447ae9dc50def990d7, type: 3}
+  - {fileID: 5255841600039758024, guid: 74925e6ecbf343841b0307779dc3021c, type: 3}
+  - {fileID: 5255841600039758024, guid: 74925e6ecbf343841b0307779dc3021c, type: 3}
+  - {fileID: 5255841600039758024, guid: 74925e6ecbf343841b0307779dc3021c, type: 3}
+  - {fileID: 5255841600039758024, guid: 74925e6ecbf343841b0307779dc3021c, type: 3}
   cardSelected: {fileID: 0}
   allVertextPointsInTilesOwned: []
   tick: 0
