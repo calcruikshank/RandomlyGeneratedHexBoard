@@ -173,18 +173,22 @@ public class Controller : NetworkBehaviour
             case State.NothingSelected:
                 HandleDrawCards();
                 HandleMana();
+                TriggerAllCreatureAbilities();
                 break;
             case State.CreatureInHandSelected:
                 HandleDrawCards();
                 HandleMana();
+                TriggerAllCreatureAbilities();
                 break;
             case State.SpellInHandSelected:
                 HandleDrawCards();
                 HandleMana();
+                TriggerAllCreatureAbilities();
                 break;
             case State.CreatureSelected:
                 HandleDrawCards();
                 HandleMana();
+                TriggerAllCreatureAbilities();
                 break;
         }
     }
@@ -329,6 +333,18 @@ public class Controller : NetworkBehaviour
         {
             turn.Invoke();
             turnTimer = 0;
+        }
+        
+    }
+
+    private void TriggerAllCreatureAbilities()
+    {
+        foreach (KeyValuePair<Vector3Int, BaseTile> kp in tilesOwned)
+        {
+            if (kp.Value.CreatureOnTile() != null && kp.Value.CreatureOnTile().playerOwningCreature == this)
+            {
+                kp.Value.CreatureOnTile().UseAbility();
+            }
         }
     }
 

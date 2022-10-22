@@ -440,8 +440,7 @@ GameObject:
   - component: {fileID: 6239865746917987992}
   - component: {fileID: 6239865746917987999}
   - component: {fileID: 6239865746917987998}
-  - component: {fileID: 1189074321133740700}
-  - component: {fileID: 6607927723304356983}
+  - component: {fileID: 2975818036461539526}
   m_Layer: 6
   m_Name: ElvishMystic
   m_TagString: Untagged
@@ -529,30 +528,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1189074321133740700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6239865746917987997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71993d2be2273814f99ef1f5bd7a6b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creatureState: 0
-  colorIndicator: {fileID: 7921025047922479681}
-  allTilesWithinRange: []
-  creatureID: 0
-  playerOwningCreature: {fileID: 0}
-  thisTraversableType: 3
-  range: 1
-  currentCellPosition: {x: 0, y: 0, z: 0}
-  tileCurrentlyOn: {fileID: 0}
-  previousTilePosition: {fileID: 0}
-  pathVectorList: []
---- !u!114 &6607927723304356983
+--- !u!114 &2975818036461539526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -564,6 +540,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002fe43d3a5c1224086387dcc69ca924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureState: 0
+  colorIndicator: {fileID: 7921025047922479681}
+  allTilesWithinRange: []
+  creatureID: 0
+  playerOwningCreature: {fileID: 0}
+  thisTraversableType: 0
+  range: 1
+  currentCellPosition: {x: 0, y: 0, z: 0}
+  tileCurrentlyOn: {fileID: 0}
+  previousTilePosition: {fileID: 0}
+  pathVectorList: []
 --- !u!1 &6330952787006823200
 GameObject:
   m_ObjectHideFlags: 0

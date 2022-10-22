@@ -33,10 +33,10 @@ public class Creature : MonoBehaviour
 
     public enum travType
     {
+        Walking,
         Swimming,
         SwimmingAndWalking,
-        Flying,
-        Walking
+        Flying
     }
     public travType thisTraversableType;
 
@@ -512,5 +512,19 @@ public class Creature : MonoBehaviour
     {
         rangeLr.enabled = false;
     }
+
+
+    #endregion
+
+    #region Overridables
+    public virtual void UseAbility() { }
+    public virtual void OnETB() { }
+    public virtual void OnDeath() { }
+    public virtual void OnDamaged() { }
+    public virtual void OnHealed() { }
+    public virtual void Taunt() { }
+    public virtual void Heal() { }
+
+
     #endregion
 }

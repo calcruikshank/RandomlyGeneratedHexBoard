@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 6239865746917987992}
   - component: {fileID: 6239865746917987999}
   - component: {fileID: 6239865746917987998}
-  - component: {fileID: 6720730979571068887}
+  - component: {fileID: 67198873054077212}
   m_Layer: 6
   m_Name: Drago
   m_TagString: Untagged
@@ -528,7 +528,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &6720730979571068887
+--- !u!114 &67198873054077212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6239865746917987997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a162f6973a76ae4fabee9c5e4722480, type: 3}
+  m_Script: {fileID: 11500000, guid: a99b140795e4e3f48a4130bdeeb61940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   creatureState: 0
@@ -545,13 +545,12 @@ MonoBehaviour:
   allTilesWithinRange: []
   creatureID: 0
   playerOwningCreature: {fileID: 0}
-  thisTraversableType: 0
-  range: 5
+  thisTraversableType: 3
+  range: 4
   currentCellPosition: {x: 0, y: 0, z: 0}
   tileCurrentlyOn: {fileID: 0}
   previousTilePosition: {fileID: 0}
   pathVectorList: []
-  extents: []
 --- !u!1 &6330952787006823200
 GameObject:
   m_ObjectHideFlags: 0
