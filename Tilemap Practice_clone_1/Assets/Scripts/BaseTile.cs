@@ -211,9 +211,10 @@ public class BaseTile : MonoBehaviour
 
     private void MakeTextObjectForTileCost(Transform parentToSet)
     {
-        GameObject instantiatedText = Instantiate(new GameObject("DrawMeshSingle", typeof(TextMeshPro)), parentToSet);
+        GameObject instantiatedText = Instantiate(new GameObject("text", typeof(TextMeshPro)), parentToSet);
         instantiatedText.transform.localPosition = new Vector3(0, .01f, 0);
         costText = instantiatedText.GetComponent<TextMeshPro>();
+        costText.fontSize = 20;
         costText.color = playerOwningTile.col;
         costText.alignment = TextAlignmentOptions.Center;
         costText.alignment = TextAlignmentOptions.Midline;

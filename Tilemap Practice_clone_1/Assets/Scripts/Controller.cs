@@ -106,7 +106,7 @@ public class Controller : NetworkBehaviour
         col = Color.red;
         col = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
         transparentCol = col;
-        transparentCol.a = .3f;
+        transparentCol.a = .5f;
         SpawnHUDAndHideOnAllNonOwners();
         instantiatedPlayerUI.gameObject.SetActive(false);
         cardsInDeck = GameManager.singleton.Shuffle(cardsInDeck);
