@@ -1,0 +1,520 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.9f1 (ad3870b89536) revision 11352176'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 32694 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker12
+-projectPath
+C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
+-logFile
+Logs/AssetImportWorker12.log
+-srvPort
+62094
+Successfully changed project path to: C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
+C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 127.26 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.9f1 (ad3870b89536)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:   NVIDIA
+    VRAM:     12108 MB
+    Driver:   31.0.15.1694
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56312
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.006169 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 117.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.636 seconds
+Domain Reload Profiling:
+	ReloadAssembly (636ms)
+		BeginReloadAssembly (72ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (462ms)
+			LoadAssemblies (71ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (110ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (22ms)
+			SetupLoadedEditorAssemblies (287ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (48ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (117ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (84ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007373 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 114.94 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.225 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1226ms)
+		BeginReloadAssembly (202ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (120ms)
+		EndReloadAssembly (918ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (194ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (552ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (115ms)
+				BeforeProcessingInitializeOnLoad (144ms)
+				ProcessInitializeOnLoadAttributes (232ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4944 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (56.1 KB). Loaded Objects now: 5411.
+Memory consumption went from 184.3 MB to 184.2 MB.
+Total: 3.348600 ms (FindLiveObjects: 0.338400 ms CreateObjectMapping: 0.126500 ms MarkObjects: 2.785300 ms  DeleteObjects: 0.097300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 210333.713929 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd282093bef480c9967273596a59283c1') in 0.213951 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.059602 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f12011d079b2f8442338f45780a40f7c') in 0.067211 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cf689a4891c835e503138bd24d02c8f') in 0.059459 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.960056 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c0c20f1ac2282a06f0d6030da4763bc') in 0.095883 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d30eb141f62df62e3095c2c1e8f8e85') in 0.064470 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.109919 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '788db02692468c17317db00366c0e196') in 0.108032 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2af897c766dbf2385831318a5e2d9ce') in 0.054601 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.607165 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44d4739311c8521712a1df3dc3a6b479') in 0.055229 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c3bd9edf0080e9b66ea096715dbbe16') in 0.053322 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.127595 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1970b844c4f42259ace36837165f2edc') in 0.090642 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82a682c928c5c551706366d67b30805a') in 0.066449 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.995048 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39488c8b1b36f4d539156128eaf63b14') in 0.057056 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '756bf4e9d07b26fa547647b696802934') in 0.054040 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.040629 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afc5376b59c4f75c77dec95726791171') in 0.072454 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47fcb31f606982ac6060ccca1ecfc015') in 0.053585 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.634999 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7769b363a1dc8214e0ddde6ff3ad7e73') in 0.059629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6610c2473134f61550220619d7c493f8') in 0.054500 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.740375 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0600f4f778dac21249408e95b0b7c647') in 0.080784 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '849448b746e8cac143e8cc3d53690510') in 0.055437 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.394660 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc1ef68ac4ff7b23b1c55584dd21c524') in 0.052603 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8bcdc96d8b449ec93c153e7f7a29aa2') in 0.054408 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.720877 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61f386d8db1fa67a0f65c1c0b9fc93ea') in 0.057707 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72872627aaea1b0270d5d0584b4242f0') in 0.056852 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.611095 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9e39293442ead844dde8f8aa9838916') in 0.073003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24106a17e6d66c1c2cbee6b051a66185') in 0.054043 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.188330 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a8662792869fc7fd4fd8eb64e51926c') in 0.075199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d91fd7c1432cd79c7ea3c15c682d4a7') in 0.059292 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.839098 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '145174b8477e19e05f59760528908ac4') in 0.078615 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '612e6cd28dbdeb4beef93c9a576a9121') in 0.063183 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.715313 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84787ce458b7a63cd07eee086297492e') in 0.072297 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3537063724daae789c01adba45abe5b4') in 0.063409 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.806081 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f64cd431aaab483e5f0b2c26af6b034') in 0.056849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02618077b21fa5ae3474acadd12841ee') in 0.054753 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.431774 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '401fe48c7955626fe2fcf21c20ff67e3') in 0.064653 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.232031 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1379179bf4d63331812dd7f37a97101') in 0.110593 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10905547a899f3cab73e58c0561c97c8') in 0.059849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.429094 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06c6279cc95335c37d7ac71c71da7bb1') in 0.062718 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7b4bc675c1feaebc04710af990ba1d7') in 0.059172 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.021088 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29f6d8cddcd0fc9cd24275461da852f3') in 0.080683 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1f172d39a8f3133afc922d3683e41c2') in 0.063499 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.014138 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa3dd3a1fa8c8b55532a23ba82123a89') in 0.063598 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5b9354ddb271e953e0a1b5c1cc9daea') in 0.056680 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.969258 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b9300e9d886b9ade6692279425738e1') in 0.075443 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68241d1ce8d72b97f293a4a90d74bf56') in 0.056818 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.365017 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a68bd97d876533b75d80834e1b5cd8b') in 0.060618 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffee5b66ac05f4a97fde3a4fbb05625a') in 0.051547 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.398479 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '900ec6cfd73412c6c37a60c965e0031b') in 0.102075 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '508c910343ec12929f1ad50d11848f59') in 0.058660 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.379429 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1eb8dd1f6d56cdd13d3ed1d2954586d9') in 0.083876 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd8dab5fabab6624a0922828a211705e') in 0.059290 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.731400 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7f142e7538a63e17329b7ce91d55a53') in 0.080879 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00aad3bd2c141c8dfb943ed9486e3a15') in 0.070864 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.337331 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c9de4c6a0dee1ba8a625ba2b459427d') in 0.059094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.244547 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f18e58dffdd3971d1ace679bd3cec91') in 0.057000 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0681558cc08d614e3f429b514705199e') in 0.001783 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.263686 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0da01f6fa4d36fae6aa2a427eb547874') in 0.057938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
+  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c593e1230d26b3316ebe196b16e886d') in 0.052883 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.036649 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cacfa658d9511c9f922f6f09f72a1126') in 0.074050 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd88cc0ebc052abbe331c17e216f27d6') in 0.058203 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -26,7 +26,7 @@ public class Controller : NetworkBehaviour
     //if environment is selected change state to environment selected
     //if environment card is selected change state to environment card selected
 
-    Dictionary<Vector3Int, BaseTile> tilesOwned = new Dictionary<Vector3Int, BaseTile>();
+    public Dictionary<Vector3Int, BaseTile> tilesOwned = new Dictionary<Vector3Int, BaseTile>();
 
     MousePositionScript mousePositionScript;
 
@@ -852,6 +852,31 @@ public class Controller : NetworkBehaviour
             {
                 resources.greenMana++;
             }
+        }
+
+        resourcesChanged.Invoke(resources);
+    }
+    public void AddSpecificManaToPool(BaseTile.ManaType manaTypeSent)
+    {
+        if (manaTypeSent == BaseTile.ManaType.Black)
+        {
+            resources.blackMana++;
+        }
+        if (manaTypeSent == BaseTile.ManaType.Blue)
+        {
+            resources.blueMana++;
+        }
+        if (manaTypeSent == BaseTile.ManaType.Red)
+        {
+            resources.redMana++;
+        }
+        if (manaTypeSent == BaseTile.ManaType.Green)
+        {
+            resources.greenMana++;
+        }
+        if (manaTypeSent == BaseTile.ManaType.White)
+        {
+            resources.whiteMana++;
         }
 
         resourcesChanged.Invoke(resources);
