@@ -517,7 +517,7 @@ public class Creature : MonoBehaviour
     #endregion
 
     #region Overridables
-    public virtual void UseAbility() { }
+    public virtual void Garrison() { }
     public virtual void OnETB() { }
     public virtual void OnDeath() { }
     public virtual void OnDamaged() { }

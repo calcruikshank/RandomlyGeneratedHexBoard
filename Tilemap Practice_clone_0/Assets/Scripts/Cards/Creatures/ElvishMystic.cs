@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ElvishMystic : Creature
 {
-    public override void UseAbility()
+    public override void Garrison()
     {
         if (playerOwningCreature.tilesOwned.ContainsValue( tileCurrentlyOn ))
         {

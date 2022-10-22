@@ -195,7 +195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -865,7 +865,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: When this attacks add one gold to your hand.
+  m_text: 'GARRISON: Add the mana type of the current tile this creature is on to
+    your pool. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1397,7 +1398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameObjectToInstantiate: {fileID: 6239865746917987993, guid: 15e8be504febbbb4bb5c55a07c1ea34a, type: 3}
   indexOfCard: 0
-  greenManaCost: 1
+  greenManaCost: 2
   blueManaCost: 0
   whiteManaCost: 0
   blackManaCost: 0

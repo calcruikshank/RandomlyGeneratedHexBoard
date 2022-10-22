@@ -343,7 +343,7 @@ public class Controller : NetworkBehaviour
         {
             if (kp.Value.CreatureOnTile() != null && kp.Value.CreatureOnTile().playerOwningCreature == this)
             {
-                kp.Value.CreatureOnTile().UseAbility();
+                kp.Value.CreatureOnTile().Garrison();
             }
         }
     }

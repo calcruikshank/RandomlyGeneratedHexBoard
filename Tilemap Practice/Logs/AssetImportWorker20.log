@@ -445,3 +445,253 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 215294.853598 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd853406f09cce331a577efd43f7e300') in 0.184971 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
+  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08560831e5b5ba5ec13712034d7c6ac5') in 0.052113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Prefabs/Cards/ElvishMystic.prefab
+  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90019879048bffbf094882d3051fc5a0') in 0.048162 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Cards/Keywords.prefab
+  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f13c3279f39d6638565974027d805cf0') in 0.009173 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.246480 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5cea55192b18eeff78f36a4282203d0') in 0.063357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/Cards/HiredAssassin.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '276433d8e2dfd6f278a9a09b963a3abc') in 0.064084 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
+  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1b2bed8956be94cef2ec33024f2a1cb') in 0.050333 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/Cards/ElvishMystic.prefab
+  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e79d708c100de6dcb5053a4731269c78') in 0.057879 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/Cards/Keywords.prefab
+  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9ba37152732eea300116466a8ace3a3') in 0.008888 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.873665 seconds.
+  path: Assets/Prefabs/Cards/ElvishMystic.prefab
+  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4ffcddc48e20845798d1d2ca4d708ca') in 0.050606 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/Cards/HiredAssassin.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fffddbe1547894df6c828ce31e4dff43') in 0.063359 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31cc3ddad1bf12a976ceed089ff70ad6') in 0.066054 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.707834 seconds.
+  path: Assets/Prefabs/Cards/ElvishMystic.prefab
+  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c011ce7e69310519feabf5120973d158') in 0.062142 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
+  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42fb74b6a79ec7deb92130306a05cd34') in 0.049352 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Prefabs/Cards/Keywords.prefab
+  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a762af48425c121661eea47b84d81e9') in 0.007644 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.246043 seconds.
+  path: Assets/Prefabs/Cards/ElvishMystic.prefab
+  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3c75a92dd0547ec805c011f27c7b7f4') in 0.052503 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/Cards/HiredAssassin.prefab
+  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2db5a671ba5f26d9d93c4bbcf6315b51') in 0.058529 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/Cards/Raziel.prefab
+  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80b19550e5a627bf945849f358921706') in 0.048447 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006574 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.898 seconds
+Domain Reload Profiling:
+	ReloadAssembly (899ms)
+		BeginReloadAssembly (120ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (682ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (193ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (327ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (18ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (91ms)
+				ProcessInitializeOnLoadAttributes (173ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4923 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 26 unused Assets / (25.6 KB). Loaded Objects now: 5441.
+Memory consumption went from 187.2 MB to 187.1 MB.
+Total: 3.085900 ms (FindLiveObjects: 0.364200 ms CreateObjectMapping: 0.116000 ms MarkObjects: 2.547600 ms  DeleteObjects: 0.057300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006885 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.97 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.993 seconds
+Domain Reload Profiling:
+	ReloadAssembly (994ms)
+		BeginReloadAssembly (126ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (768ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (231ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (364ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (17ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (101ms)
+				ProcessInitializeOnLoadAttributes (195ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4923 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (24.7 KB). Loaded Objects now: 5444.
+Memory consumption went from 187.1 MB to 187.1 MB.
+Total: 3.926200 ms (FindLiveObjects: 0.409200 ms CreateObjectMapping: 0.145000 ms MarkObjects: 3.339000 ms  DeleteObjects: 0.032100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 292.838858 seconds.
+  path: Assets/Prefabs/Creatures/ElvishMystic.prefab
+  artifactKey: Guid(15e8be504febbbb4bb5c55a07c1ea34a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Creatures/ElvishMystic.prefab using Guid(15e8be504febbbb4bb5c55a07c1ea34a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff95a9cacb6077eb2e63ac8399b591ca') in 0.095810 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.834348 seconds.
+  path: Assets/Prefabs/Cards/BattleScarredDragon.prefab
+  artifactKey: Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/BattleScarredDragon.prefab using Guid(0d4fac986963f3341ae936fd1dd6f654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82e5b56c127d1e1eb049a190c66279bc') in 0.062117 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
+  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '113d8293fe6134258cdb2465ced03df5') in 0.048466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Cards/Raziel.prefab
+  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7afc830a3b2dec07293b84024a0df847') in 0.045386 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
