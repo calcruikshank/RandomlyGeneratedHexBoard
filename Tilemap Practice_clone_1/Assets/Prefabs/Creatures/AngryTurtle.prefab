@@ -543,7 +543,10 @@ MonoBehaviour:
   colorIndicator: {fileID: 7921025047922479681}
   speed: 0.8
   range: 1
-  UsageRate: 0
+  UsageRate: 1
+  Attack: 1
+  CurrentHealth: 3
+  MaxHealth: 3
   allTilesWithinRange: []
   creatureID: 0
   creatureState: 0

@@ -12,7 +12,10 @@ public class Creature : MonoBehaviour
     [SerializeField] Transform colorIndicator;
     [SerializeField] float speed = 1f; //move speed
     [SerializeField] int range; //num of tiles that can attack
-    [SerializeField] float UsageRate; // the rate at which the minion can use abilities/ attack 
+    [SerializeField] float UsageRate = 1f; // the rate at which the minion can use abilities/ attack 
+    [SerializeField] float Attack;
+    float CurrentHealth; 
+    [SerializeField] float MaxHealth; 
 
     [HideInInspector] public List<BaseTile> allTilesWithinRange;
     [HideInInspector] public int creatureID;
@@ -85,6 +88,7 @@ public class Creature : MonoBehaviour
         creatureID = GameManager.singleton.allCreatureGuidCounter;
         GameManager.singleton.allCreaturesOnField.Add(creatureID, this);
         GameManager.singleton.allCreatureGuidCounter++;
+        CurrentHealth = MaxHealth;
     }
 
     protected virtual void SetTravType()
@@ -525,4 +529,5 @@ public class Creature : MonoBehaviour
 
 
     #endregion
+
 }

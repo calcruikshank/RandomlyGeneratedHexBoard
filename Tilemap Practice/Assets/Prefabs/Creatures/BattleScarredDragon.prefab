@@ -541,9 +541,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorIndicator: {fileID: 7921025047922479681}
-  speed: 2
-  range: 7
+  speed: 1.5
+  range: 5
   UsageRate: 0
+  Attack: 4
+  MaxHealth: 12
   allTilesWithinRange: []
   creatureID: 0
   creatureState: 0
@@ -737,7 +739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8
+  m_text: 12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
