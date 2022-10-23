@@ -26,6 +26,7 @@ public class GameManager : NetworkBehaviour
     public List<Controller> playersThatHavePlacedCastle = new List<Controller>();
     public List<Controller> playersThatHaveBeenReceived = new List<Controller>();
 
+    public Dictionary<int, Creature> allCreaturesOnField = new Dictionary<int, Creature>();
     public delegate void Tick();
     public event Tick tick;
 
@@ -37,6 +38,7 @@ public class GameManager : NetworkBehaviour
     public int tickTimer;
     public int tickTimerThreshold = 10;
     public int creatureGuidCounter;
+    public int allCreatureGuidCounter;
 
     public int endingX;
     public int endingY;

@@ -55,7 +55,7 @@ public class Controller : NetworkBehaviour
     Vector3Int placedCellPosition;
 
     public int turnTimer;
-    public int turnThreshold = 400;
+    int turnThreshold = 80; //todo make this 800
     int maxHandSize = 7;
     [SerializeField] List<CardInHand> cardsInDeck;
     List<CardInHand> cardsInHand = new List<CardInHand>();
@@ -297,7 +297,7 @@ public class Controller : NetworkBehaviour
     bool ShowingPurchasableHarvestTiles = false;
     private void HandleSpacebarPressed()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             CameraControl.Singleton.ReturnHome(new Vector3(instantiatedCaste.transform.position.x, instantiatedCaste.transform.position.y, instantiatedCaste.transform.position.z - 7));
             ShowHarvestedTiles();
@@ -339,7 +339,7 @@ public class Controller : NetworkBehaviour
             turn.Invoke();
             turnTimer = 0;
         }
-        
+
     }
 
     private void TriggerAllCreatureAbilities()
@@ -547,13 +547,13 @@ public class Controller : NetworkBehaviour
 
     void LocalPlaceCastle(Vector3Int positionSent)
     {
-        placedCellPosition = positionSent; 
+        placedCellPosition = positionSent;
         if (BaseMapTileState.singleton.GetBaseTileAtCellPosition(positionSent).traverseType == BaseTile.traversableType.Untraversable)
         {
             return;
         }
         Vector3 positionToSpawn = highlightMap.GetCellCenterWorld(placedCellPosition);
-        
+
         SetOwningTile(placedCellPosition);
 
         for (int i = 0; i < BaseMapTileState.singleton.GetBaseTileAtCellPosition(placedCellPosition).neighborTiles.Count; i++)
@@ -611,6 +611,11 @@ public class Controller : NetworkBehaviour
                     AddIndexOfCreatureOnBoard(raycastHitCreatureOnBoard.transform.GetComponent<Creature>().creatureID);
 
                     //SetToCreatureOnFieldSelected(raycastHitCreatureOnBoard.transform.GetComponent<Creature>());
+                    return true;
+                }
+                if (state == State.SpellInHandSelected)
+                {
+                    AddIndexOfCreatureOnBoard(raycastHitCreatureOnBoard.transform.GetComponent<Creature>().creatureID);
                     return true;
                 }
             }
@@ -708,22 +713,26 @@ public class Controller : NetworkBehaviour
         {
             return;
         }
-        Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellSent);
-        if (environmentMap.GetInstantiatedObject(cellSent))
+        if (cardSelected.GetComponent<CardInHand>().GameObjectToInstantiate.GetComponent<Spell>().range != 0)
         {
-            GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellSent);
-            if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
+            Vector3 positionToSpawn = BaseMapTileState.singleton.GetWorldPositionOfCell(cellSent);
+            if (environmentMap.GetInstantiatedObject(cellSent))
             {
-                instantiatedObject.AddComponent<ChangeTransparency>();
+                GameObject instantiatedObject = environmentMap.GetInstantiatedObject(cellSent);
+                if (instantiatedObject.GetComponent<ChangeTransparency>() == null)
+                {
+                    instantiatedObject.AddComponent<ChangeTransparency>();
+                }
+                ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
+                instantiatedObjectsChangeTransparency.ChangeTransparent(100);
             }
-            ChangeTransparency instantiatedObjectsChangeTransparency = instantiatedObject.GetComponent<ChangeTransparency>();
-            instantiatedObjectsChangeTransparency.ChangeTransparent(100);
+
+            SpendManaToCast(cardSelected.GetComponent<CardInHand>());
+            GameObject instantiatedSpell = Instantiate(cardSelected.GameObjectToInstantiate.gameObject, positionToSpawn, Quaternion.identity);
+            instantiatedSpell.GetComponent<Spell>().InjectDependencies(cellSent, this);
+            RemoveCardFromHand(cardSelected);
+            SetStateToNothingSelected();
         }
-        SpendManaToCast(cardSelected.GetComponent<CardInHand>());
-        GameObject instantiatedSpell = Instantiate(cardSelected.GameObjectToInstantiate.gameObject, positionToSpawn, Quaternion.identity);
-        instantiatedSpell.GetComponent<Spell>().InjectDependencies(cellSent, this);
-        RemoveCardFromHand(cardSelected);
-        SetStateToNothingSelected();
     }
 
     private void SpendManaToCast(CardInHand cardSelected)
@@ -778,9 +787,23 @@ public class Controller : NetworkBehaviour
     int indexOfCardInHandSelected;
     public void SetToCreatureOnFieldSelected(Creature creatureSelectedSent)
     {
+        if (state == State.SpellInHandSelected)
+        {
+            if (cardSelected.GetComponent<CardInHand>().GameObjectToInstantiate.GetComponent<Spell>().range == 0)
+            {
+                Debug.Log("Casting spell on " + creatureSelectedSent);
+                CastSpellOnTargetedCreature(creatureSelectedSent);
+            }
+            return;
+        }
         creatureSelected = creatureSelectedSent;
         state = State.CreatureSelected;
     }
+
+    private void CastSpellOnTargetedCreature(Creature creatureSelectedSent)
+    {
+    }
+
     void SetStateToNothingSelected()
     {
         cardSelected = null;

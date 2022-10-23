@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    [SerializeField]int range = 1;
+    [SerializeField]public int range = 0;
     Vector3Int targetTilePosition;
     List<BaseTile> allTilesWithinRange = new List<BaseTile>();
     List<Vector3> rangePositions = new List<Vector3>();

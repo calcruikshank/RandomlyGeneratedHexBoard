@@ -82,6 +82,9 @@ public class Creature : MonoBehaviour
         SetTravType();
         pathfinder1 = new Pathfinding();
         pathfinder2 = new Pathfinding();
+        creatureID = GameManager.singleton.allCreatureGuidCounter;
+        GameManager.singleton.allCreaturesOnField.Add(creatureID, this);
+        GameManager.singleton.allCreatureGuidCounter++;
     }
 
     protected virtual void SetTravType()
@@ -286,8 +289,6 @@ public class Creature : MonoBehaviour
     {
         this.playerOwningCreature = controller;
         colorIndicator.GetComponent<SpriteRenderer>().color = controller.col;
-        creatureID = GameManager.singleton.creatureGuidCounter;
-        GameManager.singleton.creatureGuidCounter++;
     }
 
     void SetStateToIdle()
