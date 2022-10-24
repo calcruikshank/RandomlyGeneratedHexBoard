@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisualAttackParticle : MonoBehaviour
+public class MeleeVisualAttack : MonoBehaviour
 {
     Creature targetedCreature;
     float amountofdamage;
@@ -11,9 +11,11 @@ public class VisualAttackParticle : MonoBehaviour
     {
         targetedCreature = creatureToTarget;
         amountofdamage = attack;
+        this.GetComponent<ParticleSystem>().Play();
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void FixedUpdate()
     {
         if (shutDown)
         {
@@ -21,9 +23,7 @@ public class VisualAttackParticle : MonoBehaviour
         }
         if (targetedCreature != null)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, targetedCreature.actualPosition, 10f * Time.deltaTime);
-
-            if (Vector3.Distance(this.transform.position, targetedCreature.actualPosition) < .01f && shutDown == false)
+            if (shutDown == false)
             {
                 targetedCreature.TakeDamage(amountofdamage);
                 this.GetComponent<ParticleSystem>().Stop();

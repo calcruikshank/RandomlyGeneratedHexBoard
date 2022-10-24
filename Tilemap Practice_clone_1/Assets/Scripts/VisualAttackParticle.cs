@@ -33,6 +33,7 @@ public class VisualAttackParticle : MonoBehaviour
         if (targetedCreature == null)
         {
             this.GetComponent<ParticleSystem>().Stop();
+            shutDown = true;
         }
     }
 }

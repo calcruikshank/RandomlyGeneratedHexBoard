@@ -239,8 +239,17 @@ public class Creature : MonoBehaviour
     {
         if (visualAttackParticle != null)
         {
-            Transform instantiatedParticle = Instantiate(visualAttackParticle, new Vector3(this.transform.position.x, this.transform.position.y + .2f, this.transform.position.z), Quaternion.identity);
-            instantiatedParticle.GetComponent<VisualAttackParticle>().SetTarget(creatureToAttack, Attack);
+            if (range != 1)
+            {
+                Transform instantiatedParticle = Instantiate(visualAttackParticle, new Vector3(this.transform.position.x, this.transform.position.y + .2f, this.transform.position.z), Quaternion.identity);
+                instantiatedParticle.GetComponent<VisualAttackParticle>().SetTarget(creatureToAttack, Attack);
+            }
+            else
+            {
+                Transform instantiatedParticle = Instantiate(visualAttackParticle, new Vector3(this.transform.position.x, this.transform.position.y + .2f, this.transform.position.z), Quaternion.identity);
+                instantiatedParticle.transform.LookAt(creatureToAttack.transform);
+                instantiatedParticle.GetComponent<MeleeVisualAttack>().SetTarget(creatureToAttack, Attack);
+            }
         }
     }
 
@@ -255,6 +264,10 @@ public class Creature : MonoBehaviour
     }
     void Die()
     {
+
+        lrGameObject.SetActive(false);
+        lrGameObject2.SetActive(false);
+        rangeLrGO.SetActive(false);
         Destroy(this.gameObject);
     }
 
