@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 15083
+  controlID: 19919
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 15084
+  controlID: 19920
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 15085
+  controlID: 19921
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 26fbffff
+      m_ExpandedIDs: b63ba4ff8053a4ff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -508,7 +508,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
@@ -524,9 +524,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.98781943, y: 1.2739213, z: -0.104562044}
+    m_Target: {x: 10.616772, y: 0.9146179, z: -10.968849}
     speed: 2
-    m_Value: {x: 0.98781943, y: 1.2739213, z: -0.104562044}
+    m_Value: {x: 10.616772, y: 0.9146179, z: -10.968849}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -573,13 +573,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.23968616, y: 0.09795235, z: -0.024314553, w: -0.9655907}
+    m_Target: {x: -0.59597, y: -0.08105572, z: 0.060641084, w: -0.7966024}
     speed: 2
-    m_Value: {x: -0.23968615, y: 0.09795235, z: -0.02431455, w: -0.96559066}
+    m_Value: {x: -0.59596914, y: -0.081055604, z: 0.060641, w: -0.7966013}
   m_Size:
-    m_Target: 0.49102953
+    m_Target: 2.2568715
     speed: 2
-    m_Value: 0.49102953
+    m_Value: 2.2568715
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -672,23 +672,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs/Creatures
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs/Creatures
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap
     Practice
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 24840000
-    m_LastClickedID: 33828
-    m_ExpandedIDs: 000000006483000066830000688300006a8300006c8300006e83000070830000728300007483000076830000788300007a8300007c8300007e83000080830000828300008483000000ca9a3b
+    scrollPos: {x: 0, y: 319.79993}
+    m_SelectedIDs: 56840000
+    m_LastClickedID: 33878
+    m_ExpandedIDs: 000000006483000066830000688300006a8300006c8300006e83000070830000728300007483000076830000788300007a8300007c8300007e8300008083000082830000848300005084000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -716,7 +716,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006483000066830000688300006a8300006c8300006e83000070830000728300007483000076830000788300007a8300007c8300007e83000080830000828300008483000000ca9a3b
+    m_ExpandedIDs: 000000006483000066830000688300006a8300006c8300006e83000070830000728300007483000076830000788300007a8300007c8300007e8300008083000082830000848300005084000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -23,7 +23,7 @@ public class Creature : MonoBehaviour
     [SerializeField] TextMeshPro attackText;
     [SerializeField] TextMeshPro healthText;
 
-    [SerializeField]int numOfTargetables = 1;
+    [SerializeField] int numOfTargetables = 1;
 
     [HideInInspector] public List<BaseTile> allTilesWithinRange;
     [HideInInspector] public int creatureID;
@@ -33,7 +33,6 @@ public class Creature : MonoBehaviour
     public enum CreatureState
     {
         Summoned, //On The turn created
-        Attack,
         Moving,
         Idle
         //not sure if i need a tapped state yet trying to keep it as simple as possible
@@ -154,19 +153,17 @@ public class Creature : MonoBehaviour
                 Move();
                 CheckForCreaturesWithinRange();
                 HandleAttackRate();
-                break;
-            case CreatureState.Attack:
-                CheckForCreaturesWithinRange();
                 HandleAttack();
-                HandleAttackRate();
                 break;
             case CreatureState.Idle:
                 CheckForCreaturesWithinRange();
                 HandleAttackRate();
+                HandleAttack();
                 break;
             case CreatureState.Summoned:
                 CheckForCreaturesWithinRange();
                 HandleAttackRate();
+                HandleAttack();
                 break;
         }
     }
@@ -213,35 +210,39 @@ public class Creature : MonoBehaviour
                         currentTargetedCreature.Add(creatureInRange);
 
                     }
-                    SetAttack();
                 }
             }
         }
 
     }
 
-    private void SetAttack()
-    {
-        creatureState = CreatureState.Attack;
-    }
+
+    [SerializeField] Transform visualAttackParticle;
 
     void HandleAttack()
     {
-        if (currentTargetedCreature.Count <= 0)
+        if (currentTargetedCreature.Count > 0)
         {
-            creatureState = CreatureState.Idle;
-        }
-        if (AttackRateTimer >= AttackRate)
-        {
-            AttackRateTimer = 0;
-            for (int i = 0; i < currentTargetedCreature.Count; i++)
+            if (AttackRateTimer >= AttackRate)
             {
-                AttackCreature(currentTargetedCreature[i]);
+                AttackRateTimer = 0;
+                for (int i = 0; i < currentTargetedCreature.Count; i++)
+                {
+                    VisualAttackAnimation(currentTargetedCreature[i]);
+                    //AttackCreature(currentTargetedCreature[i]);
+                }
             }
         }
 
     }
-
+    void VisualAttackAnimation(Creature creatureToAttack)
+    {
+        if (visualAttackParticle != null)
+        {
+            Transform instantiatedParticle = Instantiate(visualAttackParticle, new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z), Quaternion.identity);
+            instantiatedParticle.GetComponent<VisualAttackParticle>().SetTarget(creatureToAttack);
+        }
+    }
     private void AttackCreature(Creature currentTargetedCreature)
     {
         currentTargetedCreature.TakeDamage(this.Attack);
@@ -264,7 +265,7 @@ public class Creature : MonoBehaviour
     void HandleAttackRate()
     {
         AttackRateTimer += Time.fixedDeltaTime;
-        
+
     }
     public void UpdateCreatureHUD()
     {
