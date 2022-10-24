@@ -11,7 +11,6 @@ public class MeleeVisualAttack : MonoBehaviour
     {
         targetedCreature = creatureToTarget;
         amountofdamage = attack;
-        this.GetComponent<ParticleSystem>().Play();
     }
 
     // Update is called once per frame

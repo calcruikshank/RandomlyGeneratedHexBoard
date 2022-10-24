@@ -560,7 +560,7 @@ MonoBehaviour:
   tileCurrentlyOn: {fileID: 0}
   previousTilePosition: {fileID: 0}
   actualPosition: {x: 0, y: 0, z: 0}
-  visualAttackParticle: {fileID: 4216442259680942, guid: 73043e7e6fb36e342b9337207bf317d9, type: 3}
+  visualAttackParticle: {fileID: 6003523913816622651, guid: 3f80c0f2c84ba644d8cc959b3f4f0f50, type: 3}
   pathVectorList: []
 --- !u!1 &6330952787006823200
 GameObject:
