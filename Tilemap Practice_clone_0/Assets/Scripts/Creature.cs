@@ -63,7 +63,7 @@ public class Creature : MonoBehaviour
     [HideInInspector] public BaseTile tileCurrentlyOn;
     [HideInInspector] public BaseTile previousTilePosition;
 
-    Vector3 actualPosition;
+    public Vector3 actualPosition;
     Vector3 targetedPosition;
     Vector3[] positions = new Vector3[2];
 
@@ -239,16 +239,12 @@ public class Creature : MonoBehaviour
     {
         if (visualAttackParticle != null)
         {
-            Transform instantiatedParticle = Instantiate(visualAttackParticle, new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z), Quaternion.identity);
-            instantiatedParticle.GetComponent<VisualAttackParticle>().SetTarget(creatureToAttack);
+            Transform instantiatedParticle = Instantiate(visualAttackParticle, new Vector3(this.transform.position.x, this.transform.position.y + .2f, this.transform.position.z), Quaternion.identity);
+            instantiatedParticle.GetComponent<VisualAttackParticle>().SetTarget(creatureToAttack, Attack);
         }
     }
-    private void AttackCreature(Creature currentTargetedCreature)
-    {
-        currentTargetedCreature.TakeDamage(this.Attack);
-    }
 
-    private void TakeDamage(float attack)
+    public void TakeDamage(float attack)
     {
         this.CurrentHealth -= attack;
         UpdateCreatureHUD();
