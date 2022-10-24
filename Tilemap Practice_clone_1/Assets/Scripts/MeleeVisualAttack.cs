@@ -25,13 +25,13 @@ public class MeleeVisualAttack : MonoBehaviour
             if (shutDown == false)
             {
                 targetedCreature.TakeDamage(amountofdamage);
-                this.GetComponent<ParticleSystem>().Stop();
+                this.GetComponentInChildren<ParticleSystem>().Stop();
                 shutDown = true;
             }
         }
         if (targetedCreature == null)
         {
-            this.GetComponent<ParticleSystem>().Stop();
+            this.GetComponentInChildren<ParticleSystem>().Stop();
             shutDown = true;
         }
     }
