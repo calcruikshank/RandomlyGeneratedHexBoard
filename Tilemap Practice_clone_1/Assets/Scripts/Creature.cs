@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -14,17 +15,25 @@ public class Creature : MonoBehaviour
     [SerializeField] int range; //num of tiles that can attack
     [SerializeField] float UsageRate = 1f; // the rate at which the minion can use abilities/ attack 
     [SerializeField] float Attack;
-    float CurrentHealth; 
-    [SerializeField] float MaxHealth; 
+    [SerializeField] float AttackRate;
+    float AttackRateTimer;
+    float CurrentHealth;
+    [SerializeField] float MaxHealth;
+
+    [SerializeField] TextMeshPro healthText;
+    [SerializeField] TextMeshPro attackText;
+
+    [SerializeField]int numOfTargetables = 1;
 
     [HideInInspector] public List<BaseTile> allTilesWithinRange;
     [HideInInspector] public int creatureID;
+    [HideInInspector] public int ownedCreatureID;
     [HideInInspector] public CreatureState creatureState;
-    [HideInInspector] public enum CreatureState
+    [HideInInspector]
+    public enum CreatureState
     {
         Summoned, //On The turn created
         Attack,
-        UseAbility,
         Moving,
         Idle
         //not sure if i need a tapped state yet trying to keep it as simple as possible
@@ -41,7 +50,7 @@ public class Creature : MonoBehaviour
         SwimmingAndWalking,
         Flying
     }
-    [HideInInspector]public travType thisTraversableType;
+    [HideInInspector] public travType thisTraversableType;
 
 
     LineRenderer lr;
@@ -89,6 +98,7 @@ public class Creature : MonoBehaviour
         GameManager.singleton.allCreaturesOnField.Add(creatureID, this);
         GameManager.singleton.allCreatureGuidCounter++;
         CurrentHealth = MaxHealth;
+        UpdateCreatureHUD();
     }
 
     protected virtual void SetTravType()
@@ -142,9 +152,134 @@ public class Creature : MonoBehaviour
         {
             case CreatureState.Moving:
                 Move();
+                CheckForCreaturesWithinRange();
+                HandleAttackRate();
+                break;
+            case CreatureState.Attack:
+                CheckForCreaturesWithinRange();
+                HandleAttack();
+                HandleAttackRate();
+                break;
+            case CreatureState.Idle:
+                CheckForCreaturesWithinRange();
+                HandleAttackRate();
+                break;
+            case CreatureState.Summoned:
+                CheckForCreaturesWithinRange();
+                HandleAttackRate();
                 break;
         }
     }
+
+    List<Creature> creaturesWithinRange = new List<Creature>();
+    List<Creature> currentTargetedCreature = new List<Creature>();
+    private void CheckForCreaturesWithinRange()
+    {
+        float lowestHealthCreatureWithinRange = -1;
+        foreach (BaseTile baseTile in allTilesWithinRange)
+        {
+            if (baseTile.CreatureOnTile() != null)
+            {
+                if (!creaturesWithinRange.Contains(baseTile.CreatureOnTile()))
+                {
+                    creaturesWithinRange.Add(baseTile.CreatureOnTile());
+                }
+            }
+        }
+        foreach (Creature creatureInRange in creaturesWithinRange)
+        {
+            if (creatureInRange == null)
+            {
+                creaturesWithinRange.Remove(creatureInRange);
+                currentTargetedCreature = new List<Creature>();
+                return;
+            }
+            if (!allTilesWithinRange.Contains(creatureInRange.tileCurrentlyOn))
+            {
+                creaturesWithinRange.Remove(creatureInRange);
+                currentTargetedCreature = new List<Creature>();
+                return;
+            }
+        }
+        foreach (Creature creatureInRange in creaturesWithinRange)
+        {
+            if (creatureInRange.playerOwningCreature != this.playerOwningCreature)
+            {
+                if (lowestHealthCreatureWithinRange == -1 || creatureInRange.CurrentHealth < lowestHealthCreatureWithinRange)
+                {
+                    lowestHealthCreatureWithinRange = creatureInRange.CurrentHealth;
+                    if (currentTargetedCreature.Count < numOfTargetables)
+                    {
+                        currentTargetedCreature.Add(creatureInRange);
+
+                    }
+                    SetAttack();
+                }
+            }
+        }
+
+        if (currentTargetedCreature.Count <= 0 && creatureState == CreatureState.Attack)
+        {
+            SetStateToIdle();
+        }
+    }
+
+    private void SetAttack()
+    {
+        creatureState = CreatureState.Attack;
+    }
+
+    void HandleAttack()
+    {
+        if (AttackRateTimer >= AttackRate)
+        {
+            AttackRateTimer = 0;
+            for (int i = 0; i < currentTargetedCreature.Count; i++)
+            {
+                AttackCreature(currentTargetedCreature[i]);
+            }
+        }
+
+    }
+
+    private void AttackCreature(Creature currentTargetedCreature)
+    {
+        currentTargetedCreature.TakeDamage(this.Attack);
+    }
+
+    private void TakeDamage(float attack)
+    {
+        this.CurrentHealth -= attack;
+        UpdateCreatureHUD();
+        if (this.CurrentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
+    void HandleAttackRate()
+    {
+        AttackRateTimer += Time.fixedDeltaTime;
+        
+    }
+    public void UpdateCreatureHUD()
+    {
+        this.healthText.text = CurrentHealth.ToString();
+        if (CurrentHealth < MaxHealth)
+        {
+            this.healthText.color = Color.red;
+        }
+        if (CurrentHealth >= MaxHealth)
+        {
+            this.healthText.color = Color.white;
+        }
+        this.attackText.text = Attack.ToString();
+    }
+
     private void OnTick()
     {
     }
@@ -293,6 +428,8 @@ public class Creature : MonoBehaviour
     {
         this.playerOwningCreature = controller;
         colorIndicator.GetComponent<SpriteRenderer>().color = controller.col;
+        ownedCreatureID = GameManager.singleton.creatureGuidCounter;
+        GameManager.singleton.creatureGuidCounter++;
     }
 
     void SetStateToIdle()
@@ -306,6 +443,7 @@ public class Creature : MonoBehaviour
         tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
         tileCurrentlyOn.AddCreatureToTile(this);
         creatureState = CreatureState.Idle;
+        currentTargetedCreature = new List<Creature>();
     }
 
     #region range
@@ -370,10 +508,22 @@ public class Creature : MonoBehaviour
                 {
                     extents.Add(new Vector3Int(x, y, currentCellPosition.z));
                 }
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
-                allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+                if (!allTilesWithinRange.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z))))
+                {
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y + y, currentCellPosition.z)));
+                }
+                if (!allTilesWithinRange.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z))))
+                {
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x + x, currentCellPosition.y - y, currentCellPosition.z)));
+                }
+                if (!allTilesWithinRange.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z))))
+                {
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y + y, currentCellPosition.z)));
+                }
+                if (!allTilesWithinRange.Contains(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z))))
+                {
+                    allTilesWithinRange.Add(BaseMapTileState.singleton.GetBaseTileAtCellPosition(new Vector3Int(currentCellPosition.x - x, currentCellPosition.y - y, currentCellPosition.z)));
+                }
 
             }
         }

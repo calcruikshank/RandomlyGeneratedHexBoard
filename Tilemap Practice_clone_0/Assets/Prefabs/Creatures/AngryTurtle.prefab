@@ -545,10 +545,13 @@ MonoBehaviour:
   range: 1
   UsageRate: 1
   Attack: 1
-  CurrentHealth: 3
+  AttackRate: 4
   MaxHealth: 3
+  healthText: {fileID: 3298186682565764544}
+  attackText: {fileID: 7534283529393728702}
   allTilesWithinRange: []
   creatureID: 0
+  ownedCreatureID: 0
   creatureState: 0
   playerOwningCreature: {fileID: 0}
   thisTraversableType: 0

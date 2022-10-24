@@ -503,7 +503,7 @@ public class Controller : NetworkBehaviour
         }
         for (int i = 0; i < indecesOfCreaturesInQueue.Count; i++)
         {
-            SetToCreatureOnFieldSelected(creaturesOwned[indecesOfCreaturesInQueue[i]]);
+            SetToCreatureOnFieldSelected(GameManager.singleton.allCreaturesOnField[indecesOfCreaturesInQueue[i]]);
         }
         for (int i = 0; i < clickQueueForTick.Count; i++)
         {
@@ -700,7 +700,7 @@ public class Controller : NetworkBehaviour
                 SpendManaToCast(cardSelected.GetComponent<CardInHand>());
                 GameObject instantiatedCreature = Instantiate(cardSelected.GameObjectToInstantiate.gameObject, positionToSpawn, Quaternion.identity);
                 instantiatedCreature.GetComponent<Creature>().SetToPlayerOwningCreature(this);
-                creaturesOwned.Add(instantiatedCreature.GetComponent<Creature>().creatureID, instantiatedCreature.GetComponent<Creature>());
+                creaturesOwned.Add(instantiatedCreature.GetComponent<Creature>().ownedCreatureID, instantiatedCreature.GetComponent<Creature>());
                 RemoveCardFromHand(cardSelected);
                 SetStateToNothingSelected();
             }
@@ -802,6 +802,7 @@ public class Controller : NetworkBehaviour
 
     private void CastSpellOnTargetedCreature(Creature creatureSelectedSent)
     {
+        SetStateToNothingSelected();
     }
 
     void SetStateToNothingSelected()
