@@ -15,7 +15,7 @@ C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
 -logFile
 Logs/AssetImportWorker11.log
 -srvPort
-62094
+54459
 Successfully changed project path to: C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
 C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/cocru/Documents/GitHub/RandomlyGeneratedHexBoard/Tilemap Practice
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 129.66 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 135.79 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.9f1 (ad3870b89536)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -63,92 +63,92 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56828
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56456
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005278 seconds.
+Registered in 0.005923 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 118.34 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 114.23 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.582 seconds
+- Completed reload, in  0.580 seconds
 Domain Reload Profiling:
-	ReloadAssembly (582ms)
-		BeginReloadAssembly (56ms)
+	ReloadAssembly (581ms)
+		BeginReloadAssembly (60ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (433ms)
-			LoadAssemblies (55ms)
+		EndReloadAssembly (429ms)
+			LoadAssemblies (58ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (90ms)
+			SetupTypeCache (86ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (23ms)
-			SetupLoadedEditorAssemblies (279ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (277ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (48ms)
+				InitializePlatformSupportModulesInManaged (49ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (118ms)
+				RefreshPlugins (114ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (78ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
+				ProcessInitializeOnLoadAttributes (77ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007210 seconds.
+Registered in 0.007864 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 109.43 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 111.10 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.184 seconds
+- Completed reload, in  1.175 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1185ms)
-		BeginReloadAssembly (204ms)
+	ReloadAssembly (1176ms)
+		BeginReloadAssembly (215ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (121ms)
-		EndReloadAssembly (882ms)
-			LoadAssemblies (81ms)
+			CreateAndSetChildDomain (130ms)
+		EndReloadAssembly (857ms)
+			LoadAssemblies (84ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (195ms)
+			SetupTypeCache (204ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (506ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (476ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
+				InitializePlatformSupportModulesInManaged (10ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (109ms)
-				BeforeProcessingInitializeOnLoad (136ms)
-				ProcessInitializeOnLoadAttributes (206ms)
-				ProcessInitializeOnLoadMethodAttributes (38ms)
-				AfterProcessingInitializeOnLoad (5ms)
+				RefreshPlugins (111ms)
+				BeforeProcessingInitializeOnLoad (121ms)
+				ProcessInitializeOnLoadAttributes (188ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
+				AfterProcessingInitializeOnLoad (6ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.53 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.97 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4944 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 37 unused Assets / (56.1 KB). Loaded Objects now: 5411.
-Memory consumption went from 184.3 MB to 184.2 MB.
-Total: 3.118800 ms (FindLiveObjects: 0.354100 ms CreateObjectMapping: 0.109100 ms MarkObjects: 2.557600 ms  DeleteObjects: 0.097200 ms)
+Unloading 4949 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (55.6 KB). Loaded Objects now: 5421.
+Memory consumption went from 184.6 MB to 184.6 MB.
+Total: 3.333100 ms (FindLiveObjects: 0.406300 ms CreateObjectMapping: 0.124000 ms MarkObjects: 2.710800 ms  DeleteObjects: 0.091100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -161,144 +161,51 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 210078.348944 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b1976457919b54d349c0681a34f6164') in 0.183738 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 54.937906 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5eaf08737716a6f1834e28e1c2af53ce') in 0.054530 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e33f250f7f5504308a92aaf39bd8bb71') in 0.048053 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.120106 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e01582d7c204aaeb799f9fc6bf285e2e') in 0.057489 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.203660 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9fbc6c55de2c28313b0ddca840b40ad') in 0.045488 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 39.237856 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5cda1592da01158674bb6e95afcc914') in 0.040754 seconds 
-========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007411 seconds.
+Registered in 0.008026 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.966 seconds
+- Completed reload, in  1.047 seconds
 Domain Reload Profiling:
-	ReloadAssembly (967ms)
-		BeginReloadAssembly (117ms)
+	ReloadAssembly (1047ms)
+		BeginReloadAssembly (131ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (30ms)
-		EndReloadAssembly (754ms)
-			LoadAssemblies (86ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (809ms)
+			LoadAssemblies (92ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (216ms)
+			SetupTypeCache (244ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (353ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (19ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (95ms)
-				ProcessInitializeOnLoadAttributes (190ms)
-				ProcessInitializeOnLoadMethodAttributes (40ms)
-				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.18 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4920 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 26 unused Assets / (25.5 KB). Loaded Objects now: 5423.
-Memory consumption went from 186.7 MB to 186.7 MB.
-Total: 3.005000 ms (FindLiveObjects: 0.434900 ms CreateObjectMapping: 0.114000 ms MarkObjects: 2.397500 ms  DeleteObjects: 0.057600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009163 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\cocru\Documents\GitHub\RandomlyGeneratedHexBoard\Tilemap Practice\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.972 seconds
-Domain Reload Profiling:
-	ReloadAssembly (973ms)
-		BeginReloadAssembly (120ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (32ms)
-		EndReloadAssembly (750ms)
-			LoadAssemblies (95ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (217ms)
-			ReleaseScriptCaches (2ms)
 			RebuildScriptCaches (45ms)
-			SetupLoadedEditorAssemblies (343ms)
+			SetupLoadedEditorAssemblies (378ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (17ms)
+				InitializePlatformSupportModulesInManaged (23ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (97ms)
-				ProcessInitializeOnLoadAttributes (181ms)
-				ProcessInitializeOnLoadMethodAttributes (40ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (201ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 5.58 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4920 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 24 unused Assets / (24.7 KB). Loaded Objects now: 5426.
-Memory consumption went from 186.7 MB to 186.7 MB.
-Total: 4.000100 ms (FindLiveObjects: 0.361900 ms CreateObjectMapping: 0.101600 ms MarkObjects: 3.505400 ms  DeleteObjects: 0.029800 ms)
+Unloading 4925 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (24.6 KB). Loaded Objects now: 5424.
+Memory consumption went from 182.7 MB to 182.7 MB.
+Total: 5.779900 ms (FindLiveObjects: 0.555200 ms CreateObjectMapping: 0.214700 ms MarkObjects: 4.956200 ms  DeleteObjects: 0.051500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -310,570 +217,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 134.753054 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c41a1a1651fb6cbef0f361988a7e5ce') in 0.122341 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Prefabs/Cards/Dissolve.prefab
-  artifactKey: Guid(74925e6ecbf343841b0307779dc3021c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Dissolve.prefab using Guid(74925e6ecbf343841b0307779dc3021c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '778f75b7e58257ff85f6540b0a9ccb5a') in 0.047067 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cc85513641d76c08676adae86d54096') in 0.053925 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Prefabs/Cards/ElvishMystic.prefab
-  artifactKey: Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/ElvishMystic.prefab using Guid(33196ad8a87031045969443ccdcd30f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8d6121afeeb5d823f073a299f18f4f9') in 0.049239 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ace41b8545c07fb41e28355c0f2a4ef') in 0.007289 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.038520 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d0a2f21b365af63037d1893b429f1cf') in 0.049715 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Prefabs/Cards/Dissolve.prefab
-  artifactKey: Guid(74925e6ecbf343841b0307779dc3021c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Dissolve.prefab using Guid(74925e6ecbf343841b0307779dc3021c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b016c3ac183cc4ae7d25001a59a4a69') in 0.045494 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '914f72a2b01b833e65413f05d38d35e6') in 0.060790 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
-  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc4e77c9aaf3f1bebd3dfd1547771bec') in 0.053169 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46263f5d70f99a61295b60fc766fea10') in 0.006267 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.017409 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4743bf3058e67e04e0490092a7e991cd') in 0.046370 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73f78fa79eac91c11afc480f38eb9166') in 0.054883 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Prefabs/Cards/GoldspanDragon.prefab
-  artifactKey: Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/GoldspanDragon.prefab using Guid(a537093ed9ea8cb4fa6b52c94ea281da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '843e836d48330434645b57d790afe0e2') in 0.059833 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000072 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '907ab8850ba4130122e4f8b30e892a4f') in 0.006450 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.079338 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24093b58d26cca2fc6b3e82cb7903e50') in 0.058178 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd807e1d4d1d25535818d7da3c855aee6') in 0.048222 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c4d3ac885cb66fc62f27de91dba7dcf') in 0.007367 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.161173 seconds.
-  path: Assets/500_skillicons/BonusIcons/Basic_Spells/Normal/03_fireball.png
-  artifactKey: Guid(9be82abcd2ac4e0419816031ca7ec436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/500_skillicons/BonusIcons/Basic_Spells/Normal/03_fireball.png using Guid(9be82abcd2ac4e0419816031ca7ec436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '738cbb184a44b0355675dddb1b93c8a3') in 0.034860 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.760134 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '162818486720b372ce4fe02ae87ee1f6') in 0.062559 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dd266c30c9eb242ecba951446d85472') in 0.052175 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cccf83b34c2433d46c635293eeb9f7f6') in 0.050968 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.098598 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf5e54b0551dcecca1b09f26552b349d') in 0.067008 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17b57fba7eb72d740b2a755f7c30cb8c') in 0.046895 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03130273562a323a3ed4874e3dc4fa52') in 0.006428 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.645704 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db4fefa5ca2655d33b47a80acd296c31') in 0.054648 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd139e938b0b1cf962e9e249ed32526b9') in 0.046348 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87f2be41f65bf1438f8509fe1be3a2f0') in 0.006054 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.123045 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c921ed65aa1ea66775e64d5c0c33a7a') in 0.075957 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce39ea939a3948b31fa062c5d0a89f7c') in 0.063080 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.011534 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90cf46136420e4960e406b65a45f5bde') in 0.051791 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25ebdc50da3d3fa8d14f6f730c0128a0') in 0.044507 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e746d6cfdaf6a4a21ea98380edaba60') in 0.037414 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 15.011067 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0141901c5eb96864544d4fc7365143e0') in 0.053534 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58d7fddde1ad7e92bf26a6f6bf86b791') in 0.069396 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e0fcbe6cd908880a316580bf2773b24') in 0.006506 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.626376 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a23af6251ea9d4cd5c62087aff7013db') in 0.046928 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '916876ac39a5fc31224f6eec222d3d02') in 0.054616 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7efd56d383a6e8d69a4c79a214b24dea') in 0.041870 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.702413 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd36a094d6f9bf4b6a5ac0eb7e8a1055') in 0.071473 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83be24fb8df8b00d9f1ecd2fabad7592') in 0.048298 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.412685 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbb1f5bd032444471cd585b5c4ecc1eb') in 0.046571 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c8a256055ced9d746bafe130c61e6f8') in 0.047954 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.732730 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '301fb8f30c849df554d2d6f0aa1c4897') in 0.047795 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ee428f95a48eacfedb6d99b9f091a65') in 0.056069 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.620720 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '508cf4fb01797a4afeda42a2cef0c147') in 0.062731 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd42a39ba208a2ce40346de9128c48fd9') in 0.046404 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '745f57acaf2de457ce4cca9505bf2b2a') in 0.041331 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.157724 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44fe2bb15663d7272fa6b2d1a17a9c47') in 0.068113 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ffa2b3c4ef42417971879c24837dcfb') in 0.055320 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b09c8994ffe82bb96b88562db1c903b') in 0.042649 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.797882 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a06add2f183bee08e0fc4e1baf7c8a60') in 0.056571 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c48d9a65abccbee03c6ca93db3d91fc') in 0.052344 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4e793b8cae89403a09825a71276723f') in 0.044029 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 11.697276 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f2acf0f15cdd2c83023e83ebdba242e') in 0.061064 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '746b38f0dda8f943fd2e26ed8e1645a3') in 0.052165 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e1e7f2119dd9a9447af69fdc0a7ecc4') in 0.045332 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.776971 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36736a459d13e7e027c263519236d772') in 0.051764 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4f9d8ca9aa6c222c377c5fa7d4ab3a6') in 0.048545 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc1429b94af9dedaa52c41fb1d4d9a7a') in 0.006593 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.429315 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7ae2919f51ac55719c91338a7eebda') in 0.058004 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.238251 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7601326abff467dc608f77663319b22') in 0.092801 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8dc68f381e004e4fbddf193836c6c5c') in 0.057280 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000037 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a35518f495b8d097a44acdcc58f5c2e6') in 0.009269 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.436877 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad5eed823aa5ec0a17ce2f0ce7316117') in 0.054606 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000045 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa3dab30096bab5bd7a16ae1dba071f3') in 0.055892 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f860cd9195b668496e1ba7a9d8f5fcf') in 0.006912 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.021634 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bee64194898bf50c173eb6d452ba36e5') in 0.068765 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5811d15233a7fe8d35f4f02b027d6452') in 0.052492 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ca2494018d4e8ce62b612cc87dd0237') in 0.006246 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.021754 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6170c713078784679765e151d056155c') in 0.055710 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41fe9fc0335f017109756298c3260771') in 0.059133 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.976435 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96db48529364370f9c3acb9db1b62ec1') in 0.070301 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb6bb7bb18338f0bfcdeacbbc925aa4c') in 0.055661 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '845c0ab8fb80622b539db7d5eddaa137') in 0.044620 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.320559 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '019641365cda9f526b93b8034e0bf4a8') in 0.053032 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27827dafa01baa53c3a5da27c08018f1') in 0.043435 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd12c54d42f8575c03e99ba8aeeee59ff') in 0.041611 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.362873 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45e0b0925c112785c82e280a69d89883') in 0.071527 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cebd4f89719d75cdfe65f7a90645de46') in 0.051031 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/Cards/Keywords.prefab
-  artifactKey: Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Keywords.prefab using Guid(744e86d2ce7a2634b91be9280002a843) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03abf789c740d17a311a828def14f1eb') in 0.007692 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.404417 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfd897bb840a33945d4061bbec1aef4b') in 0.069388 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Prefabs/Cards/HiredAssassin.prefab
-  artifactKey: Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/HiredAssassin.prefab using Guid(47020441a673f9042ad04542f6d74166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b8b2595ec1cf646a2d5da11c24a9d97') in 0.061077 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.741915 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d0d510e31afd7ce2520489ca196c09a') in 0.074940 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '184a2c32d53a6c486b3e4b3e8635a2a1') in 0.045508 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90c7e692f0182f97b22309bff7521049') in 0.049792 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.310562 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ede5aa2618b0282c381a8c00cb26dd03') in 0.050822 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ef8fd9c068da6ff4e3e31d5da889b6') in 0.001972 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.243059 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '349709364418bde51226ecf8483701c6') in 0.053087 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Prefabs/Cards/Overcommited Cleric.prefab
-  artifactKey: Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Overcommited Cleric.prefab using Guid(45ee776fa49641948979e1ea3356dcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ef8fd9c068da6ff4e3e31d5da889b6') in 0.002038 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.268161 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1ef980c3e9a78b335e6dc11b2e1f58') in 0.051370 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac38926e99f988d3d7798c6fc2bdd03f') in 0.057210 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/Cards/Raziel.prefab
-  artifactKey: Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/Raziel.prefab using Guid(385e4dc85ccef4249b19c086c2e9f803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e56b6518405cc993dd95aa55189123c') in 0.044111 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.989411 seconds.
-  path: Assets/Prefabs/Cards/AngryTurtle.prefab
-  artifactKey: Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/AngryTurtle.prefab using Guid(a5e55e4c6dc8f16458776c4eba7c3e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a704694df4c7a388bd696aa338c0def') in 0.071482 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefabs/Cards/MeteorShower.prefab
-  artifactKey: Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Cards/MeteorShower.prefab using Guid(5b89c2ae167118447ae9dc50def990d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c082bd127a0a83f8a2350f9e938137ab') in 0.057821 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
