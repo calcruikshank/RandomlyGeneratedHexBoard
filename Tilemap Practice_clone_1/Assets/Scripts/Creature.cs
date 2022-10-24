@@ -20,8 +20,8 @@ public class Creature : MonoBehaviour
     float CurrentHealth;
     [SerializeField] float MaxHealth;
 
-    [SerializeField] TextMeshPro healthText;
     [SerializeField] TextMeshPro attackText;
+    [SerializeField] TextMeshPro healthText;
 
     [SerializeField]int numOfTargetables = 1;
 
@@ -218,10 +218,6 @@ public class Creature : MonoBehaviour
             }
         }
 
-        if (currentTargetedCreature.Count <= 0 && creatureState == CreatureState.Attack)
-        {
-            SetStateToIdle();
-        }
     }
 
     private void SetAttack()
@@ -231,6 +227,10 @@ public class Creature : MonoBehaviour
 
     void HandleAttack()
     {
+        if (currentTargetedCreature.Count <= 0)
+        {
+            creatureState = CreatureState.Idle;
+        }
         if (AttackRateTimer >= AttackRate)
         {
             AttackRateTimer = 0;
@@ -443,7 +443,6 @@ public class Creature : MonoBehaviour
         tileCurrentlyOn = BaseMapTileState.singleton.GetBaseTileAtCellPosition(currentCellPosition);
         tileCurrentlyOn.AddCreatureToTile(this);
         creatureState = CreatureState.Idle;
-        currentTargetedCreature = new List<Creature>();
     }
 
     #region range

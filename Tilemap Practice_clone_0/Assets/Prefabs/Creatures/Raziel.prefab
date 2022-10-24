@@ -547,8 +547,9 @@ MonoBehaviour:
   Attack: 7
   AttackRate: 4
   MaxHealth: 7
-  healthText: {fileID: 3298186682565764544}
-  attackText: {fileID: 4218221789047878655}
+  attackText: {fileID: 3298186682565764544}
+  healthText: {fileID: 7534283529393728702}
+  numOfTargetables: 1
   allTilesWithinRange: []
   creatureID: 0
   ownedCreatureID: 0
